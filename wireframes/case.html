@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>WIREFRAME — Case template (end to end)</title>
+<style>
+  /* Gray-box wireframe of the satellite case page. The LG case is the
+     structural reference (deepest case); lighter cases drop sections but
+     keep the order. A case page WITHOUT footnote annotations reads broken —
+     the apparatus is a commitment, not an ornament. */
+  * { margin: 0; box-sizing: border-box; }
+  body { font: 14px/1.5 system-ui; background: #fff; color: #222; padding: 2rem; max-width: 60rem; margin-inline: auto; }
+  .frame { border: 2px solid #222; }
+  section, nav.wf { border-bottom: 2px dashed #bbb; padding: 2rem 1.5rem; position: relative; }
+  .tag { position: absolute; top: 0.5rem; right: 0.75rem; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em; color: #888; text-transform: uppercase; }
+  .box { border: 1.5px solid #999; background: #f2f2f2; padding: 1rem; margin-top: 0.75rem; color: #555; }
+  h2 { font-size: 1rem; text-transform: uppercase; letter-spacing: 0.06em; }
+  .note { font-size: 0.8rem; color: #a33; margin-top: 0.6rem; max-width: 62ch; }
+  .note::before { content: "⛔ "; }
+  .why { font-size: 0.8rem; color: #2C6ECB; margin-top: 0.4rem; max-width: 62ch; }
+  .fn { color: #2C6ECB; font-weight: 700; }
+  .apparatus { border: 1.5px dashed #2C6ECB; padding: 1rem; margin-top: 0.75rem; font-size: 0.85rem; color: #2C6ECB; }
+  header.doc { margin-bottom: 1.5rem; }
+</style>
+</head>
+<body>
+<header class="doc">
+  <h1>Case template — product to result, annotated</h1>
+  <p class="why">Every claim on a case page carries a marker <span class="fn">[n]</span>; the marker
+  opens the written reasoning in place (the apparatus panel). Meta rules for the LG case:
+  <code>&lt;title&gt;</code> is “LG Sound Suite — Case Study · Reasoned Web”, never the product name
+  alone; og:image is an OWN composition with the Reasoned Web mark visible, never the client's
+  logo alone.</p>
+</header>
+
+<div class="frame">
+
+<nav class="wf">
+  <span class="tag">nav</span>
+  <div class="box">Lockup → home · breadcrumb “Work / [case]” · “Check availability”</div>
+</nav>
+
+<section>
+  <span class="tag">1 · header</span>
+  <h2>Title + honest label</h2>
+  <div class="box">Case title · engagement class, visible: (a) real — for LG: exact attribution
+  variant A/B, fixed only after reading proposals/ + deliverables/ · (b) unsolicited concept ·
+  (c) speculative, fictional business.</div>
+  <p class="note">Class (a) LG: never publish the billed amount; no raw internal documents.</p>
+</section>
+
+<section>
+  <span class="tag">2 · product</span>
+  <h2>The physical product / the business as found</h2>
+  <div class="box">What exists before the work: the product truth <span class="fn">[1]</span>.
+  For redesigns: the original site, cited by URL, with measured diagnosis.</div>
+  <p class="note">LG: product claims only from context/10-PRODUCT-TRUTH.md; zero invented result metrics.</p>
+</section>
+
+<section>
+  <span class="tag">3 · research → concept → idea</span>
+  <h2>Reasoning chain</h2>
+  <div class="box">Research findings <span class="fn">[2]</span> → concept direction
+  <span class="fn">[3]</span> → the governing idea <span class="fn">[4]</span>. Each step: what was
+  decided and the objective why that makes it defensible.</div>
+  <div class="apparatus">apparatus panel — opens from any [n]: the written reasoning, in first
+  person, with measurements where they exist. This is the differentiator; a case without it is
+  not publishable.</div>
+</section>
+
+<section>
+  <span class="tag">4 · implementation</span>
+  <h2>Implementation + accessibility &amp; standards</h2>
+  <div class="box">How it was built <span class="fn">[5]</span> · accessibility measured (AA against
+  the painted background) · the country's legal/standards work (LG: CA bilingual EN/FR)
+  <span class="fn">[6]</span> · technologies, named without mechanism talk.</div>
+</section>
+
+<section>
+  <span class="tag">5 · result</span>
+  <h2>Result — embedded, gated</h2>
+  <div class="box">LG only: entry GATE before anything loads — independent-demonstration
+  disclaimer (variant A/B) + ~25 MB weight warning + “for official product information,
+  visit lg.com”. Behind the gate: the build, embedded as its own static route.</div>
+  <p class="note">Gate + footer legal block + meta/OG rules are ONE kit: the page does not publish
+  without all three. The LG route is never listed in robots.txt (a disallow line is an
+  announcement) — it indexes like any public page.</p>
+</section>
+
+<section style="border-bottom: none">
+  <span class="tag">6 · footer</span>
+  <h2>Legal block + next</h2>
+  <div class="box">LG: trademark block (marks belong to LG Electronics Inc., used solely to
+  identify the depicted product; 3D derived from manufacturer CAD in the course of the
+  engagement; rationale and implementation are Reasoned Web's). · Next case link · contact CTA.</div>
+</section>
+
+</div>
+</body>
+</html>

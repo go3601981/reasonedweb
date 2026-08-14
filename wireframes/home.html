@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>WIREFRAME — Home, single scroll</title>
+<style>
+  /* Gray-box wireframe. Deliberately NOT the site's design — structure only.
+     Architecture decided 2026-08-13 (CLAUDE.md § Arquitectura): executed here,
+     not re-litigated. */
+  * { margin: 0; box-sizing: border-box; }
+  body { font: 14px/1.5 system-ui; background: #fff; color: #222; padding: 2rem; max-width: 60rem; margin-inline: auto; }
+  .frame { border: 2px solid #222; }
+  section, nav.wf { border-bottom: 2px dashed #bbb; padding: 2rem 1.5rem; position: relative; }
+  .tag { position: absolute; top: 0.5rem; right: 0.75rem; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em; color: #888; text-transform: uppercase; }
+  .box { border: 1.5px solid #999; background: #f2f2f2; padding: 1rem; margin-top: 0.75rem; color: #555; }
+  .grid { display: grid; gap: 0.75rem; margin-top: 0.75rem; }
+  .g2 { grid-template-columns: repeat(2, 1fr); } .g4 { grid-template-columns: repeat(4, 1fr); } .g6 { grid-template-columns: repeat(6, 1fr); }
+  h2 { font-size: 1rem; text-transform: uppercase; letter-spacing: 0.06em; }
+  .note { font-size: 0.8rem; color: #a33; margin-top: 0.6rem; max-width: 60ch; }
+  .note::before { content: "⛔ "; }
+  .why { font-size: 0.8rem; color: #2C6ECB; margin-top: 0.4rem; max-width: 60ch; }
+  .fn { color: #2C6ECB; font-weight: 700; cursor: default; }
+  header.doc { margin-bottom: 1.5rem; }
+</style>
+</head>
+<body>
+<header class="doc">
+  <h1>Home — one scroll, satellite pages</h1>
+  <p class="why">Working document, not the design. Sections in final order. LG and every
+  tier-1 redesign get their own page; the home links out. Footnote markers <span class="fn">[n]</span>
+  are the site's signature interaction: every claim carries its written reasoning.</p>
+</header>
+
+<div class="frame">
+
+<nav class="wf">
+  <span class="tag">nav</span>
+  <div class="box">Lockup (glyph + Reasoned Web) · left. — Right: “Check availability” (button).</div>
+  <p class="note">Never “Hire me” / “Open to work”. Studio posture, not candidate posture.</p>
+</nav>
+
+<section>
+  <span class="tag">1 · hero</span>
+  <h2>Thesis, first person</h2>
+  <div class="box">Stacked wordmark as the visual. One paragraph: production partner for
+  agencies; nothing ships without a written, defensible why <span class="fn">[1]</span>.
+  CTA: “Start a project”.</div>
+  <p class="note">No mention of the mechanism, ever («AI-assisted» is banned wording). No pricing signals.</p>
+</section>
+
+<section>
+  <span class="tag">2 · lg — tier 0</span>
+  <h2>LG Sound Suite — headline case</h2>
+  <div class="box">Full-bleed still (own composition, Reasoned Web mark visible) · “For LG
+  Electronics Canada, with Next Latam” · one-line scope: CAD → 3D → binaural audio → build
+  → manuals → EN/FR-CA <span class="fn">[2]</span> · → case page (satellite).</div>
+  <p class="note">The ~25 MB embed NEVER loads here — it lives behind its gate on the case page.</p>
+  <p class="note">Label class (a): real engagement. Attribution wording is exact and fixed.</p>
+</section>
+
+<section>
+  <span class="tag">3 · redesigns — tier 1</span>
+  <h2>Reasoned redesigns</h2>
+  <div class="grid g2">
+    <div class="box">UdV USA → case page</div>
+    <div class="box">Smoothies → case page</div>
+    <div class="box">Nanntu → case page</div>
+    <div class="box">Woods &amp; Co → case page</div>
+  </div>
+  <p class="why">Each card: measured diagnosis → redesign → the why, written <span class="fn">[3]</span>.
+  Original site URL cited on the case page when it exists.</p>
+  <p class="note">Class (b) label on every unsolicited concept: “Unsolicited concept. Not affiliated
+  with, or commissioned by, [brand].”</p>
+</section>
+
+<section>
+  <span class="tag">4 · range — tier 2</span>
+  <h2>Range gallery — “I already solved your vertical”</h2>
+  <div class="grid g6">
+    <div class="box">cap</div><div class="box">cap</div><div class="box">cap</div>
+    <div class="box">cap</div><div class="box">cap</div><div class="box">cap</div>
+  </div>
+  <p class="why">~12 pieces, hand-picked by Carlos, shown as CAPTURES (pixels hosted here) —
+  presentation distinct from tier 1: these are demos without a client.</p>
+  <p class="note">Class (c) label on each: “Speculative concept — fictional business.” One unlabeled
+  speculative piece poisons the whole portfolio's credibility.</p>
+</section>
+
+<section>
+  <span class="tag">5 · corpus — tier 3</span>
+  <h2>One system, 46 verticals — single case block</h2>
+  <div class="box">ONE composite visual (mosaic capture) + one narrative: sustained quality at
+  mass scale across verticals, built for the Peruvian market — bilingual capability stated as a
+  feature <span class="fn">[4]</span>. → optional satellite page.</div>
+  <p class="note">Never individual tiles — repeated structure read as tiles betrays the series;
+  as corpus, the repetition IS the argument. No mechanism talk (rule 7). Curation is the work:
+  80 pieces dumped read as generated; a corpus framed reads as systems design.</p>
+</section>
+
+<section>
+  <span class="tag">6 · method</span>
+  <h2>How I work</h2>
+  <div class="box">Retainer, remote production partner. What an engagement looks like.
+  Every change ships with an objective, written why — the footnote apparatus itself is the
+  proof <span class="fn">[5]</span>.</div>
+  <p class="note">Sells time and judgment. No prices, no tiers, no numbers.</p>
+</section>
+
+<section style="border-bottom: none">
+  <span class="tag">7 · contact</span>
+  <h2>Contact</h2>
+  <div class="box">Form: name · agency · what you ship · message → NEW endpoint, owned by this
+  project only.</div>
+  <p class="note">hello@reasonedweb.com is NOT printed anywhere until MX verifies (Workspace is
+  Carlos's manual task). The form endpoint is never shared with any other project.</p>
+</section>
+
+</div>
+
+<p class="why" style="margin-top: 1.5rem">Pre-publish review, always: zero mentions of any brand
+that is not Reasoned Web; every speculative piece labeled; AA contrast measured against the
+actually-painted background; 320 px; no framework.</p>
+</body>
+</html>

@@ -23,6 +23,9 @@ SITE = ROOT / "site"
 TARGETS = {
     SITE / "index.html": ["LOCKUP", "WORDMARK"],
     SITE / "work" / "lg-sound-suite" / "index.html": ["LOCKUP"],
+    SITE / "work" / "ulric-de-varens" / "index.html": ["LOCKUP"],
+    SITE / "work" / "smoothies" / "index.html": ["LOCKUP"],
+    SITE / "work" / "the-woods-and-co" / "index.html": ["LOCKUP"],
 }
 SOURCES = {"LOCKUP": BRAND / "lockup.svg", "WORDMARK": BRAND / "wordmark-stacked.svg"}
 

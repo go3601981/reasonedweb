@@ -1,0 +1,167 @@
+/* Reasoned Web — hoja única, autorada a mano. Sin framework.
+   Contraste AA MEDIDO contra el fondo realmente pintado (WCAG 2.1):
+     tinta  #16181C sobre papel #F3F4F3 → 16.12:1
+     gris   #555A61 sobre papel         →  6.30:1
+     azul   #2C6ECB sobre papel         →  4.53:1 (siempre ≥600 de peso)
+     papel  sobre tinta                 → 16.12:1
+     azul   #7FA9E0 sobre tinta         →  7.32:1
+     gris   #A6ABB3 sobre tinta         →  7.70:1
+   El azul es SOLO aparato (marcadores, derivaciones, notas) — jamás marca. */
+
+@font-face { font-family: Switzer; src: url("../fonts/Switzer-Regular.woff2") format("woff2"); font-weight: 400; font-display: swap; }
+@font-face { font-family: Switzer; src: url("../fonts/Switzer-Medium.woff2") format("woff2"); font-weight: 500; font-display: swap; }
+@font-face { font-family: Switzer; src: url("../fonts/Switzer-Semibold.woff2") format("woff2"); font-weight: 600; font-display: swap; }
+@font-face { font-family: Switzer; src: url("../fonts/Switzer-Bold.woff2") format("woff2"); font-weight: 700; font-display: swap; }
+
+:root {
+  --ink: #16181C;
+  --paper: #F3F4F3;
+  --muted: #555A61;
+  --line: #DADCDA;
+  --note: #2C6ECB;
+  --note-on-ink: #7FA9E0;
+  --muted-on-ink: #A6ABB3;
+  --measure: 62ch;
+  /* Derivados congelados de la identidad (brand/derivation.json) */
+  --track-line1: 0.02em;
+  --wordmark-gap: 1.583em;
+}
+
+* { margin: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font: 400 clamp(1rem, 0.95rem + 0.3vw, 1.125rem)/1.6 Switzer, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; }
+img { max-width: 100%; height: auto; display: block; }
+p { max-width: var(--measure); }
+
+.wrap { max-width: 72rem; margin-inline: auto; padding-inline: clamp(1.1rem, 5vw, 3rem); }
+
+.skip {
+  position: absolute; left: -9999px; top: 0;
+  background: var(--ink); color: var(--paper); padding: 0.6rem 1rem; z-index: 10;
+}
+.skip:focus { left: 0; }
+
+/* ── Nav ─────────────────────────────────────────────────────────── */
+.nav { padding-block: 1.4rem; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.9rem 1rem; }
+.nav .lockup { display: block; color: var(--ink); }
+/* el lockup cede antes que forzar desborde: a 320px la nav debe caber entera */
+.nav .lockup svg { height: clamp(0.95rem, 4.2vw, 1.35rem); width: auto; display: block; }
+.nav a.cta {
+  font-weight: 600; font-size: 0.95rem; text-decoration: none;
+  border: 1.5px solid var(--ink); padding: 0.55rem 1.1rem; white-space: nowrap;
+}
+.nav a.cta:hover, .nav a.cta:focus-visible { background: var(--ink); color: var(--paper); }
+.crumb { font-size: 0.85rem; color: var(--muted); }
+.crumb a { color: inherit; }
+
+/* ── Hero ────────────────────────────────────────────────────────── */
+.hero { padding-block: clamp(3rem, 9vw, 7rem) clamp(3rem, 7vw, 5rem); }
+.hero .wordmark { width: min(34rem, 92%); }
+.hero .wordmark svg { width: 100%; height: auto; display: block; }
+.hero .thesis { margin-top: 2.5rem; font-size: clamp(1.15rem, 1rem + 0.9vw, 1.5rem); line-height: 1.45; font-weight: 500; max-width: 44ch; letter-spacing: -0.005em; }
+.hero .sub { margin-top: 1.1rem; color: var(--muted); }
+.hero .go { margin-top: 2.2rem; }
+a.boton {
+  display: inline-block; font-weight: 600; text-decoration: none;
+  background: var(--ink); color: var(--paper); padding: 0.85rem 1.5rem;
+}
+a.boton:hover, a.boton:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+
+/* ── Secciones ───────────────────────────────────────────────────── */
+section { padding-block: clamp(3rem, 7vw, 5.5rem); border-top: 1px solid var(--line); }
+.kicker { color: var(--note); font-size: 0.78rem; font-weight: 600; letter-spacing: 0.09em; text-transform: uppercase; }
+h2 { font-size: clamp(1.6rem, 1.3rem + 1.6vw, 2.4rem); font-weight: 700; letter-spacing: -0.015em; line-height: 1.12; margin: 0.5rem 0 1.1rem; max-width: 24ch; }
+h3 { font-size: 1.15rem; font-weight: 600; letter-spacing: -0.005em; margin-bottom: 0.5rem; }
+.muted { color: var(--muted); }
+.small { font-size: 0.85rem; }
+section p + p { margin-top: 0.9rem; }
+
+/* Etiquetado honesto — clases de encargo, siempre visibles */
+.label { display: inline-block; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.02em; color: var(--muted); border: 1px solid var(--line); padding: 0.25rem 0.6rem; margin-top: 0.9rem; }
+
+/* ── Caso LG en home ─────────────────────────────────────────────── */
+.case-lead { display: grid; gap: 2rem; margin-top: 1.5rem; }
+@media (min-width: 60rem) { .case-lead { grid-template-columns: 3fr 2fr; align-items: start; } }
+.case-lead .shot { border: 1px solid var(--line); }
+.chain { list-style: none; padding: 0; margin: 1.1rem 0 0; font-weight: 500; font-size: 0.95rem; }
+.chain li { padding: 0.5rem 0; border-bottom: 1px solid var(--line); }
+.chain li::before { content: ""; display: inline-block; width: 0.55em; height: 0.55em; background: var(--ink); margin-right: 0.7em; }
+
+/* ── Rediseños ───────────────────────────────────────────────────── */
+.cards { display: grid; gap: 2rem; margin-top: 2rem; }
+@media (min-width: 46rem) { .cards { grid-template-columns: 1fr 1fr; } }
+.card .shot { border: 1px solid var(--line); aspect-ratio: 16 / 10; object-fit: cover; object-position: top; width: 100%; }
+.card h3 { margin-top: 1rem; }
+.card p { font-size: 0.95rem; }
+
+/* ── Aparato de notas al pie — la interacción-firma ──────────────── */
+button.fn-ref {
+  font: inherit; font-weight: 600; color: var(--note);
+  background: none; border: none; padding: 0 0.1em; cursor: pointer;
+  text-decoration: underline; text-decoration-style: dotted; text-underline-offset: 0.2em;
+}
+button.fn-ref:focus-visible { outline: 2px solid var(--note); outline-offset: 2px; }
+.fn-note {
+  border-left: 3px solid var(--note); background: #E9EDF3;
+  padding: 1.1rem 1.3rem; margin: 1.3rem 0; max-width: 46rem; font-size: 0.95rem;
+}
+.fn-note .fn-num { color: var(--note); font-weight: 700; margin-right: 0.5em; }
+.fn-note p { max-width: 58ch; }
+.fn-note p + p { margin-top: 0.6rem; }
+.js .fn-note[hidden] { display: none; }
+
+/* ── Método ──────────────────────────────────────────────────────── */
+.metodo ol { margin: 1.5rem 0 0; padding-left: 1.2rem; max-width: 52ch; }
+.metodo li { padding-block: 0.4rem; }
+.metodo li::marker { font-weight: 700; color: var(--note); }
+
+/* ── Contacto ────────────────────────────────────────────────────── */
+form { display: grid; gap: 1.1rem; max-width: 34rem; margin-top: 1.8rem; }
+label { font-weight: 600; font-size: 0.92rem; display: grid; gap: 0.4rem; }
+input, textarea {
+  font: inherit; color: var(--ink); background: #fff;
+  border: 1.5px solid var(--muted); padding: 0.7rem 0.85rem; width: 100%;
+}
+input:focus-visible, textarea:focus-visible { outline: 2px solid var(--note); outline-offset: 1px; }
+button.enviar {
+  font: inherit; font-weight: 600; background: var(--ink); color: var(--paper);
+  border: none; padding: 0.85rem 1.5rem; cursor: pointer; justify-self: start;
+}
+button.enviar:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+.form-status { font-size: 0.92rem; color: var(--muted); }
+.form-status[data-live="1"] { color: var(--ink); font-weight: 500; }
+
+/* ── Pie ─────────────────────────────────────────────────────────── */
+footer.pie { background: var(--ink); color: var(--paper); margin-top: 4rem; }
+footer.pie .wrap { padding-block: 3rem; }
+footer.pie .lockup { color: var(--paper); display: inline-block; }
+footer.pie .lockup svg { height: 1.15rem; width: auto; }
+footer.pie p { color: var(--muted-on-ink); font-size: 0.88rem; margin-top: 1.1rem; }
+footer.pie a { color: var(--paper); }
+
+/* ── Página de caso ──────────────────────────────────────────────── */
+.case-head { padding-block: clamp(2.5rem, 6vw, 4.5rem) 0; }
+.case-head h1 { font-size: clamp(2rem, 1.4rem + 3vw, 3.4rem); font-weight: 700; letter-spacing: -0.02em; line-height: 1.08; max-width: 18ch; }
+.case-head .attrib { margin-top: 1rem; font-size: 1.05rem; font-weight: 500; max-width: 52ch; }
+.gate {
+  border: 2px solid var(--ink); padding: clamp(1.3rem, 3vw, 2rem); margin-top: 2.5rem; max-width: 52rem;
+}
+.gate .kicker { color: var(--note); }
+.gate p { font-size: 0.97rem; margin-top: 0.7rem; max-width: 58ch; }
+.gate p strong { font-weight: 700; }
+.legal {
+  border-top: 1px solid var(--line); margin-top: 4rem; padding-top: 1.6rem;
+  font-size: 0.82rem; color: var(--muted); max-width: 52rem;
+}
+.legal p { max-width: none; }
+.facts { margin: 1.4rem 0 0; padding-left: 1.2rem; max-width: 56ch; }
+.facts li { padding-block: 0.3rem; }

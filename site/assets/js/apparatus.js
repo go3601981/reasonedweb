@@ -20,6 +20,25 @@
     })(refs[i]);
   }
 
+  /* Revelado al hacer scroll — SOLO imágenes (el texto jamás se anima).
+     IntersectionObserver, nunca listener de scroll; reduced-motion lo apaga
+     por CSS. Sin IO, las imágenes simplemente quedan visibles. */
+  if ("IntersectionObserver" in window) {
+    var shots = document.querySelectorAll("img.shot");
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          e.target.classList.add("en-escena");
+          io.unobserve(e.target);
+        }
+      });
+    }, { rootMargin: "0px 0px -8% 0px" });
+    for (var j = 0; j < shots.length; j++) {
+      shots[j].setAttribute("data-reveal", "");
+      io.observe(shots[j]);
+    }
+  }
+
   /* Formulario: estado honesto mientras el buzón del estudio se aprovisiona.
      Nada se envía y se dice que nada se envió. */
   var form = document.querySelector("form[data-interim]");

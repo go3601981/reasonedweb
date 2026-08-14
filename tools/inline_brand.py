@@ -27,6 +27,7 @@ TARGETS = {
     SITE / "work" / "smoothies" / "index.html": ["LOCKUP"],
     SITE / "work" / "the-woods-and-co" / "index.html": ["LOCKUP"],
     SITE / "work" / "nanntu" / "index.html": ["LOCKUP"],
+    SITE / "404.html": ["LOCKUP"],
 }
 SOURCES = {"LOCKUP": BRAND / "lockup.svg", "WORDMARK": BRAND / "wordmark-stacked.svg"}
 

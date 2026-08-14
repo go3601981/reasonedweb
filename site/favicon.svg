@@ -1,0 +1,15 @@
+<!--
+  Favicon Reasoned Web — el glifo, tema-consciente.
+  Geometría: brand/glyph.svg (m=12 en viewBox 100). Tinta #16181C sobre
+  transparente; en UI oscura el trazo pasa a papel #F3F4F3 vía media query.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+<style>
+  path, rect { fill: #16181C; }
+  @media (prefers-color-scheme: dark) { path, rect { fill: #F3F4F3; } }
+</style>
+<rect x="20" y="32" width="60" height="12"/>
+<rect x="20" y="56" width="12" height="12"/>
+<rect x="44" y="56" width="12" height="12"/>
+<rect x="68" y="56" width="12" height="12"/>
+</svg>

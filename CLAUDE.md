@@ -69,8 +69,13 @@ La identidad no ilustra el razonamiento — lo EJECUTA.
   a la MISMA medida. El tracking de WEB no se elige: se deriva — `gap = (W₁ − W₂) / 2`,
   aplicado entre las tres letras (el letter-spacing de CSS deja espacio tras la última letra;
   se recorta con `margin-right` negativo igual al gap). Línea 1 lleva tracking 0.02em con el
-  mismo recorte. Al cambiar de fuente, el número se re-deriva; **la regla es el logo, el render
-  es su output actual**.
+  mismo recorte. **Canal vertical entre líneas = m = capHeight/3** — la regla que el glifo ya
+  ejecuta (su canal es m en una marca de 3m); `canal = gap` se probó y Carlos lo rechazó
+  (2026-08-14, «demasiado aire»). Con Switzer: gap = 1583u = 1.583em; canal = 235.7u. Al
+  cambiar de fuente, los números se re-derivan (`brand/derive.py` → `tools/inline_brand.py`);
+  **la regla es el logo, el render es su output actual**. Mitigación del cold-read (revisor
+  adversarial: la W E B abierta «se lee como bug de kerning»): la home anota la fórmula bajo
+  el máster — la confusión se convierte en tesis.
 - **Tipografía: Switzer 700** (Fontshare, ITF Free Font License, $0, uso comercial permitido).
   CSS de origen: `https://api.fontshare.com/v2/css?f[]=switzer@700` (el woff2 se saca de ahí;
   para el set completo de pesos, el zip de fontshare.com). Elegida sobre General Sans (cálida
@@ -136,11 +141,12 @@ La identidad no ilustra el razonamiento — lo EJECUTA.
 
 ## § Kit LG — disclaimers listos (inglés; se ajustan solo si el papel obliga)
 
-**Atribución** — se fija tras leer `proposals/` y `deliverables/`:
-- **Variante A** (encargo confirmado por el papel): *"Developed for LG Electronics Canada,
-  with Next Latam."*
-- **Variante B** (rastro delgado): *"An interactive demonstration developed with Next Latam
-  for presentation to LG Electronics Canada."*
+**Atribución — FIJADA EN VARIANTE B (2026-08-14, papel leído):** *"An interactive
+demonstration developed with Next Latam for presentation to LG Electronics Canada."*
+Evidencia: propuesta V2 con firma de LG EN BLANCO, checklist de sign-off sin marcar, V2
+construida at-risk, status «paused in a clean state, waiting on LG». **Sube a Variante A**
+(*"Developed for LG Electronics Canada, with Next Latam."*) solo con evidencia escrita de
+aceptación posterior al 2026-07-15 (p. ej. en el correo real de Carlos, no en las carpetas).
 
 **Gate de entrada** (visible ANTES de cargar la experiencia — cumple doble función: disclaimer
 y aviso de peso de la carga ~25 MB):
@@ -210,27 +216,50 @@ leen como senior. La curaduría es parte del trabajo de diseño.
 4. **Recién entonces** outreach a Shopify Partners y Klaviyo Partners. ⛔ Ni un solo correo a
    ese segmento antes de que el set exista — cada prospecto abre una sola vez.
 
-## Primer encargo de la sesión nueva — la ronda de acabado
+## ✅ Estado al 2026-08-14 — lo que EXISTE (dos rondas completas)
 
-1. `git init` + `.gitignore` (repo propio; **jamás** compartir repo/Vercel con CRM Web).
-2. Bajar Switzer (URL arriba; pesos 400–700 del zip de Fontshare para el sitio).
-3. Másters como archivos: SVG del glifo (computado, no dibujado), máster apilado con el
-   tracking derivado y CONGELADO como número con su derivación al lado, lockup horizontal.
-4. Favicons 16/32/48 + `favicon.svg`.
-5. Especificación de una página: cada valor con su derivación — en esta identidad eso no es
-   documentación, es el producto.
-6. Solo entonces: wireframe de la home y plantilla de caso — la IA ya está decidida
-   (§ Arquitectura); no se re-litiga, se ejecuta.
+- **Identidad computada y commiteada**: `brand/` (derive.py, derivation.json, tres másters
+  SVG, spec.html con re-derivación en vivo PASS/FAIL), favicons en rejilla entera, fuentes
+  400–700 autoalojadas con licencia. Wireframes en `wireframes/`.
+- **Sitio en pie bajo `site/`** (la raíz del deploy — lo interno JAMÁS viaja): home de un
+  scroll con aparato de notas funcionando, folios 01–04, og propio renderizado del máster,
+  404, y **cinco casos**: LG (placeholder por orden de Carlos: gate = bloque de disclaimer
+  Variante B, sin embed), UdV, Smoothies, Woods & Co y Nanntu — los cuatro tier 1 con su
+  razonamiento escrito completo y anotado.
+- **Herramientas propias mínimas**: `tools/capture.py` (capturas CDP con limpieza verificada
+  — solo cruzan píxeles, sin banners de otras marcas) y `tools/inline_brand.py` (másters
+  inline idempotentes). Flujo al cambiar la marca: `brand/derive.py` → `tools/inline_brand.py`.
+- **Revisión adversarial sin contexto ya pasada** (veredicto inicial «maybe, leaning no»;
+  su defecto #1 —diferenciador sin pagar— quedó resuelto con los casos escritos).
+- Etiquetas vigentes: UdV «Client engagement — Ulric de Varens USA» (meta `wmys-pieza:
+  encargo`, decisión Carlos 2026-08-05); Nanntu «Design draft — prepared for Patricia Deza»
+  (sin meta; autodescripción del pie de la pieza).
+
+## Primer encargo de la siguiente sesión
+
+1. **Verificar el push**: `git status -sb`. Al 2026-08-14 el token de GitHub expiró y hay
+   commits EN COLA local (la sesión no puede re-autenticar: `GCM_INTERACTIVE=never git push`
+   → «Cannot prompt»). Si sigue atrás, pedir a Carlos UN `git push` desde su terminal.
+   ⚠️ Un push que cuelga >1 min sin imprimir ni la puerta de arrastre ES esto, no la red.
+2. Tras el push: **Vercel con raíz `site/`** (repo propio, jamás compartido con CRM Web).
+3. **Montar el embed LG** (~25 MB) como ruta estática detrás del gate — y RESTAURAR al gate
+   la línea de peso/auriculares y el botón de entrada que se retiraron mientras era placeholder.
+4. Confirmaciones de una palabra que esperan a Carlos: ¿UdV fue encargo real (mantener
+   etiqueta)? ¿Nanntu fue encargo o borrador regalado (fija su etiqueta definitiva)?
+5. Lecciones de instrumento — no re-aprender: screenshots móviles con `--window-size`
+   MIENTEN (mínimo de ventana ~400px) — usar `tools/capture.py` (métricas reales de
+   dispositivo); hooks sh con CRLF no spawnean (`.gitattributes` ya fija LF); mensajes de
+   commit SIEMPRE con `-F archivo` y `--only -- rutas`.
 
 ## Decisiones abiertas (esperan a Carlos)
 
-1. ~~¿LG público o solo por enlace?~~ **RESUELTA 2026-08-13: público con disclaimer**
-   (regla dura 4 + § Kit LG). La portada puede diseñarse con LG como titular.
-2. ~~¿UdV commerce antes de lanzar?~~ **RESUELTA 2026-08-13: opción C — desacoplado**
-   (§ Secuencia de lanzamiento). El lanzamiento no espera al set; el outreach a
-   Shopify/Klaviyo sí.
-3. ~~¿Entran las demos de Perú?~~ **RESUELTA 2026-08-13: como CORPUS** (tabla del material,
-   nivel 3) — jamás como tiles individuales.
-4. Upgrade a fuente licenciada — después, si el sitio lo gana.
-5. Creación del Google Workspace para `hello@reasonedweb.com` — tarea MANUAL de Carlos;
-   hasta entonces el correo no aparece en ninguna página (§ Arquitectura).
+1. ~~¿LG público o solo por enlace?~~ **RESUELTA 2026-08-13: público con disclaimer**.
+   ~~¿Variante A o B?~~ **RESUELTA 2026-08-14: Variante B por el papel** (§ Kit LG).
+2. ~~¿UdV commerce antes de lanzar?~~ **RESUELTA 2026-08-13: opción C — desacoplado**.
+3. ~~¿Entran las demos de Perú?~~ **RESUELTA 2026-08-13: como CORPUS** — jamás tiles.
+4. **Curaduría de Carlos pendiente**: las ~12 piezas de la galería de rango (tier 2) y el
+   armado del caso-corpus (tier 3). Las secciones existen como comentario en la home.
+5. Upgrade a fuente licenciada — después, si el sitio lo gana.
+6. Google Workspace para `hello@reasonedweb.com` — MANUAL de Carlos; sin MX verificado el
+   correo no se imprime y el formulario sigue en estado honesto (no envía y lo dice).
+7. Confirmación de clase de UdV y Nanntu (ver Primer encargo, punto 4).

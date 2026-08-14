@@ -9,13 +9,15 @@
     "license": "ITF Free Font License (fonts/FFL.txt)"
   },
   "stacked": {
-    "rule": "gap = (W1 − W2) / 2; canal vertical entre líneas = gap",
+    "rule": "gap = (W1 − W2) / 2; canal vertical = m = capHeight/3 (la regla del glifo; canal=gap rechazado 2026-08-14)",
     "track1_em": 0.02,
     "track1_units": 20.0,
     "W1_units": 5462.0,
     "W2_raw_units": 2296.0,
     "gap_units": 1583.0,
     "gap_em": 1.583,
+    "vertical_channel_units": 235.66666666666666,
+    "vertical_channel_em": 0.23566666666666666,
     "line_widths_equal": true
   },
   "lockup": {

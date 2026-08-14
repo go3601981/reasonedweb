@@ -12,7 +12,9 @@ NINGÚN VALOR SE ELIGE DONDE UNO SE PUEDE DERIVAR.
       track₁ = 0.02 em  (regla fijada para la línea 1)
       W₂  = ancho conformado de WEB (kerning real)
       gap = (W₁ − W₂) / 2   ← el tracking de WEB NO se elige
-    Canal vertical entre líneas = gap: el mismo número gobierna ambos ejes.
+    Canal vertical entre líneas = m = capHeight/3: la regla que el glifo ya
+    ejecuta (su canal es m en una marca de 3m de alto). La versión anterior
+    (canal = gap) fue rechazada por Carlos 2026-08-14: demasiado aire.
   · Lockup horizontal: glifo (5m × 3m) con 3m = altura de mayúsculas del
     texto → m = capHeight / 3; separación glifo→texto = m (el módulo sigue).
     Tracking del texto −0.015 em: el ÚNICO valor óptico, declarado como tal.
@@ -151,8 +153,9 @@ def main() -> None:
     if abs(w2 - w1) > 1e-6:
         die(f"justificación rota: línea 1 = {w1!r}u, línea 2 = {w2!r}u")
 
+    m_channel = cap / 3.0  # canal vertical = m, la regla del glifo
     baseline1 = float(cap)
-    baseline2 = cap + gap + cap  # canal vertical = gap, el mismo número
+    baseline2 = cap + m_channel + cap
     d1, bb1 = paths_and_bbox(font, placed1, baseline1)
     d2, bb2 = paths_and_bbox(font, placed2, baseline2)
     bbox = [min(bb1[0], bb2[0]), min(bb1[1], bb2[1]),
@@ -163,7 +166,7 @@ def main() -> None:
         f"  W1 = shaped(REASONED) + 7 × {fmt(track1)}u (0.02em) = {fmt(w1)}u\n"
         f"  W2 = shaped(WEB) = {fmt(w2_raw)}u\n"
         f"  gap = (W1 − W2) / 2 = {fmt(gap)}u = {gap/upm:.4f}em  ← no elegido: derivado\n"
-        f"  canal vertical entre líneas = gap = {fmt(gap)}u (un número, dos ejes).\n"
+        f"  canal vertical entre líneas = m = capHeight/3 = {fmt(m_channel)}u — la regla del glifo.\n"
         f"  viewBox = bbox de tinta MEDIDO, no elegido."
     )
     stacked = svg(
@@ -205,13 +208,15 @@ def main() -> None:
         "font": {"family": "Switzer", "weight": 700, "file": "fonts/Switzer-Bold.otf",
                  "unitsPerEm": upm, "capHeight": cap, "license": "ITF Free Font License (fonts/FFL.txt)"},
         "stacked": {
-            "rule": "gap = (W1 − W2) / 2; canal vertical entre líneas = gap",
+            "rule": "gap = (W1 − W2) / 2; canal vertical = m = capHeight/3 (la regla del glifo; canal=gap rechazado 2026-08-14)",
             "track1_em": TRACK1_EM,
             "track1_units": track1,
             "W1_units": w1,
             "W2_raw_units": w2_raw,
             "gap_units": gap,
             "gap_em": gap / upm,
+            "vertical_channel_units": m_channel,
+            "vertical_channel_em": m_channel / upm,
             "line_widths_equal": True,
         },
         "lockup": {

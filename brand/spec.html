@@ -48,7 +48,8 @@
   .check .status.fail { color: #b42318; }
   .wordmark-live { font-weight: 700; line-height: 1; width: max-content; margin: 1.5rem 0; }
   .wordmark-live .l1 { font-size: 3.4rem; letter-spacing: var(--track-line1); margin-right: calc(-1 * var(--track-line1)); display: block; }
-  .wordmark-live .l2 { font-size: 3.4rem; letter-spacing: var(--gap); margin-right: calc(-1 * var(--gap)); display: block; margin-top: 0.35em; }
+  /* canal vertical derivado: m/upm = 235.7/1000 em */
+  .wordmark-live .l2 { font-size: 3.4rem; letter-spacing: var(--gap); margin-right: calc(-1 * var(--gap)); display: block; margin-top: 0.2357em; }
   .px { image-rendering: pixelated; }
   .swatches { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.25rem; }
   .swatch { width: 9.5rem; }
@@ -84,7 +85,7 @@
     <tr><th>W₁</th><td class="num">5462u</td><td>shaped width of REASONED (real kerning) + 7 × 20u tracking</td></tr>
     <tr><th>W₂</th><td class="num">2296u</td><td>shaped width of WEB (real kerning)</td></tr>
     <tr><th>gap</th><td class="num derived">(W₁ − W₂) / 2 = 1583u = 1.583em</td><td>applied in each of the two W·E·B channels</td></tr>
-    <tr><th>vertical channel</th><td class="num derived">= gap = 1583u</td><td>one number governs both axes, as in the glyph, where the module is the channel horizontally and vertically</td></tr>
+    <tr><th>vertical channel</th><td class="num derived">= m = capHeight / 3 = 235.7u = 0.2357em</td><td>the glyph's own rule: its channel is m in a mark 3m tall. (An earlier derivation, channel = gap, was rejected — too much air.)</td></tr>
   </table>
   <p>CSS semantics: <code>letter-spacing</code> leaves space after the last letter; it is trimmed with an equal negative <code>margin-right</code>. Line 1: <code>letter-spacing: 0.02em; margin-right: -0.02em</code>. Line 2: <code>letter-spacing: 1.583em; margin-right: -1.583em</code>.</p>
   <figure>

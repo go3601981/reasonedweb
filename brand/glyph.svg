@@ -1,0 +1,14 @@
+<!--
+  Glifo Reasoned Web — el máster a resolución mínima (favicon, sellos).
+  Derivación (decidida 2026-08-13): módulo m; medida = 5m. En viewBox 100, m = 12.
+  Barra sólida 5m × m  = REASONED macizo        → x20 y32 60×12
+  Tres cuadrados m × m = W·E·B contadas, gaps m → y56, x 20/44/68, 12×12
+  Gap vertical = m. Cuatro rellenos, cero trazos — no puede romperse a 16 px.
+  La forma ES el nombre: no se puede copiar sin copiar el nombre.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+<rect fill="currentColor" x="20" y="32" width="60" height="12"/>
+<rect fill="currentColor" x="20" y="56" width="12" height="12"/>
+<rect fill="currentColor" x="44" y="56" width="12" height="12"/>
+<rect fill="currentColor" x="68" y="56" width="12" height="12"/>
+</svg>

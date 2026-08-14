@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reasoned Web — Identity Specification</title>
+<style>
+  /* Switzer 400–700 lives in site/assets/fonts; this page is the identity's
+     spec and uses the identity itself. Working palette (provisional, not site
+     canon): ink #16181C · paper #F3F4F3 · annotation blue #2C6ECB (apparatus
+     only, never brand). */
+  @font-face { font-family: Switzer; src: url("../site/assets/fonts/Switzer-Regular.woff2") format("woff2"); font-weight: 400; font-display: swap; }
+  @font-face { font-family: Switzer; src: url("../site/assets/fonts/Switzer-Medium.woff2") format("woff2"); font-weight: 500; font-display: swap; }
+  @font-face { font-family: Switzer; src: url("../site/assets/fonts/Switzer-Semibold.woff2") format("woff2"); font-weight: 600; font-display: swap; }
+  @font-face { font-family: Switzer; src: url("../site/assets/fonts/Switzer-Bold.woff2") format("woff2"); font-weight: 700; font-display: swap; }
+
+  :root {
+    --ink: #16181C;
+    --paper: #F3F4F3;
+    --note: #2C6ECB;
+    /* FROZEN derived values — source of truth: brand/derivation.json.
+       Re-derive with brand/derive.py; never edit by hand. */
+    --track-line1: 0.02em;
+    --gap: 1.583em;
+  }
+  * { margin: 0; box-sizing: border-box; }
+  body { background: var(--paper); color: var(--ink); font: 400 16px/1.55 Switzer, system-ui, sans-serif; padding: 4rem clamp(1.25rem, 6vw, 6rem) 6rem; max-width: 68rem; margin-inline: auto; }
+  header { margin-bottom: 4.5rem; }
+  header img { width: min(22rem, 70vw); display: block; }
+  h1 { font-size: 1rem; font-weight: 600; margin-top: 2.25rem; letter-spacing: -0.005em; }
+  .principle { font-size: clamp(1.35rem, 3vw, 1.9rem); font-weight: 700; letter-spacing: -0.015em; line-height: 1.2; max-width: 34ch; margin-top: 0.75rem; }
+  section { margin-top: 4.5rem; }
+  .kicker { color: var(--note); font-size: 0.78rem; font-weight: 600; letter-spacing: 0.09em; text-transform: uppercase; }
+  h2 { font-size: 1.5rem; font-weight: 700; letter-spacing: -0.01em; margin: 0.4rem 0 1rem; }
+  p { max-width: 62ch; margin-bottom: 0.9rem; }
+  table { border-collapse: collapse; margin: 1.25rem 0; font-size: 0.92rem; width: 100%; max-width: 44rem; }
+  th, td { text-align: left; padding: 0.5rem 1rem 0.5rem 0; border-bottom: 1px solid #d9dbd9; vertical-align: top; }
+  th { font-weight: 600; white-space: nowrap; }
+  td.num { font-weight: 600; white-space: nowrap; }
+  .derived { color: var(--note); font-weight: 600; }
+  figure { margin: 1.75rem 0; }
+  figure img { max-width: 100%; display: block; }
+  figcaption { font-size: 0.82rem; color: #555a61; margin-top: 0.6rem; max-width: 60ch; }
+  code { font-family: inherit; font-weight: 500; background: #e7e9e7; padding: 0.1em 0.35em; border-radius: 3px; font-size: 0.93em; }
+  .check { border: 1px solid #d9dbd9; padding: 1.1rem 1.3rem; max-width: 44rem; margin-top: 1.5rem; }
+  .check .status { font-weight: 700; }
+  .check .status.pass { color: #1a7f37; }
+  .check .status.fail { color: #b42318; }
+  .wordmark-live { font-weight: 700; line-height: 1; width: max-content; margin: 1.5rem 0; }
+  .wordmark-live .l1 { font-size: 3.4rem; letter-spacing: var(--track-line1); margin-right: calc(-1 * var(--track-line1)); display: block; }
+  .wordmark-live .l2 { font-size: 3.4rem; letter-spacing: var(--gap); margin-right: calc(-1 * var(--gap)); display: block; margin-top: 0.35em; }
+  .px { image-rendering: pixelated; }
+  .swatches { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.25rem; }
+  .swatch { width: 9.5rem; }
+  .swatch .chip { height: 4.5rem; border: 1px solid #d9dbd9; }
+  .swatch dl { font-size: 0.82rem; margin-top: 0.4rem; }
+  .swatch dt { font-weight: 600; }
+  footer { margin-top: 5.5rem; border-top: 1px solid #d9dbd9; padding-top: 1.5rem; font-size: 0.85rem; color: #555a61; max-width: 62ch; }
+</style>
+</head>
+<body>
+
+<header>
+  <img src="lockup.svg" alt="Reasoned Web — glyph and wordmark lockup">
+  <h1>Identity specification</h1>
+  <p class="principle">No value is chosen where one can be derived. The identity does not illustrate the reasoning — it executes it.</p>
+</header>
+
+<section>
+  <span class="kicker">01 · Typeface</span>
+  <h2>Switzer, weight 700</h2>
+  <p>The identity is set in Switzer Bold (Indian Type Foundry, via Fontshare; ITF Free Font License, commercial use permitted — the license ships with the fonts in this repository). Weights 400–700 are self-hosted as woff2. The typeface is an <em>input</em> to the identity, not part of its definition: change the font, re-run the derivation, and every number below re-emits.</p>
+  <table>
+    <tr><th>unitsPerEm</th><td class="num">1000</td><td>measured from the font</td></tr>
+    <tr><th>capHeight</th><td class="num">707</td><td>measured from the font (OS/2)</td></tr>
+  </table>
+</section>
+
+<section>
+  <span class="kicker">02 · The stacked master</span>
+  <h2>REASONED over WEB, justified by derivation</h2>
+  <p>Both lines are set at the same size and the same measure. Line 1 carries a fixed 0.02em tracking. The tracking of WEB is <span class="derived">not chosen</span> — it is the number that makes the second line as wide as the first:</p>
+  <table>
+    <tr><th>W₁</th><td class="num">5462u</td><td>shaped width of REASONED (real kerning) + 7 × 20u tracking</td></tr>
+    <tr><th>W₂</th><td class="num">2296u</td><td>shaped width of WEB (real kerning)</td></tr>
+    <tr><th>gap</th><td class="num derived">(W₁ − W₂) / 2 = 1583u = 1.583em</td><td>applied in each of the two W·E·B channels</td></tr>
+    <tr><th>vertical channel</th><td class="num derived">= gap = 1583u</td><td>one number governs both axes, as in the glyph, where the module is the channel horizontally and vertically</td></tr>
+  </table>
+  <p>CSS semantics: <code>letter-spacing</code> leaves space after the last letter; it is trimmed with an equal negative <code>margin-right</code>. Line 1: <code>letter-spacing: 0.02em; margin-right: -0.02em</code>. Line 2: <code>letter-spacing: 1.583em; margin-right: -1.583em</code>.</p>
+  <figure>
+    <img src="wordmark-stacked.svg" alt="Stacked wordmark master: REASONED over W E B" style="width: min(26rem, 90vw)">
+    <figcaption>The committed master — glyph outlines computed from the font by <code>brand/derive.py</code>. The rule is the logo; this render is its current output.</figcaption>
+  </figure>
+  <div class="wordmark-live" aria-hidden="true">
+    <span class="l1">REASONED</span>
+    <span class="l2">WEB</span>
+  </div>
+  <div class="check" id="check">
+    <span class="kicker">Live re-derivation</span>
+    <p id="check-body" style="margin-top: 0.5rem">Measuring…</p>
+    <p class="status" id="check-status">·</p>
+  </div>
+</section>
+
+<section>
+  <span class="kicker">03 · The glyph</span>
+  <h2>The master at minimum resolution</h2>
+  <p>Module <code>m</code>; measure <code>5m</code>. A solid bar of 5m × m — REASONED, massive — over three m × m squares — W·E·B, counted — separated by gaps of m; vertical gap m. Four fills, zero strokes: it cannot break at 16&nbsp;px. The shape <em>is</em> the name: it cannot be copied without copying the name.</p>
+  <table>
+    <tr><th>viewBox 100</th><td>m = 12 · bar x20 y32 60×12 · squares 12×12 at y56, x 20 / 44 / 68</td></tr>
+    <tr><th>favicon grid</th><td><span class="derived">m<sub>px</sub> = round(size × 12/100)</span>: 16px→2 · 32px→4 · 48px→6 — whole-pixel grid, no antialiasing</td></tr>
+  </table>
+  <figure style="display: flex; gap: 2.5rem; align-items: flex-end; flex-wrap: wrap">
+    <img src="glyph.svg" alt="Reasoned Web glyph" width="160" height="160">
+    <img src="../site/favicon-16.png" alt="16-pixel favicon enlarged to show the whole-pixel grid" width="128" height="128" class="px">
+  </figure>
+</section>
+
+<section>
+  <span class="kicker">04 · The lockup</span>
+  <h2>Glyph beside the name</h2>
+  <p>For navigation, signatures, and co-branding contexts. The glyph is scaled so its full height (3m) equals the text's cap height — <span class="derived">m = capHeight / 3 = 235.7u</span> — and sits on the same baseline. The space between glyph and text is one module, m: the grid continues. The text is “Reasoned Web” in title case, Switzer 700, tracked −0.015em — the <em>one</em> optical value in this identity, declared as such and refined by eye.</p>
+  <figure>
+    <img src="lockup.svg" alt="Horizontal lockup: glyph plus Reasoned Web" style="width: min(30rem, 90vw)">
+  </figure>
+</section>
+
+<section>
+  <span class="kicker">05 · Working palette</span>
+  <h2>Provisional — not site canon</h2>
+  <p>The palette the specimens were built on. It ships with this spec so the files render consistently; the site's palette is a separate, future decision. Annotation blue marks apparatus — derivations, footnotes, checks — and is never used as brand color.</p>
+  <div class="swatches">
+    <div class="swatch"><div class="chip" style="background:#16181C"></div><dl><dt>Ink</dt><dd>#16181C</dd></dl></div>
+    <div class="swatch"><div class="chip" style="background:#F3F4F3"></div><dl><dt>Paper</dt><dd>#F3F4F3</dd></dl></div>
+    <div class="swatch"><div class="chip" style="background:#2C6ECB"></div><dl><dt>Annotation</dt><dd>#2C6ECB · apparatus only</dd></dl></div>
+  </div>
+</section>
+
+<footer>
+  <p>Frozen values live in <code>brand/derivation.json</code> and are re-derived by <code>brand/derive.py</code> — never edited by hand. Changing the typeface re-derives every number and re-emits every master: an afternoon, not a redesign.</p>
+</footer>
+
+<script>
+  // Live re-derivation: measure the loaded font and confirm the frozen gap.
+  // ?sabotage skews the expectation — the check must be able to fail.
+  const FROZEN_GAP_EM = 1.583;
+  const TRACK1_EM = 0.02;
+  document.fonts.load('700 100px Switzer').then(() => {
+    const c = document.createElement('canvas').getContext('2d');
+    const PX = 100;
+    c.font = '700 ' + PX + 'px Switzer';
+    if (!('letterSpacing' in c)) {
+      report(null, 'This browser does not expose canvas letterSpacing; cannot re-derive here.');
+      return;
+    }
+    c.letterSpacing = (TRACK1_EM * PX) + 'px';
+    const w1 = c.measureText('REASONED').width - TRACK1_EM * PX; // trailing space trimmed
+    c.letterSpacing = '0px';
+    const w2 = c.measureText('WEB').width;
+    if (!(w1 > 0 && w2 > 0)) { report(false, 'Measured a zero width — nothing was actually measured.'); return; }
+    const gapEm = (w1 - w2) / 2 / PX;
+    let expected = FROZEN_GAP_EM;
+    if (new URLSearchParams(location.search).has('sabotage')) expected *= 1.1;
+    const delta = Math.abs(gapEm - expected) / expected;
+    report(delta < 0.01,
+      'W₁ = ' + (w1 / PX).toFixed(3) + 'em · W₂ = ' + (w2 / PX).toFixed(3) +
+      'em → gap = ' + gapEm.toFixed(3) + 'em · frozen: ' + expected.toFixed(3) +
+      'em · Δ ' + (delta * 100).toFixed(2) + '%');
+  });
+  function report(ok, detail) {
+    document.getElementById('check-body').textContent = detail;
+    const s = document.getElementById('check-status');
+    if (ok === null) { s.textContent = 'NOT MEASURED'; return; }
+    s.textContent = ok ? 'PASS — the frozen number is what this font derives' : 'FAIL — frozen number does not match this font';
+    s.classList.add(ok ? 'pass' : 'fail');
+  }
+</script>
+</body>
+</html>

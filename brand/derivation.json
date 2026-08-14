@@ -1,0 +1,35 @@
+{
+  "_": "Números CONGELADOS de la identidad. Se re-derivan corriendo brand/derive.py; no se editan a mano.",
+  "font": {
+    "family": "Switzer",
+    "weight": 700,
+    "file": "fonts/Switzer-Bold.otf",
+    "unitsPerEm": 1000,
+    "capHeight": 707,
+    "license": "ITF Free Font License (fonts/FFL.txt)"
+  },
+  "stacked": {
+    "rule": "gap = (W1 − W2) / 2; canal vertical entre líneas = gap",
+    "track1_em": 0.02,
+    "track1_units": 20.0,
+    "W1_units": 5462.0,
+    "W2_raw_units": 2296.0,
+    "gap_units": 1583.0,
+    "gap_em": 1.583,
+    "line_widths_equal": true
+  },
+  "lockup": {
+    "rule": "m = capHeight/3; glifo 5m×3m a línea base; separación = m",
+    "m_units": 235.66666666666666,
+    "mark_width_units": 1178.3333333333333,
+    "text_gap_units": 235.66666666666666,
+    "tracking_em": -0.015,
+    "tracking_units": -15.0,
+    "tracking_note": "único valor óptico; se afina a ojo",
+    "text_width_units": 6947.0
+  },
+  "glyph": {
+    "rule": "módulo m; medida 5m; viewBox 100: barra x20 y32 60×12; cuadrados 12×12 y56, x 20/44/68",
+    "favicon_grid": "m_px = round(size × 12/100): 16px→2, 32px→4, 48px→6 (rejilla entera, sin antialias)"
+  }
+}

@@ -1,0 +1,13 @@
+# Los hooks son sh: con CRLF el shebang se vuelve `/bin/sh\r` y git no puede
+# spawnearlos ("cannot spawn commit-msg"). Se fijan LF para todo clon.
+githooks/* text eol=lf
+*.sh text eol=lf
+*.mjs text eol=lf
+
+# Binarios
+*.woff2 binary
+*.woff binary
+*.ttf binary
+*.otf binary
+*.png binary
+*.ico binary

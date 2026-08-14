@@ -1,0 +1,35 @@
+#!/bin/sh
+# ─────────────────────────────────────────────────────────────────────────────
+# COMMIT-MSG · FIRMA DE SESIÓN — «quién escribió esto» es un CAMPO, no prosa.
+#
+# Regla global (Carlos, 2026-07-27): cada commit lleva el trailer
+# `Claude-Session: claude:<id8>` (o `humano` si se escribió a mano), para que
+# la propiedad sea consultable:
+#
+#     git log --format='%h %(trailers:key=Claude-Session,valueonly) %s'
+#
+# La identidad no depende de memoria: Claude Code exporta CLAUDE_CODE_SESSION_ID
+# a cada shell. ⚠️ core.hooksPath es config LOCAL — cada clon debe fijarla:
+#     git config core.hooksPath githooks
+#
+# 🔓 Escape: SESION_TRAILER_OFF=1 git commit …
+# ─────────────────────────────────────────────────────────────────────────────
+set -e
+
+MSG="$1"
+[ -n "$SESION_TRAILER_OFF" ] && exit 0
+[ -f "$MSG" ] || exit 0
+
+# Ya firmado (p. ej. un --amend sobre un commit nuestro): no duplicar.
+if grep -qi '^Claude-Session:' "$MSG"; then
+  exit 0
+fi
+
+ID="${CLAUDE_CODE_SESSION_ID:-${CLAUDE_SESSION_ID:-}}"
+if [ -n "$ID" ]; then
+  FIRMA="claude:$(printf '%s' "$ID" | tr -d '\r\n' | cut -c1-8)"
+else
+  FIRMA="humano"
+fi
+
+printf '\nClaude-Session: %s\n' "$FIRMA" >> "$MSG"

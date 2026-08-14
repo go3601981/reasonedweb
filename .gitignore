@@ -1,0 +1,15 @@
+# ReasonedWeb — static site, hand-authored. Keep this list minimal.
+
+# OS noise
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Tooling (derivation scripts may use a local venv / node_modules; never shipped)
+node_modules/
+.venv/
+__pycache__/
+
+# Scratch / local-only
+*.local.*
+.scratch/

@@ -102,7 +102,6 @@ section p + p { margin-top: 0.9rem; }
 /* ── Rediseños ───────────────────────────────────────────────────── */
 .cards { display: grid; gap: 2rem; margin-top: 2rem; }
 @media (min-width: 46rem) { .cards { grid-template-columns: 1fr 1fr; } }
-@media (min-width: 64rem) { .cards { grid-template-columns: repeat(3, 1fr); } }
 /* mat de tinta uniforme: cuatro paletas ajenas dejan de pelearse entre sí */
 .card .shot { background: var(--ink); border: none; padding: 0.5rem; aspect-ratio: 16 / 10; object-fit: cover; object-position: top; width: 100%; }
 .card h3 { margin-top: 1rem; }

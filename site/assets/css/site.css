@@ -3,6 +3,7 @@
      tinta  #16181C sobre papel #F3F4F3 → 16.12:1
      gris   #555A61 sobre papel         →  6.30:1
      azul   #2C6ECB sobre papel         →  4.53:1 (siempre ≥600 de peso)
+     azul   #245CB0 sobre chip #E9EDF3  →  5.53:1 (marcadores [n])
      papel  sobre tinta                 → 16.12:1
      azul   #7FA9E0 sobre tinta         →  7.32:1
      gris   #A6ABB3 sobre tinta         →  7.70:1
@@ -19,6 +20,8 @@
   --muted: #555A61;
   --line: #DADCDA;
   --note: #2C6ECB;
+  --note-strong: #245CB0;
+  --note-chip: #E9EDF3;
   --note-on-ink: #7FA9E0;
   --muted-on-ink: #A6ABB3;
   --measure: 62ch;
@@ -99,16 +102,21 @@ section p + p { margin-top: 0.9rem; }
 /* ── Rediseños ───────────────────────────────────────────────────── */
 .cards { display: grid; gap: 2rem; margin-top: 2rem; }
 @media (min-width: 46rem) { .cards { grid-template-columns: 1fr 1fr; } }
-.card .shot { border: 1px solid var(--line); aspect-ratio: 16 / 10; object-fit: cover; object-position: top; width: 100%; }
+@media (min-width: 64rem) { .cards { grid-template-columns: repeat(3, 1fr); } }
+/* mat de tinta uniforme: cuatro paletas ajenas dejan de pelearse entre sí */
+.card .shot { background: var(--ink); border: none; padding: 0.5rem; aspect-ratio: 16 / 10; object-fit: cover; object-position: top; width: 100%; }
 .card h3 { margin-top: 1rem; }
 .card p { font-size: 0.95rem; }
+.card a.leer { font-weight: 600; font-size: 0.92rem; }
+.hero .derivation { margin-top: 1.1rem; font-size: 0.8rem; font-weight: 600; color: var(--note); max-width: 52ch; }
 
 /* ── Aparato de notas al pie — la interacción-firma ──────────────── */
 button.fn-ref {
-  font: inherit; font-weight: 600; color: var(--note);
-  background: none; border: none; padding: 0 0.1em; cursor: pointer;
-  text-decoration: underline; text-decoration-style: dotted; text-underline-offset: 0.2em;
+  font: inherit; font-size: 0.85em; font-weight: 700; color: var(--note-strong);
+  background: var(--note-chip); border: none; border-radius: 3px;
+  padding: 0.05em 0.4em; margin-left: 0.25em; cursor: pointer; vertical-align: 0.08em;
 }
+button.fn-ref:hover { background: #DCE4EF; }
 button.fn-ref:focus-visible { outline: 2px solid var(--note); outline-offset: 2px; }
 .fn-note {
   border-left: 3px solid var(--note); background: #E9EDF3;

@@ -231,9 +231,11 @@ leen como senior. La curaduría es parte del trabajo de diseño.
   inline idempotentes). Flujo al cambiar la marca: `brand/derive.py` → `tools/inline_brand.py`.
 - **Revisión adversarial sin contexto ya pasada** (veredicto inicial «maybe, leaning no»;
   su defecto #1 —diferenciador sin pagar— quedó resuelto con los casos escritos).
-- Etiquetas vigentes: UdV «Client engagement — Ulric de Varens USA» (meta `wmys-pieza:
-  encargo`, decisión Carlos 2026-08-05); Nanntu «Design draft — prepared for Patricia Deza»
-  (sin meta; autodescripción del pie de la pieza).
+- Etiquetas CONFIRMADAS por Carlos (2026-08-15): UdV fue encargo real — «Client engagement —
+  Ulric de Varens USA» queda definitiva. Nanntu fue borrador REGALADO, no encargo — etiqueta
+  definitiva «Design draft — gifted to Patricia Deza, not commissioned» (aplicada en su caso
+  y en la tarjeta de la home; cierra la ambigüedad de "prepared for", que dejaba abierta la
+  pregunta de si hubo comisión — regla 1).
 
 ## Primer encargo de la siguiente sesión
 
@@ -242,10 +244,13 @@ leen como senior. La curaduría es parte del trabajo de diseño.
    → «Cannot prompt»). Si sigue atrás, pedir a Carlos UN `git push` desde su terminal.
    ⚠️ Un push que cuelga >1 min sin imprimir ni la puerta de arrastre ES esto, no la red.
 2. Tras el push: **Vercel con raíz `site/`** (repo propio, jamás compartido con CRM Web).
-3. **Montar el embed LG** (~25 MB) como ruta estática detrás del gate — y RESTAURAR al gate
-   la línea de peso/auriculares y el botón de entrada que se retiraron mientras era placeholder.
-4. Confirmaciones de una palabra que esperan a Carlos: ¿UdV fue encargo real (mantener
-   etiqueta)? ¿Nanntu fue encargo o borrador regalado (fija su etiqueta definitiva)?
+3. ~~Montar el embed LG~~ **HECHO 2026-08-15** (`7ee32c4`): build en
+   `site/work/lg-sound-suite/live/` (shell re-enmarcado a Reasoned Web: title/og propios,
+   favicon del sitio — fuera `iso.svg`, que era el monograma LG, y el og-image de nextlatam);
+   gate restaurado con línea de peso/auriculares y botón «Enter the demonstration» → `live/`.
+   Verificado local: CDP renderiza start screen, 18 assets perezosos HEAD 200, log sin 404.
+4. ~~Confirmaciones de una palabra~~ **RESUELTAS 2026-08-15**: UdV encargo real (etiqueta se
+   mantiene); Nanntu borrador regalado (etiqueta definitiva aplicada, ver § Estado).
 5. Lecciones de instrumento — no re-aprender: screenshots móviles con `--window-size`
    MIENTEN (mínimo de ventana ~400px) — usar `tools/capture.py` (métricas reales de
    dispositivo); hooks sh con CRLF no spawnean (`.gitattributes` ya fija LF); mensajes de
@@ -262,4 +267,5 @@ leen como senior. La curaduría es parte del trabajo de diseño.
 5. Upgrade a fuente licenciada — después, si el sitio lo gana.
 6. Google Workspace para `hello@reasonedweb.com` — MANUAL de Carlos; sin MX verificado el
    correo no se imprime y el formulario sigue en estado honesto (no envía y lo dice).
-7. Confirmación de clase de UdV y Nanntu (ver Primer encargo, punto 4).
+7. ~~Confirmación de clase de UdV y Nanntu~~ **RESUELTA 2026-08-15**: UdV encargo real,
+   Nanntu borrador regalado (etiquetas definitivas aplicadas).

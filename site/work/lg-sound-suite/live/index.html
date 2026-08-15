@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>LG Sound Suite — Interactive Demonstration · Reasoned Web</title>
+<meta name="description" content="An independent interactive demonstration developed with Next Latam for presentation to LG Electronics Canada — not an official LG property. Spatial audio you can hear move around the room; best with headphones." />
+<link rel="icon" type="image/svg+xml" href="../../../favicon.svg" />
+<link rel="icon" href="../../../favicon.ico" sizes="16x16 32x32 48x48" />
+<link rel="preload" href="./assets/Onest-Variable-CUIqqgP9.woff2" as="font" type="font/woff2" crossorigin />
+
+<!-- Shell adapted for mounting at reasonedweb.com/work/lg-sound-suite/live/.
+     Share preview uses the case study's own composition, never LG-only branding. -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Reasoned Web" />
+<meta property="og:title" content="LG Sound Suite — Interactive Demonstration · Reasoned Web" />
+<meta property="og:description" content="An independent interactive demonstration developed with Next Latam for presentation to LG Electronics Canada — not an official LG property. Spatial audio you can hear move around the room; best with headphones." />
+<meta property="og:image" content="../og.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="LG Sound Suite — Interactive Demonstration · Reasoned Web" />
+<meta name="twitter:description" content="An independent interactive demonstration — hear the room re-balance around you. Best with headphones." />
+<!--
+  Embed shell. The whole experience lives inside #app, a fixed-aspect stage that
+  does NOT depend on page scroll, so it can be dropped into an LG.com iframe.
+  Fonts load in src/styles/tokens.css — self-hosted Onest (variable font, public/fonts/),
+  no external font requests (LG CSP requirement).
+-->
+  <script type="module" crossorigin src="./assets/index-BbpQ_Dlm.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-Cs2MxfK_.css">
+</head>
+<body>
+  <!-- Single mount point. Everything is rendered here by src/main.js.
+       (No aria-live here — it would make a screen reader announce every chapter's
+       entire content on each swap; captions use their own scoped live regions.) -->
+  <div id="app" data-chapter="start"></div>
+</body>
+</html>

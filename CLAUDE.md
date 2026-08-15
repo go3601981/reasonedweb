@@ -239,11 +239,20 @@ leen como senior. La curaduría es parte del trabajo de diseño.
 
 ## Primer encargo de la siguiente sesión
 
-1. **Verificar el push**: `git status -sb`. Al 2026-08-14 el token de GitHub expiró y hay
-   commits EN COLA local (la sesión no puede re-autenticar: `GCM_INTERACTIVE=never git push`
-   → «Cannot prompt»). Si sigue atrás, pedir a Carlos UN `git push` desde su terminal.
-   ⚠️ Un push que cuelga >1 min sin imprimir ni la puerta de arrastre ES esto, no la red.
-2. Tras el push: **Vercel con raíz `site/`** (repo propio, jamás compartido con CRM Web).
+1. ~~Verificar el push~~ **RESUELTO 2026-08-15**: Carlos re-autenticó GCM desde su terminal
+   y empujó la cola (5 commits + e77bb19). ⚠️ Vigente: las sesiones Claude LEEN de GitHub
+   con el token guardado pero el PUSH sigue pidiendo prompt interactivo («Cannot prompt») —
+   los pushes se siguen encolando para Carlos (`$env:ARRASTRE_OK="1"; git push`, la puerta
+   de arrastre nombra los commits claude:* y la adopción es deliberada).
+2. ~~Vercel~~ **EN PIE 2026-08-15**: proyecto `reasonedweb` (equipo ReasonedWeb, Hobby) ya
+   existía conectado al repo — se corrigió **Root Directory a `site`** (deployaba la RAÍZ
+   del repo: CLAUDE.md, brand/ y tools/ estuvieron públicos en reasonedweb.vercel.app;
+   deployments viejos BORRADOS por Carlos). `site/vercel.json` mínimo con
+   `trailingSlash: true` (las rutas relativas del embed rompen sin barra final).
+   Verificado en vivo (33/33): rutas, 404 propio, redirect 308, 18 assets del embed,
+   fuga cerrada (CLAUDE.md/brand/tools → 404). **PENDIENTE: DNS** — reasonedweb.com
+   apunta al parking del registrador y www no existe; falta apuntar A/CNAME a Vercel y
+   fijar www como primario.
 3. ~~Montar el embed LG~~ **HECHO 2026-08-15** (`7ee32c4`): build en
    `site/work/lg-sound-suite/live/` (shell re-enmarcado a Reasoned Web: title/og propios,
    favicon del sitio — fuera `iso.svg`, que era el monograma LG, y el og-image de nextlatam);

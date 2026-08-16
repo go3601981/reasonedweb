@@ -244,9 +244,16 @@ leen como senior. La curaduría es parte del trabajo de diseño.
   404, y **cinco casos**: LG (placeholder por orden de Carlos: gate = bloque de disclaimer
   Variante B, sin embed), UdV, Smoothies, Woods & Co y Nanntu — los cuatro tier 1 con su
   razonamiento escrito completo y anotado.
-- **Herramientas propias mínimas**: `tools/capture.py` (capturas CDP con limpieza verificada
-  — solo cruzan píxeles, sin banners de otras marcas) y `tools/inline_brand.py` (másters
-  inline idempotentes). Flujo al cambiar la marca: `brand/derive.py` → `tools/inline_brand.py`.
+- **Herramientas propias mínimas**: `tools/capture.py` (capturas CDP con limpieza verificada),
+  `tools/inline_brand.py` (másters inline idempotentes), `tools/exhibir.py` (exhibits vivos
+  sanitizados, puerta de residuo cero), `tools/record.py` (walkthroughs en video, en reserva)
+  y `tools/auditar.py` (desborde 320/768/1440 + contraste AA contra el fondo pintado + básicos
+  a11y, con denominador publicado). Flujo de marca: `brand/derive.py` → `tools/inline_brand.py`.
+- **Calidad medida (2026-08-16)**: 7 páginas × 3 anchos = 272 elementos de texto, cero
+  violaciones AA, cero desbordes, cero flags a11y; Lighthouse local desktop 100/100/100/100,
+  móvil 90/100/100/100 (el resto del LCP es el server de prueba mono-hilo — re-medir contra
+  producción). Lección: el párrafo tesis (LCP) usaba Switzer-Medium 500, el único peso en uso
+  SIN preload. Las tarjetas llevan srcset 720w/1440w.
 - **Revisión adversarial sin contexto ya pasada** (veredicto inicial «maybe, leaning no»;
   su defecto #1 —diferenciador sin pagar— quedó resuelto con los casos escritos).
 - Etiquetas CONFIRMADAS por Carlos (2026-08-15): UdV fue encargo real — «Client engagement —

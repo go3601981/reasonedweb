@@ -304,7 +304,13 @@ leen como senior. La curaduría es parte del trabajo de diseño.
    `site/range/` en este ORDEN suyo: oyster-house, gym, auto-body, hvac, jewelry, law-firm,
    med-spa, parfum, tree-care (retiró animal-hospital, coffee y dental). Los ~20 demos EN
    restantes se regeneran con `tools/exhibir.py` en minutos si entran. Etiqueta clase (c) al
-   pie de cada exhibit + nota [4] de la sección. **El corpus tier 3 sigue pendiente.**
+   pie de cada exhibit + nota [4] de la sección. **El corpus tier 3 está EN PIE (2026-08-16,
+   orden de Carlos)**: caso `site/work/one-system/` — «One system, forty-six verticals» —
+   con el MURO de 46 héroes (capturas limpias verificadas: --remove .foot__made/.pie__made/
+   a[href*=tuweb] con mínimo por pieza; criolla y ebg-patrimonio declaradas sin nada visible
+   que quitar), 4 secciones anotadas (honestidad de negocios inventados, método de captura,
+   qué varía/qué no, español como rasgo), y banda card--wide al cierre de la sección Range
+   con collage 4×2. Jamás tiles individuales: el muro no enlaza pieza por pieza.
 5. **El deck UdV es el CATÁLOGO 2026 (33 láminas)** — la fuente NO existe localmente: Carlos
    lo subió a eureka.pe/UDV/ y de ahí se hizo mirror (html + css + js + 118 assets + fuentes
    Assistant), sanitizado con exhibir.py (eureka.pe está en la lista de prohibidos) y con los

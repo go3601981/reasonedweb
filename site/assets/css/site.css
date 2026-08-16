@@ -151,6 +151,10 @@ iframe.exhibit { display: block; width: 100%; aspect-ratio: 16 / 10; border: 1px
 .receipts { margin-top: 2.2rem; padding-top: 1.2rem; border-top: 1px solid var(--line); font-size: 0.95rem; max-width: 58ch; }
 .receipts strong { font-weight: 700; }
 
+/* el muro del corpus: 46 héroes, la repetición es el argumento */
+.mosaico { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 0.45rem; margin-top: 2rem; }
+.mosaico img { display: block; width: 100%; height: auto; border: 1px solid var(--line); background: var(--ink); }
+
 /* ── Usabilidad ─────────────────────────────────────────────────── */
 @media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
 section[id] { scroll-margin-top: 1.5rem; }

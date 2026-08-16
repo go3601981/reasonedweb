@@ -139,6 +139,18 @@ iframe.exhibit { display: block; width: 100%; aspect-ratio: 16 / 10; border: 1px
   .card--wide { display: grid; grid-template-columns: 1.15fr 1fr; gap: 0 2rem; align-items: center; }
   .card--wide h3 { margin-top: 0; }
 }
+/* el principal: la persona detrás del estudio, en tinta y papel */
+.persona { display: grid; gap: 1.8rem; margin-top: 2rem; }
+@media (min-width: 46rem) { .persona { grid-template-columns: 320px minmax(0, 1fr); gap: 2.5rem; align-items: start; } }
+.persona-foto { max-width: 320px; }
+.persona-foto img { display: block; width: 100%; height: auto; border: 1px solid var(--line); filter: grayscale(1) contrast(1.02); }
+.persona-foto .crumb { display: block; margin-top: 0.6rem; }
+.persona-texto p { max-width: 58ch; }
+.persona-texto p + p { margin-top: 1rem; }
+/* los recibos: el sitio medido contra su propio estándar */
+.receipts { margin-top: 2.2rem; padding-top: 1.2rem; border-top: 1px solid var(--line); font-size: 0.95rem; max-width: 58ch; }
+.receipts strong { font-weight: 700; }
+
 /* ── Usabilidad ─────────────────────────────────────────────────── */
 @media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
 section[id] { scroll-margin-top: 1.5rem; }

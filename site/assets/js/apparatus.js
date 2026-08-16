@@ -39,6 +39,32 @@
     }
   }
 
+  /* Walkthroughs: reproducen solo en viewport y solo sin reduced-motion —
+     con reduced-motion el video queda en su póster y los controles nativos
+     siguen ahí para quien decida verlo. */
+  var walks = document.querySelectorAll("video.walk");
+  if (
+    walks.length &&
+    !window.matchMedia("(prefers-reduced-motion: reduce)").matches &&
+    "IntersectionObserver" in window
+  ) {
+    var io = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (en) {
+          if (en.isIntersecting) {
+            en.target.play().catch(function () {});
+          } else {
+            en.target.pause();
+          }
+        });
+      },
+      { threshold: 0.25 }
+    );
+    walks.forEach(function (v) {
+      io.observe(v);
+    });
+  }
+
   /* Formulario: estado honesto mientras el buzón del estudio se aprovisiona.
      Nada se envía y se dice que nada se envió. */
   var form = document.querySelector("form[data-interim]");

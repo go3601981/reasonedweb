@@ -56,6 +56,52 @@
     });
   }
 
+  /* progressive image loading — slides 3+ ship their <img> as data-src (index.html);
+     the slide being shown is hydrated synchronously on arrival, then the rest stream
+     in nearest-first order with a forward bias (2 ahead, 1 behind), one slide at a
+     time, so bandwidth goes where the presenter is heading instead of 130 images
+     racing at once. Deep links (#N) hydrate N first. */
+  var hydrated = [];
+  var pumping = false;
+  function hydrate(i) {
+    if (i < 0 || i >= total || hydrated[i]) return [];
+    hydrated[i] = true;
+    var imgs = Array.prototype.slice.call(slides[i].querySelectorAll("img[data-src]"));
+    imgs.forEach(function (img) {
+      img.decoding = "async";
+      img.src = img.getAttribute("data-src");
+      img.removeAttribute("data-src");
+    });
+    return imgs;
+  }
+  function nextToHydrate() {
+    var f = cur + 1, b = cur - 1, step = 0;
+    while (f < total || b >= 0) {
+      if (step % 3 === 2) { if (b >= 0 && !hydrated[b]) return b; b--; }
+      else { if (f < total && !hydrated[f]) return f; f++; }
+      step++;
+    }
+    return -1;
+  }
+  function whenLoaded(imgs, cb) {
+    var left = imgs.length, done = false;
+    function one() { if (!done && --left <= 0) { done = true; cb(); } }
+    if (!left) { cb(); return; }
+    imgs.forEach(function (img) {
+      if (img.complete) { one(); return; }
+      img.addEventListener("load", one, { once: true });
+      img.addEventListener("error", one, { once: true });
+    });
+    setTimeout(function () { if (!done) { done = true; cb(); } }, 8000); /* never let a stall block the queue */
+  }
+  function pump() {
+    if (pumping) return;
+    var i = nextToHydrate();
+    if (i < 0) return;
+    pumping = true;
+    whenLoaded(hydrate(i), function () { pumping = false; pump(); });
+  }
+
   /* per-slide <video> support: play while active, pause when leaving */
   function manageVideos(oldSlide, newSlide) {
     if (oldSlide) {
@@ -75,10 +121,12 @@
     if (n === cur) return;
     var prev = cur >= 0 ? slides[cur] : null;
     if (prev) prev.classList.remove("active");
+    hydrate(n); /* target slide's images first, before it becomes visible */
     manageVideos(prev, slides[n]);
     cur = n;
     var s = slides[cur];
     s.classList.add("active");
+    pump(); /* then keep streaming neighbours from the new position */
     s.scrollTop = 0;
 
     runCounters(s);
@@ -212,5 +260,5 @@
   var h = /^#(\d+)$/.exec(location.hash);
   if (q) start = parseInt(q[1], 10) - 1;
   else if (h) start = parseInt(h[1], 10) - 1;
-  go(isNaN(start) ? 0 : start);
+  go(isNaN(start) ? 0 : start); /* goCore hydrates the start slide and starts the pump */
 })();

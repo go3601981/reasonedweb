@@ -311,12 +311,14 @@ leen como senior. La curaduría es parte del trabajo de diseño.
    que quitar), 4 secciones anotadas (honestidad de negocios inventados, método de captura,
    qué varía/qué no, español como rasgo), y banda card--wide al cierre de la sección Range
    con collage 4×2. Jamás tiles individuales: el muro no enlaza pieza por pieza.
-5. **El deck UdV es el CATÁLOGO 2026 (33 láminas)** — la fuente NO existe localmente: Carlos
-   lo subió a eureka.pe/UDV/ y de ahí se hizo mirror (html + css + js + 118 assets + fuentes
-   Assistant), sanitizado con exhibir.py (eureka.pe está en la lista de prohibidos) y con los
-   pesados recomprimidos 70→23 MB. **El exhibit en `site/work/ulric-de-varens/deck/` es la
-   única copia local** — si eureka cae, esto es el respaldo. Tiene TARJETA PROPIA a lo ancho
-   en la home (orden de Carlos: separada del storefront). El deck de 16 láminas quedó retirado.
+5. **El deck UdV es el CATÁLOGO 2026 (33 láminas)** — **fuente canónica LOCAL:
+   `Desktop/Claude/UDV-deck/`** (corrección: el primer mirror se hizo de eureka.pe/UDV/
+   creyendo que no había fuente local; la carpeta existía y no se vio). El 2026-08-16 Carlos
+   optimizó las imágenes ahí y el exhibit se REGENERÓ de esa fuente: solo los 120 assets
+   referenciados (12.3 MB, antes 23), sanitizado con exhibir.py (residuo 0/11; css/js
+   escaneados aparte). Al cambiar el deck: regenerar de UDV-deck, jamás editar el exhibit.
+   Tiene TARJETA PROPIA a lo ancho en la home (separada del storefront, orden de Carlos).
+   El deck de 16 láminas quedó retirado.
 6. ⛔ **POLÍTICA DE PESTAÑAS (orden Carlos 2026-08-16): salir de una página del sitio abre
    pestaña nueva** — todo enlace a exhibit (live/, piece/, deck/, range/*) y todo enlace
    externo lleva `target="_blank" rel="noopener"`. La navegación interna (casos, migas,

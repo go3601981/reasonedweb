@@ -123,7 +123,10 @@ La identidad no ilustra el razonamiento — lo EJECUTA.
      achica pidiendo el visto bueno por escrito EN PARALELO — el correo sale vía Next Latam
      después de lanzar, no bloquea nada.
    - ⛔ La ruta de LG **no va en `robots.txt`** por ningún motivo (una línea disallow es un
-     anuncio). Indexable normal, como cualquier página pública.
+     anuncio). **Actualización 2026-08-15 (orden de Carlos): el SITIO ENTERO es noindex** —
+     `X-Robots-Tag: noindex, nofollow` global en `site/vercel.json`, sin sitemap, y
+     robots.txt SIN disallow (rastreable para que el noindex se vea; un disallow impediría
+     des-indexar). La regla de no-anuncio se mantiene: nada señala la ruta LG en particular.
 5. ⛔ **NADA DE DOCUMENTOS INTERNOS EN CRUDO** (correos con nombres, propuestas con cifras).
 6. **El sitio es el verdadero caso de estudio.** AA medido, 320 px, sin bloat de framework.
    El caso LG se estructura de punta a punta: producto físico → research → concepto → idea →

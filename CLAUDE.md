@@ -17,7 +17,8 @@ mantiene (sigue vetado «Hire me» / «Open to work»).
 
 ⛔ **No se pide trabajo explícitamente.** Postura de **estudio de un solo integrante**, no de
 candidato: las agencias subcontratan a estudios, no contratan freelancers desde un portafolio.
-CTA: *"Check availability"* / *"Start a project"*. Jamás *"Hire me"* ni *"Open to work"*.
+CTA canónico: *"Check availability"* (el antiguo *"Start a project"* se retiró — sonaba a
+proyecto suelto). Jamás *"Hire me"* ni *"Open to work"*.
 
 ⭐ **El diferenciador es el dominio:** cada pieza viaja con su **razonamiento escrito**. La frase
 de Carlos que define el estándar: *«no hacemos un solo cambio sin una explicación objetiva — un
@@ -54,7 +55,7 @@ Y una copia se vuelve un fork que se pudre.
 
 | | |
 |---|---|
-| **Precios** | Ni el canon Perú (S/500 · S/50 · S/20) ni el de WeMadeYourSite ($995 · $96 · $29). Aquí se vende **tiempo y criterio** en retainer; los números de ReasonedWeb no existen todavía. El piso que Carlos nombró ($90k/año) fue ANTES de que LG entrara al mapa — el sitio no debe insinuar cifra alguna |
+| **Precios** | Ni el canon Perú (S/500 · S/50 · S/20) ni el de WeMadeYourSite ($995 · $96 · $29). Aquí se vende **dedicación exclusiva** (one partner at a time); los números de ReasonedWeb no existen todavía. El piso que Carlos nombró ($90k/año) fue ANTES de que LG entrara al mapa — el sitio no debe insinuar cifra alguna |
 | **Voz y marca** | "Mejora continua", `wa.me`, el guion de WhatsApp, el deslinde de Google, las marcas WMYS y TuWeb.pe |
 | **Aparato de QA** | `verificar.mjs`, `gate-*.mjs`, ledgers ajenos. Si hace falta un check, se escribe uno nuevo y mínimo |
 | **Infra** | Supabase, CRM, motor V3, crons, migraciones |
@@ -238,93 +239,59 @@ leen como senior. La curaduría es parte del trabajo de diseño.
 4. **Recién entonces** outreach a Shopify Partners y Klaviyo Partners. ⛔ Ni un solo correo a
    ese segmento antes de que el set exista — cada prospecto abre una sola vez.
 
-## ✅ Estado al 2026-08-14 — lo que EXISTE (dos rondas completas)
+## ✅ Estado al 2026-08-16 — EL SITIO ESTÁ EN VIVO Y COMPLETO
 
-- **Identidad computada y commiteada**: `brand/` (derive.py, derivation.json, tres másters
-  SVG, spec.html con re-derivación en vivo PASS/FAIL), favicons en rejilla entera, fuentes
-  400–700 autoalojadas con licencia. Wireframes en `wireframes/`.
-- **Sitio en pie bajo `site/`** (la raíz del deploy — lo interno JAMÁS viaja): home de un
-  scroll con aparato de notas funcionando, folios 01–04, og propio renderizado del máster,
-  404, y **cinco casos**: LG (placeholder por orden de Carlos: gate = bloque de disclaimer
-  Variante B, sin embed), UdV, Smoothies, Woods & Co y Nanntu — los cuatro tier 1 con su
-  razonamiento escrito completo y anotado.
-- **Herramientas propias mínimas**: `tools/capture.py` (capturas CDP con limpieza verificada),
-  `tools/inline_brand.py` (másters inline idempotentes), `tools/exhibir.py` (exhibits vivos
-  sanitizados, puerta de residuo cero), `tools/record.py` (walkthroughs en video, en reserva)
-  y `tools/auditar.py` (desborde 320/768/1440 + contraste AA contra el fondo pintado + básicos
-  a11y, con denominador publicado). Flujo de marca: `brand/derive.py` → `tools/inline_brand.py`.
-- **Calidad medida (2026-08-16)**: 7 páginas × 3 anchos = 272 elementos de texto, cero
-  violaciones AA, cero desbordes, cero flags a11y; Lighthouse local desktop 100/100/100/100,
-  móvil 90/100/100/100 (el resto del LCP es el server de prueba mono-hilo — re-medir contra
-  producción). Lección: el párrafo tesis (LCP) usaba Switzer-Medium 500, el único peso en uso
-  SIN preload. Las tarjetas llevan srcset 720w/1440w.
-- **Revisión adversarial sin contexto ya pasada** (veredicto inicial «maybe, leaning no»;
-  su defecto #1 —diferenciador sin pagar— quedó resuelto con los casos escritos).
-- Etiquetas CONFIRMADAS por Carlos (2026-08-15): UdV fue encargo real — «Client engagement —
-  Ulric de Varens USA» queda definitiva. Nanntu fue borrador REGALADO, no encargo — etiqueta
-  definitiva «Design draft — gifted to Patricia Deza, not commissioned» (aplicada en su caso
-  y en la tarjeta de la home; cierra la ambigüedad de "prepared for", que dejaba abierta la
-  pregunta de si hubo comisión — regla 1).
+**www.reasonedweb.com en producción** (Vercel, proyecto `reasonedweb`, raíz `site/`, DNS ok,
+apex 308→www, **noindex total deliberado** — X-Robots-Tag; el único descuento SEO de
+Lighthouse es ese y es intencional). Los CUATRO tiers de la carta están en pie:
 
-## Primer encargo de la siguiente sesión
+- **Tier 0**: caso LG con el embed VIVO tras su gate (`live/`; chunks parchados `-p1` — los
+  PiP CAM 1-4 renderizaban frame por medio; el fix de fondo sigue PENDIENTE en el fuente de
+  LG-Demo, mismo toggle d5).
+- **Tier 1**: UdV, Smoothies, Woods & Co y Nanntu — casos anotados + **exhibits vivos
+  sanitizados** en iframes (`piece/`), generados SOLO con `tools/exhibir.py`.
+- **Catálogo UdV 2026** (33 láminas): exhibit en `work/ulric-de-varens/deck/`, fuente
+  canónica `Desktop/Claude/UDV-deck/` — se REGENERA, jamás se edita. Tarjeta propia en home.
+- **Tier 2**: 9 exhibits en `site/range/` (orden de Carlos: oyster-house, gym, auto-body,
+  hvac, jewelry, law-firm, med-spa, parfum, tree-care).
+- **Tier 3**: corpus `work/one-system/` — muro de 46 capturas limpias, jamás tiles enlazados.
+- **Home completa**: hero con derivación · LG · redesigns + catálogo · Range + banda corpus ·
+  How I work («One partner at a time» + recibos medidos [6]) · **The principal** (retrato
+  monocromo de `CRM Web/cv_photos/`, bio del CV maestro en `AI Job Search/` — SIN mencionar
+  AI, regla 7) · Contact («Check availability», hello@ impreso con MX verificado, formulario
+  = compositor mailto sin backend). Sello de notas (marca B) cierra home y casos.
+- **Calidad medida en vivo**: Lighthouse desktop 100/100/100, móvil 97/100/100, CLS 0;
+  auditoría propia 272 elementos × 3 anchos, cero violaciones AA, cero desbordes.
+- Identidad computada en `brand/`; herramientas en `tools/` (capture, inline_brand, exhibir,
+  record en reserva, auditar). Etiquetas confirmadas: UdV encargo real; Nanntu regalado.
 
-1. ~~Verificar el push~~ **RESUELTO 2026-08-15**: Carlos re-autenticó GCM desde su terminal
-   y empujó la cola (5 commits + e77bb19). ⚠️ Vigente: las sesiones Claude LEEN de GitHub
-   con el token guardado pero el PUSH sigue pidiendo prompt interactivo («Cannot prompt») —
-   los pushes se siguen encolando para Carlos (`$env:ARRASTRE_OK="1"; git push`, la puerta
-   de arrastre nombra los commits claude:* y la adopción es deliberada).
-2. ~~Vercel~~ **EN PIE 2026-08-15**: proyecto `reasonedweb` (equipo ReasonedWeb, Hobby) ya
-   existía conectado al repo — se corrigió **Root Directory a `site`** (deployaba la RAÍZ
-   del repo: CLAUDE.md, brand/ y tools/ estuvieron públicos en reasonedweb.vercel.app;
-   deployments viejos BORRADOS por Carlos). `site/vercel.json` mínimo con
-   `trailingSlash: true` (las rutas relativas del embed rompen sin barra final).
-   Verificado en vivo (33/33): rutas, 404 propio, redirect 308, 18 assets del embed,
-   fuga cerrada (CLAUDE.md/brand/tools → 404). **PENDIENTE: DNS** — reasonedweb.com
-   apunta al parking del registrador y www no existe; falta apuntar A/CNAME a Vercel y
-   fijar www como primario.
-3. ~~Montar el embed LG~~ **HECHO 2026-08-15** (`7ee32c4`): build en
-   `site/work/lg-sound-suite/live/` (shell re-enmarcado a Reasoned Web: title/og propios,
-   favicon del sitio — fuera `iso.svg`, que era el monograma LG, y el og-image de nextlatam);
-   gate restaurado con línea de peso/auriculares y botón «Enter the demonstration» → `live/`.
-   Verificado local: CDP renderiza start screen, 18 assets perezosos HEAD 200, log sin 404.
-4. ~~Confirmaciones de una palabra~~ **RESUELTAS 2026-08-15**: UdV encargo real (etiqueta se
-   mantiene); Nanntu borrador regalado (etiqueta definitiva aplicada, ver § Estado).
-5. Lecciones de instrumento — no re-aprender: screenshots móviles con `--window-size`
-   MIENTEN (mínimo de ventana ~400px) — usar `tools/capture.py` (métricas reales de
-   dispositivo); hooks sh con CRLF no spawnean (`.gitattributes` ya fija LF); mensajes de
-   commit SIEMPRE con `-F archivo` y `--only -- rutas`.
+## Reglas de operación vigentes (no re-aprender)
 
-## Decisiones abiertas (esperan a Carlos)
+1. **Push**: las sesiones COMMITEAN (`-F archivo` + `--only -- rutas`); el push es de Carlos:
+   `$env:ARRASTRE_OK="1"; git push` (la puerta de arrastre nombra los commits claude:* —
+   adopción deliberada). El push no-interactivo de las sesiones sigue fallando («Cannot
+   prompt»); el fetch sí funciona. Vercel auto-deploya cada push en <1 min.
+2. ⛔ **Posicionamiento (regla dura de Carlos)**: JAMÁS pintarlo trabajando para varias
+   agencias a la vez; «retainer» vetado; la exclusividad se dice «One partner at a time» o
+   no se dice. Sigue vetado «Hire me» / «Open to work». CTA canónico: «Check availability».
+3. ⛔ **Pestañas**: enlaces a exhibits (live/, piece/, deck/, range/*) y externos SIEMPRE
+   `target="_blank" rel="noopener"`; navegación interna en la misma pestaña.
+4. **Exhibits**: solo vía `tools/exhibir.py` (puerta de residuo cero, 11 patrones, etiqueta
+   honesta al pie). Si la fuente cambia, se regenera; el exhibit no se toca a mano. El cache
+   del embed LG es immutable: cambiar un chunk = renombrarlo y actualizar sus referencias
+   cruzadas (import graph completo).
+5. **Instrumento**: capturas móviles con `--window-size` MIENTEN — usar `tools/capture.py`;
+   auditar con `tools/auditar.py` (publica denominador, falla en cero); tras cambios de
+   pantalla, re-correr auditoría; hooks sh con CRLF no spawnean (.gitattributes fija LF).
+   Y la lección del 15: ante un reporte visual del usuario, sus capturas valen más que un
+   burst lento en headless — el instrumento se sospecha primero.
 
-1. ~~¿LG público o solo por enlace?~~ **RESUELTA 2026-08-13: público con disclaimer**.
-   ~~¿Variante A o B?~~ **RESUELTA 2026-08-14: Variante B por el papel** (§ Kit LG).
-2. ~~¿UdV commerce antes de lanzar?~~ **RESUELTA 2026-08-13: opción C — desacoplado**.
-3. ~~¿Entran las demos de Perú?~~ **RESUELTA 2026-08-13: como CORPUS** — jamás tiles.
-4. Curaduría tier 2: **galería EN PIE, PODADA POR CARLOS (2026-08-16)** — 9 exhibits vivos en
-   `site/range/` en este ORDEN suyo: oyster-house, gym, auto-body, hvac, jewelry, law-firm,
-   med-spa, parfum, tree-care (retiró animal-hospital, coffee y dental). Los ~20 demos EN
-   restantes se regeneran con `tools/exhibir.py` en minutos si entran. Etiqueta clase (c) al
-   pie de cada exhibit + nota [4] de la sección. **El corpus tier 3 está EN PIE (2026-08-16,
-   orden de Carlos)**: caso `site/work/one-system/` — «One system, forty-six verticals» —
-   con el MURO de 46 héroes (capturas limpias verificadas: --remove .foot__made/.pie__made/
-   a[href*=tuweb] con mínimo por pieza; criolla y ebg-patrimonio declaradas sin nada visible
-   que quitar), 4 secciones anotadas (honestidad de negocios inventados, método de captura,
-   qué varía/qué no, español como rasgo), y banda card--wide al cierre de la sección Range
-   con collage 4×2. Jamás tiles individuales: el muro no enlaza pieza por pieza.
-5. **El deck UdV es el CATÁLOGO 2026 (33 láminas)** — **fuente canónica LOCAL:
-   `Desktop/Claude/UDV-deck/`** (corrección: el primer mirror se hizo de eureka.pe/UDV/
-   creyendo que no había fuente local; la carpeta existía y no se vio). El 2026-08-16 Carlos
-   optimizó las imágenes ahí y el exhibit se REGENERÓ de esa fuente: solo los 120 assets
-   referenciados (12.3 MB, antes 23), sanitizado con exhibir.py (residuo 0/11; css/js
-   escaneados aparte). Al cambiar el deck: regenerar de UDV-deck, jamás editar el exhibit.
-   Tiene TARJETA PROPIA a lo ancho en la home (separada del storefront, orden de Carlos).
-   El deck de 16 láminas quedó retirado.
-6. ⛔ **POLÍTICA DE PESTAÑAS (orden Carlos 2026-08-16): salir de una página del sitio abre
-   pestaña nueva** — todo enlace a exhibit (live/, piece/, deck/, range/*) y todo enlace
-   externo lleva `target="_blank" rel="noopener"`. La navegación interna (casos, migas,
-   anclas) queda en la misma pestaña.
-5. Upgrade a fuente licenciada — después, si el sitio lo gana.
-6. ~~Google Workspace para `hello@reasonedweb.com`~~ **RESUELTA 2026-08-16**: Carlos lo creó,
-   MX verificado, correo impreso, formulario convertido a compositor mailto (§ Arquitectura).
-7. ~~Confirmación de clase de UdV y Nanntu~~ **RESUELTA 2026-08-15**: UdV encargo real,
-   Nanntu borrador regalado (etiquetas definitivas aplicadas).
+## Pendientes (cortos)
+
+1. **LinkedIn**: ESPERA — perfil desactualizado, no enlazar hasta que Carlos lo renueve.
+2. **Cita de Next Latam** (testimonio): pedir permiso ESCRITO antes de publicar nada.
+3. **Fix upstream del PiP LG** en el fuente de LG-Demo (proyecto aparte; una línea, toggle d5).
+4. **OG por caso** (cada unfurl con su propia pieza en vez del wordmark genérico) — mejora.
+5. Fuente licenciada (Söhne / ABC Diatype) — después, si el sitio lo gana.
+6. **Outreach**: movimiento de Carlos. Secuencia de la carta: primero agencias; el set de
+   commerce UdV antes de tocar Shopify/Klaviyo Partners.

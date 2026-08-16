@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Sin raya larga tampoco aqui: se ve en la pestana, en el resultado de busqueda y en la
+     tarjeta que se comparte, o sea en tres sitios mas visibles que media pagina. -->
+<title>Smoothies, wrinkle patches. A redesign concept</title>
+<meta name="theme-color" content="#FFEEF8">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+<meta name="referrer" content="no-referrer">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Smoothies (unofficial concept)">
+<meta property="og:title" content="Smoothies, embrace the smooth life">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%23FFEEF8'/%3E%3Cpath d='M8 21c3.5-8 12.5-8 16 0' stroke='%23E8578B' stroke-width='3.4' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
+
+<link rel="preload" href="fonts/gabarito-normal-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/instrument-sans-normal-400.woff2" as="font" type="font/woff2" crossorigin>
+<script>document.documentElement.className += ' js';</script>
+<style>
+
+
+@font-face{font-family:"Gabarito";font-style:normal;font-weight:700;font-display:swap;src:url(fonts/gabarito-normal-700.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:"Instrument Sans";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/instrument-sans-normal-400.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:"Instrument Sans";font-style:normal;font-weight:500;font-display:swap;src:url(fonts/instrument-sans-normal-500.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:"Instrument Sans";font-style:normal;font-weight:600;font-display:swap;src:url(fonts/instrument-sans-normal-600.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:"DM Mono";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/dm-mono-normal-400.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+
+:root{
+  /* el sustrato: el rosa del logotipo a peso de papel */
+  --papel:#FFEEF8;
+  --sticker:#FFFFFF;        /* la pegatina blanca sobre la que va el logotipo en cada estuche */
+  --tinta:#241C22;          /* 14.90:1 sobre el papel */
+  --tinta-2:#6B5A63;
+
+  /* LOS CINCO DE LA MARCA, muestreados del logotipo y de los estuches */
+  --rosa:#F05A7F;   --rosa-t:#B23564;
+  --mocca:#F29D60;  --mocca-t:#8E5800;
+  --verde:#A5B686;  --verde-t:#5F6A07;
+  --azul:#B5C1D9;   --azul-t:#566293;
+  --lila:#B89DDB;   --lila-t:#725C83;
+
+  --disp:'Gabarito',ui-rounded,'Segoe UI',system-ui,sans-serif;
+  --sans:'Instrument Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --mono:'DM Mono',ui-monospace,'Cascadia Mono',Consolas,monospace;
+  --t:380ms; --e:cubic-bezier(.2,.75,.3,1);
+  --gut:clamp(1rem,.55rem + 2.2vw,2.6rem);
+  --max:1220px;
+}
+*,*::before,*::after{ box-sizing:border-box; margin:0; padding:0 }
+html{ -webkit-text-size-adjust:100%; scroll-behavior:smooth }
+@media (prefers-reduced-motion:reduce){ html{ scroll-behavior:auto } }
+body{ background:var(--papel); color:var(--tinta); font:400 17px/1.6 var(--sans);
+  overflow-x:hidden; -webkit-font-smoothing:antialiased }
+img{ max-width:100%; display:block; height:auto }
+a{ color:inherit }
+h1,h2,h3{ font-family:var(--disp); font-weight:700; line-height:1.05; letter-spacing:-.02em }
+::selection{ background:var(--rosa); color:var(--tinta) }
+:focus-visible{ outline:3px solid var(--rosa-t); outline-offset:3px; border-radius:3px }
+.sr-only{ position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap }
+.wrap{ width:min(var(--max),100% - var(--gut)*2); margin-inline:auto }
+.saltar{ position:absolute; left:-9999px; top:0; z-index:99; background:var(--tinta); color:#FFF;
+  padding:.9rem 1.2rem; font:600 .9rem/1 var(--sans) }
+.saltar:focus{ left:.5rem; top:.5rem }
+
+/* ── LA ROPA DEL BORRADOR ─────────────────────────────────────────────────────────────────── */
+.aviso{ background:var(--tinta); color:#FFF; font-size:.79rem; line-height:1.45 }
+.aviso-in{ display:flex; flex-wrap:wrap; gap:.4rem 1.1rem; align-items:center; padding:.6rem 0 }
+.aviso b{ font-weight:600 }
+.aviso .quitar{ margin-left:auto; display:inline-flex; align-items:center; gap:.35rem;
+  border:1px solid rgba(255,255,255,.5); border-radius:999px; padding:.35rem .8rem;
+  text-decoration:none; color:#FFF; min-height:24px; white-space:nowrap }
+.aviso .quitar:hover{ background:rgba(255,255,255,.16) }
+
+/* ── LA BARRA DE ENVIO, con las redes a un lado ────────────────────────────────────────────────
+   Es un elemento REAL de su sitio y no un adorno: ahi viven el envio gratis, el codigo de
+   bienvenida y sus tres redes. Se conserva tal cual porque es suyo. */
+.envio{ background:var(--rosa-t); color:#FFF; font-size:.82rem }
+.envio-in{ display:flex; align-items:center; gap:.6rem 1.4rem; min-height:38px; flex-wrap:wrap }
+.envio .redes{ display:flex; gap:.15rem; margin-right:auto }
+.envio .redes a{ display:inline-flex; align-items:center; justify-content:center; width:30px;
+  height:30px; border-radius:8px; transition:background var(--t) var(--e) }
+.envio .redes a:hover{ background:rgba(255,255,255,.2) }
+.envio .gratis{ font-weight:600; letter-spacing:.01em }
+.envio .codigo{ display:inline-flex; align-items:center; gap:.45rem; white-space:nowrap }
+.envio .codigo b{ font:400 .8rem/1 var(--mono); letter-spacing:.08em; border:1px dashed rgba(255,255,255,.75);
+  border-radius:6px; padding:.3rem .5rem }
+@media (max-width:700px){ .envio .gratis{ order:-1 } .envio-in{ justify-content:center; padding:.4rem 0 } .envio .redes{ margin-right:0 } }
+
+/* ── CABECERA ─────────────────────────────────────────────────────────────────────────────── */
+.top{ position:sticky; top:0; z-index:40; background:rgba(255,238,248,.93);
+  backdrop-filter:saturate(1.4) blur(10px); box-shadow:0 1px 0 rgba(36,28,34,.1) }
+.top-in{ display:flex; align-items:center; gap:.7rem; min-height:62px; padding-block:.45rem }
+/* EL LOGOTIPO DEL CLIENTE, en archivo y sin retocar. Es la mitad de la orden de Carlos. */
+.marca{ display:inline-flex; align-items:center; margin-right:auto; text-decoration:none }
+.marca img{ height:34px; width:auto }
+.nav{ display:flex; align-items:center; gap:.1rem }
+.nav a{ text-decoration:none; font-size:.93rem; font-weight:500; padding:.55rem .62rem; border-radius:8px;
+  min-height:24px; display:inline-flex; align-items:center; transition:background var(--t) var(--e) }
+.nav a:hover{ background:rgba(36,28,34,.07) }
+.util{ display:flex; align-items:center; gap:.15rem }
+.util a,.util button{ background:none; border:0; font:inherit; color:inherit; cursor:pointer;
+  display:inline-flex; align-items:center; gap:.35rem; padding:.5rem .55rem; border-radius:8px;
+  min-height:44px; font-size:.88rem; text-decoration:none; transition:background var(--t) var(--e) }
+.util a:hover,.util button:hover{ background:rgba(36,28,34,.07) }
+/* ⛔ EL CONTADOR VA SOBRE EL ICONO, NO SOBRE LA PALABRA. Anclado al `<a>` entero caia encima de
+   «Cart», y entonces la tinta oscura del rotulo quedaba pintada sobre el rosa de la chapita:
+   3.30:1. El fallo no era del color sino de la ANCLA, y a ojo se leia bien porque el solape era
+   de un par de pixeles. Se ancla al icono, que es lo que la chapita significa. */
+.carro-ico{ position:relative; display:inline-flex }
+.carrito .n{ position:absolute; top:-6px; right:-8px; min-width:16px; height:16px; padding:0 3px;
+  border-radius:999px; background:var(--rosa-t); color:#FFF; font:400 .62rem/16px var(--mono);
+  text-align:center }
+/* el selector de idioma: EN / Deutsch, como en su sitio */
+.idioma{ position:relative }
+.idioma>summary{ list-style:none; cursor:pointer; display:inline-flex; align-items:center; gap:.3rem;
+  padding:.5rem .55rem; border-radius:8px; min-height:44px; font-size:.88rem }
+.idioma>summary::-webkit-details-marker{ display:none }
+.idioma>summary:hover{ background:rgba(36,28,34,.07) }
+.idioma .lista{ position:absolute; right:0; top:calc(100% + .3rem); background:var(--sticker);
+  border:1px solid rgba(36,28,34,.14); border-radius:12px; padding:.3rem; min-width:132px;
+  box-shadow:0 16px 34px -18px rgba(36,28,34,.4); z-index:5 }
+.idioma .lista a{ display:block; padding:.5rem .6rem; border-radius:8px; text-decoration:none;
+  font-size:.9rem; min-height:24px }
+.idioma .lista a:hover{ background:var(--papel) }
+.idioma .lista a[aria-current]{ font-weight:600 }
+.idioma .lista a[aria-current]::after{ content:""; float:right; width:8px; height:8px; margin-top:6px;
+  border-radius:50%; background:var(--rosa-t) }
+.hamb{ display:none; background:none; border:0; color:inherit; padding:.5rem; cursor:pointer;
+  border-radius:8px; min-width:44px; min-height:44px; align-items:center; justify-content:center }
+.hamb:hover{ background:rgba(36,28,34,.07) }
+@media (max-width:1000px){
+  .hamb{ display:inline-flex; order:3 }
+  .nav{ position:absolute; inset:100% 0 auto 0; flex-direction:column; align-items:stretch; gap:.1rem;
+    background:var(--papel); padding:.6rem var(--gut) 1rem; box-shadow:0 18px 30px rgba(36,28,34,.16);
+    display:none }
+  .nav[data-open="1"]{ display:flex }
+  .nav a{ padding:.8rem .6rem; font-size:1.02rem }
+  .util .rotulo{ display:none }
+}
+
+/* ── BOTONES ──────────────────────────────────────────────────────────────────────────────── */
+.btn{ display:inline-flex; align-items:center; justify-content:center; gap:.5rem;
+  font:600 .97rem/1 var(--sans); text-decoration:none; padding:.85rem 1.4rem; border-radius:999px;
+  border:2px solid transparent; cursor:pointer; min-height:44px; color:var(--tinta);
+  transition:transform var(--t) var(--e), box-shadow var(--t) var(--e), background var(--t) var(--e) }
+.btn-rosa{ background:var(--rosa); box-shadow:0 5px 0 -1px var(--rosa-t) }
+.btn-rosa:hover{ transform:translateY(-2px); box-shadow:0 8px 0 -1px var(--rosa-t) }
+.btn-rosa:active{ transform:translateY(1px); box-shadow:0 3px 0 -1px var(--rosa-t) }
+.btn-linea{ background:transparent; border-color:rgba(36,28,34,.28) }
+.btn-linea:hover{ background:rgba(36,28,34,.06) }
+.btn-banda{ background:var(--b); box-shadow:0 5px 0 -1px var(--bt) }
+.btn-banda:hover{ transform:translateY(-2px); box-shadow:0 8px 0 -1px var(--bt) }
+
+/* ── HERO ──────────────────────────────────────────────────────────────────────────────────────
+   El reparto: la foto ocupa su propia columna y los CINCO ESTUCHES REALES van desplegados en
+   abanico sobre ella, como en su hero original. Los estuches no se generan: son sus archivos, con
+   su logotipo impreso, a resolucion nativa y con alfa. Un wordmark redibujado por un modelo sale
+   ilegible y, peor, deja de ser suyo.
+   ⛔ El CTA tiene que caer dentro del pliegue en 1440x900, 1366x768, 390x780 y 360x640, no solo en
+   el portatil del autor: por eso el bloque de texto es corto y la foto no lo empuja. */
+.hero{ position:relative; overflow:hidden; padding-block:clamp(1.2rem,.6rem + 2.6vw,2.6rem) }
+.hero-in{ display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.02fr);
+  gap:clamp(1rem,3vw,2.6rem); align-items:center }
+/* el margen deja sitio al trazo dibujado, que cuelga .2em por debajo de la linea base */
+.hero h1{ font-size:clamp(2.3rem,1.35rem + 4.4vw,4.5rem); margin-bottom:1rem }
+.hero h1 .acento{ color:var(--rosa-t); position:relative; white-space:nowrap }
+/* el subrayado dibujado a mano, que su propio hero ya usa bajo el titular */
+.sub-trazo{ position:absolute; left:0; right:0; bottom:-.2em; width:100%; height:.28em }
+.hero .plomo{ font-size:clamp(1rem,.95rem + .3vw,1.14rem); color:var(--tinta-2); max-width:40ch;
+  margin-bottom:1.2rem }
+.hero-cta{ display:flex; flex-wrap:wrap; gap:.6rem }
+.hero-sello{ display:flex; flex-wrap:wrap; gap:.4rem 1.1rem; margin-top:1.1rem;
+  font:400 .74rem/1.4 var(--mono); letter-spacing:.05em; text-transform:uppercase; color:var(--tinta-2) }
+.hero-sello span{ display:inline-flex; align-items:center; gap:.35rem }
+
+.hero-foto{ position:relative }
+.hero-foto>img{ width:100%; height:auto; aspect-ratio:4/5; object-fit:cover; object-position:50% 12%;
+  border-radius:26px; filter:saturate(1.02) contrast(1.02);
+  box-shadow:0 26px 56px -32px rgba(36,28,34,.55) }
+/* EL ABANICO: los cinco estuches reales, escalonados */
+.abanico{ position:absolute; left:1%; bottom:6%; width:76%; height:36%; pointer-events:none }
+.abanico img{ position:absolute; bottom:0; width:46%; height:auto;
+  filter:drop-shadow(0 10px 16px rgba(36,28,34,.34)) }
+.abanico img:nth-child(1){ left:0;   transform:rotate(-14deg) translateY(7%) }
+.abanico img:nth-child(2){ left:13%; transform:rotate(-7deg) translateY(2%) }
+.abanico img:nth-child(3){ left:27%; transform:rotate(0deg) }
+.abanico img:nth-child(4){ left:40%; transform:rotate(7deg) translateY(2%) }
+.abanico img:nth-child(5){ left:54%; transform:rotate(14deg) translateY(7%) }
+@media (min-width:1001px) and (max-height:880px){ .hero-foto{ width:min(100%,410px); margin-inline:auto } }
+@media (max-width:1000px){
+  .hero-in{ grid-template-columns:1fr; gap:1.3rem }
+  .hero-foto{ order:2; width:min(100%,400px); margin-inline:auto }
+  .hero .plomo{ max-width:none }
+}
+/* ⛔ EN 360x640 EL CTA CAIA A 7 PX DEL PLIEGUE. Pasaba la puerta, y aun asi no es un margen:
+   basta que una fuente caiga de vuelta a la del sistema, o que el aviso del borrador ocupe una
+   linea mas, para que el boton salga de la pantalla sin que nadie cambie una coma. `hvac` ya
+   pago esto con 19 px. Se aprieta el bloque de texto SOLO en pantallas cortas. */
+@media (max-width:420px){
+  .hero{ padding-block:.9rem }
+  .hero h1{ margin-bottom:.7rem }
+  .hero .plomo{ margin-bottom:.95rem }
+  .hero .marcaje{ margin-bottom:.5rem }
+}
+
+/* ── SECCIONES ────────────────────────────────────────────────────────────────────────────── */
+section{ padding-block:clamp(2.6rem,1.8rem + 4vw,5rem) }
+.marcaje{ font:400 .76rem/1 var(--mono); letter-spacing:.15em; text-transform:uppercase;
+  color:var(--rosa-t); margin-bottom:.75rem }
+h2{ font-size:clamp(1.75rem,1.25rem + 2.2vw,2.9rem); max-width:22ch }
+.plomo{ color:var(--tinta-2); max-width:60ch; margin-top:.8rem }
+.centro{ text-align:center } .centro h2,.centro .plomo{ margin-inline:auto }
+
+/* ── LA COLECCION: el producto de cerca ────────────────────────────────────────────────────── */
+#collection{ background:var(--sticker) }
+.coleccion-in{ display:grid; grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);
+  gap:clamp(1.4rem,4vw,3.2rem); align-items:center }
+.coleccion-foto{ border-radius:22px; overflow:hidden; box-shadow:0 22px 48px -28px rgba(36,28,34,.5) }
+.coleccion-foto img{ width:100%; height:auto; aspect-ratio:3/2; object-fit:cover; filter:saturate(1.04) }
+.rasgos{ list-style:none; display:grid; gap:.75rem; margin-top:1.5rem }
+.rasgos li{ display:grid; grid-template-columns:auto 1fr; gap:.7rem; align-items:start; font-size:.97rem }
+.rasgos svg{ margin-top:.2rem; flex:0 0 auto }
+.rasgos b{ font-weight:600 }
+@media (max-width:900px){ .coleccion-in{ grid-template-columns:1fr } .coleccion-foto{ order:-1 } }
+
+/* ── LAS CINCO BANDAS DE COLOR ─────────────────────────────────────────────────────────────────
+   Una por variedad, con SU mujer y SU estuche, alternando lado como hace su sitio (_L / _R).
+   El texto va sobre la pegatina blanca, que es el dispositivo del propio estuche: mismo canto
+   redondeado, mismo filete interior, misma chapa de esquina. Y es lo unico que garantiza AA,
+   porque el degradado de tres de las cinco fotos se oscurece justo en el borde exterior. */
+.banda{ position:relative; padding:0; background:var(--b); overflow:hidden }
+.banda-foto{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover;
+  filter:saturate(1.03) }
+.banda-in{ position:relative; z-index:1; display:grid; grid-template-columns:1fr 1fr;
+  align-items:center; min-height:clamp(430px,52vw,600px); gap:clamp(1rem,3vw,2.4rem);
+  padding-block:clamp(2rem,4vw,3.4rem) }
+.banda--izq .banda-foto{ object-position:22% 50% }   /* sujeto a la izquierda */
+.banda--der .banda-foto{ object-position:78% 50% }   /* sujeto a la derecha */
+.banda--izq .etiqueta-caja{ grid-column:2 }
+.banda--der .etiqueta-caja{ grid-column:1 }
+
+.etiqueta{ position:relative; background:var(--sticker); border-radius:22px;
+  padding:clamp(1.3rem,2.6vw,2rem) clamp(1.2rem,2.4vw,1.9rem);
+  box-shadow:0 22px 48px -26px rgba(36,28,34,.5) }
+/* el filete interior del estuche */
+.etiqueta::before{ content:""; position:absolute; inset:9px; border:1px solid var(--bt);
+  border-radius:15px; opacity:.4; pointer-events:none }
+/* la chapa donde el estuche pone ORIGINAL.
+   ⛔ SU PRIMERA FORMA DABA 1.00:1, y el fallo es instructivo: era una esquina con
+   `border-radius:0 22px 0 18px` sobre una caja de 26px de alto, o sea que el radio se comia el
+   area entera por la que pasaban las letras. El texto blanco quedaba pintado sobre la TARJETA
+   BLANCA de detras, no sobre la chapa. Un ratio de 1.00:1 es exactamente eso: fondo y letra
+   identicos. No se veia a ojo porque las letras caian JUSTO en el borde.
+   La forma buena es una pastilla: el radio vive en los extremos y el texto va holgado dentro.
+   Y pinta con el color CLARO de la banda + tinta oscura (5.12 a 9.17:1), no con blanco. */
+.chapa{ position:absolute; top:-14px; right:22px; background:var(--b); color:var(--tinta);
+  font:400 .64rem/1 var(--mono); letter-spacing:.12em; text-transform:uppercase;
+  padding:.5rem 1.05rem; border-radius:999px; box-shadow:0 4px 12px -4px rgba(36,28,34,.45) }
+.etiqueta h2{ font-size:clamp(1.5rem,1.15rem + 1.5vw,2.15rem); max-width:none; margin-bottom:.55rem }
+.etiqueta .zona{ font:400 .78rem/1.4 var(--mono); color:var(--bt); text-transform:uppercase;
+  letter-spacing:.07em; margin-bottom:.7rem }
+.etiqueta p.desc{ color:var(--tinta-2); font-size:.96rem }
+.etiqueta .fila{ display:flex; flex-wrap:wrap; align-items:center; gap:.7rem 1.1rem; margin-top:1.1rem }
+.etiqueta .precio{ font-family:var(--disp); font-size:1.5rem }
+.etiqueta .cuenta{ font:400 .76rem/1 var(--mono); color:var(--tinta-2) }
+/* EL ESTUCHE REAL, flotando sobre la banda */
+.banda-pack{ width:min(78%,300px); justify-self:center; align-self:center;
+  filter:drop-shadow(0 18px 26px rgba(36,28,34,.34)); transition:transform var(--t) var(--e) }
+.banda:hover .banda-pack{ transform:translateY(-6px) rotate(-2deg) }
+.banda--izq .banda-pack{ grid-column:2; margin-top:1.2rem }
+.banda--der .banda-pack{ grid-column:1; margin-top:1.2rem }
+.etiqueta-caja{ display:grid; gap:0 }
+
+@media (max-width:900px){
+  /* ⛔ LA COSTURA. Apilada, la foto termina y empieza el color plano de la banda, y los dos no
+     coinciden nunca: la foto lleva su propio degradado horneado y `--b` es un plano. Se veia una
+     raya limpia cruzando la pantalla. Igualar el hex a mano no sirve —`--b` tambien pinta la
+     chapa y el boton, y ahi tiene que ser el color de marca—, asi que se DESVANECE la foto por
+     abajo y el color de la banda aparece por debajo. Funciona sea cual sea el hex. */
+  .banda-foto{ position:static; width:100%; height:auto; aspect-ratio:16/10;
+    -webkit-mask-image:linear-gradient(to bottom,#000 74%,transparent 100%);
+    mask-image:linear-gradient(to bottom,#000 74%,transparent 100%) }
+  .banda-in{ grid-template-columns:1fr; min-height:0; padding-block:0 clamp(1.8rem,5vw,2.6rem) }
+  .banda--izq .etiqueta-caja,.banda--der .etiqueta-caja,
+  .banda--izq .banda-pack,.banda--der .banda-pack{ grid-column:1 }
+  .etiqueta{ margin-top:-2.6rem }
+  .banda-pack{ width:min(58%,220px); margin-top:1rem }
+}
+
+/* ── EL ESTUDIO ───────────────────────────────────────────────────────────────────────────── */
+.estudio{ background:var(--sticker) }
+.cifras{ display:grid; grid-template-columns:repeat(auto-fit,minmax(215px,1fr)); gap:1rem; margin-top:2rem }
+.cifra{ border-radius:20px; padding:1.5rem 1.3rem 1.3rem; background:var(--papel);
+  box-shadow:0 12px 30px -22px rgba(36,28,34,.5); position:relative; overflow:hidden }
+.cifra::after{ content:""; position:absolute; left:0; right:0; bottom:0; height:5px; background:var(--b) }
+.cifra b{ display:block; font-family:var(--disp); font-size:3.1rem; line-height:.9; color:var(--bt);
+  letter-spacing:-.03em }
+.cifra span{ display:block; margin-top:.6rem; font-size:.95rem; color:var(--tinta-2) }
+.nota{ font-size:.82rem; color:var(--tinta-2); margin-top:1.3rem; max-width:70ch }
+
+/* ── COMO SE USA ──────────────────────────────────────────────────────────────────────────── */
+.pasos{ list-style:none; display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:1rem; margin-top:2rem; counter-reset:p }
+.pasos li{ background:var(--sticker); border-radius:20px; padding:1.4rem 1.3rem;
+  box-shadow:0 12px 30px -24px rgba(36,28,34,.5); counter-increment:p }
+.pasos .ico{ width:46px; height:46px; border-radius:13px; background:var(--papel); display:grid;
+  place-items:center; margin-bottom:.9rem; box-shadow:inset 0 1px 0 rgba(255,255,255,.8) }
+.pasos b{ display:block; font-family:var(--disp); font-size:1.14rem; margin-bottom:.25rem }
+.pasos b::before{ content:counter(p) ". "; color:var(--rosa-t) }
+.pasos span{ color:var(--tinta-2); font-size:.95rem }
+
+/* ── PREGUNTAS ────────────────────────────────────────────────────────────────────────────── */
+#faq{ background:var(--sticker) }
+.faq{ margin-top:1.8rem; max-width:80ch }
+.faq details{ border-bottom:1px solid rgba(36,28,34,.13) }
+.faq summary{ cursor:pointer; list-style:none; padding:1.1rem 2.6rem 1.1rem 0; position:relative;
+  font-family:var(--disp); font-size:1.1rem; min-height:44px; display:flex; align-items:center }
+.faq summary::-webkit-details-marker{ display:none }
+.faq summary .cruz{ position:absolute; right:.2rem; top:50%; transform:translateY(-50%);
+  transition:transform var(--t) var(--e) }
+.faq details[open] summary .cruz{ transform:translateY(-50%) rotate(45deg) }
+.faq details p{ padding-bottom:1.15rem; color:var(--tinta-2); max-width:68ch }
+
+/* ── BOLETIN + CIERRE ─────────────────────────────────────────────────────────────────────── */
+.cierre{ background:var(--rosa-t); color:#FFF; text-align:center }
+.cierre h2{ color:#FFF; margin-inline:auto; font-size:clamp(1.8rem,1.25rem + 2.4vw,3rem) }
+.cierre>.wrap>p{ color:#FFF; max-width:52ch; margin:.9rem auto 1.5rem }
+.boletin{ display:flex; flex-wrap:wrap; gap:.6rem; justify-content:center; max-width:480px;
+  margin:0 auto 1.8rem }
+.boletin input{ flex:1 1 220px; min-height:46px; border-radius:999px; border:0; padding:.7rem 1.2rem;
+  font:400 .97rem/1 var(--sans); color:var(--tinta); background:#FFF }
+.boletin input::placeholder{ color:var(--tinta-2) }
+.boletin .btn{ background:var(--tinta); color:#FFF; box-shadow:0 5px 0 -1px rgba(0,0,0,.35) }
+/* ⛔ SIN VELO BLANCO DETRAS. Llevaba `rgba(255,255,255,.12)` y ese 12 % aclaraba el rosa lo justo
+   para tirar el texto blanco de 5.04:1 a 4.11:1: la caja de la OFERTA, que es lo unico que este
+   borrador tiene que dejar leer si o si, era el bloque peor medido de la pagina. Un velo
+   translucido no es decoracion neutra, es un cambio de fondo. */
+.oferta{ display:grid; gap:.5rem; margin:0 auto; max-width:44ch; text-align:left;
+  background:transparent; border:1px solid rgba(255,255,255,.42); border-radius:18px;
+  padding:1.2rem 1.3rem }
+.oferta div{ display:flex; justify-content:space-between; gap:1rem; font-size:.95rem }
+.oferta div b{ font-weight:600 }
+.pie-borrador{ margin-top:1.1rem; padding-top:1rem; border-top:1px solid rgba(255,255,255,.24);
+  font-size:.81rem; line-height:1.6; color:#FFF }
+
+/* ── PIE ──────────────────────────────────────────────────────────────────────────────────── */
+footer{ background:var(--tinta); color:rgba(255,255,255,.78); padding-block:2.6rem 1.8rem;
+  font-size:.92rem }
+.pie-in{ display:grid; grid-template-columns:repeat(auto-fit,minmax(190px,1fr)); gap:1.6rem }
+footer h4{ font-family:var(--disp); color:#FFF; font-size:1rem; margin-bottom:.6rem }
+footer a{ text-decoration:none; display:inline-block; padding:.2rem 0; min-height:24px }
+footer a:hover{ color:var(--rosa) }
+footer ul{ list-style:none }
+/* ⛔ AQUI HABIA UN `brightness(0) invert(1)`, o sea el logotipo del cliente convertido en una
+   MANCHA BLANCA. Es exactamente lo contrario del encargo: el degradado rosa-durazno-verde-azul-
+   lila ES la marca, y aplanarlo a silueta borra el unico sitio donde su sistema de color esta
+   escrito entero. El logotipo lleva su propia pegatina blanca alrededor, asi que sobre el pie
+   oscuro se lee solo. Se deja intacto y se le da aire con una sombra. */
+footer .marca img{ height:32px; filter:drop-shadow(0 2px 6px rgba(0,0,0,.45)) }
+.pie-redes{ display:flex; gap:.3rem; margin-top:.9rem }
+.pie-redes a{ display:inline-flex; align-items:center; justify-content:center; width:34px; height:34px;
+  border-radius:9px; border:1px solid rgba(255,255,255,.24) }
+.pie-redes a:hover{ background:rgba(255,255,255,.12) }
+.pie-fin{ margin-top:2rem; padding-top:1.1rem; border-top:1px solid rgba(255,255,255,.16);
+  display:flex; flex-wrap:wrap; gap:.5rem 1.3rem; font-size:.82rem; color:rgba(255,255,255,.6) }
+
+/* ── REVELADO ─────────────────────────────────────────────────────────────────────────────────
+   Las capturas MIENTEN con los reveals en opacity:0, asi que el estado final se pide con una
+   clase que las herramientas fuerzan, y sin JS no hay nada oculto. */
+.js [data-reveal]{ opacity:0; transform:translateY(13px);
+  transition:opacity 620ms var(--e), transform 620ms var(--e) }
+.js [data-reveal].in{ opacity:1; transform:none }
+@media (prefers-reduced-motion:reduce){
+  .js [data-reveal]{ opacity:1; transform:none; transition:none }
+  .btn:hover,.banda:hover .banda-pack{ transform:none }
+}
+</style>
+</head>
+<body>
+<a class="saltar" href="#main">Skip to content</a>
+
+
+
+<div class="envio">
+  <div class="wrap envio-in">
+    <span class="redes">
+      <a href="#main" aria-label="Facebook">
+        <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M9.2 15V8.7h2.1l.3-2.4H9.2V4.7c0-.7.2-1.2 1.2-1.2h1.3V1.4A17 17 0 0 0 9.8 1.3c-1.9 0-3.2 1.2-3.2 3.3v1.7H4.5v2.4h2.1V15Z" fill="currentColor"/></svg>
+      </a>
+      <a href="#main" aria-label="Instagram">
+        <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.4c-1.8 0-2 0-2.7.1-.7 0-1.2.2-1.6.3-.4.2-.8.4-1.2.8-.4.4-.6.8-.8 1.2-.1.4-.3.9-.3 1.6C1.3 6 1.3 6.2 1.3 8s0 2 .1 2.7c0 .7.2 1.2.3 1.6.2.4.4.8.8 1.2.4.4.8.6 1.2.8.4.1.9.3 1.6.3.7 0 .9.1 2.7.1s2 0 2.7-.1c.7 0 1.2-.2 1.6-.3.4-.2.8-.4 1.2-.8.4-.4.6-.8.8-1.2.1-.4.3-.9.3-1.6 0-.7.1-.9.1-2.7s0-2-.1-2.7c0-.7-.2-1.2-.3-1.6a3.3 3.3 0 0 0-.8-1.2 3.3 3.3 0 0 0-1.2-.8c-.4-.1-.9-.3-1.6-.3-.7 0-.9-.1-2.7-.1Zm0 1.2c1.8 0 2 0 2.6.1.7 0 1 .1 1.3.2.3.1.5.3.7.5.2.2.4.4.5.7.1.3.2.6.2 1.3 0 .6.1.8.1 2.6s0 2-.1 2.6c0 .7-.1 1-.2 1.3-.1.3-.3.5-.5.7-.2.2-.4.4-.7.5-.3.1-.6.2-1.3.2-.6 0-.8.1-2.6.1s-2 0-2.6-.1c-.7 0-1-.1-1.3-.2a1.9 1.9 0 0 1-.7-.5 1.9 1.9 0 0 1-.5-.7c-.1-.3-.2-.6-.2-1.3 0-.6-.1-.8-.1-2.6s0-2 .1-2.6c0-.7.1-1 .2-1.3.1-.3.3-.5.5-.7.2-.2.4-.4.7-.5.3-.1.6-.2 1.3-.2.6 0 .8-.1 2.6-.1Zm0 2.1a3.3 3.3 0 1 0 0 6.6 3.3 3.3 0 0 0 0-6.6Zm0 5.4a2.1 2.1 0 1 1 0-4.2 2.1 2.1 0 0 1 0 4.2Zm4.2-5.5a.8.8 0 1 1-1.6 0 .8.8 0 0 1 1.6 0Z" fill="currentColor"/></svg>
+      </a>
+      <a href="#main" aria-label="TikTok">
+        <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M11.1 1.3h-2v9.1a1.9 1.9 0 1 1-1.6-1.9V6.4a4 4 0 1 0 3.6 4V5.6a4.7 4.7 0 0 0 2.6.8V4.3a2.7 2.7 0 0 1-2.6-3Z" fill="currentColor"/></svg>
+      </a>
+    </span>
+    <span class="gratis">Free shipping on all U.S. orders</span>
+    <span class="codigo">10% off your first order <b>SMWELCOME10</b></span>
+  </div>
+</div>
+
+<header class="top">
+  <div class="wrap top-in">
+    <a class="marca" href="#main" aria-label="Smoothies, home">
+      <img src="img-smoothies/marca/logo.webp" width="438" height="166" alt="Smoothies">
+    </a>
+
+    <button class="hamb" id="hamb" aria-expanded="false" aria-controls="nav" aria-label="Open menu">
+      <svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true"><path d="M3 6.5h16M3 11h16M3 15.5h16" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></svg>
+    </button>
+
+    <nav class="nav" id="nav" aria-label="Main">
+      <a href="#collection">Collection</a>
+      <a href="#how">Instructions</a>
+      <a href="#results">Before &amp; After</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+
+    <div class="util">
+      <details class="idioma" id="idioma">
+        <summary aria-label="Change language">
+          <svg width="17" height="17" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="7.6" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M2.4 10h15.2M10 2.4c2 2.2 3 4.8 3 7.6s-1 5.4-3 7.6c-2-2.2-3-4.8-3-7.6s1-5.4 3-7.6Z" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
+          <span class="rotulo">EN</span>
+        </summary>
+        <div class="lista">
+          <a href="#main" aria-current="true">English</a>
+          <a href="#main">Deutsch</a>
+        </div>
+      </details>
+      <a href="#main" aria-label="Account">
+        <svg width="18" height="18" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="6.6" r="3.3" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M3.6 17.2a6.4 6.4 0 0 1 12.8 0" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        <span class="rotulo">Account</span>
+      </a>
+      <a class="carrito" href="#collection" aria-label="Cart, 0 items">
+        <span class="carro-ico">
+          <svg width="18" height="18" viewBox="0 0 20 20" aria-hidden="true"><path d="M4.6 6.4h10.8l-1 9.2a1.4 1.4 0 0 1-1.4 1.2H7a1.4 1.4 0 0 1-1.4-1.2Z" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M7.2 6.4a2.8 2.8 0 0 1 5.6 0" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
+          <span class="n">0</span>
+        </span>
+        <span class="rotulo">Cart</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ═══ HERO ═══ -->
+  <section class="hero">
+    <div class="wrap hero-in">
+      <div class="hero-texto">
+        <p class="marcaje">Wrinkle patches and sheet masks</p>
+        <h1>Embrace the<br><span class="acento">Smooth<svg class="sub-trazo" viewBox="0 0 200 16" preserveAspectRatio="none" aria-hidden="true"><path d="M3 10.5c30 5 52-6 80-2s54 7 114-1" stroke="#F05A7F" stroke-width="5" fill="none" stroke-linecap="round"/></svg></span> Life.</h1>
+        <p class="plomo">Life shows up on our faces, in smiles, laughs and every expression in between. Our patches are here to smooth, hydrate and support your skin along the way.</p>
+        <div class="hero-cta">
+          <a class="btn btn-rosa" href="#collection">Shop the Collection
+            <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a class="btn btn-linea" href="#how">How they work</a>
+        </div>
+        <p class="hero-sello">
+          <span><svg width="15" height="15" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.4l3 3L13 4.6" stroke="#5F6A07" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Made in the USA</span>
+          <span><svg width="15" height="15" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.4l3 3L13 4.6" stroke="#5F6A07" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Fragrance free</span>
+          <span><svg width="15" height="15" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.4l3 3L13 4.6" stroke="#5F6A07" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Five shapes</span>
+        </p>
+      </div>
+
+      <div class="hero-foto">
+        <img src="img-smoothies/mujer-hero.jpg" width="1100" height="1365"
+             alt="A woman in her forties laughing, the lines at the corners of her eyes fully visible.">
+        <!-- EL ABANICO: los cinco estuches REALES del cliente, no una reconstruccion -->
+        <div class="abanico">
+          <img src="img-smoothies/marca/pack-verde.webp" width="452" height="349" alt="Smoothies Original Wide carton">
+          <img src="img-smoothies/marca/pack-azul.webp" width="448" height="334" alt="Smoothies Original Triangle carton">
+          <img src="img-smoothies/marca/pack-lila.webp" width="449" height="331" alt="Smoothies Original Variety carton">
+          <img src="img-smoothies/marca/pack-mocca.webp" width="447" height="331" alt="Smoothies Original Long carton">
+          <img src="img-smoothies/marca/pack-rose.webp" width="456" height="370" alt="Smoothies Original Full Coverage carton">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ LA COLECCION ═══ -->
+  <section id="collection">
+    <div class="wrap coleccion-in">
+      <div>
+        <p class="marcaje">The collection</p>
+        <h2>One shape for every place a face folds.</h2>
+        <p class="plomo">A face does not crease at random. It creases where it moves. Each shape is cut for one of those places, which is why the range is sorted by where the line sits and not by how much you want to spend.</p>
+        <ul class="rasgos">
+          <li>
+            <svg width="19" height="19" viewBox="0 0 20 20" aria-hidden="true"><path d="M3.6 10.5l3.6 3.6L16.4 5" stroke="#B23564" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span><b>They hold, they do not change.</b> The patch keeps the skin from folding along the same line while you wear it. Nothing absorbs, nothing wears off.</span>
+          </li>
+          <li>
+            <svg width="19" height="19" viewBox="0 0 20 20" aria-hidden="true"><path d="M3.6 10.5l3.6 3.6L16.4 5" stroke="#B23564" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span><b>Up to ten hours, day or night.</b> Four or five times a week for thirty days, and after that as needed.</span>
+          </li>
+          <li>
+            <svg width="19" height="19" viewBox="0 0 20 20" aria-hidden="true"><path d="M3.6 10.5l3.6 3.6L16.4 5" stroke="#B23564" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span><b>Fine alongside everything else.</b> No actives and no fragrance, so they sit next to whatever your routine already is.</span>
+          </li>
+        </ul>
+      </div>
+      <figure class="coleccion-foto" data-reveal>
+        <img src="img-smoothies/parches.jpg" width="1600" height="1073"
+             alt="Five translucent facial patches on a clear backing sheet, one peeled up at the corner, each tinted a different pastel.">
+      </figure>
+    </div>
+  </section>
+
+  <!-- ═══ LAS CINCO BANDAS ═══ -->
+
+  <section class="banda banda--izq" id="triangle" style="--b:#B5C1D9;--bt:#566293">
+    <img class="banda-foto" src="img-smoothies/mujer-azul.jpg" width="2000" height="1116"
+         alt="A woman in her thirties laughing, on a periwinkle blue background.">
+    <div class="wrap banda-in">
+      <div class="etiqueta-caja">
+        <article class="etiqueta" data-reveal>
+          <span class="chapa">Best seller</span>
+          <h2>Smoothies&reg; Original Triangle</h2>
+          <p class="zona">Elevens, crow's feet and lip lines</p>
+          <p class="desc">A small triangle for the three places a face gathers first. The one most people start with, and the one most people reorder.</p>
+          <div class="fila">
+            <span class="precio">$24.95</span>
+            <span class="cuenta">144 facial adhesives</span>
+            <a class="btn btn-banda" href="#collection">Shop Triangle</a>
+          </div>
+        </article>
+      </div>
+      <img class="banda-pack" src="img-smoothies/marca/pack-azul.webp" width="448" height="334"
+           alt="The Smoothies Original Triangle carton, blue.">
+    </div>
+  </section>
+
+  <section class="banda banda--der" id="variety" style="--b:#B89DDB;--bt:#725C83">
+    <img class="banda-foto" src="img-smoothies/mujer-lila.jpg" width="2000" height="1116"
+         alt="A woman in her thirties looking up with a small smile, on a lilac background.">
+    <div class="wrap banda-in">
+      <div class="etiqueta-caja">
+        <article class="etiqueta" data-reveal>
+          <span class="chapa">Six shapes</span>
+          <h2>Smoothies&reg; Original Variety</h2>
+          <p class="zona">Forehead lines, elevens, crow's feet and more</p>
+          <p class="desc">One box, six shapes, for the days when the line that bothers you is not the usual one. The sensible way to find out which shape is yours.</p>
+          <div class="fila">
+            <span class="precio">$22.95</span>
+            <span class="cuenta">160 facial adhesives</span>
+            <a class="btn btn-banda" href="#collection">Shop Variety</a>
+          </div>
+        </article>
+      </div>
+      <img class="banda-pack" src="img-smoothies/marca/pack-lila.webp" width="449" height="331"
+           alt="The Smoothies Original Variety carton, purple.">
+    </div>
+  </section>
+
+  <section class="banda banda--izq" id="long" style="--b:#F29D60;--bt:#8E5800">
+    <img class="banda-foto" src="img-smoothies/mujer-mocca.jpg" width="2000" height="1116"
+         alt="A woman in her fifties laughing with her eyebrows raised, on a peach background.">
+    <div class="wrap banda-in">
+      <div class="etiqueta-caja">
+        <article class="etiqueta" data-reveal>
+          <span class="chapa">Forehead</span>
+          <h2>Smoothies&reg; Original Long</h2>
+          <p class="zona">Forehead lines</p>
+          <p class="desc">A long strip that lies flat across the forehead, one inch high by four and a quarter wide. Not for use directly beneath the eyes.</p>
+          <div class="fila">
+            <span class="precio">$22.95</span>
+            <span class="cuenta">48 facial adhesives</span>
+            <a class="btn btn-banda" href="#collection">Shop Long</a>
+          </div>
+        </article>
+      </div>
+      <img class="banda-pack" src="img-smoothies/marca/pack-mocca.webp" width="447" height="331"
+           alt="The Smoothies Original Long carton, peach.">
+    </div>
+  </section>
+
+  <section class="banda banda--der" id="full" style="--b:#F05A7F;--bt:#B23564">
+    <img class="banda-foto" src="img-smoothies/mujer-rose.jpg" width="2000" height="1116"
+         alt="A woman in her sixties with silver hair smiling broadly, on a rose pink background.">
+    <div class="wrap banda-in">
+      <div class="etiqueta-caja">
+        <article class="etiqueta" data-reveal>
+          <span class="chapa">Widest</span>
+          <h2>Smoothies&reg; Original Full Coverage</h2>
+          <p class="zona">Forehead lines, elevens, crow's feet and more</p>
+          <p class="desc">The widest coverage in the range, in an assortment of shapes and sizes. For a full face at once, rather than one line at a time.</p>
+          <div class="fila">
+            <span class="precio">$22.95</span>
+            <span class="cuenta">192 facial adhesives</span>
+            <a class="btn btn-banda" href="#collection">Shop Full Coverage</a>
+          </div>
+        </article>
+      </div>
+      <img class="banda-pack" src="img-smoothies/marca/pack-rose.webp" width="456" height="370"
+           alt="The Smoothies Original Full Coverage carton, pink.">
+    </div>
+  </section>
+
+  <section class="banda banda--izq" id="wide" style="--b:#A5B686;--bt:#5F6A07">
+    <img class="banda-foto" src="img-smoothies/mujer-verde.jpg" width="2000" height="1116"
+         alt="A woman in her forties with her eyes closed and her face tilted to the light, on a sage green background.">
+    <div class="wrap banda-in">
+      <div class="etiqueta-caja">
+        <article class="etiqueta" data-reveal>
+          <span class="chapa">Larger</span>
+          <h2>Smoothies&reg; Original Wide</h2>
+          <p class="zona">Elevens, crow's feet and lip lines</p>
+          <p class="desc">The same three places the Triangle covers, in a larger triangle, for when one shape is not quite enough on its own.</p>
+          <div class="fila">
+            <span class="precio">$22.95</span>
+            <span class="cuenta">144 facial adhesives</span>
+            <a class="btn btn-banda" href="#collection">Shop Wide</a>
+          </div>
+        </article>
+      </div>
+      <img class="banda-pack" src="img-smoothies/marca/pack-verde.webp" width="452" height="349"
+           alt="The Smoothies Original Wide carton, green.">
+    </div>
+  </section>
+
+  <!-- ═══ EL ESTUDIO ═══
+       Las cuatro cifras son de SU estudio de percepcion, reproducidas tal cual con su metodologia
+       al pie. No se inventa ninguna, y no hay ni una nota de un tercero: ni estrellas, ni
+       contadores de resenas, ni aggregate de ningun sitio. Esa es la linea que no se cruza. -->
+  <section class="estudio" id="results">
+    <div class="wrap">
+      <p class="marcaje">What people said</p>
+      <h2>Thirty people, twenty eight days.</h2>
+      <div class="cifras">
+        <div class="cifra" data-reveal style="--b:#B5C1D9;--bt:#566293"><b>96%</b><span>agreed the patches were comfortable to wear and easy to use.</span></div>
+        <div class="cifra" data-reveal style="--b:#B89DDB;--bt:#725C83"><b>93%</b><span>agreed they preferred Smoothies over other treatment methods such as surgery or injections.</span></div>
+        <div class="cifra" data-reveal style="--b:#F29D60;--bt:#8E5800"><b>86%</b><span>agreed their appearance improved.</span></div>
+        <div class="cifra" data-reveal style="--b:#A5B686;--bt:#5F6A07"><b>86%</b><span>agreed their skin felt firmer after using these patches.</span></div>
+      </div>
+      <p class="nota">Based on the results of a consumer perception study of 30 participants over a continuous 28 day period.</p>
+    </div>
+  </section>
+
+  <!-- ═══ COMO SE USA ═══ -->
+  <section id="how">
+    <div class="wrap">
+      <p class="marcaje">Instructions</p>
+      <h2>Three steps, and the first one is the one people skip.</h2>
+      <ul class="pasos">
+        <li data-reveal>
+          <span class="ico"><svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 14c4-6 12-6 16 0" stroke="#B23564" stroke-width="2.2" fill="none" stroke-linecap="round"/><path d="M9 8.6c2-1.2 4-1.2 6 0" stroke="#B23564" stroke-width="2" fill="none" stroke-linecap="round" opacity=".5"/></svg></span>
+          <b>Start on clean, dry skin.</b>
+          <span>No moisturiser, no oil, nothing underneath. Product left on the skin is the usual reason a strip will not stay put.</span>
+        </li>
+        <li data-reveal>
+          <span class="ico"><svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="9" width="16" height="6" rx="3" fill="#F05A7F" stroke="#B23564" stroke-width="1.4"/><path d="M12 4v3M12 17v3" stroke="#B23564" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+          <b>Press the line flat, then apply.</b>
+          <span>Smooth the wrinkle out with a fingertip but do not stretch the skin, then lay the patch over the flattened area.</span>
+        </li>
+        <li data-reveal>
+          <span class="ico"><svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.5 13.6A7 7 0 0 1 10.4 6.5 7 7 0 1 0 17.5 13.6Z" stroke="#B23564" stroke-width="2" fill="none" stroke-linejoin="round"/></svg></span>
+          <b>Wear up to ten hours, then peel slowly.</b>
+          <span>Take it off gently rather than quickly. Some strips can be reused once or twice.</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ═══ PREGUNTAS ═══ -->
+  <section id="faq">
+    <div class="wrap">
+      <p class="marcaje">Questions</p>
+      <h2>The four we are asked most.</h2>
+      <div class="faq">
+        <details class="faq">
+          <summary>How long can I wear Smoothies?
+            <svg class="cruz" width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M9 3v12M3 9h12" stroke="#B23564" stroke-width="2.2" fill="none" stroke-linecap="round"/></svg>
+          </summary>
+          <p>Up to 10 hours in any 24 hour period, day or night. For best results wear them 4 to 5 times a week for 30 days, and after that as needed.</p>
+        </details>
+        <details class="faq">
+          <summary>Are Smoothies reusable?
+            <svg class="cruz" width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M9 3v12M3 9h12" stroke="#B23564" stroke-width="2.2" fill="none" stroke-linecap="round"/></svg>
+          </summary>
+          <p>Some strips can be reused once or twice. If an edge leaves a mark on the skin, applying a used strip over that mark is the fix we recommend.</p>
+        </details>
+        <details class="faq">
+          <summary>Can I use retinol with Smoothies?
+            <svg class="cruz" width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M9 3v12M3 9h12" stroke="#B23564" stroke-width="2.2" fill="none" stroke-linecap="round"/></svg>
+          </summary>
+          <p>It is not recommended. How long to pause retinol before using them varies from person to person, so test first and ask a dermatologist if you are unsure.</p>
+        </details>
+        <details class="faq">
+          <summary>Can I use Smoothies after botox?
+            <svg class="cruz" width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M9 3v12M3 9h12" stroke="#B23564" stroke-width="2.2" fill="none" stroke-linecap="round"/></svg>
+          </summary>
+          <p>Yes. The patches are mechanical: they hold the skin and do nothing to the muscle, so they sit alongside whatever else you are doing.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CIERRE ═══ -->
+  <section class="cierre">
+    <div class="wrap">
+      <h2>Subscribe to our newsletter</h2>
+      <p>Promotions, new products and sales, directly to your inbox.</p>
+      <form class="boletin" onsubmit="return false">
+        <label class="sr-only" for="correo">Email address</label>
+        <input id="correo" type="email" placeholder="you@example.com" autocomplete="email">
+        <button class="btn" type="submit">Subscribe</button>
+      </form>
+      
+      
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="pie-in">
+      <div>
+        <a class="marca" href="#main" aria-label="Smoothies, home">
+          <img src="img-smoothies/marca/logo.webp" width="438" height="166" alt="Smoothies">
+        </a>
+        <p style="margin-top:.8rem;max-width:26ch">Made in the USA. Ships within the United States.</p>
+        <div class="pie-redes">
+          <a href="#main" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M9.2 15V8.7h2.1l.3-2.4H9.2V4.7c0-.7.2-1.2 1.2-1.2h1.3V1.4A17 17 0 0 0 9.8 1.3c-1.9 0-3.2 1.2-3.2 3.3v1.7H4.5v2.4h2.1V15Z" fill="currentColor"/></svg></a>
+          <!-- ⛔ Este icono salio como un CUADRADO BLANCO MACIZO: al copiarlo aqui se perdio el
+               subtrazado «Zm0 1.2c1.8 0…», que es justo el que hueca la silueta. Un `<path>` al
+               que le falta un subtrazado no da error ni deja de dibujar: rellena. Va el mismo
+               trazado completo que la cabecera. -->
+          <a href="#main" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.4c-1.8 0-2 0-2.7.1-.7 0-1.2.2-1.6.3-.4.2-.8.4-1.2.8-.4.4-.6.8-.8 1.2-.1.4-.3.9-.3 1.6C1.3 6 1.3 6.2 1.3 8s0 2 .1 2.7c0 .7.2 1.2.3 1.6.2.4.4.8.8 1.2.4.4.8.6 1.2.8.4.1.9.3 1.6.3.7 0 .9.1 2.7.1s2 0 2.7-.1c.7 0 1.2-.2 1.6-.3.4-.2.8-.4 1.2-.8.4-.4.6-.8.8-1.2.1-.4.3-.9.3-1.6 0-.7.1-.9.1-2.7s0-2-.1-2.7c0-.7-.2-1.2-.3-1.6a3.3 3.3 0 0 0-.8-1.2 3.3 3.3 0 0 0-1.2-.8c-.4-.1-.9-.3-1.6-.3-.7 0-.9-.1-2.7-.1Zm0 1.2c1.8 0 2 0 2.6.1.7 0 1 .1 1.3.2.3.1.5.3.7.5.2.2.4.4.5.7.1.3.2.6.2 1.3 0 .6.1.8.1 2.6s0 2-.1 2.6c0 .7-.1 1-.2 1.3-.1.3-.3.5-.5.7-.2.2-.4.4-.7.5-.3.1-.6.2-1.3.2-.6 0-.8.1-2.6.1s-2 0-2.6-.1c-.7 0-1-.1-1.3-.2a1.9 1.9 0 0 1-.7-.5 1.9 1.9 0 0 1-.5-.7c-.1-.3-.2-.6-.2-1.3 0-.6-.1-.8-.1-2.6s0-2 .1-2.6c0-.7.1-1 .2-1.3.1-.3.3-.5.5-.7.2-.2.4-.4.7-.5.3-.1.6-.2 1.3-.2.6 0 .8-.1 2.6-.1Zm0 2.1a3.3 3.3 0 1 0 0 6.6 3.3 3.3 0 0 0 0-6.6Zm0 5.4a2.1 2.1 0 1 1 0-4.2 2.1 2.1 0 0 1 0 4.2Zm4.2-5.5a.8.8 0 1 1-1.6 0 .8.8 0 0 1 1.6 0Z" fill="currentColor"/></svg></a>
+          <a href="#main" aria-label="TikTok"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M11.1 1.3h-2v9.1a1.9 1.9 0 1 1-1.6-1.9V6.4a4 4 0 1 0 3.6 4V5.6a4.7 4.7 0 0 0 2.6.8V4.3a2.7 2.7 0 0 1-2.6-3Z" fill="currentColor"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <h4>Product</h4>
+        <ul>
+          <li><a href="#triangle">Original Triangle</a></li>
+          <li><a href="#variety">Original Variety</a></li>
+          <li><a href="#long">Original Long</a></li>
+          <li><a href="#wide">Original Wide</a></li>
+          <li><a href="#full">Original Full Coverage</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Brand</h4>
+        <ul>
+          <li><a href="#collection">Collection</a></li>
+          <li><a href="#how">Instructions</a></li>
+          <li><a href="#results">Before &amp; After</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Customer care</h4>
+        <ul>
+          <li><a href="tel:+18008205499">(800) 820-5499</a></li>
+          <li><a href="mailto:help@smoothiesskin.com">help@smoothiesskin.com</a></li>
+          <li>68 Harrison Ave, Suite 605<br>PMB 938956, Boston, MA 02111</li>
+        </ul>
+      </div>
+    </div>
+    <div class="pie-fin">
+      <span>&copy; 2026 Dover Ventures LLC dba SMOOTHIES</span>
+      <span>Money back guarantee.</span>
+      <span>Cosmetic product. Not intended to diagnose or treat any condition.</span>
+    </div>
+  </div>
+</footer>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "name": "Smoothies",
+      "telephone": "+1-800-820-5499",
+      "email": "help@smoothiesskin.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "68 Harrison Ave, Suite 605 PMB 938956",
+        "addressLocality": "Boston",
+        "addressRegion": "MA",
+        "postalCode": "02111",
+        "addressCountry": "US"
+      }
+    },
+    {
+      "@type": "Product",
+      "name": "Smoothies Original Triangle Wrinkle Patches",
+      "description": "144 facial adhesives for elevens, crow's feet and lip lines.",
+      "brand": { "@type": "Brand", "name": "Smoothies" },
+      "offers": {
+        "@type": "Offer",
+        "price": "24.95",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How long can I wear Smoothies?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Up to 10 hours in any 24 hour period, day or night. For best results wear them 4 to 5 times a week for 30 days, and after that as needed." }
+        },
+        {
+          "@type": "Question",
+          "name": "Are Smoothies reusable?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Some strips can be reused once or twice. If an edge leaves a mark on the skin, applying a used strip over that mark is the fix we recommend." }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I use retinol with Smoothies?",
+          "acceptedAnswer": { "@type": "Answer", "text": "It is not recommended. How long to pause retinol before using them varies from person to person, so test first and ask a dermatologist if you are unsure." }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I use Smoothies after botox?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. The patches are mechanical: they hold the skin and do nothing to the muscle, so they sit alongside whatever else you are doing." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<script>
+(function () {
+  /* ── NAV: se PRUEBA que abre, que cierra con Escape y que cierra al tocar fuera. */
+  var hamb = document.getElementById('hamb');
+  var nav = document.getElementById('nav');
+  var idioma = document.getElementById('idioma');
+  function cerrar() {
+    nav.removeAttribute('data-open');
+    hamb.setAttribute('aria-expanded', 'false');
+    hamb.setAttribute('aria-label', 'Open menu');
+  }
+  hamb.addEventListener('click', function (e) {
+    e.stopPropagation();
+    if (nav.getAttribute('data-open') === '1') { cerrar(); return; }
+    nav.setAttribute('data-open', '1');
+    hamb.setAttribute('aria-expanded', 'true');
+    hamb.setAttribute('aria-label', 'Close menu');
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') { cerrar(); if (idioma) idioma.removeAttribute('open'); }
+  });
+  document.addEventListener('click', function (e) {
+    if (nav.getAttribute('data-open') === '1' && !nav.contains(e.target)) cerrar();
+    if (idioma && idioma.hasAttribute('open') && !idioma.contains(e.target)) idioma.removeAttribute('open');
+  });
+  nav.addEventListener('click', function (e) { if (e.target.tagName === 'A') cerrar(); });
+
+  /* ── REVELADO: IntersectionObserver, jamas un listener de scroll. */
+  var quieto = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var piezas = document.querySelectorAll('[data-reveal]');
+  if (quieto || !('IntersectionObserver' in window)) {
+    piezas.forEach(function (p) { p.classList.add('in'); });
+  } else {
+    var obs = new IntersectionObserver(function (entradas) {
+      entradas.forEach(function (en) {
+        if (en.isIntersecting) { en.target.classList.add('in'); obs.unobserve(en.target); }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+    piezas.forEach(function (p) { obs.observe(p); });
+  }
+})();
+</script>
+<div style="background:#16181C;color:#F3F4F3;padding:0.7rem 1rem;text-align:center;font:500 12px/1.5 system-ui,sans-serif;letter-spacing:0.02em">Unsolicited concept by Reasoned Web — not affiliated with, or commissioned by, Smoothies.</div>
+</body>
+</html>

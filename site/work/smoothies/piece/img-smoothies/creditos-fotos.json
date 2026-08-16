@@ -1,0 +1,65 @@
+[
+ {
+  "archivo": "mujer-hero.jpg",
+  "fuente": "Nano Banana (gemini-3-pro-image-preview)",
+  "licencia": "generada para este proyecto",
+  "rol": "hero: la mujer nueva, distinta de la del sitio original y de las cinco de sección",
+  "prompt": "A woman in her early forties of mixed heritage, with freckles scattered across her nose and cheeks and dark loosely curled hair falling past her shoulders, caught in a huge genuine open laugh with her eyes crinkled almost shut and her head tipped slightly back, one hand lifted near her cheek. Framed from just above her head to a little below the waist, centred, facing the camera. Seamless studio backdrop in a very pale blush pink (#FFEEF8), lit evenly and falling to almost white at the edges so that she reads as if lifted off the page. Beauty-editorial studio photography for a pastel skincare brand. Shot on an 85mm lens at f/3.2, one large softbox front-left plus a white bounce card, soft even light, no hard shadows. Luminous healthy skin with real visible texture and pores, and the fine lines at the corners of her eyes left completely intact and unretouched. Natural everyday makeup, a simple white ribbed cotton tank top. Warm, joyful and dignified, a real woman rather than a stock model. Absolutely no text, no lettering, no numbers, no signage, no packaging, no boxes, no product of any kind in her hands or in frame, no logos, no watermarks and no brand marks anywhere in the image."
+ },
+ {
+  "archivo": "mujer-azul.jpg",
+  "fuente": "Nano Banana (gemini-3-pro-image-preview)",
+  "licencia": "generada para este proyecto",
+  "rol": "sección Triangle (azul, BEST SELLER) — sujeto a la IZQUIERDA, hueco de texto a la derecha",
+  "prompt": "A Black woman in her mid thirties with natural tightly coiled hair worn short, laughing openly with her head tipped slightly back and one hand resting lightly at her collarbone. She stands in the LEFT THIRD of the frame, cropped at mid-torso, turned three-quarters toward the camera. The entire RIGHT TWO THIRDS of the frame is completely empty backdrop with nothing whatsoever in it, deliberately reserved for text. Seamless studio backdrop in a soft periwinkle blue gradient, lighter at the top left (#D9DFEC) and deepening toward the bottom right (#8A9ABE). Beauty-editorial studio photography for a pastel skincare brand. Shot on an 85mm lens at f/3.2, one large softbox front-left plus a white bounce card, soft even light, no hard shadows. Luminous healthy skin with real visible texture and pores, expression lines left intact and unretouched. Natural everyday makeup, a simple white ribbed cotton tank top. Absolutely no text, no lettering, no numbers, no signage, no packaging, no boxes, no product of any kind in her hands or in frame, no logos, no watermarks and no brand marks anywhere in the image."
+ },
+ {
+  "archivo": "mujer-lila.jpg",
+  "fuente": "Nano Banana (gemini-3-pro-image-preview)",
+  "licencia": "generada para este proyecto",
+  "rol": "sección Variety (lila) — sujeto a la DERECHA, hueco de texto a la izquierda",
+  "prompt": "A South Asian woman in her early thirties with long straight dark hair, her chin lifted, looking up and away from the camera with a small private smile, her fingertips resting at her jaw. She stands in the RIGHT THIRD of the frame, cropped at mid-torso. The entire LEFT TWO THIRDS of the frame is completely empty backdrop with nothing whatsoever in it, deliberately reserved for text. Seamless studio backdrop in a lilac gradient, lighter at the top right (#DACAED) and deepening toward the bottom left (#8E6CC1). Beauty-editorial studio photography for a pastel skincare brand. Shot on an 85mm lens at f/3.2, one large softbox front-left plus a white bounce card, soft even light, no hard shadows. Luminous healthy skin with real visible texture and pores, expression lines left intact and unretouched. Natural everyday makeup, a simple white ribbed cotton tank top. Absolutely no text, no lettering, no numbers, no signage, no packaging, no boxes, no product of any kind in her hands or in frame, no logos, no watermarks and no brand marks anywhere in the image."
+ },
+ {
+  "archivo": "mujer-mocca.jpg",
+  "fuente": "Nano Banana (gemini-3-pro-image-preview)",
+  "licencia": "generada para este proyecto",
+  "rol": "sección Long (durazno, líneas de la frente) — sujeto a la IZQUIERDA, hueco a la derecha",
+  "prompt": "A white woman in her early fifties with wavy auburn shoulder-length hair, caught mid-laugh with her eyebrows raised so that the horizontal lines across her forehead are clearly visible and completely unretouched, one hand brushing her hair back from her temple. She stands in the LEFT THIRD of the frame, cropped at mid-torso. The entire RIGHT TWO THIRDS of the frame is completely empty backdrop with nothing whatsoever in it, deliberately reserved for text. Seamless studio backdrop in a warm peach gradient, lighter at the top left (#F8CAA0) and deepening toward the bottom right (#E76C30). Beauty-editorial studio photography for a pastel skincare brand. Shot on an 85mm lens at f/3.2, one large softbox front-left plus a white bounce card, soft even light, no hard shadows. Luminous healthy skin with real visible texture and pores. Natural everyday makeup, a simple white ribbed cotton tank top. She looks delighted and handsome, never corrected or apologetic. Absolutely no text, no lettering, no numbers, no signage, no packaging, no boxes, no product of any kind in her hands or in frame, no logos, no watermarks and no brand marks anywhere in the image."
+ },
+ {
+  "archivo": "parches.jpg",
+  "fuente": "Nano Banana (gemini-3-pro-image-preview)",
+  "licencia": "generada para este proyecto",
+  "rol": "el producto de cerca — sustituye la foto que Carlos llamó mala (ámbar caramelo sobre azul grisáceo, que lee a caramelo y no a lámina)",
+  "prompt": "The five attached images are packaging from one skincare brand. Take ONLY their colour world from them: soft sage green, periwinkle blue, lilac, warm peach and rose pink, all pale, chalky and candy-soft. Do not reproduce the packaging, the cartons or anything printed on them. Now make this photograph: an extreme macro product shot, seen from directly overhead on a 100mm macro lens, of a clear glossy release liner sheet resting on a smooth pale blush surface. Five translucent facial patches sit on the liner in a loose staggered row, each one a different shape and each tinted the faintest wash of one of those five pastels: a long slim rounded rectangle, a small triangle, a wide rounded oval, a large crescent and a small teardrop. One of them is peeled up at a corner and curling away from the liner, catching the light. The patches are nearly water-clear, glassy and dewy, thin as cling film, with a soft bevelled edge that throws a delicate specular highlight all the way around. Very shallow depth of field, the nearest patch tack sharp, the far end of the sheet falling gently out of focus. Soft diffuse daylight from the upper left, clean pale shadows, a fresh cosmetic feel. Absolutely no text, no lettering, no numbers, no packaging, no cartons, no boxes, no logos, no watermarks and no brand marks anywhere in the image.",
+  "referencias": [
+   "site/borradores/img-smoothies/green.png",
+   "site/borradores/img-smoothies/azul.png",
+   "site/borradores/img-smoothies/lila.png",
+   "site/borradores/img-smoothies/mocca.png",
+   "site/borradores/img-smoothies/rose.png"
+  ]
+ },
+ {
+  "archivo": "mujer-rose.jpg",
+  "fuente": "Nano Banana (gemini-3-pro-image-preview)",
+  "licencia": "generada para este proyecto",
+  "rol": "sección Full Coverage (rosa) — sujeto a la DERECHA, hueco a la izquierda",
+  "prompt": "A woman in her early sixties with a silver-grey bob and warm olive skin, radiant and self-possessed, smiling broadly with her eyes as much as her mouth, arms loosely folded. Her crow's feet and smile lines are deep, fully visible and completely unretouched. She stands in the RIGHT THIRD of the frame, cropped at mid-torso. The entire LEFT TWO THIRDS of the frame is completely empty backdrop with nothing whatsoever in it, deliberately reserved for text. Seamless studio backdrop in a rose pink gradient, lighter at the top right (#F79CB7) and deepening toward the bottom left (#E42B4B). Beauty-editorial studio photography for a pastel skincare brand. Shot on an 85mm lens at f/3.2, one large softbox front-left plus a white bounce card, soft even light, no hard shadows. Luminous healthy skin with real visible texture and pores. Natural everyday makeup, a simple white ribbed cotton tank top. She looks wonderful and entirely at ease, never corrected or apologetic. Absolutely no text, no lettering, no numbers, no signage, no packaging, no boxes, no product of any kind in her hands or in frame, no logos, no watermarks and no brand marks anywhere in the image."
+ },
+ {
+  "archivo": "mujer-verde.jpg",
+  "fuente": "Nano Banana (gemini-3-pro-image-preview)",
+  "licencia": "generada para este proyecto",
+  "rol": "sección Wide (verde) — sujeto a la IZQUIERDA, hueco a la derecha",
+  "prompt": "An East Asian woman in her forties with sleek dark hair falling straight past her shoulders, her eyes softly closed and her face tilted up toward the light, one hand resting at her collarbone, serene and unhurried. She stands in the LEFT THIRD of the frame, cropped at mid-torso. The entire RIGHT TWO THIRDS of the frame is completely empty backdrop with nothing whatsoever in it, deliberately reserved for text. Seamless studio backdrop in a soft sage green gradient, lighter at the top left (#CFD9BC) and deepening toward the bottom right (#758C52). Beauty-editorial studio photography for a pastel skincare brand. Shot on an 85mm lens at f/3.2, one large softbox front-left plus a white bounce card, soft even light, no hard shadows. Luminous healthy skin with real visible texture and pores, expression lines left intact and unretouched. Natural everyday makeup, a simple white ribbed cotton tank top. Absolutely no text, no lettering, no numbers, no signage, no packaging, no boxes, no product of any kind in her hands or in frame, no logos, no watermarks and no brand marks anywhere in the image."
+ },
+ {
+  "archivo": "og-smoothies.jpg",
+  "rol": "tarjeta OG del borrador",
+  "fuente": "compuesta con scripts/og-smoothies.mjs a partir de mujer-hero.jpg + logo + 3 estuches",
+  "licencia": "derivada de las piezas de arriba",
+  "proceso": "$0 de API. Cero precio horneado (ledger #56)."
+ }
+]

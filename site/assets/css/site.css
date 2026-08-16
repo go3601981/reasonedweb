@@ -109,8 +109,8 @@ section p + p { margin-top: 0.9rem; }
 .case-lead { display: grid; gap: 2rem; margin-top: 1.5rem; }
 @media (min-width: 60rem) { .case-lead { grid-template-columns: 3fr 2fr; align-items: start; } }
 .case-lead .shot { border: 1px solid var(--line); }
-/* walkthroughs grabados: mismo marco que las capturas que reemplazan */
-video.walk { display: block; width: 100%; height: auto; border: 1px solid var(--line); background: var(--paper); }
+/* exhibiciones vivas: la pieza real dentro de un marco con proporción fija */
+iframe.exhibit { display: block; width: 100%; aspect-ratio: 16 / 10; border: 1px solid var(--line); background: #fff; }
 .chain { list-style: none; padding: 0; margin: 1.1rem 0 0; font-weight: 500; font-size: 0.95rem; }
 .chain li { padding: 0.5rem 0; border-bottom: 1px solid var(--line); }
 .chain li::before { content: ""; display: inline-block; width: 0.55em; height: 0.55em; background: var(--ink); margin-right: 0.7em; }

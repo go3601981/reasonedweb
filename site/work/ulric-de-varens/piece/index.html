@@ -1,0 +1,1803 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ulric de Varens, a redesign concept | Made in France since 1981</title>
+
+<meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
+<!-- ⛔ PASA DE «regalo» A «encargo», Y NO ES UN TRUCO PARA APAGAR UN CHECK.
+     Carlos, 2026-08-05: «quita la seccion de An unsolicited design concept». Esa franja existia
+     porque el perfil `regalo` de `verificar.mjs` exige deslinde y atribucion VISIBLES, y eso es
+     correcto para un envio NO SOLICITADO: quien lo recibe no sabe quien le escribe.
+     `encargo` es la categoria que ya existe en esa misma puerta para lo contrario — una pieza
+     hecha PARA alguien que sabe quien la esta haciendo. Ahi el deslinde no protege de nada y solo
+     mete letra pequeña. La puerta lo dice ella misma: comprueba el blindaje, no el permiso; la
+     declaracion es explicita para que la decision tenga DUEÑO y FECHA. Dueño: Carlos. Fecha:
+     2026-08-05.
+     ⛔ LO QUE NO SE AFLOJA NI AQUI NI NUNCA: `noindex`. Mientras esta pagina viva en nuestro
+     dominio con la marca de un negocio real, no puede competir en el buscador con su ficha. -->
+<meta name="wmys-pieza" content="encargo">
+<meta name="theme-color" content="#131315">
+
+<meta property="og:type" content="website">
+
+<meta property="og:title" content="Ulric de Varens &middot; Made in France, Inspired by Icons">
+
+
+
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23131315'/%3E%3Crect x='6' y='14' width='6.7' height='4' fill='%23002395'/%3E%3Crect x='12.7' y='14' width='6.6' height='4' fill='%23DADADA'/%3E%3Crect x='19.3' y='14' width='6.7' height='4' fill='%23ED2939'/%3E%3C/svg%3E">
+<link rel="preload" href="fonts/bodoni-moda-normal-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/archivo-normal-400.woff2" as="font" type="font/woff2" crossorigin>
+<script>document.documentElement.className += ' js';</script>
+<style>
+/* ══════════════════════════════════════════════════════════════════════════════════════════════
+   ULRIC DE VARENS — concepto de rediseño, 5ª vuelta                                   2026-08-05
+   ══════════════════════════════════════════════════════════════════════════════════════════════
+   ⛔ ESTO ES LA v2 DEL CONCEPTO (2026-08-06). Nace de una revisión con cuatro jueces —copy, paleta,
+   composición y gemelos— cuyos informes viven en `taller-ulricdevarens/revision-2026-08-06/`. La v1
+   se conserva intacta en `ulricdevarens.html`: esta versión NO la sustituye, la sucede. Lo que la
+   v2 cambia son afirmaciones que la casa no podía sostener (procedencia de las fotos, «pintada a
+   mano», los sellos), un error de hecho de navegación (Prestige es FEMENINA y el menú la archivaba
+   bajo Men), el reparto de la fotografía en el pliegue, y el sistema tipográfico y de color de la
+   mitad clara. El diseño —qué secciones hay y en qué orden— no se toca.
+   QUÉ CAMBIA RESPECTO DE LA 4ª, y por qué. La 4ª era un RE-VESTIDO: su estructura, su copy, otro
+   traje. Ésta cambia las dos cosas que Carlos pidió cambiar —la PALETA y la FOTOGRAFÍA— y deja en
+   pie lo que es suyo y funciona: qué secciones hay y en qué orden se compra.
+
+   ⛔ LA PALETA ANTERIOR ESTABA ANCLADA EN UN FONDO DE ESTUDIO. `--terra:#BB7341` y `--base:#2A1024`
+   se midieron sobre el papel sin costura y los podios de acrílico de UNA foto de campaña suya
+   (`Varens-for-Men-Main-Header`). Un ciclorama es atrezo: se cambia en la campaña siguiente, y sus
+   propias fotos de Navidad —pino y nieve, mismo negocio— lo demuestran. Es la misma clase que la
+   regla de esta carpeta «ningún color se deriva de una hora ni de un clima»: el estuco no cambia,
+   cambia la luz que le da.
+
+   ⛔ Y NO HAY UN COLOR DE CASA QUE ENCONTRAR: su catálogo es POLÍCROMO POR DISEÑO. Medido sobre
+   diez de sus propias fichas, 8 MATICES DOMINANTES DISTINTOS (0°, 30°, 45°, 150°, 195°, 210°,
+   315°, 345°) — rojo, naranja, oro, verde, cian, azul, magenta y rosa. Cualquier sustrato con
+   croma deja a siete de cada diez frascos pareciendo ajenos EN SU PROPIO SITIO. El ciruela de la
+   4ª es, literalmente, el color del vidrio de UDV Elixir: por eso Elixir se veía bien y Blue,
+   Ciel y Varensia se veían de otra casa.
+
+   ⛔ LO QUE SÍ ES CONSTANTE YA LO TENÍAN ESCRITO. Inventario de los 270 `fill` de los nueve SVG de
+   marca que ellos mismos entregaron: 237 son ACROMÁTICOS (87,8 %) — `#757575`, `#303030`, blanco.
+   El 12,2 % con color va repartido UNO POR ICONO (rosa, verde, ámbar) más el tricolor dentro del
+   hexágono maestro. Grafito de fondo, color como variable. La 4ª hacía exactamente lo contrario.
+   ⇒ De ahí sale esta paleta, y cada valor está MEDIDO sobre su material, no elegido.
+
+   TIPOGRAFÍA — escritas, y las rechazadas también, que es lo que prueba que hubo elección:
+     · Bodoni Moda (titulares). Didona: el contraste extremo grueso-fino es el mismo gesto de su
+       firma UDV pintada a mano, y la Didona es tipografía de origen francés.
+       RECHAZADAS: Playfair Display (la serif «de lujo» por defecto de la web — lee a plantilla) ·
+       Cormorant (frágil en cuerpo pequeño y saturando el sector belleza) · Spectral (la de la 4ª:
+       mantenerla emborronaría la comparación, y además es serif de TEXTO, no display).
+     · Archivo (texto, rótulos, cifras). Grotesca ancha, aguanta la caja alta espaciada de una
+       etiqueta de envase.
+       RECHAZADAS: Inter (el default de todo sitio generado) · Montserrat (el sucedáneo de Gotham
+       que usa todo el mundo — aquí leería a copia de Banderas en vez de a par suyo) · Jost
+       (geométrica: demasiado cerca de la Gotham de Banderas) · Epilogue (la de la 4ª).
+
+   ⛔ LA PÁGINA NO SE EXPLICA A SÍ MISMA. Ni una frase de aquí justifica una decisión de diseño:
+   eso va en `ulricdevarens-notas.html`, que se manda aparte. Su sitio existe para VENDER.
+
+   ⛔ CERO COPY INVENTADO. Toda cifra y toda afirmación de esta página está comprobada contra su
+   propia tienda o su propio material: los seis precios (leídos del JSON de producto de su
+   Shopify), «Made in France» y «100 ml» (impresos en su estuche), «desde 1981» (lo dice su sitio)
+   y las CUATRO LISTAS DE INGREDIENTES de las fichas de hombre, copiadas palabra por palabra de sus
+   propias páginas de producto. Lo que no se pudo comprobar, no está escrito.
+   ⛔ Y en la v2 se RETIRAN tres cosas que sí lo estaban: la sección de pirámides olfativas (que ya
+   no existe en el cuerpo, así que reclamarla aquí era describir un archivo que no es éste), «these
+   four were photographed where that happens» (las cuatro fotos de campaña son generadas: no hubo
+   rodaje) y «hand-painted signature» (un frasco de $24.99 en serie lleva serigrafía; «pintada a
+   mano» es una afirmación de manufactura que el cliente tendría que sostener ante la FTC).
+   ══════════════════════════════════════════════════════════════════════════════════════════════ */
+
+@font-face{font-family:"Bodoni Moda";src:url(fonts/bodoni-moda-normal-400.woff2) format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"Bodoni Moda";src:url(fonts/bodoni-moda-normal-600.woff2) format("woff2");font-weight:600;font-display:swap}
+@font-face{font-family:"Bodoni Moda";src:url(fonts/bodoni-moda-normal-700.woff2) format("woff2");font-weight:700;font-display:swap}
+@font-face{font-family:"Archivo";src:url(fonts/archivo-normal-400.woff2) format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"Archivo";src:url(fonts/archivo-normal-500.woff2) format("woff2");font-weight:500;font-display:swap}
+@font-face{font-family:"Archivo";src:url(fonts/archivo-normal-600.woff2) format("woff2");font-weight:600;font-display:swap}
+@font-face{font-family:"Archivo";src:url(fonts/archivo-normal-700.woff2) format("woff2");font-weight:700;font-display:swap}
+
+:root{
+  --nuit:#131315;    /* el CARTON GRAFITO de su estuche (medido #4B4B4D sobre su packshot de UDV For Men) llevado a sustrato */
+  --nuitB:#1C1C1F;   /* el mismo carton una dilucion mas arriba: superficies levantadas */
+  --nuitC:#08080A;   /* el poso del mismo grafito, para el pie */
+  --carton:#4B4B4D;  /* el CARTON GRAFITO de su estuche, MEDIDO tal cual. 2.13:1 sobre el sustrato: solo reglas y bordes, jamas texto */
+  --verre:#8B9092;   /* el VIDRIO AHUMADO de su flacon UDV For Men (medido #757A7C) aclarado hasta pasar AA: 5.69:1 sobre el sustrato */
+  --chrome:#DADADA;  /* el CROMO de la firma UDV pintada a mano sobre su flacon, MEDIDO. 13.27:1 */
+  --or:#E7C681;      /* el ORO de esa misma firma en Prestige, medido POR MATIZ sobre las fichas 07, 26 y 81 (F0C26E / E2C88C / E5C889) */
+  --orE:#6B5320;     /* el mismo oro espesado: es el que puede ESCRIBIR sobre claro, porque el oro da 1.44:1 sobre papel */
+  --craie:#E3DCCB;   /* la CARA IMPRESA CLARA de su propio estuche: la banda clara, que es donde se compra.
+                        ⛔ El valor anterior (#EFEEEC) no tenia objeto detras —era «el cromo llevado a peso
+                        de papel», una derivacion de una derivacion— y ademas caia en la zona prohibida de
+                        esta casa (oklch L 0.949 · C 0.003: L>0.90 y C<0.02 es el default palido calido).
+                        Este esta fuera por los DOS ejes (L 0.895 · C 0.024) y la tinta #17171A da 13.09:1 */
+  --bleu:#002395;    /* el AZUL del pabellon frances, exactamente como lo declara su propio Brand.svg */
+  --rouge:#ED2939;   /* el ROJO del mismo pabellon, del mismo archivo suyo */
+  --display:"Bodoni Moda",Didot,"Bodoni MT",Georgia,serif;
+  --texto:"Archivo",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --ancho:1320px;
+  --ease:cubic-bezier(.22,.61,.36,1);
+  /* ⛔ UN SOLO TAMAÑO DE H2, Y ESO ES EL ARREGLO. La v1 tenia CUATRO tamaños de titular de seccion
+     —50.4 / 45.6 / 42.4 / 38.4 px a 1440— con saltos del 7-10 %: demasiado pequeños para leerse
+     como jerarquia y suficientes para leerse como descuido. Nadie ve un valor; todo el mundo ve el
+     conjunto. El techo es el de la v1 (3.15rem). El SUELO no es el 2.4rem que se propuso: a 390 px
+     el h1 mide 33.3 px y un h2 de 38.4 seria MAS GRANDE QUE EL TITULAR — una jerarquia invertida
+     para arreglar una jerarquia borrosa. 2rem deja el h2 por debajo del h1 en los cuatro anchos. */
+  --h2:clamp(2rem,1.25rem + 2.6vw,3.15rem);
+  /* Los TRES trackings de micro-rotulo. Antes eran veinte, quince de ellos usados una sola vez. */
+  --tk1:.12em; --tk2:.17em; --tk3:.22em;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+/* ⛔ ESTO NO ES HIGIENE, ES UN BUG QUE YA OCURRIO. Los paneles ocultos de las pestañas llevan el
+   atributo `hidden`, que la hoja del navegador implementa como `display:none`. Pero `.rejilla`
+   declara `display:grid`, y una regla de autor SIEMPRE gana a la del navegador: el panel de mujer
+   se veia entero debajo del de hombre, con las pestañas funcionando «bien». No lo caza ninguna
+   puerta —el HTML es correcto y el ARIA tambien— y en la captura de pagina completa se ve al
+   primer vistazo. Por eso `hidden` tiene que poder mandar sobre cualquier `display` de autor. */
+[hidden]{display:none !important}
+/* ⛔ SIN ESTO, TODO ENLACE INTERNO ATERRIZA DEBAJO DE LA CABECERA. La cabecera es `sticky`, asi
+   que ocupa sitio de forma permanente y el navegador no lo sabe: al saltar a una seccion ponia el
+   borde superior de la seccion en la coordenada 0 de la ventana, o sea TAPADO por la barra, y lo
+   primero que se veia era la pieza empezada por la mitad —el filete tricolor cortado, que es lo
+   que Carlos vio—. `scroll-padding-top` es la unica forma de decirle al navegador «la ventana
+   util empieza mas abajo». Va en la raiz, que es el contenedor que desplaza, y por eso vale para
+   todos los enlaces internos sin tocar ni una seccion. El valor es la cabecera MAS un respiro:
+   aterrizar pegado a la barra es tecnicamente correcto y se sigue leyendo como un corte. */
+html{-webkit-text-size-adjust:100%;scroll-padding-top:132px}
+@media (max-width:919px){html{scroll-padding-top:104px}}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+body{
+  margin:0;background:var(--nuit);color:var(--chrome);
+  font-family:var(--texto);font-size:clamp(.95rem,.9rem + .2vw,1.02rem);line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+/* ⛔ AQUI NO VA `body{overflow-x:hidden}`, Y LA RAZON ESTA MEDIDA (2026-08-05, sonda-desborde.mjs).
+   Lo llevaba, y no servia para nada: el cajon de navegacion es `position:fixed`, o sea que se
+   posiciona contra el VIEWPORT y el recorte del `body` no lo alcanza. La sonda dio 724 px de
+   `scrollWidth` con el recorte puesto y 724 px sin el — identico. Lo unico que conseguia era
+   volver INVISIBLE cualquier desborde futuro de verdad, que es peor que no tener nada.
+   El recorte va donde el problema: en la raiz, y SOLO en el ancho donde existe el cajon. */
+/* ⛔ `height:auto` NO ES ADORNO, y este defecto se midio antes de arreglarlo. Cada `<img>` lleva
+   `width`/`height` para que el navegador reserve el hueco y no haya salto de maqueta; sin
+   `height:auto`, ese `height="1365"` se aplica TAL CUAL en px. Resultado medido a 390: cada
+   tarjeta de producto ocupaba 1528 px en vez de ~520, la seccion de coleccion pesaba 9556 px y la
+   pagina entera 18 095. No se veia deformado —`object-fit:contain` centra la foto dentro de la
+   caja gigante— asi que a ojo solo parecia «hay mucho aire». Lo destapo el gate de contraste, que
+   no pudo medir el pie porque la captura era absurdamente alta. */
+img{max-width:100%;height:auto;display:block}
+a{color:inherit}
+h1,h2,h3,h4{font-family:var(--display);font-weight:700;line-height:1.04;margin:0;letter-spacing:-.012em}
+/* ⛔ `balance` NO ES ADORNO: la v1 no tenia ni una sola aparicion, y por eso «Two houses under one /
+   roof.» dejaba cinco caracteres solos en movil y «A Paris house, a French / factory.» dejaba una
+   palabra. Un titular con viuda se lee como maqueta sin terminar, y es el elemento que mas se mira. */
+h1,h2{text-wrap:balance}
+p{margin:0}
+ul{margin:0;padding:0;list-style:none}
+:focus-visible{outline:2px solid var(--or);outline-offset:3px;border-radius:2px}
+
+.env{width:min(100% - 2.4rem,var(--ancho));margin-inline:auto}
+.saltar{position:absolute;left:-9999px;top:0;z-index:99;background:var(--or);color:#111;padding:.7rem 1rem;font-weight:600}
+.saltar:focus{left:.6rem;top:.6rem}
+
+/* ── EL FILETE TRICOLOR ────────────────────────────────────────────────────────────────────────
+   El unico gesto grafico que la pagina repite, y no es un invento: es la barra azul-blanco-roja
+   que va impresa junto a «MADE IN FRANCE» en el estuche de cada Prestige. Aparece bajo el
+   logotipo, al frente de cada seccion y antes de cada declaracion de origen. */
+/* ⛔⛔ EL FILETE NUNCA MOSTRABA TRES COLORES, EN NINGUNA DE SUS 11 APARICIONES, y lo destapo medir
+   los pixeles de la captura: sobre grafito el `#002395` da 1.49:1 y desaparece (se leia BLANCO +
+   ROJO); sobre la banda clara el `--chrome` da 1.21:1 y desaparecia la franja central (se leia
+   AZUL · HUECO · ROJO). El gesto que sostiene el concepto entero de la pieza salia incompleto
+   siempre, y ninguna puerta puede verlo: es `aria-hidden` y mide 3 px.
+   ⇒ La cura no es subir el azul —eso romperia la procedencia del `Brand.svg`, que es lo unico que
+   hace legitimo ese filete—: es montarlo sobre SU PAPEL. En el estuche real el tricolor va impreso
+   sobre carton claro y la franja blanca ES carton sin imprimir. Reproducido: fondo `--craie`,
+   franja central del mismo papel, y un contorno de `--carton` que le da borde sobre claro.
+   ⭐ De paso revive `--carton`, el material DOMINANTE medido del packshot (13526/14400 px), que
+   hasta hoy no pintaba un solo pixel.
+   ⛔ `box-sizing:content-box` NO es descuido: el reset global es `border-box`, y con el un
+   `padding:1px` sobre `.filete.fina` (2 px de alto) dejaria las tres franjas en 0 px — el filete
+   fino desapareceria del todo. El papel se AÑADE alrededor; no se come la tinta. */
+.filete{display:inline-flex;width:54px;height:3px;overflow:hidden;border-radius:1px;
+  box-sizing:content-box;background:var(--craie);padding:1px;outline:1px solid var(--carton)}
+.filete i{flex:1}
+.filete i:nth-child(1){background:var(--bleu)}
+.filete i:nth-child(2){background:var(--craie)}
+.filete i:nth-child(3){background:var(--rouge)}
+.filete.fina{width:38px;height:2px}
+
+.rotulo{
+  font-size:.68rem;font-weight:600;letter-spacing:var(--tk3);text-transform:uppercase;
+  color:var(--verre);margin:0;
+}
+.rotulo.oro{color:var(--or)}
+
+/* ── CABECERA ─────────────────────────────────────────────────────────────────────────────── */
+/* ── LA CINTA DE ARRIBA ────────────────────────────────────────────────────────────────────────
+   Su tienda lleva «FREE SHIPPING ON ORDERS OVER $55» en una banda rosa fija. Carlos dejo la
+   eleccion abierta: marquesina con mas mensajes, o fija.
+   ⛔ SE PROBO LA MARQUESINA Y SE DESCARTO CON UN NUMERO. Una cinta que corre tiene, por
+   definicion, texto fuera de la pantalla esperando turno, y `verificar.mjs` la suspendio en los
+   cuatro anchos: «caja(s) fuera de la pantalla · li [583…897] (recortado, CON TEXTO)». No es un
+   falso positivo del gate — es la regla de WCAG 1.4.10, que castiga la PERDIDA DE INFORMACION, y
+   un mensaje que aun no ha llegado esta perdido para quien no espera. Y encima 2.2.2 obliga a dar
+   pausa a cualquier cosa que se mueva sola mas de cinco segundos.
+   ⇒ FIJA, y con el mensaje que su tienda ya considera el importante. Un dato dicho entero vale
+   mas que tres dicho a plazos. El rosa chillon no vuelve: sobre grafito, el filete tricolor hace
+   de separador y ademas dice de donde es la casa. */
+.aviso{
+  background:var(--nuitC);border-bottom:1px solid #232326;
+  font-size:.68rem;letter-spacing:var(--tk2);text-transform:uppercase;color:var(--verre);
+}
+.aviso .env{display:flex;align-items:center;justify-content:center;gap:.7rem;min-height:38px;text-align:center}
+.aviso b{font-weight:600;color:var(--chrome)}
+
+/* ⛔⛔ EL `backdrop-filter` NO PUEDE VIVIR EN EL <header>, y es invisible hasta que lo mides: un
+   elemento con `filter` o `backdrop-filter` se convierte en BLOQUE CONTENEDOR de todos sus
+   descendientes `position:fixed`. El cajon de navegacion es `fixed;top:0;bottom:0`, asi que en vez
+   de ocupar la pantalla quedaba ATRAPADO dentro de la cabecera: 115 px de alto medidos a 390 px de
+   viewport, con «Women» a y=-21 —fuera de la pantalla— y el menu convertido en dos filas sueltas.
+   ⇒ El desenfoque se muda a un `::before` que cubre exactamente la misma caja. El aspecto no
+   cambia en un pixel y el <header> deja de ser bloque contenedor. El `.mega` sigue colgando de el
+   por `position:absolute`, que SI se ancla a un `sticky` — eso no se toca. */
+header{position:sticky;top:0;z-index:40;border-bottom:1px solid #232326}
+header::before{
+  content:"";position:absolute;inset:0;z-index:-1;
+  background:rgba(19,19,21,.94);backdrop-filter:blur(10px);
+}
+.barra{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:1rem;min-height:74px}
+.marca{justify-self:center;text-align:center;text-decoration:none;display:block;padding:.35rem .25rem}
+.marca b{
+  display:block;font-family:var(--display);font-weight:700;font-size:clamp(1.02rem,.86rem + .72vw,1.42rem);
+  letter-spacing:.16em;text-transform:uppercase;color:var(--chrome);line-height:1;
+}
+.marca span{
+  display:block;margin-top:.34rem;font-size:.6rem;letter-spacing:.44em;text-transform:uppercase;
+  color:var(--verre);padding-left:.44em;
+}
+/* ⛔ «SKIN CARE» CAIA MAS BAJO QUE LOS OTROS TRES, y la causa es que no son el mismo elemento:
+   los tres primeros son <button> —llevan desplegable— y el cuarto es un <a>. Un boton con un
+   <svg> dentro tiene otra caja de linea que un enlace de solo texto, asi que alineados por LINEA
+   BASE se separan. No se arregla con un margen: se arregla dejando de alinear por linea base y
+   centrando las cuatro cajas, y dando a las dos etiquetas la misma altura de linea.
+   ⚠️ 2026-08-08: el cuarto item («Skin Care») salio con la seccion de cosmetica y el menu es hoy
+   de TRES botones. La regla se queda —los mega-paneles siguen teniendo enlaces— pero ya no hay
+   ningun <a> de primer nivel con el que verla actuar. */
+nav.principal > ul{display:flex;gap:1.55rem;align-items:center}
+nav.principal a,nav.principal .cabeza{
+  text-decoration:none;font-size:.68rem;font-weight:600;letter-spacing:var(--tk2);text-transform:uppercase;
+  color:var(--chrome);padding:.62rem 0;display:inline-flex;align-items:center;line-height:1;
+  position:relative;background:none;border:0;font-family:inherit;cursor:pointer;
+}
+nav.principal a::after,nav.principal .cabeza::after{
+  content:"";position:absolute;left:0;right:100%;bottom:.34rem;height:1px;background:var(--or);
+  transition:right .32s var(--ease);
+}
+nav.principal a:hover::after,nav.principal a:focus-visible::after,
+nav.principal .cabeza:hover::after,nav.principal .cabeza[aria-expanded="true"]::after{right:0}
+.cabeza .chevron{transition:transform .3s var(--ease);margin-left:.4rem;flex:none}
+.cabeza[aria-expanded="true"] .chevron{transform:rotate(180deg)}
+
+/* ── EL DESPLEGABLE ────────────────────────────────────────────────────────────────────────────
+   Su tienda abre un panel ancho bajo los tres primeros menus, con tres fotos y una lista. Aqui va
+   la misma arquitectura con CUADRADOS DE COLOR en vez de fotos — orden de Carlos: los huecos se
+   rellenan despues, y un placeholder que finge ser una foto miente sobre lo que esta hecho.
+   El color de cada cuadrado no es decorativo: es el vidrio de un frasco de esa familia, que es la
+   misma regla con la que se eligio la paleta entera. */
+.mega{
+  position:absolute;left:0;right:0;top:100%;background:var(--nuitB);border-top:1px solid #26262A;
+  border-bottom:1px solid #26262A;box-shadow:0 26px 54px rgba(0,0,0,.5);
+  opacity:0;visibility:hidden;transform:translateY(-8px);pointer-events:none;
+  transition:opacity .26s var(--ease),transform .26s var(--ease),visibility 0s linear .26s;z-index:45;
+}
+.mega.abierto{opacity:1;visibility:visible;transform:none;pointer-events:auto;transition:opacity .26s var(--ease),transform .26s var(--ease),visibility 0s}
+/* La vuelta atras solo existe en movil, donde el panel es un segundo nivel a pantalla partida.
+   En escritorio el panel cae bajo su propio menu y se cierra apartando el raton o con Escape. */
+.volver{display:none}
+.megaFila{display:grid;gap:1.5rem;grid-template-columns:1fr;padding-block:1.9rem}
+@media (min-width:920px){.megaFila{grid-template-columns:repeat(3,minmax(0,1fr)) 1fr}}
+.baldosa{
+  display:block;text-decoration:none;position:relative;overflow:hidden;aspect-ratio:4/3;
+  border:1px solid rgba(255,255,255,.09);
+}
+.baldosa i{
+  position:absolute;inset:0;transition:transform .5s var(--ease),filter .5s var(--ease);
+  background:linear-gradient(150deg,var(--tono) 0%,color-mix(in oklab,var(--tono) 62%,#0A0A0C) 100%);
+}
+.baldosa:hover i,.baldosa:focus-visible i{transform:scale(1.06);filter:saturate(1.18) brightness(1.06)}
+.baldosa b{
+  position:absolute;left:0;right:0;bottom:0;z-index:2;padding:.85rem .95rem;font-weight:600;
+  font-size:.78rem;letter-spacing:.07em;color:#fff;font-family:var(--texto);
+  background:linear-gradient(to top,rgba(8,8,10,.86),rgba(8,8,10,0));
+}
+.baldosa em{
+  position:absolute;top:.7rem;left:.75rem;z-index:2;font-style:normal;font-size:.6rem;font-weight:700;
+  letter-spacing:var(--tk2);text-transform:uppercase;color:#fff;opacity:.72;
+}
+.megaLista h5{
+  font-family:var(--texto);font-size:.68rem;font-weight:700;letter-spacing:var(--tk2);text-transform:uppercase;
+  color:var(--chrome);margin:0 0 .7rem;
+}
+.megaLista ul{display:grid;gap:.1rem}
+.megaLista a{font-size:.86rem;font-weight:400;letter-spacing:0;text-transform:none;color:var(--verre);padding:.36rem 0;display:block}
+.megaLista a:hover{color:var(--or)}
+.megaLista a::after{display:none}
+.utiles{justify-self:end;display:flex;align-items:center;gap:.35rem}
+.icono{
+  display:grid;place-items:center;width:40px;height:40px;border:0;background:none;color:var(--chrome);
+  cursor:pointer;border-radius:3px;
+}
+.icono:hover{color:var(--or)}
+.hamb{display:none}
+
+.cajon{display:none}
+@media (max-width:919px){
+  /* ⛔⛔ EL CAJON NO SE APARCA FUERA DE LA PANTALLA, Y ESTO COSTO DOS INTENTOS MEDIDOS.
+     1) `transform:translateX(102%)` sobre un `position:fixed` ENSANCHA EL DOCUMENTO: 1115 px de
+        `scrollWidth` en un viewport de 768. Es desborde horizontal de verdad — lo que WCAG 1.4.10
+        prohibe— aunque nada se vea, porque el ancho existe aunque el pixel no se pinte.
+     2) `html{overflow-x:clip}` NO lo arregla: se re-midio y el numero no se movio ni un pixel
+        (668/724/1115, identicos). Tapar tampoco funcionaba.
+     ⇒ Forma final: la caja se queda SIEMPRE dentro del viewport, pegada a la derecha, y lo que
+     se anima es un RECORTE (`clip-path`), que es pintura y no ocupa espacio. El cajon se abre
+     como una cortina en vez de deslizarse desde fuera, no hay un solo pixel de desborde a ningun
+     ancho, y de paso el gesto es mas editorial que el deslizamiento de siempre. */
+  nav.principal{
+    position:fixed;top:0;right:0;bottom:0;width:min(84vw,340px);background:var(--nuitB);
+    clip-path:inset(0 0 0 100%);visibility:hidden;pointer-events:none;
+    transition:clip-path .42s var(--ease),visibility 0s linear .42s;z-index:60;
+    padding:5.2rem 1.5rem 2rem;border-left:1px solid #2A2A2E;overflow-y:auto;
+  }
+  nav.principal.abierto{
+    clip-path:inset(0 0 0 0);visibility:visible;pointer-events:auto;
+    transition:clip-path .42s var(--ease),visibility 0s;
+  }
+  /* ⛔ `align-items:stretch` NO es adorno: el `ul` de escritorio es `display:flex` con
+     `align-items:center`, y en columna ese `center` deja de centrar en vertical y pasa a centrar
+     en HORIZONTAL. Resultado medido: cada `li` quedaba del ancho de su texto (77 / 48 / 102 px) y
+     centrado, o sea cuatro etiquetas flotando en medio del cajon en vez de cuatro filas. Un
+     `width:100%` en el boton no lo arregla —es el 100 % de un `li` que ya venia encogido—: hay que
+     estirar el ITEM, que es el `li`. */
+  nav.principal ul{flex-direction:column;gap:.1rem;align-items:stretch}
+  /* ⛔⛔ TRES DE LOS CUATRO ITEMS SON <button>, NO <a>. Esta regla decia solo `a`, asi que «Women»,
+     «Men» y «Gift Sets» se quedaban con su maquetacion de ESCRITORIO —`inline-flex`, centrados, sin
+     borde— dentro de un cajon vertical, y solo «Skin Care» parecia una fila de menu. Es la misma
+     causa que ya mordio a esta pieza en el hueco de «SKIN CARE» (comentario de arriba): boton y
+     enlace no son el mismo elemento y hay que nombrarlos a los dos.
+     ⚠️ Y explica por que las puertas daban VERDE: el universo de `gate-responsive-aa` son ENLACES,
+     asi que contaba «1 de 1» sobre un menu de cuatro. El denominador estaba impreso en su propia
+     salida y habia que leerlo.
+     ⛔ 2026-08-08: ese unico enlace era «Skin Care» y ya no esta. El menu de primer nivel es de
+     tres BOTONES, o sea que el universo de esa puerta aqui es CERO — no «verde», ausente. */
+  nav.principal a,nav.principal .cabeza{
+    font-size:.9rem;padding:.86rem 0;border-bottom:1px solid #26262A;
+    display:flex;width:100%;justify-content:space-between;align-items:center;text-align:left;
+  }
+  /* El subrayado que crece de izquierda a derecha es un gesto de ESCRITORIO: en una fila de cajon
+     compite con el borde inferior y se lee como un error de pintado. */
+  nav.principal a::after,nav.principal .cabeza::after{display:none}
+  .cabeza .chevron{margin-left:auto;transform:rotate(-90deg)}
+  .cabeza[aria-expanded="true"] .chevron{transform:rotate(0deg)}
+  .hamb{display:grid}
+  .cerrar{position:absolute;top:1rem;right:1rem;display:grid}
+  /* ── EL MEGAMENU EN MOVIL: SEGUNDO NIVEL DEL CAJON ────────────────────────────────────────
+     En escritorio el panel cae ancho bajo la cabecera. Ese reparto no existe en un telefono: a
+     390 px es una sabana de 1168 px de alto tapando la pagina — que es literalmente lo que se
+     veia. Aqui pasa a ser el SEGUNDO NIVEL del propio cajon: misma caja, misma anchura, mismo
+     borde, con una vuelta atras. Es el patron de tienda de toda la vida y no exige mover un solo
+     nodo del DOM, que es lo que lo hace reversible.
+     ⛔ Entra con el MISMO gesto que el cajon —un `clip-path`— y no deslizandose. Esta pieza ya
+     pago esa leccion: una caja `fixed` aparcada con `translateX(102%)` ENSANCHA EL DOCUMENTO
+     (1115 px de scrollWidth medidos en un viewport de 768). El recorte es pintura, no ocupa. */
+  .mega{
+    position:fixed;top:0;right:0;bottom:0;left:auto;width:min(84vw,340px);
+    border:0;border-left:1px solid #2A2A2E;box-shadow:none;
+    transform:none;opacity:1;clip-path:inset(0 0 0 100%);
+    transition:clip-path .42s var(--ease),visibility 0s linear .42s;
+    padding:4.6rem 1.5rem 2rem;overflow-y:auto;z-index:65;
+  }
+  .mega.abierto{clip-path:inset(0 0 0 0);transition:clip-path .42s var(--ease),visibility 0s}
+  .mega .env{padding:0;max-width:none}
+  /* Dos columnas, no una: a pantalla completa tres baldosas 4:3 apiladas son ~1500 px de scroll
+     para ver un menu. La lista baja entera debajo, que es donde se lee mejor. */
+  .megaFila{padding-block:0;gap:.7rem;grid-template-columns:1fr 1fr}
+  .mega .baldosa{aspect-ratio:3/4}
+  .mega .megaLista{grid-column:1/-1;margin-top:.5rem}
+  .volver{
+    display:flex;align-items:center;gap:.5rem;position:absolute;top:1rem;left:1.1rem;
+    background:none;border:0;color:var(--verre);font-family:inherit;cursor:pointer;
+    font-size:.68rem;font-weight:600;letter-spacing:var(--tk2);text-transform:uppercase;
+    padding:.6rem .3rem;min-height:40px;
+  }
+  .volver:hover{color:var(--or)}
+  /* ⛔⛔⛔ EL DEFECTO MAS GRAVE DE LOS TRES, Y EL MENOS VISIBLE: la capa de oscurecido estaba a
+     `z-index:55` y el cajon a 60 — parece correcto y no lo es. `header` es `position:sticky` CON
+     `z-index:40`, o sea que crea CONTEXTO DE APILADO propio: el 60 del cajon solo compite DENTRO
+     de la cabecera, y frente al resto de la pagina el menu entero vale 40. La capa, que es hija
+     del <body>, se pintaba encima de TODO el menu.
+     Consecuencia real, medida con un registro de eventos: al tocar «Women» el clic no llegaba al
+     boton, lo recibia `DIV.cajon` — y su unico manejador CIERRA el menu. O sea que en un telefono
+     tocar cualquier item del menu solo servia para cerrarlo. NO lo introduje yo: es anterior.
+     ⇒ La capa baja a 35, POR DEBAJO de la cabecera. Sigue oscureciendo la pagina y sigue cerrando
+     al tocar fuera —lo de fuera es justo lo que queda visible—, pero deja de robarle los toques
+     al menu. Los dos flotantes (cupon y chat, z-50) tambien quedan por debajo del menu abierto,
+     que es lo correcto: taparlo era otra cara del mismo fallo. */
+  .cajon{display:block;position:fixed;inset:0;background:rgba(8,8,10,.72);opacity:0;pointer-events:none;transition:opacity .3s;z-index:35}
+  .cajon.on{opacity:1;pointer-events:auto}
+  /* ⛔ EL PIE EN COLUMNAS: MEDIDO, NO SUPUESTO. Carlos pidio confirmar que cabia. La rejilla mide
+     322 px a 360 y 352 a 390, y el enlace mas largo —«Varens For Men»— ocupa 98 px. Con el hueco
+     original de 2rem, tres columnas dan 86 px a 360: NO CABE. Encoger la letra para forzarlo seria
+     pagar legibilidad por scroll, que es lo que se pidio no hacer.
+     ⇒ DOS columnas por debajo de 400 px y TRES a partir de ahi, donde 109 px por columna dejan 11
+     de holgura sobre los 98 necesarios. La firma ocupa la fila entera en ambos casos. Se gana la
+     mitad del recorrido del pie sin tocar un solo tamaño de letra. */
+  .pieRejilla{grid-template-columns:repeat(2,minmax(0,1fr));gap:1.6rem 1rem}
+  .pieRejilla > .pieFirma{grid-column:1 / -1}
+  .barra{grid-template-columns:auto 1fr auto;min-height:64px}
+  .marca{justify-self:center}
+}
+/* ⛔ Dos renglones partidos que ninguna puerta mira y el ojo si, en `fold-movil.png`: el rotulo
+   de arriba caia a dos lineas y el logotipo se partia en «ULRIC DE / VARENS». Un logotipo partido
+   dice «esta pagina no se penso para este ancho», que es lo contrario de lo que se esta vendiendo.
+   No se arregla encogiendo la tipografia hasta que quepa: se le hace SITIO quitando lo que a 400
+   px no se usa —la lupa y la cuenta— y se acorta el aviso, que a ese ancho no puede decir dos
+   cosas a la vez. */
+@media (min-width:400px) and (max-width:919px){
+  .pieRejilla{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+@media (max-width:560px){
+  /* ⛔ EN TELEFONO EL CAJON VA A PANTALLA COMPLETA, y no es gusto: a 360 px un cajon de 84vw deja
+     58 px de «fuera» que tocar. Eso no es una zona de cierre, es un borde. El patron correcto para
+     ese ancho es pantalla completa + boton de cerrar visible (la X de 40x40 que ya existe) +
+     Escape, que es justo la rama que `gate-responsive-aa` reconoce a partir del 90 % de cobertura.
+     A 768 px el cajon lateral SI tiene un fuera de verdad (44 % de cobertura) y se queda lateral.
+     El segundo nivel acompaña: un panel de 84vw sobre un cajon de 100vw dejaria una franja del
+     cajon asomando por la izquierda, que se lee como un error de pintado. */
+  nav.principal{width:100%;border-left:0}
+  .mega{width:100%;border-left:0}
+  .aviso .largo{display:none}
+  .marca b{white-space:nowrap;font-size:.93rem;letter-spacing:.13em}
+  .marca span{letter-spacing:.36em;font-size:.56rem}
+  .utiles .icono:not(:last-child){display:none}
+}
+@media (min-width:561px){.aviso .corto{display:none}}
+@media (min-width:920px){.cerrar{display:none}}
+
+/* ── HERO ─────────────────────────────────────────────────────────────────────────────────── */
+/* ⛔ `padding-block:0` — el hero NO lleva el aire de una seccion normal. La regla generica
+   `section{padding-block:…}` le metia 93 px arriba y 93 abajo, y esos 93 de abajo son la banda
+   vacia que Carlos marco en rojo. Un hero a sangre empieza donde acaba la cabecera. */
+/* ⛔ `overflow:hidden` AQUI ES OBLIGATORIO Y NO ES UN PARCHE: la foto entra con una panoramica que
+   arranca en `scale(1.06)`, y un 6 % de 1440 son 43 px que salen por cada lado. Medido antes de
+   ponerlo: `img [-11…1451]` en un viewport de 1440, en los cuatro anchos. Un hero a sangre RECORTA
+   su propia imagen — eso es lo que significa «a sangre»; lo que no puede hacer es ensanchar el
+   documento. El recorte vive en el hero, no en el `body`, para que un desborde de verdad en
+   cualquier otro sitio se siga viendo. */
+.hero{position:relative;isolation:isolate;background:var(--nuit);padding-block:0;overflow:hidden}
+/* Y la seccion siguiente entra antes: despues de una foto a sangre el ojo no necesita tanto aire
+   como entre dos bloques de texto. */
+.hero + section{padding-top:clamp(2.4rem,1.6rem + 2.4vw,4rem)}
+.hero picture,.hero img{display:block;width:100%}
+/* ⛔ `object-position` VUELVE AL CENTRO, y lo decidio mirar el borde derecho de la captura: a 1440
+   el 62 % descentraba la toma y AMPUTABA VERTICALMENTE la segunda mano, la que sostiene el tapon
+   dorado. El gesto —destapar y pulverizar— es el sujeto de la foto, y en movil (donde la misma
+   imagen va centrada) se lee entero. La composicion de telefono era MEJOR que la de escritorio,
+   que es lo contrario de lo normal y por tanto un dato, no una opinion. */
+.hero img{height:clamp(430px,74vh,690px);object-fit:cover;object-position:50% 50%;filter:saturate(.92) contrast(1.04)}
+/* ── EL MOVIMIENTO DEL HERO ────────────────────────────────────────────────────────────────────
+   Carlos: «el hero no tiene ningun movimiento, se ve demasiado estatico». Lo que NO se hace es
+   meter un carrusel o un video: en una casa de perfume el movimiento que se NOTA compite con la
+   cara. Se hacen dos cosas y las dos son lentas:
+     · la foto entra con una panoramica de 14 s, muy corta (1.06 -> 1.00). No es un zoom que
+       llame la atencion: es que la imagen no este del todo quieta, como una toma de camara en
+       mano contenida.
+     · el texto entra ESCALONADO de abajo, en el orden en que se lee: rotulo, titular, italica,
+       parrafo, botones. El desfase es de 90 ms, suficiente para que se perciba secuencia y no
+       tan largo como para que se espere.
+   Sin JS todo esta puesto y quieto — las animaciones cuelgan de `.js`. */
+.js:not(.capture) .hero img{animation:heroEntra 14s var(--ease) both}
+@keyframes heroEntra{
+  from{transform:scale(1.06) translate3d(0,0,0);opacity:0}
+  12%{opacity:1}
+  to{transform:scale(1) translate3d(0,0,0);opacity:1}
+}
+.js:not(.capture) .heroCaja > *{animation:subeEntra .9s var(--ease) both}
+.js:not(.capture) .heroCaja > :nth-child(1){animation-delay:.15s}
+.js:not(.capture) .heroCaja > :nth-child(2){animation-delay:.24s}
+.js:not(.capture) .heroCaja > :nth-child(3){animation-delay:.33s}
+.js:not(.capture) .heroCaja > :nth-child(4){animation-delay:.42s}
+@keyframes subeEntra{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+/* La italica dorada llega un punto despues que la linea recta: es el remate de la frase, y
+   llegando sola se lee como remate. */
+.js:not(.capture) .heroCaja h1 em{animation:subeEntra .9s var(--ease) .40s both}
+/* ⛔⛔ `.97` DE ALFA NO ES UN VELO: ES UN PANEL NEGRO CONSEGUIDO CON UN DEGRADADO. Medido sobre
+   `fold-escritorio.png`: el `<img>` ocupa el 75 % del pliegue y de la foto se veia el 26,8 %. Por
+   franjas de 120 px, el reparto era 8,0 · 14,7 · 9,8 · 6,1 · 3,9 · 0,2 · 15,5 · 68,6 · 82,8 % —
+   o sea que la mitad izquierda de la pantalla estaba, en la practica, pintada de `--nuit`.
+   Es exactamente el objeto que Carlos rechazo con «resuelve el contraste y queda plano», solo que
+   por otra via; y es tambien la trampa del doc 58 repitiendose: la metrica de protagonismo habria
+   reportado 75 % mientras el ojo veia 26,8. Un proxy, otra vez.
+   ⇒ El tope baja a .86 y el punto medio se adelanta del 52 % al 38 %, con la caida completa antes
+   del 60 %. La legibilidad la sostiene la caja de texto —de ancho medido, 34rem— y no la opacidad
+   global. El texto sigue midiendose contra el fondo PINTADO, que es la regla de esta casa. */
+.hero::after{
+  content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:linear-gradient(100deg,rgba(19,19,21,.86) 0%,rgba(19,19,21,.76) 26%,rgba(19,19,21,.38) 38%,rgba(19,19,21,.05) 60%);
+}
+.heroTexto{position:absolute;inset:0;z-index:2;display:flex;align-items:center}
+.heroCaja{max-width:34rem}
+/* Sobre fotografia el rotulo no puede ir en `--verre`: ese gris esta calibrado contra el sustrato
+   grafito, no contra una cara iluminada. Aqui va en cromo aclarado, y el velo hace el resto. */
+.heroCaja .rotulo{color:#C6CACB}
+/* ⛔ EL HERO DE MOVIL ES OTRA FOTO Y POR TANTO OTRO REPARTO, y el gate lo cazó: con el velo
+   lateral del escritorio, «Créateur de Parfums · Paris» caía sobre la cara iluminada del retrato
+   vertical y daba 1.05:1. En vertical el sujeto ocupa los dos tercios de ARRIBA —se pidió así— y
+   lo que queda limpio es el tercio de ABAJO. Así que en móvil el texto baja y el velo se levanta
+   desde el pie, en vez de barrer desde la izquierda. */
+/* ⛔ Y EL ALTO DE ESE HERO LO DICTA EL BOTON, NO EL GUSTO. Primer intento a 88vh: precioso, y con
+   «Shop Men» 23 px por debajo del pliegue a 390x780 y 40 px a 360x640 — o sea, un hero que vende
+   con el boton fuera de la pantalla. Lo cazó `gate-cta-en-pliegue`, que mide cuatro tamaños
+   justamente porque en el portátil del autor la página se veía perfecta.
+   Se usa `svh` —no `vh`— para que la barra de direcciones del móvil no se coma el botón. */
+/* ⛔⛔ EN MOVIL EL TEXTO NO VA ENCIMA DE LA FOTO: VA DEBAJO. Carlos: «el copy tiene que bajar un
+   poco en movil, tapa la cara del hombre». Tapaba, y el motivo no era que faltaran unos pixeles de
+   desplazamiento — era geometrico, y por eso el arreglo tenia que ser estructural:
+   · A este ancho la caja del hero es MAS ALTA en proporcion que el retrato (0,74 contra 0,805), asi
+     que `object-fit:cover` escala para llenar el ALTO y recorta a los lados. El eje vertical entra
+     entero, o sea que `object-position:50% 12%` NO MOVIA NADA. Estuve ajustando un valor que el
+     navegador ignoraba, y el comentario que lo justificaba —«la cara va en el tercio alto a
+     proposito»— describia algo que no estaba pasando.
+   · Y el bloque de texto en vertical mide unos 400 px —rotulo, titular a dos lineas, entradilla a
+     dos y los dos botones apilados—, casi todo el hero. Pegado abajo con `flex-end` empieza igual a
+     la altura de la cara. No habia hueco que ganar: sobraba texto o faltaba foto.
+   ⇒ Se APILA: la foto arriba, entera y sin nada encima, y el texto debajo sobre grafito solido. La
+   cara se ve completa, el texto se lee sobre su propio fondo y deja de depender de un velo — que es
+   ademas la tercera vez en esta pieza que un degradado no consigue garantizar contraste sobre una
+   fotografia. El alto de la foto lo dicta el boton: tiene que seguir entrando en la primera
+   pantalla a 360x640, el tamaño mas apretado que mide la puerta. */
+/* ⛔ EL CORTE SUBE DE 719 A 919 px, y lo dicta una medicion, no la simetria con otros bloques. En
+   la franja 720-919 se heredaba el hero de ESCRITORIO —foto absoluta con velo lateral— y a 768 el
+   borde derecho de «SHOP MEN» caia en x=402 con las uñas del modelo empezando en x=410: OCHO
+   pixeles. Ademas el CTA quedaba justo sobre el punto medio del degradado, o sea sobre fotografia
+   a media intensidad. Un boton que se toca sobre una mano no es un boton, es un accidente. */
+@media (max-width:919px){
+  .hero{display:block}
+  /* ⛔ 34svh dejaba el CTA a 636 de 640 en el tamaño mas apretado: 4 px de margen no es holgura,
+     es suerte. Cualquier diferencia de renderizado tipografico lo saca del pliegue. */
+  /* ⛔ La altura movil sube de 32svh a 42svh porque el sujeto CAMBIO: una banda de 200-320 px
+     bastaba para una cara, pero un frasco vertical con su gesto necesita alto o vuelve a ser un
+     recorte sin sentido. El techo lo pone el CTA, no el gusto: gate-cta-en-pliegue.mjs mide que
+     el boton siga dentro del pliegue en los cuatro tamanos, y 34svh ya dejo una vez el boton a
+     636 de 640 — cuatro pixeles no es holgura, es suerte. */
+  /* ⛔⛔ EL PRODUCTO NO SE RECORTA. Medido a 360 y 390 px: con `cover` solo se veia el 55-59 %
+     del alto de la fotografia, o sea que al frasco le faltaba la base. Un recorte que parte al
+     SUJETO no se lee como encuadre, se lee como accidente — y aqui el sujeto es lo que se vende.
+     ⇒ `contain`: la foto entra ENTERA. Funciona porque su fondo ya es el mismo casi-negro que la
+     pagina, asi que los laterales no se leen como bandas: la imagen no termina, se disuelve. El
+     color va fijado detras para que el empalme sea exacto y no dependa de la suerte.
+     ⚠️ La altura no puede crecer sin mas para ganar sitio: `gate-cta-en-pliegue` mide que el boton
+     siga dentro de la primera pantalla, y 42svh ya lo tiro 44 px por debajo una vez. */
+  /* ⛔⛔ UN HERO EN MOVIL NO PUEDE TENER MARGENES DE COLOR A LOS LADOS (Carlos, 2026-08-06).
+     Un hero es a sangre; en cuanto le salen bandas deja de ser el fondo de la pagina y pasa a ser
+     una foto ENMARCADA dentro de una seccion — y eso se lee como error de maquetacion o como
+     marcador de posicion, en la primera pantalla.
+     ⛔ Y por eso `contain` NO era la solucion aunque arreglara el recorte: el problema era de
+     PROPORCION, no de ajuste. La toma vertical metia un sujeto de 2:3 en una caja de 1,5:1 — con
+     `cover` se cortaba el frasco y con `contain` aparecian las bandas. Ningun valor de
+     `object-fit` arregla una imagen cuya FORMA no es la del hueco: hay que cambiar la imagen.
+     ⇒ Toma reencuadrada a 16:9 desde la vertical (misma escena, mismo gesto, misma luz: se le paso
+     como referencia y solo se le pidio recomponer), con el sujeto centrado y margen por los cuatro
+     lados para que sobreviva a cualquier recorte entre 1,4:1 y 1,8:1. Vuelve `cover`. */
+  /* ⛔⛔ 33svh ERA EL TECHO DEL PROBLEMA, NO SU LIMITE: de la foto se veia el 9,8 % del pliegue
+     (279 px de banda sobre 844). La queja de Carlos que fundo esta regla —«the image can barely
+     be seen»— se disparo con un 12 % en `tree-care`. Esta pieza estaba POR DEBAJO de aquello, en
+     una casa de perfume, con el producto como unico sujeto.
+     ⛔⛔ Y EL PRIMER INTENTO —`clamp(240px,46svh,520px)`— TIRO EL CTA FUERA DEL PLIEGUE, MEDIDO:
+     `gate-cta-en-pliegue` dio ✓ en 1440x900, 1366x768 y 390x780 y ✗ en 360x640, con «Discover
+     Prestige» acabando en 696 de 640 — 56 px POR DEBAJO. Es exactamente la trampa que esta casa
+     ya tiene escrita («agrandar la foto tira el CTA fuera del pliegue, y a ojo no se ve»), y la
+     razon de que la puerta mida CUATRO tamaños y no el del que escribe: en 390x780 la pagina se
+     veia perfecta.
+     ⛔ El porcentaje era la herramienta equivocada. Lo que le quita sitio a la foto NO escala con
+     la pantalla: el bloque de texto apilado —rotulo, titular a dos lineas, entradilla a dos y los
+     dos botones en una fila— mide ~405 px SIEMPRE, a 360 y a 390. Un `svh` reparte en proporcion
+     un problema que es una RESTA. Por eso a 640 solo habia 25 px de holgura y a 780 habia 116:
+     el mismo 46 % pedia prestado donde no habia.
+     ⇒ La altura se calcula por diferencia: lo que queda de la primera pantalla despues de
+     reservar el texto y un respiro. Medido con la puerta: a 360x640 la foto queda en 210 px con
+     36 px de margen (donde no hay sitio, no se inventa) y a 390x780 sube a 350 px — de 257 a 350,
+     un 36 % mas de fotografia justo en el tamaño en el que se compra. El `vh` va delante como
+     respaldo para navegadores sin `svh`. */
+  .hero img{
+    height:clamp(210px,calc(100vh - 430px),520px);height:clamp(210px,calc(100svh - 430px),520px);
+    object-fit:cover;object-position:50% 50%;
+  }
+  .hero::after{display:none}
+  .heroTexto{position:static;padding:1.4rem 0 1.7rem;background:var(--nuit)}
+  .heroCaja{max-width:none}
+  .heroCaja h1{font-size:clamp(1.95rem,1.3rem + 3.2vw,2.7rem);text-shadow:none}
+  .heroCaja .rotulo{color:var(--verre)}
+  .heroCaja p.sub{margin-top:.75rem;font-size:.97rem;color:#B4B8B9;max-width:none}
+  .acciones{margin-top:1.15rem;gap:.55rem;flex-wrap:nowrap}
+  /* Los dos botones en UNA fila: apilados se comian 57 px del pliegue, que es justo lo que hacia
+     falta para que el CTA entrara a 360x640. */
+  .acciones .btn{padding:.8rem .95rem;letter-spacing:var(--tk1);flex:1 1 0;min-width:0}
+}
+.heroCaja h1{
+  font-size:clamp(2.2rem,1.45rem + 3.8vw,4.25rem);margin:1rem 0 0;color:#fff;
+  text-shadow:0 2px 26px rgba(8,8,10,.6);
+}
+/* ⛔ COMPENSACION OPTICA DE LA ITALICA. «Made» y «Inspired» arrancaban en el mismo x=42, y a 68 px
+   la segunda linea se leia METIDA HACIA DENTRO: una `I` italica de Didone tiene el borde optico
+   retranqueado. Un tercio de centesima de em lo devuelve a la vertical del ojo. */
+.heroCaja h1 em{font-style:italic;font-weight:400;color:var(--or);display:block;margin-left:-.03em}
+.heroCaja p.sub{margin-top:1.05rem;color:#DDE0E1;max-width:27rem;font-size:1.03rem}
+.acciones{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:1.6rem}
+
+/* ⛔ EL ACENTO DESCANSA EN REPOSO, Y ESO ES LO QUE CAMBIA. El CTA de una casa de perfume francesa
+   era PLATA SOBRE CARBON: correcto, medido (13.51:1) y anonimo. El oro solo ocupaba superficie en
+   `:hover` — o sea NUNCA EN UN TELEFONO, que es donde se compra. En movil el unico color saturado
+   de la pieza existia solo como texto y como anillo de foco. Ahora el fold gana su primer evento
+   cromatico real en los dos dispositivos, y el par sigue medido: #12100B sobre #E7C681 = 11.58:1.
+   El cromo no se pierde: pasa a ser el estado de hover, a 13.51:1.
+   ⛔ `justify-content:center` va en la BASE y no solo en movil: los dos botones del fold tenian dos
+   logicas internas distintas —el primario repartia etiqueta a la izquierda y flecha a la derecha,
+   el secundario centraba— y dos objetos de la misma familia, uno al lado del otro, con dos reglas
+   de alineacion, es lo primero que ve un ojo entrenado. Una sola declaracion los unifica en los
+   cuatro anchos; la altura ya era la misma (48 px de minimo). */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:.6rem;min-height:48px;padding:.82rem 1.6rem;
+  font-size:.68rem;font-weight:700;letter-spacing:var(--tk2);text-transform:uppercase;text-decoration:none;
+  border:1px solid var(--or);color:#12100B;background:var(--or);
+  transition:background .28s var(--ease),color .28s var(--ease),border-color .28s var(--ease);
+}
+.btn:hover{background:var(--chrome);border-color:var(--chrome);color:#111}
+.btn.linea{background:none;color:#fff;border-color:#8A8E90}
+.btn.linea:hover{background:var(--chrome);color:#111;border-color:var(--chrome)}
+.btn svg{flex:none}
+
+/* ── SECCIONES ────────────────────────────────────────────────────────────────────────────── */
+section{padding-block:clamp(3.4rem,2.2rem + 4vw,6.2rem)}
+.cabezaSec{margin-bottom:clamp(1.9rem,1.4rem + 1.7vw,3rem)}
+.cabezaSec h2{font-size:var(--h2);margin-top:.85rem}
+/* ⛔ LA JERARQUIA DE CONTRASTE ESTABA INVERTIDA RESPECTO AL ESFUERZO DE LECTURA. Los titulares iban
+   a 13,27:1 y los parrafos de entrada —el texto que de verdad hay que LEER— a 5,69:1 con `--verre`,
+   o sea en el suelo de AA y al lado de un titular en el techo: leian como texto deshabilitado. El
+   gate de AA no puede ver esto, porque solo pregunta «¿pasa el umbral?».
+   ⇒ #B4B8B9 = 9,28:1 sobre el sustrato. `--verre` se queda para lo que es: micro-rotulos y pies. */
+.cabezaSec p.entrada{margin-top:1rem;color:#B4B8B9;max-width:40rem}
+.claro{background:var(--craie);color:#17171A}
+.claro .rotulo{color:#5C6062}
+.claro .cabezaSec p.entrada{color:#4A4E50}
+/* ⛔⛔ EL ANILLO DE FOCO ERA INVISIBLE EN TODA LA MITAD CLARA: `--or #E7C681` sobre `--craie` daba
+   1.42:1, y afecta a 4 pestañas, 7 tarjetas de producto y el cierre del cupon. El gate lo aprobo
+   midiendo UN elemento —`querySelector('a[href],button')`, o sea el enlace de salto, que vive sobre
+   grafito— y comprobando solo que el outline CAMBIARA, no que contrastara. Denominador 1 de 42, sin
+   publicar: verde en vacio PARCIAL de manual.
+   ⇒ `--orE #6B5320`, que llevaba en la paleta desde el principio con CERO usos y es exactamente la
+   cura: 5.33:1 sobre el papel nuevo. El anillo sobre oscuro sigue siendo `--or`. */
+.claro :focus-visible,.cupon :focus-visible{outline-color:var(--orE)}
+
+/* ── PUERTAS «For Him / For Her» ──────────────────────────────────────────────────────────── */
+/* ── PRESTIGE: los seis numeros ────────────────────────────────────────────────────────────────
+   ⚠️ COMENTARIO CORREGIDO EN LA v2 — describia un estado que el codigo ya no tiene. Decia que «el
+   numero va DEBAJO del campo de color» y razonaba sobre que tinta poner encima de un naranja o de
+   un cian. Aqui ya no hay campos de color: hay FOTOGRAFIA desde el commit `0868dfaa`. El comentario
+   sobrevivio a su causa y es justo la clase que esta casa tiene nombrada — «parece que el asunto ya
+   se penso, y por eso nadie vuelve a mirarlo».
+   ⛔ Lo que SI sigue vivo, y es la razon de la regla de abajo: el cambio a fotografia PERDIO el
+   color que debia entregar. Medido sobre las seis imagenes, la croma media va de 0.017 a 0.032 y la
+   fraccion de pixeles cromaticos de 7,2 % a 16,6 %, con esquinas a `#010101`. O sea que la seccion
+   que se titula «six colors of glass» la desmiente su propia fotografia, y los seis colores
+   MEDIDOS sobre sus packshots vivian solo dentro de un comentario HTML.
+   ⇒ Vuelven a la pantalla como REGLA de 3 px bajo cada ficha. Los seis dan sobre `--nuit` 7.18 ·
+   10.08 · 3.28 · 7.68 · 5.45 · 4.30 — los seis por encima del 3:1 que pide 1.4.11 para lo que no
+   es texto, asi que lo garantiza la MAQUETA y no la suerte. Es el mismo argumento del comentario
+   viejo, aplicado donde ahora vive el problema. */
+/* ⛔ LA SEGUNDA FRASE ES UNA SEGUNDA LINEA, y sin esto no lo era: el titular salia como
+   «Prestige is the perfume.Not the price tag.» — de corrido y sin espacio, porque el `em` es
+   en linea por defecto. La regla existia para `.prestige` (la seccion de campana) y esta clase
+   se llamaba `.prestigio`: DOS NOMBRES A UNA LETRA DE DISTANCIA en el mismo archivo, que es una
+   colision esperando su turno. Renombrada a `.coleccionSeis` y con su propia regla, porque el
+   dispositivo —segunda frase en italica dorada, colgando— es lo que hace que la pagina rime con
+   el hero. */
+.coleccionSeis h2 em{font-style:italic;font-weight:400;color:var(--or);display:block}
+.rotuloSec{font:500 .68rem/1 var(--texto);letter-spacing:var(--tk3);text-transform:uppercase;
+  color:var(--verre);margin-bottom:.9rem}
+.numeros{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1rem;
+  list-style:none;margin:0;padding:0}
+.numeros a{display:block;text-decoration:none;color:inherit}
+/* Los seis vidrios MEDIDOS sobre sus propios packshots. Ni uno esta elegido: los seis se
+   muestrearon del cristal de su numero, y son lo unico de esta pagina que no puede pertenecer a
+   ninguna otra marca. */
+.numeros li:nth-child(1){--vidrio:#F88030}   /* 03 · naranja  · 7.18:1 sobre --nuit */
+.numeros li:nth-child(2){--vidrio:#F8B230}   /* 07 · oro      · 10.08:1 */
+.numeros li:nth-child(3){--vidrio:#AF405C}   /* 12 · vino     · 3.28:1 */
+.numeros li:nth-child(4){--vidrio:#37B5D1}   /* 14 · cian     · 7.68:1 */
+.numeros li:nth-child(5){--vidrio:#EB5584}   /* 26 · rosa     · 5.45:1 */
+.numeros li:nth-child(6){--vidrio:#CC32C9}   /* 81 · magenta  · 4.30:1 */
+.numeros img{
+  display:block;width:100%;height:auto;aspect-ratio:3/4;object-fit:cover;
+  border:1px solid rgba(255,255,255,.07);border-bottom:3px solid var(--vidrio,#DADADA);
+  transition:transform .5s var(--ease),filter .5s var(--ease);
+}
+.numeros a:hover img,.numeros a:focus-visible img{transform:translateY(-4px);filter:brightness(1.06)}
+.numeros b{display:block;margin-top:.85rem;font:700 1.5rem/1 var(--display);color:var(--chrome);
+  letter-spacing:.02em}
+.numeros span{display:block;margin-top:.3rem;font-size:.68rem;letter-spacing:var(--tk1);
+  text-transform:uppercase;color:var(--verre)}
+@media (prefers-reduced-motion:reduce){.numeros a:hover img,.numeros a:focus-visible img{transform:none}}
+.puertas{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.1rem}
+.puerta{
+  position:relative;display:block;text-decoration:none;overflow:hidden;isolation:isolate;
+  box-shadow:0 22px 54px rgba(0,0,0,.42);
+}
+.puerta img{width:100%;height:clamp(380px,53vh,540px);object-fit:cover;transition:transform 1.1s var(--ease)}
+.puerta:hover img,.puerta:focus-visible img{transform:scale(1.045)}
+.puerta::after{
+  content:"";position:absolute;inset:0;z-index:1;
+  background:linear-gradient(to top,rgba(8,8,10,.88) 0%,rgba(8,8,10,.36) 34%,rgba(8,8,10,0) 62%);
+}
+.puertaTexto{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:1.6rem 1.5rem}
+.puertaTexto h3{font-size:clamp(1.5rem,1.2rem + 1.5vw,2.2rem);color:#fff}
+.puertaTexto span{
+  display:inline-flex;align-items:center;gap:.5rem;margin-top:.75rem;
+  font-size:.68rem;font-weight:700;letter-spacing:var(--tk2);text-transform:uppercase;color:#fff;
+  border-bottom:1px solid rgba(255,255,255,.55);padding-bottom:.25rem;
+}
+.puerta:hover .puertaTexto span{border-color:var(--or);color:var(--or)}
+
+/* ── PRESTIGE ─────────────────────────────────────────────────────────────────────────────── */
+/* ⛔ LA CAMPAÑA RESPIRA UN 30 % MAS QUE EL RESTO, Y ES LA UNICA QUE LO HACE. La regla generica daba
+   99,2 px arriba y abajo a TODAS las secciones por igual, asi que la pagina no tenia un solo
+   momento en que el aire dijera «esto importa mas». La campaña es el pico emocional de la pieza
+   —cuatro frascos, una ciudad— y encima vivia en el sustrato mas hundido de todos. El aire es lo
+   unico que jerarquiza sin gritar. */
+.prestige{background:var(--nuitC);position:relative;overflow:hidden;
+  padding-block:clamp(4.4rem,2.85rem + 5.2vw,8.05rem)}
+.prestige::before{
+  content:"";position:absolute;top:-18%;left:50%;width:min(96vw,1100px);aspect-ratio:1;
+  transform:translateX(-50%);pointer-events:none;
+  background:radial-gradient(circle,rgba(231,198,129,.085) 0%,rgba(231,198,129,0) 62%);
+}
+.prestige .env{position:relative}
+.prestige h2 em{font-style:italic;font-weight:400;color:var(--or);display:block}
+/* ⛔ AQUI VIVIAN ~24 LINEAS DE `.hecho*`, RETIRADAS EN LA v2: cero `class="hecho"` en el cuerpo.
+   No era higiene: dos de sus reglas (`.hecho b`, `.hecho span`) inflaban el conteo de `var(--or)` y
+   de micro-rotulos, o sea que el CSS muerto MENTIA sobre el reparto de color y de tipografia de la
+   pieza a cualquiera que lo contara con un grep. */
+
+.campana{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:.9rem;margin-top:clamp(2rem,1.5rem + 2vw,3.2rem)}
+/* ══ LA CIUDAD Y EL FRASCO ═════════════════════════════════════════════════════════════════════
+   ⛔⛔ POR QUE EL FRASCO NO ESTA *DENTRO* DE LA ESCENA, que es lo que uno esperaria.
+   Carlos: «los productos de esa seccion no son productos reales; los sitios estan bien, pero
+   enseñad UDV Blue, Elixir, Flash y For Men». Correcto y comprobado — los frascos que habia son
+   maquetas, no coinciden con el packshot real de la casa.
+   Se intento lo obvio: generar la escena vacia y COMPONER encima el frasco real recortado de su
+   packshot. Se hizo la prueba y se miro. No funciona, y no por falta de maña: el packshot es
+   VIDRIO TRANSPARENTE iluminado para un fondo palido de estudio. Al recortarlo, el fondo claro se
+   ve A TRAVES del vidrio y viaja con el, los reflejos siguen siendo los de un plato de estudio, y
+   sobre una calle de Paris de noche el resultado es una pegatina. Se guardo la prueba.
+   ⇒ La salida no es falsificar mejor: es dejar de falsificar. La ciudad es la FOTOGRAFIA y el
+   frasco es el PRODUCTO, cada uno con su luz, unidos por una placa blanca — que es exactamente
+   como la casa presenta su propia campaña (imagen arriba, margen blanco con la marca debajo).
+   Y el fondo del packshot, que es palido y de su color, se funde con la placa por `multiply`:
+   cada frasco deja su propio halo. El defecto se convirtio en el material. */
+.frame{overflow:hidden;background:#FAF8F4;box-shadow:0 16px 40px rgba(0,0,0,.44);margin:0;display:block;
+  text-decoration:none;color:inherit;transition:transform .4s var(--ease),box-shadow .4s var(--ease)}
+.frame:hover,.frame:focus-visible{transform:translateY(-4px);box-shadow:0 26px 56px rgba(0,0,0,.55)}
+.frame .lienzo{overflow:hidden;position:relative;background:#0E0E10}
+.frame .lienzo img{width:100%;aspect-ratio:1;object-fit:cover;transition:transform 1.2s var(--ease)}
+.frame:hover .lienzo img{transform:scale(1.05)}
+/* ⛔ AQUI VIVIA UN ROTULO DE SITIO SOBRE LA FOTO, y se fue por medicion: 3.29:1 sobre el
+   «The Seine, blue hour», porque debajo de ese texto hay una balaustrada de piedra CLARA. Es la
+   segunda vez en esta pieza que un degradado no consigue garantizar contraste contra fotografia
+   —la primera fueron las cartelas de Prestige— y la conclusion ya no es de este caso: sobre una
+   imagen que cambia de luminancia entre pieza y pieza, un velo no es una solucion, es una
+   apuesta. El nombre del sitio esta ahora en la placa blanca, donde el fondo lo elegimos nosotros. */
+/* ⛔ LA PLACA ES SOLO TEXTO. Antes llevaba tambien una miniatura del frasco, y con el producto ya
+   dentro de la foto eso era enseñarlo dos veces y en pequeño: le robaba el protagonismo justo
+   donde se le acababa de dar. Nombre, sitio y precio; el frasco esta arriba, a tamaño de campaña. */
+.frame .placa{padding:.95rem 1.05rem 1.05rem}
+.frame .placa b{display:block;font-family:var(--texto);font-size:.96rem;font-weight:600;color:#17171A;line-height:1.25}
+.frame .placa span{display:block;margin-top:.25rem;font-size:.68rem;letter-spacing:var(--tk2);text-transform:uppercase;color:#5C6062}
+.frame .placa em{display:block;margin-top:.5rem;font-family:var(--display);font-style:normal;font-size:1.12rem;color:#17171A}
+
+/* ⛔ AQUI VIVIAN `.seis*` (11 lineas) y `.secreto*` / `.secretos` (9 lineas), retiradas en la v2:
+   cero `class="seis"` y cero `class="secreto"` en el cuerpo. Las piramides olfativas que `.secreto`
+   vestia se retiraron de la pagina hace tiempo y su hoja de estilo sobrevivio — con el efecto
+   secundario de que las NOTAS del cliente seguian prometiendo un contenido que la pagina ya no
+   tiene. Un estilo sin sujeto no es inofensivo: sostiene la ficcion de que el sujeto sigue ahi. */
+
+/* ── REJILLA DE PRODUCTO ──────────────────────────────────────────────────────────────────── */
+/* ── LAS PESTAÑAS ─────────────────────────────────────────────────────────────────────────────
+   Su tienda separa la coleccion en Best Sellers · New Perfumes · Women's · Men's, y Carlos pidio
+   conservar esa division: enseñar de golpe productos de familias distintas no es un escaparate,
+   es un almacen. «Perfumes for Men» va activa por defecto **temporalmente**, porque hoy no hay con
+   que llenar Best Sellers — y eso se dice aqui en vez de fingir que la decision es de diseño.
+   Se implementa como `tablist` de verdad (roles ARIA, flechas, Home/End), no como enlaces que
+   esconden divs: una pestaña que no se puede recorrer con el teclado no es una pestaña.
+   ⛔ Y el panel oculto va con `hidden`, no con `display:none` desde una clase: asi el contenido
+   que no se ve tampoco lo lee un lector de pantalla ni lo cuenta un auditor de contraste. */
+.pestanas{
+  display:flex;gap:.35rem;flex-wrap:wrap;margin-bottom:1.8rem;
+  border-bottom:1px solid #DAD7D1;padding-bottom:0;
+}
+/* ⛔ CUATRO PESTAÑAS DE ANCHOS DISTINTOS EN UN `flex-wrap` CAEN 2 + 1 + 1, y eso no es una
+   rejilla: es una fila que se rompio donde le toco. Una barra de pestañas dice «estas son tus
+   opciones, todas del mismo rango», y un reparto desigual contradice esa promesa antes de que
+   nadie lea una etiqueta. Simetrica quiere decir 4 en una fila, 2+2, o 1 por fila — nunca 2+1+1.
+   ⇒ En movil, rejilla de 2x2: las cuatro miden lo mismo y ocupan dos filas iguales. */
+@media (max-width:719px){
+  .pestanas{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.2rem .35rem}
+  .pestana{width:100%;justify-content:center;text-align:center}
+}
+.pestana{
+  appearance:none;background:none;border:0;border-bottom:2px solid transparent;cursor:pointer;
+  font-family:var(--texto);font-size:.68rem;font-weight:700;letter-spacing:var(--tk2);text-transform:uppercase;
+  color:#5C6062;padding:.85rem 1.05rem;min-height:44px;margin-bottom:-1px;
+  transition:color .25s var(--ease),border-color .25s var(--ease);
+}
+.pestana:hover{color:#17171A}
+.pestana[aria-selected="true"]{color:#17171A;border-bottom-color:var(--rouge)}
+.panelVacio{
+  padding:3.2rem 1.5rem;text-align:center;border:1px dashed #D3D0CA;background:#EFE9DC;color:#4A4E50;
+}
+.panelVacio b{display:block;font-family:var(--display);font-size:1.35rem;color:#17171A;margin-bottom:.5rem}
+
+/* ⛔ CUATRO COLUMNAS, y lo decidio Carlos mirando: con tres «el producto se ve demasiado grande».
+   Antes hubo cinco por `auto-fill` y el sexto producto se quedaba solo en una fila como un
+   descarte. Cuando el numero de piezas es CONOCIDO y pequeño, la reja se CUENTA, no se deja
+   fluir — y con las pestañas cada panel trae cuatro, que es exactamente una fila. */
+.rejilla{display:grid;grid-template-columns:repeat(auto-fill,minmax(238px,1fr));gap:1.1rem}
+@media (min-width:1080px){.rejilla{grid-template-columns:repeat(4,1fr);gap:1.25rem}}
+.card{
+  background:#FAF8F4;border:1px solid #E1DFDB;text-decoration:none;color:inherit;display:flex;flex-direction:column;
+  transition:box-shadow .32s var(--ease),transform .32s var(--ease),border-color .32s var(--ease);
+}
+.card:hover,.card:focus-visible{box-shadow:0 20px 42px rgba(23,23,26,.14);transform:translateY(-3px);border-color:#CFCCC6}
+/* ⛔ DOS TRATOS DISTINTOS EN LA MISMA REJILLA, Y ES A PROPOSITO.
+   · `.foto` (fondo blanco, `contain`, `multiply`) es para un PACKSHOT: viene con degradado de
+     estudio propio, y el multiply lo funde con la tarjeta dejando su tinte alrededor.
+   · `.foto.viva` es para las fichas fotografiadas: son imagenes OSCURAS a sangre, asi que ni se
+     centran ni se multiplican — llenan su hueco como la foto que son. Aplicarles el trato de
+     packshot las metia en una caja blanca con margen, que es exactamente «se ven mal hechas».
+   Mientras la pestaña de mujer siga con packshots, los dos tratos conviven; cuando tengan foto,
+   `.viva` se queda solo. */
+.card .foto{background:#FAF8F4;padding:1.35rem 1.35rem .6rem;display:grid;place-items:center;overflow:hidden}
+.card img{aspect-ratio:4/5;object-fit:contain;width:100%;transition:transform .5s var(--ease);mix-blend-mode:multiply}
+.card .foto.viva{background:var(--nuit);padding:0;display:block}
+.card .foto.viva img{aspect-ratio:4/5;object-fit:cover;mix-blend-mode:normal}
+.card:hover img{transform:scale(1.05)}
+.card .cuerpo{padding:1.05rem 1.15rem 1.25rem;border-top:1px solid #EBE9E5;display:flex;flex-direction:column;gap:.3rem;flex:1}
+.card h3{font-family:var(--texto);font-size:.95rem;font-weight:600;letter-spacing:.01em;color:#17171A}
+.card .tipo{font-size:.68rem;letter-spacing:var(--tk2);text-transform:uppercase;color:#5C6062}
+/* ⛔ LA NOTA OLFATIVA ESTABA ESCRITA Y ERA INVISIBLE. Los ingredientes de las cuatro fichas de
+   hombre estan copiados palabra por palabra de sus propias paginas de producto —o sea, cero riesgo
+   de copy inventado— y en la v1 vivian SOLO dentro del `alt`: presentes para un lector de pantalla
+   y ausentes para todo comprador que ve. Tras once menciones de Francia, la pagina no decia a que
+   huele nada. Y el destilado del sitio vivo señala la ficha sin nota olfativa como su fallo n.º 3:
+   el rediseño lo estaba heredando.
+   ⛔ El color NO es `--verre`: ese gris esta calibrado contra el sustrato GRAFITO y sobre la
+   tarjeta clara da 3.01:1, o sea un fallo de AA en texto de 11 px. El micro-rotulo de esta banda
+   es #5C6062, que es el que ya usa `.tipo` — 5.92:1 sobre #FAF8F4. Un token no se transporta de
+   sustrato: se transporta su PAPEL. */
+.card .notas{font-size:.68rem;letter-spacing:var(--tk2);text-transform:uppercase;color:#5C6062;line-height:1.5}
+.card .precio{margin-top:auto;padding-top:.7rem;font-family:var(--display);font-size:1.28rem;color:#17171A}
+
+/* ── LA CASA ──────────────────────────────────────────────────────────────────────────────── */
+.casa{background:var(--nuit);border-top:1px solid #232326}
+.casaFila{display:grid;gap:clamp(1.6rem,1rem + 3vw,3.4rem);grid-template-columns:1fr}
+@media (min-width:860px){.casaFila{grid-template-columns:.9fr 1.1fr;align-items:center}}
+.casaFila h2{font-size:var(--h2);margin-top:.9rem}
+/* ⛔ `display:block` — EL MISMO DISPOSITIVO ESTABA MONTADO DE DOS MANERAS. La italica dorada de
+   remate cuelga en bloque en el hero, en Prestige y en la coleccion, y aqui era EN LINEA: la unica
+   consecuencia visible era «a French / factory.» dejando una palabra sola en la tercera linea de
+   movil. Un dispositivo que se repite tiene que repetirse igual, o no es un dispositivo. */
+.casaFila h2 em{font-style:italic;font-weight:400;color:var(--or);display:block}
+/* ⛔ AQUI HABIA UNA FICHA DE CUATRO CIFRAS —1981 · France · 100 ml · $24.99— Y NO APORTABA UN SOLO
+   DATO NUEVO: los cuatro ya estaban dichos antes, tres de ellos varias veces (11 «France», 4
+   «1981», 7 «100 ml»). Era repeticion disfrazada de ficha tecnica, justo debajo del parrafo que
+   cuenta la casa.
+   ⇒ La sustituyen los CINCO claims que su propia tienda publica en su franja «The Ulric de Varens
+   Quality». El rediseño solo recogia tres, y ademas metidos dentro de Varens Beaute, o sea
+   degradados de argumentos DE LA CASA a argumentos de la linea de cosmetica. Aqui vuelven a su
+   sitio, enteros, en la seccion que habla de la casa.
+   ⇒ Y desde el 2026-08-08 son la UNICA sede: el cliente descontinua la linea de cosmetica y la
+   seccion Varens Beaute salio de la pagina, con sus tres sellos. Si alguna vez se echa de menos
+   «Bio & Vegan» o «Not Tested on Animals», estan aqui — no se han perdido, se han recogido. */
+.claims{display:flex;flex-wrap:wrap;gap:.55rem 1.5rem;border-top:1px solid #2A2A2E;
+  border-bottom:1px solid #2A2A2E;padding-block:1.1rem}
+.claims li{font-size:.68rem;font-weight:600;letter-spacing:var(--tk2);text-transform:uppercase;
+  color:var(--chrome);display:inline-flex;align-items:center;gap:.9rem}
+.claims li + li::before{content:"";width:3px;height:3px;border-radius:50%;background:var(--or);flex:none;margin-left:-.6rem}
+
+/* ── BOLETIN ──────────────────────────────────────────────────────────────────────────────── */
+.boletin{background:var(--nuitB);border-top:1px solid #232326;text-align:center}
+.boletin h2{font-size:var(--h2);margin-top:.85rem}
+.boletin p{margin:.9rem auto 0;color:var(--verre);max-width:34rem}
+.boletin form{display:flex;flex-wrap:wrap;gap:.6rem;justify-content:center;margin-top:1.6rem}
+.boletin input{
+  flex:1 1 260px;max-width:360px;min-height:48px;padding:.8rem 1rem;background:var(--nuit);
+  border:1px solid #4A4A4E;color:var(--chrome);font-family:inherit;font-size:.95rem;
+}
+.boletin input::placeholder{color:#8B9092}
+.boletin input:focus{border-color:var(--or);outline:none}
+/* El borde acompaña al fondo del `.btn`, que en la v2 descansa en oro: dejarlo en cromo pintaba un
+   contorno plata alrededor de un boton dorado — una regla que se escribio cuando el boton era de
+   otro color y sobrevivio al cambio. */
+.boletin button{min-height:48px;cursor:pointer;font-family:inherit;border:1px solid var(--or)}
+
+/* ── PIE ──────────────────────────────────────────────────────────────────────────────────── */
+footer{background:var(--nuitC);border-top:1px solid #232326;padding-block:clamp(2.6rem,2rem + 2.4vw,4rem)}
+.pieRejilla{display:grid;gap:2rem;grid-template-columns:repeat(auto-fit,minmax(190px,1fr))}
+.pieFirma b{font-family:var(--display);font-size:1.2rem;letter-spacing:.1em;text-transform:uppercase}
+.pieFirma p{margin-top:.7rem;color:var(--verre);font-size:.86rem;max-width:22rem}
+.social{display:flex;gap:.4rem;margin-top:1.1rem}
+.social a{display:grid;place-items:center;width:40px;height:40px;border:1px solid #3A3A3E;color:var(--chrome);border-radius:3px}
+.social a:hover{border-color:var(--or);color:var(--or)}
+/* ⛔ Eran h4 despues de un h2 y sin h3 en medio: salto de nivel, que Lighthouse marca
+   como "Heading elements are not in a sequentially-descending order". Un lector de pantalla usa
+   esos niveles como indice; saltarse uno es como numerar los capitulos 1, 2, 4. Bajan a h3 y el
+   selector baja con ellos — un cambio de etiqueta que deja el CSS apuntando a la vieja no rompe
+   nada visible al instante, solo desviste el bloque en silencio. */
+footer h3{font-family:var(--texto);font-size:.68rem;font-weight:700;letter-spacing:var(--tk2);text-transform:uppercase;color:var(--chrome);margin-bottom:.85rem}
+footer li a{display:inline-block;padding:.3rem 0;color:var(--verre);text-decoration:none;font-size:.88rem}
+footer li a:hover{color:var(--or)}
+.pagos{
+  margin-top:2.4rem;padding-top:1.6rem;border-top:1px solid #232326;
+  display:flex;align-items:center;flex-wrap:wrap;gap:.9rem 1.2rem;
+}
+.pagoTit{font-size:.68rem;font-weight:700;letter-spacing:var(--tk2);text-transform:uppercase;color:var(--verre)}
+.pagos ul{display:flex;flex-wrap:wrap;gap:.5rem}
+.pagos li{
+  width:46px;height:31px;border:1px solid #303034;border-radius:3px;overflow:hidden;background:#17171A;
+  display:grid;place-items:center;
+}
+/* ⛔ Los logotipos oficiales traen su propio fondo blanco o de marca dentro del SVG, asi que la
+   celda NO les pinta uno detras ni les recorta nada: solo los encaja. `object-fit:contain` porque
+   su viewBox es 750x471 y la celda 46x31 — estirarlos deformaria una marca registrada. */
+.pagos li{background:#FFFFFF;border-color:#3A3A3E}
+.pagos img{width:100%;height:100%;display:block;object-fit:contain}
+.pieBaja{
+  margin-top:1.6rem;padding-top:1.4rem;border-top:1px solid #232326;
+  display:flex;flex-wrap:wrap;gap:.8rem 1.4rem;align-items:center;justify-content:space-between;
+  font-size:.78rem;color:var(--verre);
+}
+
+/* ── LOS DOS FLOTANTES ────────────────────────────────────────────────────────────────────── */
+.cupon,.chat{position:fixed;bottom:1.1rem;z-index:50;transition:transform .4s var(--ease),opacity .3s}
+.cupon{
+  left:1.1rem;background:var(--craie);color:#17171A;padding:.85rem 3rem .9rem 1.05rem;
+  box-shadow:0 14px 34px rgba(0,0,0,.45);max-width:min(78vw,270px);
+}
+.cupon b{display:block;font-family:var(--display);font-size:1.6rem;line-height:1;margin-top:.4rem}
+.cupon > span:not(.filete){display:block;margin-top:.2rem;font-size:.68rem;font-weight:600;letter-spacing:var(--tk2);text-transform:uppercase;color:#5C6062}
+.cerrarCupon{
+  position:absolute;top:.35rem;right:.35rem;width:34px;height:34px;display:grid;place-items:center;
+  background:none;border:0;color:#5C6062;cursor:pointer;border-radius:3px;
+}
+.cerrarCupon:hover{color:#17171A;background:rgba(0,0,0,.06)}
+.chat{
+  right:1.1rem;display:inline-flex;align-items:center;gap:.55rem;min-height:48px;padding:.7rem 1.15rem;
+  background:var(--nuitB);color:var(--chrome);border:1px solid #3A3A3E;cursor:pointer;
+  font-family:inherit;font-size:.68rem;font-weight:700;letter-spacing:var(--tk2);text-transform:uppercase;
+  box-shadow:0 14px 34px rgba(0,0,0,.5);
+}
+.chat:hover{border-color:var(--or);color:var(--or)}
+/* Al llegar al pie los dos se apartan hacia abajo: taparle el pie a alguien que ha llegado hasta
+   el final es tapar justo lo que fue a buscar. */
+.cupon.fuera,.chat.fuera{transform:translateY(140%);opacity:0;pointer-events:none}
+/* ⛔ FUERA DE LA CAPTURA, y el motivo es una medicion, no una comodidad. El cupon es una ficha
+   CLARA fija sobre una pagina oscura; en la captura de pagina completa aterriza encima del
+   titular de las dos puertas y el auditor de contraste leyo 1.21:1 — un fallo real de
+   la CAPTURA, no de la pagina: nadie lee ese titular a traves del cupon, lo lee al lado.
+   `html.capture` es justo la convencion de esta carpeta para que un auditor vea la pagina y no
+   sus capas flotantes. Lo mismo hace el gate con cualquier `position:fixed`. */
+html.capture .cupon,html.capture .chat{display:none !important}
+@media (max-width:560px){
+  .cupon{max-width:60vw;padding:.7rem 2.6rem .75rem .85rem}
+  .cupon b{font-size:1.3rem}
+  .chat span{display:none}
+  .chat{padding:.7rem;width:48px;justify-content:center}
+}
+
+/* ── MOVIMIENTO ───────────────────────────────────────────────────────────────────────────── */
+/* Discreto a proposito: en una casa de perfume el movimiento que se nota compite con la foto.
+   Sin JS todo queda visible — el `.js` de la raiz es lo unico que autoriza a esconder. */
+.js:not(.capture) [data-reveal]{opacity:0;transform:translateY(18px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.js:not(.capture) [data-reveal].in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms !important;transition-duration:.001ms !important}
+  .js [data-reveal]{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+<a class="saltar" href="#contenido">Skip to content</a>
+
+<div class="aviso">
+  <div class="env">
+    <span class="filete fina" aria-hidden="true"><i></i><i></i><i></i></span>
+    <!-- ⛔ LAS DOS VARIANTES EXISTIAN EN EL CSS Y NO EN EL HTML. `.aviso .largo{display:none}` por
+         debajo de 560 px y `.aviso .corto{display:none}` por encima llevaban puestas desde el
+         principio, con un comentario que razonaba el acortamiento — y el <span> no tenia ninguna de
+         las dos clases. Dos reglas sin efecto: el acortamiento razonado nunca ocurrio. Es la clase
+         que esta casa ya tiene nombrada, «una declaracion sin efecto es peor que una equivocada»,
+         aplicada al copy. De paso el largo gana la palabra U.S., que faltaba: la cifra no declaraba
+         territorio, y $55 de envio gratis significa cosas distintas dentro y fuera del pais. -->
+    <span class="largo"><b>Free shipping</b> on U.S. orders over $55</span><span class="corto"><b>Free shipping</b> over $55</span>
+  </div>
+</div>
+
+<header>
+  <div class="env barra">
+    <button class="icono hamb" id="hamb" aria-label="Open menu" aria-expanded="false" aria-controls="nav">
+      <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+    </button>
+
+    <nav class="principal" id="nav" aria-label="Main">
+      <button class="icono cerrar" id="cerrar" aria-label="Close menu">
+        <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+      </button>
+      <ul>
+        <li><button class="cabeza" type="button" aria-expanded="false" aria-controls="mega-women">Women<svg class="chevron" width="9" height="6" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round"/></svg></button></li>
+        <li><button class="cabeza" type="button" aria-expanded="false" aria-controls="mega-men">Men<svg class="chevron" width="9" height="6" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round"/></svg></button></li>
+        <li><button class="cabeza" type="button" aria-expanded="false" aria-controls="mega-gifts">Gift Sets<svg class="chevron" width="9" height="6" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round"/></svg></button></li>
+      </ul>
+    </nav>
+
+    <a class="marca" href="#contenido">
+      <b>Ulric de Varens</b>
+      <span>Paris</span>
+    </a>
+
+    <div class="utiles">
+      <button class="icono" aria-label="Search">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="6.4" stroke="currentColor" stroke-width="1.7"/><path d="M15.8 15.8L21 21" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+      </button>
+      <button class="icono" aria-label="Account">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="8.4" r="3.7" stroke="currentColor" stroke-width="1.7"/><path d="M4.8 20c.9-3.7 3.7-5.6 7.2-5.6s6.3 1.9 7.2 5.6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+      </button>
+      <button class="icono" aria-label="Cart">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6.6 8h10.8l-1 11.2a1.6 1.6 0 0 1-1.6 1.5H9.2a1.6 1.6 0 0 1-1.6-1.5L6.6 8Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M9.3 8V6.4a2.7 2.7 0 0 1 5.4 0V8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+  </div>
+  <!-- ⛔ Los tres paneles: cuadrados de COLOR, no fotos. El `--tono` de cada uno es el vidrio de
+       un frasco real de esa familia, muestreado sobre su packshot — el mismo criterio que gobierna
+       la paleta de la pagina. Cuando lleguen las fotos, se sustituye el `<i>` y nada mas. -->
+  <div class="mega" id="mega-women" data-mega>
+    <!-- Solo se ve en movil, donde el panel es el segundo nivel del cajon. En escritorio cae
+         bajo su propio menu y se cierra apartando el raton o con Escape. -->
+    <button class="volver" type="button" data-volver aria-label="Back to the main menu"><svg width="13" height="13" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 6l-6 6 6 6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Menu</button>
+    <div class="env megaFila">
+      <a class="baldosa" href="#collection" style="--tono:#E4738F"><i></i><em>New</em><b>Varens Sweet</b></a>
+      <a class="baldosa" href="#collection" style="--tono:#1F5A4C"><i></i><em>Icon</em><b>Varensia</b></a>
+      <!-- ⛔⛔ PRESTIGE ES 100 % FEMENINA (dato del cliente) Y EL MENU LA ARCHIVABA BAJO «MEN» EN
+           TRES SITIOS. El error de hecho se habia corregido en el hero —el boton primario es
+           «Discover Prestige» justo por eso— y sobrevivio intacto en esta baldosa, en la lista
+           «Men's perfumes» y en la columna «For Him» del pie. Peor: la logica de color de la propia
+           pagina ya sabia la verdad, porque el magenta del ciclorama de la puerta «For Her» ES el
+           vidrio de un Prestige 26. La pagina pintaba la puerta de mujer con un Prestige mientras su
+           menu mandaba a Prestige por la puerta de hombre.
+           El `--tono` deja de ser el vino #7B3352 —que no es el vidrio de ninguno de los seis— y
+           pasa a #EB5584, el rosa MEDIDO del 26. Rêve sigue viva en la lista de abajo. -->
+      <a class="baldosa" href="#prestige" style="--tono:#EB5584"><i></i><em>Eau de Parfum</em><b>UDV Prestige</b></a>
+      <div class="megaLista">
+        <h5>Women&rsquo;s perfumes</h5>
+        <ul>
+          <li><a href="#collection">Mini</a></li>
+          <li><a href="#collection">Varens Sweet</a></li>
+          <li><a href="#collection">Varensia</a></li>
+          <li><a href="#prestige">UDV Prestige</a></li>
+          <li><a href="#collection">R&ecirc;ve</a></li>
+          <li><a href="#collection">UDV Pour Elle</a></li>
+          <li><a href="#collection">Jacques Saint Pr&eacute;s Pour Elle</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="mega" id="mega-men" data-mega>
+    <!-- Solo se ve en movil, donde el panel es el segundo nivel del cajon. En escritorio cae
+         bajo su propio menu y se cierra apartando el raton o con Escape. -->
+    <button class="volver" type="button" data-volver aria-label="Back to the main menu"><svg width="13" height="13" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 6l-6 6 6 6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Menu</button>
+    <div class="env megaFila">
+      <a class="baldosa" href="#collection" style="--tono:#4E5457"><i></i><em>Best seller</em><b>UDV For Men</b></a>
+      <a class="baldosa" href="#collection" style="--tono:#3E86AE"><i></i><em>Eau de Toilette</em><b>UDV Blue</b></a>
+      <!-- La tercera baldosa de hombre pasa a UDV Elixir, que SI es de esta rejilla y ademas es una
+           de las cuatro fichas que la seccion de coleccion ya enseña. -->
+      <a class="baldosa" href="#collection" style="--tono:#7B3352"><i></i><em>Eau de Toilette</em><b>UDV Elixir</b></a>
+      <div class="megaLista">
+        <h5>Men&rsquo;s perfumes</h5>
+        <ul>
+          <li><a href="#collection">UDV For Men</a></li>
+          <li><a href="#collection">UDV Blue</a></li>
+          <li><a href="#collection">UDV Flash</a></li>
+          <li><a href="#collection">UDV Night</a></li>
+          <li><a href="#collection">UDV Elixir</a></li>
+          <li><a href="#collection">Varens For Men</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="mega" id="mega-gifts" data-mega>
+    <!-- Solo se ve en movil, donde el panel es el segundo nivel del cajon. En escritorio cae
+         bajo su propio menu y se cierra apartando el raton o con Escape. -->
+    <button class="volver" type="button" data-volver aria-label="Back to the main menu"><svg width="13" height="13" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 6l-6 6 6 6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Menu</button>
+    <div class="env megaFila">
+      <!-- ⛔ «Coffret» funciona como VOZ y falla como ETIQUETA DE NAVEGACION: un comprador de Ohio
+           no sabe que es, y la propia tienda del cliente ya lo llama «Gift sets». El frances de esta
+           pagina se queda donde es procedencia —«Créateur de Parfums · Paris»— y sale de donde es
+           un rotulo que hay que entender para hacer clic. -->
+      <a class="baldosa" href="#collection" style="--tono:#B03A4A"><i></i><em>Gift set</em><b>For Her</b></a>
+      <a class="baldosa" href="#collection" style="--tono:#2C4C7A"><i></i><em>Gift set</em><b>For Him</b></a>
+      <a class="baldosa" href="#collection" style="--tono:#8A6A2F"><i></i><em>Travel</em><b>Bag Sets</b></a>
+      <div class="megaLista">
+        <h5>Gift sets</h5>
+        <ul>
+          <li><a href="#collection">Women&rsquo;s gift sets</a></li>
+          <li><a href="#collection">Men&rsquo;s gift sets</a></li>
+          <li><a href="#collection">Bag sets</a></li>
+          <li><a href="#collection">Miniatures</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</header>
+<div class="cajon" id="cajon"></div>
+
+<main id="contenido">
+
+  <!-- ══ HERO ══════════════════════════════════════════════════════════════════════════════ -->
+  <section class="hero" aria-label="Ulric de Varens">
+    <picture>
+      <!-- ⛔ EL SUJETO DEL HERO ES EL GESTO, NO UNA CARA. Un retrato a sangre funciona en
+           escritorio, donde la persona es FONDO y el texto vive dentro de su caida de luz; al
+           apilar en movil pasa a ser SUJETO, y un sujeto sin producto ni marca se lee como banco
+           de imagenes. Ademas contradecia a la seccion siguiente —«two houses under one roof»—
+           poniendo una sola cara masculina en el primer pantallazo.
+           ⇒ Ahora el fold es el frasco Prestige 03 con el tapon recien retirado. El punto focal
+           es UNICO y CENTRAL, que es lo unico que sobrevive a un recorte: por eso el mismo gesto
+           funciona en 16:9 con el texto a la izquierda y en 4:5 centrado.
+           ⭐ Y su fondo es el MISMO casi-negro que `--nuit`, asi que en movil, donde el texto va
+           debajo, no hay costura entre la foto y la pagina: el problema no se tapa, se disuelve.
+           ⛔ Las dos son el MISMO disparo en dos encuadres, no dos fotos distintas. -->
+      <source media="(max-width:719px)" sizes="100vw"
+              srcset="img-ulricdevarensusa/hero-udv-movil-780.webp 780w, img-ulricdevarensusa/hero-udv-movil-1170.webp 1170w">
+      <img src="img-ulricdevarensusa/hero-udv-ancho-1600.webp"
+           srcset="img-ulricdevarensusa/hero-udv-ancho-1600.webp 1600w, img-ulricdevarensusa/hero-udv-ancho-2200.webp 2200w"
+           sizes="100vw" width="2200" height="1228"
+           alt="A hand holding the UDV Prestige 03 eau de parfum with its gold cap just lifted, a fine mist catching a shaft of light." fetchpriority="high">
+    </picture>
+    <div class="heroTexto">
+      <div class="env">
+        <div class="heroCaja">
+          <!-- `lang="fr"` no es adorno: sin el, un lector de pantalla en ingles pronuncia
+               «Créateur de Parfums» con fonemas ingleses y la procedencia —que es justo lo que esa
+               linea vende— se pierde para quien no ve la pagina. -->
+          <p class="rotulo"><span lang="fr">Cr&eacute;ateur de Parfums</span> &middot; Paris</p>
+          <h1>Made in France.<em>Inspired by icons.</em></h1>
+          <p class="sub">Eau de toilette and eau de parfum, composed and filled in France since 1981.</p>
+          <!-- ⛔ LOS DOS BOTONES SON LA BIFURCACION DE LA PAGINA, y por eso su orden importa mas
+               que su estilo. Toda la coleccion Prestige es FEMENINA y el frasco del hero es un
+               Prestige 03: con «Shop Men» de primario, el fold enseñaba una fragancia de mujer
+               debajo de un boton que mandaba al lado contrario. No era una incoherencia de tono,
+               era un error de hecho.
+               Y con las dos puertas visibles en la primera pantalla, «Two houses under one roof»
+               deja de tener que ir arriba: el visitante ya eligio antes de bajar. -->
+          <div class="acciones">
+            <a class="btn" href="#prestige">Discover Prestige
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h13M12.5 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <a class="btn linea" href="#men">Shop Men</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ PUERTAS ═══════════════════════════════════════════════════════════════════════════ -->
+  <!-- ══ PRESTIGE ══════════════════════════════════════════════════════════════════════════
+       ⛔ ESTA SECCION FALTABA, y no era un hueco cosmetico: `#prestige` lo apuntaban TRES enlaces
+       —el boton secundario del hero y dos entradas del megamenu— y el ancla no existia. Los tres
+       no llevaban a ninguna parte. El comentario de la seccion de campana ya anunciaba que Prestige
+       tendria «su propia seccion, con su titular, su precio y sus seis numeros de verdad»; esto es
+       esa seccion.
+       ⛔ VA LA PRIMERA DESPUES DEL HERO por decision del cliente (Susan, 2026-08-06). Eso desplaza
+       a «Two houses under one roof», que baja a presentar el bloque de hombre: el trabajo de
+       repartir publico lo hacen ahora los DOS BOTONES DEL FOLD, que es donde un comprador lo
+       necesita — no se lee un ensayo sobre la casa, se elige puerta.
+       ⛔ Y toda la coleccion Prestige es FEMENINA (dato del cliente): por eso el boton primario del
+       hero pasa a ser «Discover Prestige». Un frasco de mujer sobre un boton que decia «Shop Men»
+       no era un roce de estilo, era un error de hecho.
+       ⚠️ COMENTARIO CORREGIDO EN LA v2. Decia «LOS SEIS CAMPOS DE COLOR NO SON DECORACION NI
+       RELLENO» y defendia unos rectangulos de color que ya no existen: aqui hay FOTOGRAFIA desde el
+       commit `0868dfaa`. Describia el archivo de antes, no este.
+       ⛔ Lo que sigue siendo verdad son los SEIS COLORES MEDIDOS sobre sus propios packshots — 03
+       #F88030 · 07 #F8B230 · 12 #AF405C · 14 #37B5D1 · 26 #EB5584 · 81 #CC32C9 — y lo que la v1
+       perdio al cambiar a foto fue justamente eso: medida, la croma de las seis imagenes va de 0.017
+       a 0.032, o sea que la seccion titulada «six colors of glass» la desmentia su propia
+       fotografia. Los seis vuelven a la pantalla como filete de 3 px bajo cada ficha (ver el CSS de
+       `.numeros li`), que es donde el argumento del titular se puede ver y no solo leer. -->
+  <section class="coleccionSeis" id="prestige" aria-labelledby="prestigeT">
+    <div class="env">
+      <div class="cabezaSec" data-reveal>
+        <span class="filete" aria-hidden="true"><i></i><i></i><i></i></span>
+        <p class="rotuloSec">The Prestige Collection</p>
+        <!-- El titular usa el MISMO dispositivo que el hero —segunda frase en itálica dorada— para
+             que la pagina rime: arriba procedencia y aspiracion, aqui la propuesta. Y en dorado y
+             en segunda linea, «Not the price tag» se lee como un desden elegante; a tamaño de
+             titular completo sonaria a outlet, que es justo de lo que esta marca se separa. -->
+        <h2 id="prestigeT">Prestige Is the Perfume.<em>Not the Price Tag.</em></h2>
+        <!-- ⛔ «one hand-painted signature» SE RETIRA, y no es un roce de estilo. Un frasco de
+             $24.99 producido en serie lleva serigrafia o estampado en caliente; «pintada a mano» es
+             una afirmacion de MANUFACTURA que el cliente tendria que sostener ante la FTC y ante su
+             propia fabrica, y no estaba en la lista de datos comprobados de esta pieza. Lo que si se
+             puede afirmar mirando el frasco es que la firma es CROMADA. -->
+        <p class="entrada">Six fragrances, six colors of glass, one signature in chrome.
+          Each an eau de parfum, composed and filled in France, 100&nbsp;ml (3.4 fl oz) &mdash; and
+          any one of the six is $24.99.</p>
+      </div>
+      <ul class="numeros">
+        <li data-reveal><a href="https://ulricdevarensusa.com/collections/udv-prestige" rel="noopener"><img src="img-ulricdevarensusa/prestige-03-v2-400.webp" srcset="img-ulricdevarensusa/prestige-03-v2-400.webp 400w, img-ulricdevarensusa/prestige-03-v2-800.webp 800w" sizes="(max-width:719px) 44vw, (max-width:1100px) 30vw, 29vw" width="400" height="533" loading="lazy" alt="UDV Prestige 03, eau de parfum in orange glass with a gold cap, 100 ml."><b>03</b><span>Eau de Parfum &middot; 3.4 fl oz</span></a></li>
+        <li data-reveal><a href="https://ulricdevarensusa.com/collections/udv-prestige" rel="noopener"><img src="img-ulricdevarensusa/prestige-07-v2-400.webp" srcset="img-ulricdevarensusa/prestige-07-v2-400.webp 400w, img-ulricdevarensusa/prestige-07-v2-800.webp 800w" sizes="(max-width:719px) 44vw, (max-width:1100px) 30vw, 29vw" width="400" height="533" loading="lazy" alt="UDV Prestige 07, eau de parfum in golden glass with a gold cap, 100 ml."><b>07</b><span>Eau de Parfum &middot; 3.4 fl oz</span></a></li>
+        <li data-reveal><a href="https://ulricdevarensusa.com/collections/udv-prestige" rel="noopener"><img src="img-ulricdevarensusa/prestige-12-v2-400.webp" srcset="img-ulricdevarensusa/prestige-12-v2-400.webp 400w, img-ulricdevarensusa/prestige-12-v2-800.webp 800w" sizes="(max-width:719px) 44vw, (max-width:1100px) 30vw, 29vw" width="400" height="533" loading="lazy" alt="UDV Prestige 12, eau de parfum in deep wine glass with a gold cap, 100 ml."><b>12</b><span>Eau de Parfum &middot; 3.4 fl oz</span></a></li>
+        <li data-reveal><a href="https://ulricdevarensusa.com/collections/udv-prestige" rel="noopener"><img src="img-ulricdevarensusa/prestige-14-v2-400.webp" srcset="img-ulricdevarensusa/prestige-14-v2-400.webp 400w, img-ulricdevarensusa/prestige-14-v2-800.webp 800w" sizes="(max-width:719px) 44vw, (max-width:1100px) 30vw, 29vw" width="400" height="533" loading="lazy" alt="UDV Prestige 14, eau de parfum in cyan glass with a gold cap, 100 ml."><b>14</b><span>Eau de Parfum &middot; 3.4 fl oz</span></a></li>
+        <li data-reveal><a href="https://ulricdevarensusa.com/collections/udv-prestige" rel="noopener"><img src="img-ulricdevarensusa/prestige-26-v2-400.webp" srcset="img-ulricdevarensusa/prestige-26-v2-400.webp 400w, img-ulricdevarensusa/prestige-26-v2-800.webp 800w" sizes="(max-width:719px) 44vw, (max-width:1100px) 30vw, 29vw" width="400" height="533" loading="lazy" alt="UDV Prestige 26, eau de parfum in rose glass with a gold cap, 100 ml."><b>26</b><span>Eau de Parfum &middot; 3.4 fl oz</span></a></li>
+        <li data-reveal><a href="https://ulricdevarensusa.com/collections/udv-prestige" rel="noopener"><img src="img-ulricdevarensusa/prestige-81-v2-400.webp" srcset="img-ulricdevarensusa/prestige-81-v2-400.webp 400w, img-ulricdevarensusa/prestige-81-v2-800.webp 800w" sizes="(max-width:719px) 44vw, (max-width:1100px) 30vw, 29vw" width="400" height="533" loading="lazy" alt="UDV Prestige 81, eau de parfum in magenta glass with a gold cap, 100 ml."><b>81</b><span>Eau de Parfum &middot; 3.4 fl oz</span></a></li>
+      </ul>
+    </div>
+  </section>
+
+  <section aria-labelledby="puertasT">
+    <div class="env">
+      <div class="cabezaSec" data-reveal>
+        <span class="filete" aria-hidden="true"><i></i><i></i><i></i></span>
+        <!-- ⛔ «house» significaba dos cosas distintas en la misma pantalla: aqui era «linea de
+             genero» y en las otras siete apariciones de la pagina es LA MARCA («A house in Paris»,
+             «A French perfume house since 1981», «The house», «the house, on one shelf»). Un mismo
+             termino con dos referentes obliga al lector a decidir cual es cual, que es trabajo que
+             no deberia estar haciendo.
+             Y «has done both from the beginning» era una afirmacion historica sin respaldo en el
+             material del cliente: se retira, no se suaviza. -->
+        <h2 id="puertasT">Two collections, one house.</h2>
+        <p class="entrada">Ulric de Varens composes for men and for women. Start wherever you
+          like.</p>
+      </div>
+      <div class="puertas">
+        <a class="puerta" id="men" href="#collection" data-reveal>
+          <img src="img-ulricdevarensusa/puerta-him.jpg" width="1100" height="1365" loading="lazy"
+               alt="Two men in tailored jackets against a steel-cyan backdrop.">
+          <div class="puertaTexto">
+            <h3>For Him</h3>
+            <span>Discover
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h13M12.5 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </div>
+        </a>
+        <a class="puerta" id="women" href="#collection" data-reveal>
+          <img src="img-ulricdevarensusa/puerta-her.jpg" width="1100" height="1365" loading="lazy"
+               alt="Three women in satin gowns against a magenta backdrop.">
+          <div class="puertaTexto">
+            <h3>For Her</h3>
+            <span>Discover
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h13M12.5 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ PRESTIGE ══════════════════════════════════════════════════════════════════════════ -->
+  <!-- ⛔ ESTA SECCION SE PARTIO EN DOS, y no por gusto. Antes llevaba el titular de Prestige y el
+       dato de $24.99 encima de cuatro fichas que, tras la correccion de Carlos, son eaux de
+       toilette de $19.99. Un titular que dice «los seis, $24.99» sobre cuatro frascos de otra
+       gama y otro precio no es una licencia: es una cifra en la columna equivocada.
+       Ahora la CAMPAÑA es la campaña —cuatro frascos, cuatro Paris— y PRESTIGE es su propia
+       seccion, con su titular, su precio y sus seis numeros de verdad. -->
+  <section class="prestige" id="campana" aria-labelledby="campanaT">
+    <div class="env">
+      <div class="cabezaSec" data-reveal>
+        <span class="filete" aria-hidden="true"><i></i><i></i><i></i></span>
+        <!-- ⛔ EL ROTULO PIERDE EL ORO A PROPOSITO. De las cinco secciones con filete, solo dos
+             llevan rotulo, y estaban en DOS COLORES distintos: «THE PRESTIGE COLLECTION» en
+             `--verre` y «THE CAMPAIGN» en `--or`. Dos ocurrencias de un mismo elemento son
+             suficientes para fundar una gramatica o para romperla; no hay tercera opcion. -->
+        <p class="rotulo" style="margin-top:.9rem">The campaign</p>
+        <h2 id="campanaT">Four bottles.<em>One city.</em></h2>
+        <!-- ⛔⛔ «These four were photographed where that happens» ERA FALSO DOS VECES, y lo firmaba
+             el cliente en su propio dominio. Primero, no hubo rodaje: las cuatro imagenes son
+             generadas, y las notas que acompañan a esta entrega lo dicen en texto plano. Y segundo,
+             aunque lo hubiera habido, «donde eso pasa» es donde se compone y se llena — una
+             FABRICA, no un parapeto mojado ni un tejado.
+             Es la clase que esta casa prohibe —fabricar un registro— aplicada a la procedencia de
+             una imagen en vez de a una reseña. La frase nueva dice lo unico que es cierto: cuatro
+             frascos y cuatro estados de animo de la ciudad de la que vienen. -->
+        <p class="entrada">Every Ulric de Varens is composed and filled in France. Four bottles, four
+          moods of the city they come from.</p>
+      </div>
+
+      <div class="campana">
+        <a class="frame" href="https://ulricdevarensusa.com/products/udv-for-men" rel="noopener">
+          <div class="lienzo">
+            <img src="img-ulricdevarensusa/campana-for-men.jpg" width="1100" height="1100" loading="lazy" alt="UDV For Men eau de toilette against a Paris street at night.">
+          </div>
+          <div class="placa">
+            <b>UDV For Men</b>
+            <span>Paris, after the rain</span>
+            <em>$19.99</em>
+          </div>
+        </a>
+        <a class="frame" href="https://ulricdevarensusa.com/products/udv-blue" rel="noopener">
+          <div class="lienzo">
+            <img src="img-ulricdevarensusa/campana-blue.jpg" width="1100" height="1100" loading="lazy" alt="UDV Blue eau de toilette against a riverside balustrade above the Seine at blue hour.">
+          </div>
+          <div class="placa">
+            <b>UDV Blue</b>
+            <span>The Seine, blue hour</span>
+            <em>$19.99</em>
+          </div>
+        </a>
+        <a class="frame" href="https://ulricdevarensusa.com/products/udv-elixir" rel="noopener">
+          <div class="lienzo">
+            <img src="img-ulricdevarensusa/campana-elixir.jpg" width="1100" height="1100" loading="lazy" alt="UDV Elixir eau de toilette against a Paris square at violet dusk.">
+          </div>
+          <div class="placa">
+            <b>UDV Elixir</b>
+            <span>The square, at dusk</span>
+            <em>$19.99</em>
+          </div>
+        </a>
+        <a class="frame" href="https://ulricdevarensusa.com/products/udv-flash" rel="noopener">
+          <div class="lienzo">
+            <img src="img-ulricdevarensusa/campana-flash.jpg" width="1100" height="1100" loading="lazy" alt="UDV Flash eau de toilette against the Paris rooftops at sunset.">
+          </div>
+          <div class="placa">
+            <b>UDV Flash</b>
+            <span>The rooftops, at sunset</span>
+            <em>$19.99</em>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ LA COLECCION ══════════════════════════════════════════════════════════════════════ -->
+  <section class="claro" id="collection" aria-labelledby="colT">
+    <div class="env">
+      <div class="cabezaSec" data-reveal>
+        <span class="filete" aria-hidden="true"><i></i><i></i><i></i></span>
+        <h2 id="colT">The collection</h2>
+        <p class="entrada">Every bottle carries the same UDV signature in chrome, and every one is
+          a different color of glass. That is the house, on one shelf.</p>
+      </div>
+      <!-- ⛔ PESTAÑAS DE VERDAD: `tablist` con roles ARIA, flechas y Home/End. Una pestaña que
+           solo funciona con el raton no es una pestaña, es un enlace disfrazado.
+           ⛔ Y «Perfumes for Men» va seleccionada por defecto A PROPOSITO Y TEMPORALMENTE: hoy no
+           hay con que llenar Best Sellers, y eso se dice aqui en vez de disimularlo. -->
+      <div class="pestanas" role="tablist" aria-label="Collection">
+        <button class="pestana" role="tab" id="tab-best" aria-controls="pan-best" aria-selected="false" tabindex="-1" type="button">Best Sellers</button>
+        <button class="pestana" role="tab" id="tab-new" aria-controls="pan-new" aria-selected="false" tabindex="-1" type="button">New Perfumes</button>
+        <button class="pestana" role="tab" id="tab-women" aria-controls="pan-women" aria-selected="false" tabindex="-1" type="button">Perfumes for Women</button>
+        <button class="pestana" role="tab" id="tab-men" aria-controls="pan-men" aria-selected="true" tabindex="0" type="button">Perfumes for Men</button>
+      </div>
+
+      <div class="rejilla" role="tabpanel" id="pan-men" aria-labelledby="tab-men">
+        <a class="card" href="https://ulricdevarensusa.com/products/udv-for-men" rel="noopener">
+          <div class="foto viva"><img src="img-ulricdevarensusa/ficha-udv-for-men.jpg" width="1100" height="1365" loading="lazy" alt="UDV For Men beside sprigs of mint, wormwood and patchouli leaves on wet slate."></div>
+          <div class="cuerpo">
+            <span class="tipo">Eau de Toilette</span>
+            <h3>UDV For Men</h3>
+            <!-- Los ingredientes salen de su propia ficha de producto, palabra por palabra. -->
+            <span class="notas">Mint &middot; Wormwood &middot; Patchouli</span>
+            <span class="precio">$19.99</span>
+          </div>
+        </a>
+        <a class="card" href="https://ulricdevarensusa.com/products/udv-blue" rel="noopener">
+          <div class="foto viva"><img src="img-ulricdevarensusa/ficha-udv-blue-1100.jpg" width="1100" height="1365" loading="lazy" alt="UDV Blue beside lavender in bud, a block of pale wood and pieces of amber resin on wet slate."></div>
+          <div class="cuerpo">
+            <span class="tipo">Eau de Toilette</span>
+            <h3>UDV Blue</h3>
+            <span class="notas">Lavender &middot; Precious Woods &middot; Amber</span>
+            <span class="precio">$19.99</span>
+          </div>
+        </a>
+        <a class="card" href="https://ulricdevarensusa.com/products/udv-flash" rel="noopener">
+          <div class="foto viva"><img src="img-ulricdevarensusa/ficha-udv-flash-1100.jpg" width="1100" height="1365" loading="lazy" alt="UDV Flash beside sea salt, driftwood and sandalwood shavings on wet slate."></div>
+          <div class="cuerpo">
+            <span class="tipo">Eau de Toilette</span>
+            <h3>UDV Flash</h3>
+            <span class="notas">Sea Salt &middot; Driftwood &middot; Sandalwood</span>
+            <span class="precio">$19.99</span>
+          </div>
+        </a>
+        <a class="card" href="https://ulricdevarensusa.com/products/udv-elixir" rel="noopener">
+          <div class="foto viva"><img src="img-ulricdevarensusa/ficha-udv-elixir-1100.jpg" width="1100" height="1365" loading="lazy" alt="UDV Elixir beside a halved apple, bergamot peel, vanilla pods and vetiver root on wet slate."></div>
+          <div class="cuerpo">
+            <span class="tipo">Eau de Toilette</span>
+            <h3>UDV Elixir</h3>
+            <span class="notas">Apple &middot; Bergamot &middot; Vanilla &middot; Vetiver</span>
+            <span class="precio">$19.99</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="rejilla" role="tabpanel" id="pan-women" aria-labelledby="tab-women" hidden>
+        <a class="card" href="https://ulricdevarensusa.com/products/varensia" rel="noopener">
+          <div class="foto"><img src="img-ulricdevarensusa/pack-varensia.jpg" width="1100" height="1365" loading="lazy" alt="Varensia eau de parfum in a moulded flacon, beside its green and gold carton."></div>
+          <div class="cuerpo">
+            <span class="tipo">Eau de Parfum</span>
+            <h3>Varensia</h3>
+            <span class="precio">$19.99</span>
+          </div>
+        </a>
+        <a class="card" href="https://ulricdevarensusa.com/products/ciel" rel="noopener">
+          <div class="foto"><img src="img-ulricdevarensusa/pack-ciel.jpg" width="1100" height="1365" loading="lazy" alt="Ciel eau de parfum beside its carton."></div>
+          <div class="cuerpo">
+            <span class="tipo">Eau de Parfum</span>
+            <h3>Ciel</h3>
+            <span class="precio">$15.99</span>
+          </div>
+        </a>
+        <a class="card" href="https://ulricdevarensusa.com/products/varens-sweet-vanille-caramel" rel="noopener">
+          <div class="foto"><img src="img-ulricdevarensusa/pack-varens-sweet-vanille.jpg" width="1100" height="1365" loading="lazy" alt="Varens Sweet Vanille Caramel eau de parfum beside its carton."></div>
+          <div class="cuerpo">
+            <span class="tipo">Eau de Parfum</span>
+            <h3>Varens Sweet Vanille Caramel</h3>
+            <span class="precio">$14.99</span>
+          </div>
+        </a>
+      </div>
+
+      <div role="tabpanel" id="pan-new" aria-labelledby="tab-new" hidden>
+        <p class="panelVacio"><b>Nothing new just yet.</b>The next launch will appear here first.</p>
+      </div>
+
+      <div role="tabpanel" id="pan-best" aria-labelledby="tab-best" hidden>
+        <!-- «once the season closes» era una politica de merchandising que el cliente nunca
+             declaro: copy inventado, inocuo pero inventado, en una pieza cuya regla es que lo que no
+             se pudo comprobar no se escribe. -->
+        <p class="panelVacio"><b>Coming soon.</b>Best sellers will be listed here as soon as the numbers are in.</p>
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ LA CASA ═══════════════════════════════════════════════════════════════════════════ -->
+  <section class="casa" aria-labelledby="casaT">
+    <div class="env casaFila">
+      <div data-reveal>
+        <span class="filete" aria-hidden="true"><i></i><i></i><i></i></span>
+        <!-- ⛔ TRES PROBLEMAS EN CINCO LINEAS, Y LOS TRES EN INGLES DE EE. UU.
+             · «factory» en lenguaje de belleza evoca produccion masiva y ANULA el «house» de la
+               linea anterior. En frances «fabrique en France» es neutro; aqui no lo es.
+             · «It is printed on every carton» — «It» no tenia antecedente limpio: la frase anterior
+               es un hecho, no una cita, asi que el lector tropieza y tiene que releer. Ahora la
+               cita va entrecomillada y es literalmente lo que va impreso.
+             · «carton» es lenguaje de industria; el comprador dice «box». -->
+        <h2 id="casaT">A house in Paris,<em> a bottle filled in France.</em></h2>
+        <p class="entrada" style="margin-top:1rem">Ulric de Varens has been composing and filling in
+          France since 1981. &ldquo;Made in France&rdquo; is printed on every box, under the flag,
+          next to the volume.</p>
+      </div>
+      <ul class="claims" data-reveal>
+        <li>Since 1981</li>
+        <li>Made in France</li>
+        <li>Original Creation</li>
+        <li>Not Tested on Animals</li>
+        <li>Bio &amp; Vegan</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ══ BOLETIN ═══════════════════════════════════════════════════════════════════════════ -->
+  <section class="boletin" aria-labelledby="boletinT">
+    <div class="env">
+      <span class="filete" aria-hidden="true"><i></i><i></i><i></i></span>
+      <h2 id="boletinT">Follow the adventure</h2>
+      <p>Receive exclusive offers from Ulric de Varens.</p>
+      <form onsubmit="event.preventDefault();this.querySelector('button').textContent='Thank you';this.querySelector('input').value=''">
+        <label class="saltar" for="mail">Your email address</label>
+        <input id="mail" type="email" name="email" placeholder="Your email address" required autocomplete="email">
+        <button class="btn" type="submit">Subscribe</button>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="env">
+    <div class="pieRejilla">
+      <div class="pieFirma">
+        <b>Ulric de Varens</b>
+        <span class="filete" style="margin-top:.6rem;display:flex" aria-hidden="true"><i></i><i></i><i></i></span>
+        <p>A French perfume house since 1981. Made in France.</p>
+        <div class="social">
+          <a href="https://www.instagram.com/ulricdevarens_usa/" rel="noopener" aria-label="Instagram">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="17.2" cy="6.8" r="1.2" fill="currentColor"/></svg>
+          </a>
+          <a href="https://www.tiktok.com/@ulricdevarens_usa" rel="noopener" aria-label="TikTok">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M14 3v11.5a3.8 3.8 0 1 1-3.2-3.75" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 4.2c.7 2.4 2.4 3.9 5 4.1" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          </a>
+        </div>
+      </div>
+      <div>
+        <h3>For Her</h3>
+        <ul>
+          <li><a href="https://ulricdevarensusa.com/collections/varens-sweet" rel="noopener">Varens Sweet</a></li>
+          <li><a href="https://ulricdevarensusa.com/collections/varensia" rel="noopener">Varensia</a></li>
+          <li><a href="https://ulricdevarensusa.com/collections/reve" rel="noopener">R&ecirc;ve</a></li>
+          <li><a href="https://ulricdevarensusa.com/collections/udv-pour-elle" rel="noopener">UDV Pour Elle</a></li>
+          <!-- Prestige vive aqui, no en «For Him»: es 100 % femenina por dato del cliente. -->
+          <li><a href="https://ulricdevarensusa.com/collections/udv-prestige" rel="noopener">UDV Prestige</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>For Him</h3>
+        <ul>
+          <li><a href="https://ulricdevarensusa.com/collections/udv-for-men" rel="noopener">UDV For Men</a></li>
+          <li><a href="https://ulricdevarensusa.com/collections/varens-for-men" rel="noopener">Varens For Men</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>The house</h3>
+        <ul>
+          <li><a href="https://ulricdevarensusa.com/pages/about-us" rel="noopener">About us</a></li>
+          <li><a href="https://ulricdevarensusa.com/pages/contact" rel="noopener">Contact</a></li>
+          <li><a href="https://ulricdevarensusa.com/pages/faq" rel="noopener">FAQ</a></li>
+        </ul>
+      </div>
+    </div>
+    <!-- ⛔⛔ ESTOS LOGOTIPOS SON EL ARTE OFICIAL, SIN TOCAR, Y ESA ES LA REGLA.
+         La primera version los llevaba DIBUJADOS A MANO en SVG en linea, con el argumento de «una
+         sola peticion e iconografia propia». Ese argumento es bueno para un icono NUESTRO y falso
+         para una MARCA REGISTRADA: el PayPal eran dos manchas y el Amex una caja azul con letras
+         inventadas. Es la misma clase de defecto que redibujar la firma del frasco — aproximar el
+         logotipo de un tercero es falsificarlo, aunque sea sin querer.
+         ⇒ Vienen del paquete payment-icons (MPL-2.0), el conjunto que usan miles de tiendas, y se
+         sirven como <img> A PROPOSITO: asi el archivo llega BYTE A BYTE como lo publica su dueño.
+         Un <svg> en linea invita a «ajustarlo», y ajustar una marca registrada es justo lo que no
+         se hace.
+         ⛔ APPLE PAY SE RETIRA. Su marca no se redistribuye en ningun conjunto de terceros porque
+         Apple la gobierna con sus Marketing Guidelines, y ademas solo puede mostrarse si la tienda
+         ACEPTA Apple Pay de verdad. Sin el arte oficial y sin esa confirmacion, la unica salida era
+         dibujarla — que es exactamente lo que se acaba de retirar. Vuelve cuando UDV confirme las
+         dos cosas. -->
+    <div class="pagos" aria-label="Accepted payment methods">
+      <span class="pagoTit">Secure payment</span>
+      <ul>
+        <li><img src="img-ulricdevarensusa/pago/visa.svg" width="48" height="30" loading="lazy" alt="Visa"></li>
+        <li><img src="img-ulricdevarensusa/pago/mastercard.svg" width="48" height="30" loading="lazy" alt="Mastercard"></li>
+        <li><img src="img-ulricdevarensusa/pago/amex.svg" width="48" height="30" loading="lazy" alt="American Express"></li>
+        <li><img src="img-ulricdevarensusa/pago/paypal.svg" width="48" height="30" loading="lazy" alt="PayPal"></li>
+      </ul>
+    </div>
+    <div class="pieBaja">
+      <span>&copy; Ulric de Varens &middot; Paris</span>
+      <span class="filete fina" aria-hidden="true"><i></i><i></i><i></i></span>
+      <span>info@ulricdevarensusa.com</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ⛔ LOS DOS FLOTANTES. Su tienda lleva un cupon anclado abajo a la izquierda y una burbuja de
+     chat abajo a la derecha; faltaban, y Carlos pidio ademas rediseñarlos. Lo que se corrige del
+     original: el cupon era una caja blanca con una X diminuta pegada al borde inferior, sin
+     jerarquia; aqui es una ficha con la cifra en Bodoni, su motivo debajo y un cierre de 40 px.
+     Y los dos se apartan solos al llegar al pie, para no taparlo. -->
+<div class="cupon" id="cupon" hidden>
+  <span class="filete fina" aria-hidden="true"><i></i><i></i><i></i></span>
+  <b>10% off</b>
+  <span>your first order</span>
+  <button class="cerrarCupon" id="cerrarCupon" type="button" aria-label="Dismiss the 10% off offer">
+    <svg width="15" height="15" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+  </button>
+</div>
+
+<!-- ⛔ EL ROTULO DECIA LO QUE EL BOTON NO HACE: «Open the message window», y el manejador solo lo
+     aparta de la pantalla. Un lector de pantalla anunciaba una accion que no ocurre. Mientras el
+     destino real —su chat de tienda— no este cableado, el rotulo dice lo que se puede sostener. -->
+<button class="chat" id="chat" type="button" aria-label="Message us">
+  <svg width="21" height="21" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <path d="M20.5 12.2c0 4-3.8 7.2-8.5 7.2a9.9 9.9 0 0 1-2.6-.34L4.2 20.6l1.3-3.6a6.8 6.8 0 0 1-2-4.8C3.5 8.2 7.3 5 12 5s8.5 3.2 8.5 7.2Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>
+    <circle cx="8.9" cy="12.2" r="1.05" fill="currentColor"/><circle cx="12" cy="12.2" r="1.05" fill="currentColor"/><circle cx="15.1" cy="12.2" r="1.05" fill="currentColor"/>
+  </svg>
+  <span>Chat</span>
+</button>
+
+<script>
+(function(){
+  var hamb=document.getElementById('hamb'),nav=document.getElementById('nav'),
+      cajon=document.getElementById('cajon'),cerrar=document.getElementById('cerrar');
+
+  function abrir(v){
+    nav.classList.toggle('abierto',v);
+    cajon.classList.toggle('on',v);
+    hamb.setAttribute('aria-expanded',v?'true':'false');
+    document.body.style.overflow=v?'hidden':'';
+    /* ⛔ ERA `nav.querySelector('a')`, y el primer <a> del menu es el ULTIMO item («Skin Care»):
+       los tres anteriores son <button>. Enfocarlo desplazaba el contenedor con `overflow-y:auto`
+       hasta el final y empujaba «Women» y «Men» fuera de la pantalla — el defecto que se veia en
+       la captura. Se enfoca el PRIMER item, sea boton o enlace. */
+    if(v){var p=nav.querySelector('ul > li > a, ul > li > button');if(p)p.focus();}else{hamb.focus();}
+    /* Cerrar el cajon cierra tambien cualquier segundo nivel abierto: si no, el panel se queda
+       flotando sobre la pagina sin su cajon detras y sin nada que lo cierre. */
+    if(!v&&typeof cerrarMegas==='function')cerrarMegas(null);
+  }
+  hamb.addEventListener('click',function(){abrir(!nav.classList.contains('abierto'));});
+  cerrar.addEventListener('click',function(){abrir(false);});
+  cajon.addEventListener('click',function(){abrir(false);});
+  document.addEventListener('keydown',function(e){
+    if(e.key==='Escape'&&nav.classList.contains('abierto'))abrir(false);
+  });
+  nav.addEventListener('click',function(e){if(e.target.closest('a'))abrir(false);});
+
+  /* ── REVELADO AL DESPLAZAR ───────────────────────────────────────────────────────────────────
+     Carlos pidio movimiento «que respete el tono y el ritmo del sitio». En una casa de perfume eso
+     quiere decir lento y una sola vez: nada rebota, nada se repite al volver a pasar. Los hijos
+     directos de un grupo entran ESCALONADOS de 70 ms, que es lo justo para que se lea como una
+     secuencia y no como un retraso. */
+  var obs=new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      if(!e.isIntersecting) return;
+      e.target.classList.add('in');
+      obs.unobserve(e.target);
+    });
+  },{rootMargin:'0px 0px -10% 0px',threshold:.06});
+  document.querySelectorAll('[data-reveal]').forEach(function(n){obs.observe(n);});
+
+  /* Las rejillas escalonan a sus hijos sin que haya que marcarlos uno a uno en el HTML. */
+  document.querySelectorAll('.campana,.puertas,.rejilla,.claims').forEach(function(g){
+    Array.prototype.forEach.call(g.children,function(n,i){
+      n.setAttribute('data-reveal','');
+      n.style.transitionDelay=(i*70)+'ms';
+      obs.observe(n);
+    });
+  });
+
+  /* ── LOS MENUS DESPLEGABLES ──────────────────────────────────────────────────────────────── */
+  var cabezas=[].slice.call(document.querySelectorAll('.cabeza'));
+  function cerrarMegas(salvo){
+    cabezas.forEach(function(c){
+      if(c===salvo) return;
+      c.setAttribute('aria-expanded','false');
+      var m=document.getElementById(c.getAttribute('aria-controls'));
+      if(m) m.classList.remove('abierto');
+    });
+  }
+  cabezas.forEach(function(c){
+    var m=document.getElementById(c.getAttribute('aria-controls'));
+    /* ⛔ EL RATON Y EL CLIC SE PISABAN, y lo caza `sonda-estados.mjs`, no el ojo: al pasar el
+       raton el panel ABRIA, y el clic que venia justo despues lo CERRABA. O sea que el gesto mas
+       natural —acercarse y pulsar— dejaba al usuario sin menu, y en la sonda salia
+       `aria-expanded=false` despues de hacer clic.
+       La cura no es quitar el hover (su tienda lo tiene y se espera en escritorio) sino recordar
+       DE DONDE vino la apertura: si el panel ya estaba abierto porque el raton lo abrio, el clic
+       no lo cierra — lo confirma. Cerrar sigue estando en Escape, en tocar fuera y en apartar el
+       raton. Con teclado no hay hover, asi que ahi el clic alterna como siempre. */
+    c.addEventListener('click',function(){
+      var abierto=c.getAttribute('aria-expanded')==='true';
+      if(abierto&&c._porHover){c._porHover=false;return;}
+      cerrarMegas(c);
+      c.setAttribute('aria-expanded',abierto?'false':'true');
+      if(m) m.classList.toggle('abierto',!abierto);
+    });
+    /* En escritorio abre tambien al pasar el raton — es lo que hace su tienda. El puntero fino
+       es la condicion: en tactil `hover` se dispara con el toque y abriria y cerraria a la vez. */
+    if(window.matchMedia('(min-width:920px) and (pointer:fine)').matches){
+      var cerca=function(){clearTimeout(m._t);cerrarMegas(c);c._porHover=true;c.setAttribute('aria-expanded','true');m.classList.add('abierto');};
+      var lejos=function(){m._t=setTimeout(function(){c._porHover=false;c.setAttribute('aria-expanded','false');m.classList.remove('abierto');},240);};
+      c.addEventListener('mouseenter',cerca); c.addEventListener('mouseleave',lejos);
+      if(m){m.addEventListener('mouseenter',function(){clearTimeout(m._t);}); m.addEventListener('mouseleave',lejos);}
+    }
+  });
+  /* La vuelta atras del segundo nivel: cierra SU panel y devuelve el foco a la cabecera que lo
+     abrio, que es donde el pulgar y el lector de pantalla esperan volver. */
+  document.querySelectorAll('[data-volver]').forEach(function(b){
+    b.addEventListener('click',function(){
+      var m=b.closest('[data-mega]'); if(!m) return;
+      var c=document.querySelector('.cabeza[aria-controls="'+m.id+'"]');
+      m.classList.remove('abierto');
+      if(c){c.setAttribute('aria-expanded','false');c.focus();}
+    });
+  });
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')cerrarMegas(null);});
+  document.addEventListener('click',function(e){
+    if(!e.target.closest('.cabeza')&&!e.target.closest('[data-mega]'))cerrarMegas(null);
+  });
+
+  /* ── LAS PESTAÑAS ────────────────────────────────────────────────────────────────────────── */
+  var tabs=[].slice.call(document.querySelectorAll('[role="tab"]'));
+  function activar(t){
+    tabs.forEach(function(o){
+      var sel=o===t;
+      o.setAttribute('aria-selected',sel?'true':'false');
+      o.tabIndex=sel?0:-1;
+      document.getElementById(o.getAttribute('aria-controls')).hidden=!sel;
+    });
+  }
+  tabs.forEach(function(t,i){
+    t.addEventListener('click',function(){activar(t);});
+    t.addEventListener('keydown',function(e){
+      var j=null;
+      if(e.key==='ArrowRight')j=(i+1)%tabs.length;
+      else if(e.key==='ArrowLeft')j=(i-1+tabs.length)%tabs.length;
+      else if(e.key==='Home')j=0;
+      else if(e.key==='End')j=tabs.length-1;
+      if(j===null)return;
+      e.preventDefault(); activar(tabs[j]); tabs[j].focus();
+    });
+  });
+  /* ⛔ LAS DOS PUERTAS Y MEDIO MENU APUNTABAN A UNA PESTAÑA QUE NO SE ABRIA. `#men` y `#women` son
+     las dos tarjetas de «Two collections, one house» y ambas mandan a `#collection`, donde el panel
+     de MUJER esta oculto: quien elegia «For Her» aterrizaba en cuatro fragancias de hombre. Un
+     ancla que desplaza pero no cambia el estado de la pagina promete una puerta y entrega un
+     escalon. Con esto el hash gobierna la pestaña, al cargar y al cambiar. */
+  function porHash(){
+    var h=(location.hash||'').replace('#','');
+    var t=h==='women'?document.getElementById('tab-women'):h==='men'?document.getElementById('tab-men'):null;
+    if(t)activar(t);
+  }
+  porHash();
+  window.addEventListener('hashchange',porHash);
+
+  /* ── LOS DOS FLOTANTES ───────────────────────────────────────────────────────────────────── */
+  var cupon=document.getElementById('cupon'),chat=document.getElementById('chat'),
+      pie=document.querySelector('footer');
+  /* El cupon aparece tras un momento, no de golpe al cargar: encima del hero es una interrupcion,
+     dos pantallas mas abajo es una oferta. */
+  setTimeout(function(){
+    if(document.documentElement.classList.contains('capture'))return;   // ver el CSS de `.capture`
+    if(cupon&&!sessionStorage.getItem('udvCupon'))cupon.hidden=false;
+  },2600);
+  document.getElementById('cerrarCupon').addEventListener('click',function(){
+    cupon.hidden=true; try{sessionStorage.setItem('udvCupon','1');}catch(err){}
+  });
+  chat.addEventListener('click',function(){
+    chat.classList.add('fuera');
+    setTimeout(ajustarFlotantes,1800);   // vuelve al estado que toque, no a «visible» a ciegas
+  });
+  /* ⛔ LAS CAPAS FLOTANTES NO SE PONEN ENCIMA DEL CTA DEL HERO. Medido a 360x640: el cupon tapaba
+     10.306 px² de «Shop Men» —el boton principal— y el chat 1.424 px² de «Discover Prestige». El
+     gate del pliegue no lo veia y hacia bien: el boton SI entra en la primera pantalla. Lo que
+     fallaba es que habia algo encima. Son dos preguntas distintas —¿cabe? y ¿se puede tocar?— y
+     hacen falta las dos.
+     La cura no es un margen a medida para 360x640, que se rompe en el siguiente tamaño: mientras
+     el HERO este a la vista, los dos flotantes se apartan. Sale de una observacion, no de un
+     numero, asi que vale para cualquier pantalla presente o futura. Mismo criterio que ya se usaba
+     con el pie: taparle el pie a quien llego hasta el final es taparle justo lo que fue a buscar. */
+  var heroALaVista=true, pieALaVista=false;
+  function ajustarFlotantes(){
+    var fuera=heroALaVista||pieALaVista;
+    if(cupon)cupon.classList.toggle('fuera',fuera);
+    if(chat)chat.classList.toggle('fuera',fuera);
+  }
+  var obsHero=new IntersectionObserver(function(es){
+    es.forEach(function(e){heroALaVista=e.isIntersecting;});
+    ajustarFlotantes();
+  },{threshold:.02});
+  var hero=document.querySelector('.hero');
+  if(hero)obsHero.observe(hero);
+  var obsPie=new IntersectionObserver(function(es){
+    es.forEach(function(e){pieALaVista=e.isIntersecting;});
+    ajustarFlotantes();
+  },{threshold:.06});
+  if(pie)obsPie.observe(pie);
+  ajustarFlotantes();
+})();
+</script>
+<div style="background:#16181C;color:#F3F4F3;padding:0.7rem 1rem;text-align:center;font:500 12px/1.5 system-ui,sans-serif;letter-spacing:0.02em">Client engagement — a storefront redesign concept for Ulric de Varens USA. Exhibited by Reasoned Web.</div>
+</body>
+</html>

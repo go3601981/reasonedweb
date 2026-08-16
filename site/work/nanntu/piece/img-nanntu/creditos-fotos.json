@@ -1,0 +1,111 @@
+[
+  {
+    "archivo": "hero.jpg",
+    "rol": "portada: el lago Titicaca desde una orilla en sombra",
+    "fuente": "Nano Banana Pro (gemini-3-pro-image-preview)",
+    "licencia": "imagen generada para esta muestra de diseño",
+    "nota": "⛔ ES UNA IMAGEN GENERADA. Elegida por Carlos entre las 18 candidatas medidas, y la que menos retoque necesita: la orilla ya estaba en sombra, así que el oscurecido local de la franja del texto toca ~1,5% de la imagen (contra 8,8% de la anterior). Lago, totorales, balsa, nevados y cielo quedan intactos. La palabra acento va en el CLARO de la teja (#E5744A): la teja llena exige fondo casi negro (L <= 0.0143) y ninguna fotografía de día llega ahí sin dejar de ser de día. ⭐ Además cierra el concepto del sitio: el scroll es el DESCENSO desde el Titicaca —donde nació Patricia— hasta Madre de Dios, así que la portada es el punto de partida real del viaje. En el sitio final debe sustituirse por fotografía propia de Nanntu.",
+    "prompt": "Lago Titicaca a mediodía desde una orilla en sombra: agua zafiro, totorales dorados, balsa de totora y la Cordillera Real al fondo"
+  },
+  {
+    "archivo": "titicaca.jpg",
+    "rol": "hero candidata A: Titicaca islas cielo dramatico",
+    "fuente": "Pexels",
+    "licencia": "Pexels License (uso comercial)",
+    "fotografo": "Viajante Dibujero",
+    "url": "https://www.pexels.com/photo/lake-titicaca-in-bolivia-4856070/",
+    "alt_original": "Breathtaking landscape of Lake Titicaca with a view of distant islands under dramatic skies.",
+    "elegida": "1 de 15"
+  },
+  {
+    "archivo": "colca.jpg",
+    "rol": "banda Colca alterna: condor con nevados",
+    "fuente": "Pexels",
+    "licencia": "Pexels License (uso comercial)",
+    "fotografo": "Nathan De Cock",
+    "url": "https://www.pexels.com/photo/black-bird-flying-over-the-mountains-10906882/",
+    "alt_original": "Majestic Andean Condor flying over Colca Canyon with snow-capped peaks in Peru.",
+    "elegida": "13 de 15"
+  },
+  {
+    "archivo": "machupicchu.jpg",
+    "rol": "banda Cusco: terrazas de Machu Picchu en niebla de manana",
+    "fuente": "Pexels",
+    "licencia": "Pexels License (uso comercial)",
+    "fotografo": "Willian Justen de Vasconcellos",
+    "url": "https://www.pexels.com/photo/tourists-on-terraced-fields-in-the-lost-city-of-the-incas-22484290/",
+    "alt_original": "Machu Picchu's iconic terraces enveloped in morning mist, offering a breathtaking view of the ancient Inca architecture.",
+    "elegida": "13 de 15"
+  },
+  {
+    "archivo": "amazonia.jpg",
+    "rol": "banda Amazonia alterna: rio en Tarapoto Peru",
+    "fuente": "Pexels",
+    "licencia": "Pexels License (uso comercial)",
+    "fotografo": "Alex Avila Gonzales",
+    "url": "https://www.pexels.com/photo/aerial-photo-of-a-river-in-the-forest-16916118/",
+    "alt_original": "A stunning aerial view of a river cutting through dense rainforest in Tarapoto, Peru.",
+    "elegida": "3 de 15"
+  },
+  {
+    "archivo": "tintes.jpg",
+    "rol": "proceso: fibras y tintes naturales del textil peruano",
+    "fuente": "Pexels",
+    "licencia": "Pexels License (uso comercial)",
+    "fotografo": "DEJOTA RIVANS",
+    "url": "https://www.pexels.com/photo/cotton-and-threads-on-the-table-11968717/",
+    "alt_original": "A vibrant display of natural fibers and dyes used in traditional Peruvian textile making.",
+    "elegida": "6 de 15"
+  },
+  {
+    "archivo": "tejedoras.jpg",
+    "rol": "proceso alterna: tejedoras de Ollantaytambo",
+    "fuente": "Pexels",
+    "licencia": "Pexels License (uso comercial)",
+    "fotografo": "Saraí Carrasco",
+    "url": "https://www.pexels.com/photo/peruvian-girls-wearing-traditional-clothing-sitting-by-a-wall-20453586/",
+    "alt_original": "Peruvian women weaving in traditional attire, showcasing vibrant cultural heritage in Ollantaytambo, Cuzco.",
+    "elegida": "5 de 15"
+  },
+  {
+    "archivo": "laguna.jpg",
+    "rol": "respaldo: Andes reflejados en laguna turquesa",
+    "fuente": "Pexels",
+    "licencia": "Pexels License (uso comercial)",
+    "fotografo": "Julia Volk",
+    "url": "https://www.pexels.com/photo/cliffs-around-glacier-5197057/",
+    "alt_original": "Serene view of the snow-capped Andes Mountains reflected in a turquoise lake in Peru.",
+    "elegida": "8 de 15"
+  },
+  {
+    "archivo": "arequipa.jpg",
+    "rol": "banda Arequipa: Misti sobre Yanahuara",
+    "fuente": "Pexels",
+    "licencia": "Pexels License (uso comercial)",
+    "fotografo": "Renso Villarreal",
+    "url": "https://www.pexels.com/photo/majestic-view-of-volcan-misti-from-yanahuara-arequipa-33691499/",
+    "alt_original": "Stunning view of Volcan Misti overlooking the vibrant cityscape of Yanahuara in Arequipa, Peru under a bright blue sky.",
+    "elegida": "3 de 15",
+    "nota": "retoque de revelado con Nano Banana Pro sobre la foto original de Pexels (misma escena, sin alterar formas)"
+  },
+  {
+    "archivo": "misti.jpg",
+    "rol": "banda Arequipa alterna: Misti nevado panoramico",
+    "fuente": "Pexels",
+    "licencia": "Pexels License (uso comercial)",
+    "fotografo": "María del rosario palomino begazo",
+    "url": "https://www.pexels.com/photo/mountain-and-grass-17044647/",
+    "alt_original": "Panoramic view of the snow-capped Misti Volcano in Arequipa, Peru, under clear blue skies.",
+    "elegida": "7 de 15"
+  },
+  {
+    "archivo": "contacto.jpg",
+    "rol": "hero candidata C: nubes oscuras sobre el lago",
+    "fuente": "Pexels",
+    "licencia": "Pexels License (uso comercial)",
+    "fotografo": "Nathan De Cock",
+    "url": "https://www.pexels.com/photo/thick-clouds-formation-over-the-mountain-10951481/",
+    "alt_original": "Dark and fluffy clouds hover over Lake Titicaca, offering a dramatic natural scenery in Peru.",
+    "elegida": "9 de 15"
+  }
+]

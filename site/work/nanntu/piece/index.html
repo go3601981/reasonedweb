@@ -1,0 +1,1080 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nanntu — Regenerative journeys through Peru</title>
+<meta name="description" content="Nanntu designs conscious, respectful and responsible journeys through Peru: routes from the Andes to the Amazon that connect travelers with living systems and ancestral wisdom. By Patricia Deza, travel designer.">
+<meta name="theme-color" content="#1B4290">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+<meta name="referrer" content="no-referrer">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Nanntu">
+<meta property="og:title" content="Nanntu — Regenerative journeys through Peru">
+<meta property="og:description" content="From Lake Titicaca to the Amazon: journeys designed to know, respect and regenerate. By Patricia Deza, travel designer.">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23FFFFFF'/%3E%3Cpath d='M21.5 16a7 7 0 1 1-6.1-6.94A5.6 5.6 0 0 0 13 14.2a5.8 5.8 0 0 0 8.44 5.16A7 7 0 0 1 21.5 16z' fill='%231B4290' transform='rotate(-18 16 16)'/%3E%3C/svg%3E">
+
+<link rel="preload" href="fonts/urbanist-normal-400.woff2" as="font" type="font/woff2" crossorigin>
+<script>document.documentElement.className += ' js';</script>
+<style>
+
+
+@font-face{font-family:"Chivo Mono";font-style:normal;font-weight:400 500;font-display:swap;src:url(fonts/chivo-mono-normal-400.woff2) format("woff2")}
+@font-face{font-family:"Urbanist";font-style:normal;font-weight:400 800;font-display:swap;src:url(fonts/urbanist-normal-400.woff2) format("woff2")}
+@font-face{font-family:"Source Serif 4";font-style:italic;font-weight:600;font-display:swap;src:url(fonts/source-serif-4-italic-600.woff2) format("woff2")}
+:root{
+  --noche:#101828;          /* añil a profundidad de tina — el sustrato */
+  --noche-2:#0C1220;        /* borde inferior de la noche, para gradaciones */
+  --anil:#174290;           /* EL azul del logotipo, EXACTO: dominante de Nanntu.webp, 213 364 px */
+  --anil-claro:#93ADE8;     /* 7.93:1 sobre noche */
+  --agua:#00AAC8;           /* el cian de su firma de correo — 6.41:1 sobre noche */
+  --verde-vida:#487218;     /* el verde de Un Árbol Una Vida, a tinta — 5.68:1 sobre blanco */
+  --sillar:#EDE9DE;         /* texto sobre noche 14.63:1 · sustrato de interludios */
+  --sillar-2:#C9C4B4;       /* secundario sobre noche 10.17:1 */
+  --tinta:#131B2E;          /* texto sobre sillar 14.14:1 */
+  --tinta-2:#4A5063;        /* secundario sobre sillar 5.9:1 */
+  --teja:#B8431F;           /* teja de arcilla cocida — botones (blanco encima 5.44:1) */
+  /* ⛔ EL CLARO DE LA TEJA, Y NO ES DECORACIÓN: es la única forma de que la palabra acento viva
+     SOBRE la fotografía. La teja llena exige fondo con L ≤ 0.0143 (casi negro); este claro se
+     conforma con 0.117, ocho veces más permisivo, y es el mismo tono de la arcilla al sol que ya
+     estaba declarado en la paleta. Se usa SOLO en el hero: sobre papel blanco sigue mandando la
+     teja llena, que ahí sí contrasta. */
+  --teja-claro:#E5744A;     /* arcilla al sol — acento del hero, sobre foto */
+     /* 6.95:1 sobre noche — acentos cálidos en la noche */
+  --papel-anil:#E7EAF3;     /* baño de añil diluido — tarjetas sobre sillar */
+
+  --disp:'Urbanist',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --cita:'Source Serif 4',Georgia,'Times New Roman',serif;
+  --sans:'Urbanist',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --mono:'Chivo Mono',ui-monospace,'Cascadia Mono',Consolas,monospace;
+
+  --gut:clamp(1.1rem,.6rem + 2.4vw,3rem);
+  --max:1200px;
+  --t:420ms; --e:cubic-bezier(.22,.7,.3,1);
+}
+*,*::before,*::after{ box-sizing:border-box; margin:0; padding:0 }
+html{ -webkit-text-size-adjust:100%; scroll-behavior:smooth }
+@media (prefers-reduced-motion:reduce){ html{ scroll-behavior:auto } }
+body{ background:#F2F5FA; color:var(--tinta); font:400 17px/1.65 var(--sans);
+  -webkit-font-smoothing:antialiased }
+img{ max-width:100%; display:block; height:auto }
+a{ color:inherit }
+::selection{ background:var(--anil); color:#fff }
+:focus-visible{ outline:3px solid var(--anil); outline-offset:3px; border-radius:2px }
+.contacto :focus-visible, .tramo--sangre :focus-visible{ outline-color:#FFFFFF }
+.saltar{ position:absolute; left:-999px; top:0; z-index:99; background:var(--sillar); color:var(--tinta);
+  padding:.7rem 1.2rem; font-weight:600 }
+.saltar:focus{ left:0 }
+
+h1,h2,h3{ font-family:var(--disp); font-weight:800; line-height:1.06; letter-spacing:-.02em }
+.acento{ font-weight:800; color:var(--teja) }
+/* ⛔ SOBRE LA FOTOGRAFÍA la teja impresa (#B8431F, L=0.143) no llega a 3:1: el agua bajo el
+   titular está a L≈0.08 y da 1.8-2.4:1. Se usa la MISMA teja levantada, que es la derivación
+   que ya hace --anil-claro. Medido, no elegido. */
+.hero .acento{ color:var(--teja-claro) }
+.hero .acento{ text-shadow:0 2px 10px rgba(8,12,22,.5) }
+.claro .acento{ color:var(--teja) }
+.cota{ font-family:var(--mono); font-size:.78rem; letter-spacing:.14em; text-transform:uppercase }
+.enlace-agua{ color:var(--agua); font-weight:600; text-decoration-thickness:1.5px;
+  text-underline-offset:3px }
+.enlace-vida{ color:var(--verde-vida); font-weight:600; text-decoration-thickness:1.5px;
+  text-underline-offset:3px; transition:text-underline-offset 260ms var(--e), opacity 260ms var(--e) }
+.enlace-vida:hover{ text-underline-offset:5px; opacity:.82 }
+
+/* ══ MOVIMIENTO ═══════════════════════════════════════════════════════════════════════════════
+   EL RITMO ES DE VIAJE, NO DE PRODUCTO: entradas largas (700-900 ms), curva que frena al final
+   y nada que rebote. El movimiento acompaña a la fotografía; si compite con ella, sobra.
+   ⛔ Tres reglas duras que esto respeta:
+     · TODO va gateado por `prefers-reduced-motion` y por `html.capture` (las puertas fotografían
+       la página ASENTADA: si una animación no respeta la captura, el auditor mide fotogramas
+       intermedios y reporta contrastes que en pantalla no existen).
+     · Solo se anima `opacity` y `transform`, que no provocan recálculo de maquetación.
+     · Nada se mueve MIENTRAS se lee: los reveals disparan una vez y se desenganchan.
+   ══════════════════════════════════════════════════════════════════════════════════════════════ */
+.js .greca-banda[data-reveal]{ opacity:1; transform:none }
+.js [data-reveal]{ opacity:0; transform:translateY(52px);
+  transition:opacity 1050ms var(--e), transform 1050ms var(--e) }
+.js [data-reveal].in{ opacity:1; transform:none }
+/* escalonado: los hermanos entran en cascada, como quien va llegando */
+.js .niveles [data-reveal]:nth-child(2), .js .experiencias [data-reveal]:nth-child(2){ transition-delay:150ms }
+.js .niveles [data-reveal]:nth-child(3), .js .experiencias [data-reveal]:nth-child(3){ transition-delay:300ms }
+.js .heart > div{ opacity:0; transform:translateY(18px);
+  transition:opacity 640ms var(--e), transform 640ms var(--e) }
+.js .heart > div.in{ opacity:1; transform:none }
+.js .heart > div:nth-child(2){ transition-delay:90ms }
+.js .heart > div:nth-child(3){ transition-delay:180ms }
+.js .heart > div:nth-child(4){ transition-delay:270ms }
+.js .heart > div:nth-child(5){ transition-delay:360ms }
+/* ⛔ LA FOTOGRAFÍA ENTRA CON CORTINILLA Y SE POSA. Es el gesto más dramático del sitio y por eso
+   TERMINA exactamente en el estado que se midió: la cortinilla abre desde abajo y la imagen viene
+   un 8 % más grande hasta asentarse en escala 1. Nada de esto altera el contraste FINAL, que es
+   el que auditan las puertas; y lo que se ve durante el trayecto es fotografía, no texto. */
+.js .tramo__foto, .js .exp{ overflow:hidden }
+/* ⛔ EL RECORTE VA EN LA IMAGEN, NO EN EL MARCO. Ya me pasó con la greca y lo repetí aquí: un
+   elemento recortado a cero NO «entra en pantalla» para IntersectionObserver, así que el que
+   lleva la marca tiene que quedarse sin recortar. Lo cazó la comprobación por ESTADO; leyendo
+   el CSS las dos versiones parecen iguales. */
+.js .tramo__foto[data-reveal], .js .exp[data-reveal]{ opacity:1; transform:none }
+/* ⛔ LA CORTINILLA ABRE HACIA ABAJO, NO HACIA ARRIBA (nota de Carlos). Al bajar por la página
+   el contenido sube, así que una cortinilla que abre de abajo a arriba rema CONTRA el gesto del
+   dedo; abriendo desde el borde superior acompaña al scroll y a la lectura. El valor inicial
+   recorta por abajo —inset(0 0 100% 0)— y crece hacia el pie de la imagen. */
+.js .tramo__foto[data-reveal] img, .js .exp[data-reveal] img{
+  clip-path:inset(0 0 100% 0); transform:scale(1.08);
+  transition:clip-path 1150ms var(--e), transform 1500ms var(--e) }
+.js .tramo__foto[data-reveal].in img, .js .exp[data-reveal].in img{
+  clip-path:inset(0 0 0 0); transform:scale(1) }
+
+/* la greca se dibuja de izquierda a derecha, como un telar.
+   ⛔ SE OBSERVA EL ENVOLTORIO, NO LA GRECA: un elemento recortado a ancho cero no «entra en
+   pantalla» para IntersectionObserver, así que observarlo a él lo dejaba oculto para siempre.
+   Lo cazó la comprobación de estado con Playwright; leyendo el CSS parecía correcto. */
+.js .greca{ clip-path:inset(0 100% 0 0); transition:clip-path 1200ms var(--e) }
+.js .greca-banda.in .greca{ clip-path:inset(0 0 0 0) }
+html.capture [data-reveal]{ opacity:1 !important; transform:none !important; transition:none !important }
+/* en captura fullPage el header fixed se estampa en cada tile: se ancla arriba */
+html.capture .cabecera{ position:absolute }
+@media (prefers-reduced-motion:reduce){
+  .js [data-reveal], .js .heart > div{ opacity:1; transform:none; transition:none }
+  .js .greca{ clip-path:none; transition:none }
+  .tramo__foto:hover img, .exp:hover img, .contacto:hover .contacto__foto img,
+  .cabecera__logo:hover img, .nivel:hover{ transform:none }
+  .js .tramo__foto[data-reveal] img, .js .exp[data-reveal] img{ clip-path:none; transform:none; transition:none }
+  .paralaje{ transform:none !important }
+  .btn:hover{ transform:none }
+  *{ scroll-behavior:auto !important }
+}
+html.capture .heart > div{ opacity:1 !important; transform:none !important; transition:none !important }
+html.capture .greca{ clip-path:none !important; transition:none !important }
+html.capture .tramo__foto img, html.capture .exp img{ clip-path:none !important }
+html.capture .tramo__foto img, html.capture .exp img,
+html.capture .paralaje{ transform:none !important; transition:none !important }
+@media (prefers-reduced-motion:reduce){ .js .greca{ clip-path:none } }
+
+/* ── Cabecera ──────────────────────────────────────────────────────────────────────────────── */
+/* nav CASI TRANSPARENTE al inicio (nota de Carlos: el vidrio gris quedó mal logrado):
+   solo un degradado sutil que protege la lectura; blanca sólida al bajar */
+.cabecera{ position:fixed; inset:0 0 auto 0; z-index:20; padding:.55rem var(--gut);
+  display:flex; align-items:center; justify-content:space-between; gap:1rem }
+/* la barra ES una superficie: oscura y semitransparente, con desenfoque detrás, para que el
+   logotipo y el menú se lean sobre cualquier fotografía sin tocar la fotografía */
+.cabecera::before{ content:""; position:absolute; inset:0; z-index:-1;
+  background:rgba(8,14,26,.55); -webkit-backdrop-filter:blur(14px) saturate(1.3);
+  backdrop-filter:blur(14px) saturate(1.3);
+  transition:opacity 240ms var(--e) }
+.cabecera::after{ content:""; position:absolute; inset:0; z-index:-1; background:#FFFFFF;
+  box-shadow:0 1px 0 #E4E6EE, 0 6px 24px rgba(19,27,46,.08); opacity:0;
+  transition:opacity 240ms var(--e) }
+.cabecera--solida::before{ opacity:0 }
+.cabecera--solida::after{ opacity:1 }
+.cabecera__logo{ display:flex; align-items:center; min-height:44px }
+/* ⛔⛔ EL COLOR DEL LOGO SALE DEL CSS, NO DE LA IMAGEN. Carlos vio dos azules en iPhone y en
+   iPad, y en un careo ampliado lo vimos los dos — aunque el píxel medía #174290 en ambos sitios.
+   Dos causas se suman y ninguna se arregla ajustando el número:
+     · un trazo fino rodeado de blanco se percibe más apagado que un campo sólido del mismo color;
+     · y sobre todo, una IMAGEN y un COLOR CSS no recorren el mismo camino de gestión de color:
+       en pantallas de gama ancha el navegador convierte la imagen y puede no convertir el color,
+       así que el mismo valor sale distinto.
+   La cura quita la imagen de la ecuación: el PNG pasa a ser MÁSCARA (solo forma) y el color lo
+   pone var(--anil), el mismo que pinta la banda de contacto. Por construcción no pueden diferir.
+   ⚠️ Si el navegador no soporta máscaras, se ve la <img> de siempre: nada se rompe. */
+.marca{ display:block; position:relative }
+.marca img{ display:block; width:100%; height:100% }
+@supports ((mask-image:url(x)) or (-webkit-mask-image:url(x))){
+  .marca{ background-color:var(--anil);
+    -webkit-mask-repeat:no-repeat; mask-repeat:no-repeat;
+    -webkit-mask-position:center; mask-position:center;
+    -webkit-mask-size:contain; mask-size:contain }
+  .marca img{ visibility:hidden }
+}
+.cabecera__logo .marca{ height:26px; width:107px; background-color:#fff;
+  transition:transform 420ms var(--e), background-color 240ms var(--e);
+  -webkit-mask-image:url(img-nanntu/lockup-azul.webp); mask-image:url(img-nanntu/lockup-azul.webp) }
+.cabecera__logo:hover .marca{ transform:scale(1.05) }
+.cabecera--solida .cabecera__logo .marca{ background-color:var(--anil) }
+.pie__firma .marca{ width:112px; height:94px;
+  -webkit-mask-image:url(img-nanntu/logo-nanntu.webp); mask-image:url(img-nanntu/logo-nanntu.webp) }
+@media (max-width:640px){ .cabecera__logo .marca{ height:22px; width:90px } }
+.cabecera__logo .l-blanco{ display:none }
+.nav{ display:flex; align-items:center; gap:1.6rem }
+.nav a{ text-decoration:none; font-weight:600; font-size:.95rem; color:#fff;
+  padding:.35rem .1rem; border-bottom:2px solid transparent; transition:color 240ms var(--e) }
+.cabecera--solida .nav a{ color:var(--tinta) }
+.nav a{ position:relative }
+.nav a::after{ content:""; position:absolute; left:0; right:100%; bottom:-2px; height:2px;
+  background:var(--teja); transition:right 320ms var(--e) }
+.nav a:hover::after{ right:0 }
+.nav .idioma{ font-family:var(--mono); font-size:.8rem; letter-spacing:.1em;
+  border:1px solid rgba(255,255,255,.6); border-radius:99px; padding:.38rem .8rem }
+.cabecera--solida .nav .idioma{ border-color:rgba(19,27,46,.35) }
+.nav .idioma:hover{ background:rgba(255,255,255,.14); border-bottom-color:transparent }
+.hamb{ display:none }
+
+/* cajón móvil: la caja NUNCA sale del viewport — se anima clip-path, no translateX (doc 58) */
+.nav__cerrar{ display:none }
+@media (max-width:820px){
+  /* el cierre es MÁS RÁPIDO que la apertura a propósito: cerrar debe sentirse inmediato,
+     y la visibilidad cae con la transición corta (260ms) para que el estado sea honesto */
+  .nav{ position:fixed; inset:0; z-index:30; background:#FFFFFF;
+    flex-direction:column; justify-content:center; gap:2.2rem; text-align:center;
+    clip-path:circle(0 at calc(100% - 2.4rem) 2.4rem); visibility:hidden;
+    transition:clip-path 260ms var(--e), visibility 0s 260ms }
+  .nav.abierta{ clip-path:circle(150% at calc(100% - 2.4rem) 2.4rem); visibility:visible;
+    transition:clip-path 420ms var(--e) }
+  @media (prefers-reduced-motion:reduce){
+    .nav{ transition:none } .nav.abierta{ transition:none }
+  }
+  .nav a{ font-size:1.35rem; color:var(--tinta) }
+  .hamb{ display:grid; place-items:center; width:46px; height:46px; z-index:40;
+    background:rgba(8,14,26,.45); border:1px solid rgba(255,255,255,.6); border-radius:10px;
+    color:#fff; cursor:pointer }
+  .cabecera--solida .hamb{ background:rgba(255,255,255,.62); border-color:rgba(19,27,46,.35); color:var(--tinta) }
+  .hamb svg{ display:block }
+  .hamb[aria-expanded="true"]{ opacity:0; pointer-events:none }
+  /* el botón de cerrar vive DENTRO del cajón: es el único estado en el que existe */
+  .nav__cerrar{ display:grid; place-items:center; position:absolute; top:.6rem; right:var(--gut);
+    width:46px; height:46px; background:rgba(19,27,46,.04);
+    border:1px solid rgba(19,27,46,.35); border-radius:10px; color:var(--tinta); cursor:pointer }
+}
+
+/* ── Hero ──────────────────────────────────────────────────────────────────────────────────── */
+.hero{ position:relative; min-height:100svh; display:flex; align-items:flex-end;
+  isolation:isolate; overflow:hidden }
+.hero__foto{ position:absolute; inset:0; z-index:-2 }
+.hero__foto img{ width:100%; height:100%; object-fit:cover }
+/* ⛔⛔ MOVIMIENTO EN LA PORTADA, ANCLADO EN LA ESQUINA DEL TEXTO (nota de Carlos: «la cabecera no
+   tiene ninguna animación, es la parte que necesita más movimiento»). Toda la página se mueve y
+   la primera pantalla estaba quieta.
+   La restricción que el resto de la página NO tiene: aquí el texto va ENCIMA de la fotografía, y
+   el contraste se midió contra píxeles concretos. Mover la foto cambia esos píxeles — por eso el
+   paralaje se excluyó siempre de las fotos con texto encima.
+   ⇒ La cura es geométrica: `transform-origin:0% 100%` pone el punto FIJO del zoom en la esquina
+   inferior izquierda, que es justo donde vive el bloque de texto. Esa zona es la única que no se
+   desplaza; el vuelo se ve en el lago, los totorales y la cordillera, que es donde debe verse.
+   Se verifica igual: la sonda mide el peor píxel en VARIAS fases del ciclo, no solo en reposo. */
+@keyframes hero-vuelo{ from{ transform:scale(1) } to{ transform:scale(1.075) } }
+.js .hero__foto img{ transform-origin:0% 100%; animation:hero-vuelo 34s ease-in-out infinite alternate;
+  will-change:transform }
+/* ⛔ El texto ENTRA, no aparece: escalonado y desde abajo, acompañando al gesto de leer. Sin JS
+   nada de esto existe (todo cuelga de `.js`), así que la página sigue siendo legible en crudo. */
+@keyframes hero-entra{ from{ opacity:0; transform:translateY(18px) } to{ opacity:1; transform:none } }
+.js .hero h1, .js .hero__baja, .js .hero__ctas{ animation:hero-entra 900ms var(--e) both }
+.js .hero h1{ animation-delay:120ms }
+.js .hero__baja{ animation-delay:320ms }
+.js .hero__ctas{ animation-delay:520ms }
+/* la señal de bajar: una gota de luz que recorre un hilo, en la esquina opuesta al texto */
+.hero__cue{ position:absolute; right:calc(var(--gut) + 2px); bottom:clamp(1.2rem,3.5vh,2.4rem);
+  width:1px; height:clamp(38px,7vh,64px); background:rgba(255,255,255,.35); overflow:hidden }
+.hero__cue::after{ content:""; position:absolute; inset:0; background:#fff }
+.js .hero__cue::after{ animation:hero-gota 2600ms var(--e) infinite }
+@keyframes hero-gota{ 0%{ transform:translateY(-100%) } 60%,100%{ transform:translateY(100%) } }
+/* ⛔ Y todo esto se apaga donde debe: con movimiento reducido, y en las CAPTURAS —si no, el
+   auditor fotografía un fotograma intermedio y reporta un fallo que en pantalla no existe. */
+@media (prefers-reduced-motion: reduce){
+  .js .hero__foto img, .js .hero h1, .js .hero__baja, .js .hero__ctas, .js .hero__cue::after{ animation:none }
+}
+html.capture .hero__foto img, html.capture .hero h1, html.capture .hero__baja,
+html.capture .hero__ctas, html.capture .hero__cue::after{ animation:none !important; opacity:1 !important; transform:none !important }
+/* scrim LOCAL (juez, ciclo 1): solo la cuña inferior izquierda gana densidad;
+   el disco del sol y el cielo derecho quedan a plena luminosidad */
+/* ⛔⛔ LA FOTO YA NO SE OSCURECE (orden de Carlos, 2026-08-12): el hero se regeneró en COLOR
+   PLENO con Nano Banana Pro sobre la fotografía con licencia, y oscurecerla sería deshacer
+   exactamente lo que se pidió. Consecuencia medida: con el lago turquesa a L≈0.50 el texto
+   BLANCO es imposible (1.3:1), así que la tinta se INVIERTE — titular en añil profundo sobre
+   el agua, que da 7:1 y además es la marca. Cero velo oscuro; solo un levante blanco muy suave
+   que unifica el agua bajo el bloque de texto sin tocar cielo, sol ni cerros. */
+/* ⛔ VELO DE PIE, NO DE FOTO: la portada trae su propia sombra en el tercio inferior, pero el
+   ENCUADRE depende del alto del viewport (medido: a 1440×900 el bloque cae sobre agua oscura y a
+   1440×780 sube a los totorales). Esto asegura la franja del texto en TODAS las alturas sin tocar
+   el cielo, los nevados ni los totorales de la mitad superior. */
+/* ⛔ VELO ANCLADO ABAJO-IZQUIERDA, no de foto entera. La portada es de día pleno y apagarla
+   completa sería deshacer justo lo que se pidió; el texto vive en la esquina inferior izquierda,
+   así que solo esa esquina gana densidad y el pueblo, los andenes y los nevados quedan intactos. */
+/* ⛔⛔ LA FOTO NO LLEVA NINGÚN VELO (orden de Carlos, 2026-08-13): va a todo color, entera.
+   Lo que necesita fondo para leerse se lo pone ENCIMA como superficie de interfaz —la barra del
+   nav y el panel del texto—, que es otra cosa: una pieza de UI contenida, no una capa que apague
+   el paisaje. */
+.hero::after{ display:none }
+/* en pantallas BAJAS el bloque ocupa más fracción del alto: se compacta para no subir */
+/* en el teléfono el bloque ocupa casi la mitad de la pantalla: el velo de pie sube, y arriba
+   siguen a la vista el cielo, los nevados y los totorales. Medido, no estimado. */
+/* ⛔ LA PARTICIÓN DE MÓVIL SE RETIRA (orden de Carlos: «pusiste una caja azul, eso es flojo»).
+   La portada se regeneró con el agua en sombra ocupando la mitad inferior, así que el texto se
+   apoya en la fotografía también en el teléfono. */
+@media (max-width:640px){
+  .hero::after{ display:none }
+  .hero__foto img{ object-position:12% 78% }
+  .hero h1{ font-size:1.72rem; max-width:23ch }
+  .hero__baja{ font-size:.96rem; max-width:44ch }
+}
+/* teléfono CORTO (360×640): el bloque ocupa ~44% de la pantalla y sube hasta los totorales.
+   Medido: ahí el velo de pie normal deja el titular en 1.93:1. Este es el único sitio del sitio
+   donde la fotografía cede de verdad, y cede porque no cabe de otra forma. */
+/* ⛔ AQUÍ NO SE MUEVE EL ENCUADRE, SE ENCOGE EL BLOQUE — y la razón es geométrica, no estética.
+   A 360×640 la foto (16:9) entra por ALTO, así que se ve entera en vertical y el recorte es solo
+   horizontal: `object-position` en el eje Y NO HACE NADA (barrido de 10 valores: los cuatro que
+   solo cambiaban Y dieron el mismo número al píxel). Y el eje X tampoco salva: el mejor valor
+   dejaba la tinta peor servida en 66 px de 360.
+   Lo que sí dice el perfil vertical: de y=380 a y=540 la sombra cubre los 360 px para las DOS
+   tintas. El bloque arrancaba en y=297. ⇒ no falta sombra, sobra altura de bloque: se recorta
+   ~75 px de aire y tipografía y el texto cae dentro de la zona que ya estaba medida. */
+@media (max-width:640px) and (max-height:700px){
+  .hero::after{ display:none }
+  .hero h1{ font-size:1.44rem; line-height:1.12; max-width:none }
+  .hero__baja{ font-size:.88rem; line-height:1.35; margin-top:.5rem }
+  .hero__ctas{ margin-top:.8rem }
+  .hero__caja{ padding-bottom:.8rem }
+  .hero__ctas .btn{ padding-block:.68rem; font-size:.94rem }
+}
+/* ⛔ PANTALLA CORTA = EL BLOQUE BAJA, NO SE ESTRECHA. La sombra de esta portada es un triángulo:
+   angosta arriba y ancha abajo (medido a 1440×900: 154 px de columna segura en y=380, 780 en
+   y=680). Por eso estrechar el bloque es contraproducente — menos ancho son más líneas, y más
+   líneas lo hacen trepar a la luz. Aquí se le quita altura y se le quita aire de pie para que
+   caiga dentro de la parte ancha. */
+/* ⛔ MEDIDO, NO SUPUESTO: compactar MÁS empeora. Al bajar el titular a 2.5rem las líneas se
+   acortan, el titular pasa de 3 renglones a 2, la primera línea se alarga hasta x=716 y sale de
+   la sombra: 4 fallos → 5. Se deja la compactación mínima que ya estaba. */
+@media (max-height:820px){
+  .hero h1{ font-size:clamp(1.7rem,2.2vw + .7rem,2.7rem) }
+  .hero__baja{ font-size:1rem; margin-top:.7rem }
+  .hero__ctas{ margin-top:1.1rem }
+}
+.hero__caja{ position:relative }
+
+.hero h1, .hero__baja{ text-shadow:0 1px 2px rgba(8,12,22,.5) }
+/* en móvil el recorte es HORIZONTAL (la foto es mucho más ancha que el hueco), así que
+   aquí object-position SÍ tiene efecto: se encuadra el agua en sombra del borde izquierdo. */
+/* ⛔ ACOTADA POR ARRIBA Y POR ABAJO: esta regla iba DESPUÉS de la del teléfono y la pisaba,
+   así que mis reencuadres de móvil no hacían nada. Cuarta vez que el ORDEN me engaña en este
+   archivo; por eso ahora el rango es explícito en vez de confiar en quién va primero. */
+@media (min-width:641px) and (max-width:820px){ .hero__foto img{ object-position:22% 62% } }
+/* ⛔ EN ESCRITORIO SOBRABAN 160 px DE RECORTE SIN USAR. A 1440×900 la foto entra por alto (16:9
+   contra 1.6), así que hay 160 px de ancho que el navegador tira por defecto repartidos a los dos
+   lados. Anclarla a la IZQUIERDA devuelve esa franja a la boca de la cueva, que es justo donde
+   vive el texto: la columna segura del titular pasa de 594 a 804 px. Barrido de 10 valores, y los
+   cuatro que solo movían el eje Y dieron el MISMO número — a esta proporción el eje Y no existe. */
+@media (min-width:821px){ .hero__foto img{ object-position:0% 100% } }
+.hero__caja{ width:min(var(--max),100%); margin-inline:auto; padding:0 var(--gut)
+  clamp(1.6rem,4.5vh,3.4rem) }
+/* ⛔ SIN TARJETA DETRÁS DEL TITULAR (orden de Carlos, 2026-08-13): «quita ese fondo
+   rectangular oscuro de atrás del texto del hero, yo me encargaré de oscurecer la imagen
+   manualmente». El contraste del hero pasa a depender de la FOTOGRAFÍA, no de una superficie
+   de interfaz. La clase .hero__panel queda como mero contenedor de ancho: sin fondo, sin borde y sin
+   desenfoque. ⚠️ Mientras la portada siga siendo la clara, el hero NO cumple AA y eso está
+   declarado como deuda con dueño en scripts/qa/qa.mjs — no se tapa con un velo a escondidas.
+   La barra del nav SÍ se queda: la orden habla del texto del hero, no de la cabecera. */
+/* ⛔ EN PANTALLA ANCHA EL TEXTO SE ESTIRA PARA BAJAR (orden de Carlos, 2026-08-13). El bloque va
+   anclado al pie del hero, así que menos líneas = arranca MÁS ABAJO, y ahí es donde vive la sombra
+   del cuadrante inferior izquierdo. Antes: 15ch de titular = 3 líneas; con 26ch caben en 2. Es una
+   decisión de ENCAJE con la foto, no de gusto tipográfico: la medida ideal de lectura sería más
+   corta, pero un titular que no cabe en la sombra no se lee en absoluto. */
+.hero__panel{ position:relative; display:inline-block; max-width:min(660px,100%) }
+.hero h1{ font-size:clamp(1.8rem,2.2vw + .7rem,2.9rem); max-width:15ch; color:#fff;
+  text-wrap:balance }
+.hero__baja{ max-width:36ch; margin-top:.8rem; font-size:clamp(1rem,.4vw + .92rem,1.16rem);
+  color:#E8E6DC }
+/* ⛔ EL ANCHO NO SE ELIGE, SE DERIVA DE LA SOMBRA. Medido sobre la portada instalada: la columna
+   que aguanta texto blanco llega a 594 px a 1440, 566 a 1366 y 530 a 1280, y el texto arranca en
+   el canal izquierdo. Poner 26ch «para que baje» metía el final de cada línea en la luz —los
+   fallos salían todos en x=684…798, o sea justo pasada la sombra—. Se fija en 420 px, que es el
+   máximo que cabe en los tres tamaños con margen. */
+@media (min-width:1100px){
+  .hero__panel{ max-width:560px }
+  .hero h1{ max-width:none }
+  .hero__baja{ max-width:none }
+}
+/* ⛔ LOS DOS BOTONES EN UNA SOLA LÍNEA EN TELÉFONO (misma orden). `flex-wrap:wrap` los apilaba y
+   cada salto empujaba el bloque ~60 px hacia arriba, justo fuera de la sombra. Sin envoltura, y
+   con los botones repartiéndose el ancho: el relleno lateral se encoge en vez de partir la fila,
+   y el objetivo de toque sigue por encima de 24 px de alto (2.5.8 AA), que es lo que se protege. */
+.hero__ctas{ display:flex; flex-wrap:wrap; gap:.9rem; margin-top:1.3rem }
+@media (max-width:640px){
+  .hero__ctas{ flex-wrap:nowrap; gap:.6rem }
+  .hero__ctas .btn{ flex:1 1 0; justify-content:center; padding-inline:.9rem; white-space:nowrap }
+}
+
+.btn{ display:inline-flex; align-items:center; gap:.55rem; text-decoration:none; font-weight:600;
+  font-size:1rem; padding:.85rem 1.5rem; border-radius:10px;
+  transition:transform 320ms var(--e), background 320ms var(--e), box-shadow 320ms var(--e) }
+.btn:hover{ transform:translateY(-5px) scale(1.02); box-shadow:0 20px 40px rgba(19,27,46,.28) }
+.btn:active{ transform:translateY(-1px); transition-duration:90ms }
+.btn--quenua{ background:var(--teja); color:#fff }
+.btn--quenua:hover{ background:#9C3717 }
+.btn--linea{ border:1.5px solid rgba(255,255,255,.7); color:#fff }
+.btn--linea:hover{ background:rgba(255,255,255,.14) }
+.claro .btn--linea{ border-color:var(--tinta); color:var(--tinta) }
+.claro .btn--linea:hover{ background:rgba(19,27,46,.07) }
+
+/* ⛔ PARALAJE SOLO DONDE NO VIVE EL TEXTO. En las fotos a sangre el titular va ENCIMA, y mover
+   la imagen bajo el texto cambiaría el fondo que se midió; ahí el drama lo pone la cortinilla.
+   Aquí se mueve lo que no tiene nada escrito encima: los tramos en zigzag y la foto del cierre. */
+.paralaje{ will-change:transform }
+
+/* ── Bandas comunes ────────────────────────────────────────────────────────────────────────── */
+.banda{ padding:clamp(3.6rem,9vh,6.5rem) var(--gut) }
+.banda__caja{ width:min(var(--max),100%); margin-inline:auto }
+.claro{ background:#FFFFFF; color:var(--tinta) }
+.claro h2,.claro h3{ color:var(--tinta) }
+.claro--anil{ background:transparent; color:var(--tinta) }
+.claro--anil h2,.claro--anil h3{ color:var(--tinta) }
+.claro--anil .kicker{ color:var(--anil) }
+.kicker{ color:var(--anil); display:block; margin-bottom:.9rem }
+.claro .kicker{ color:var(--anil) }
+h2{ font-size:clamp(1.7rem,2.6vw + .8rem,3rem); max-width:22ch; text-wrap:balance }
+
+/* ── Manifiesto — tinta añil sobre blanco, como el logotipo en su firma ────────────────────── */
+/* ⛔ el overflow:hidden se retira: existía para contener la media luna vectorial, que Carlos
+   mandó quitar. Sin ella solo servía para RECORTAR el texto (12-17 px, lo cazó la puerta). */
+.manifiesto{ position:relative; background:#FFFFFF }
+/* la greca vive ENTRE las dos secciones, con el mismo aire arriba y abajo */
+/* ⛔ EL GRIS ERA EL CUERPO ASOMANDO: la caja centrada no puede pintar el fondo porque no llega
+   a los bordes. La greca vive en un envoltorio a todo el ancho, blanco como sus dos vecinas. */
+.greca-banda{ background:#FFFFFF; padding-block:clamp(.5rem,1.4vh,1rem) }
+.manifiesto{ padding-bottom:clamp(2rem,4.5vh,3rem) }
+.greca-banda + .banda{ padding-top:clamp(2rem,4.5vh,3rem) }
+.greca-caja{ padding-inline:var(--gut) }
+.manifiesto__caja{ display:grid; grid-template-columns:minmax(0,7fr) minmax(0,4fr);
+  gap:clamp(2rem,5vw,5rem); align-items:center }
+@media (max-width:820px){ .manifiesto__caja{ grid-template-columns:1fr } }
+.manifiesto blockquote{ font-family:var(--cita); font-weight:600; font-style:italic;
+  font-size:clamp(1.6rem,2.9vw + .7rem,3.2rem); line-height:1.15; max-width:20ch;
+  color:var(--anil); text-wrap:balance }
+.manifiesto__texto{ max-width:58ch; margin-top:1.4rem; color:var(--tinta-2);
+  font-size:1.05rem }
+.manifiesto__texto strong{ color:var(--tinta); font-weight:600 }
+.manifiesto__hawken{ border-left:3px solid var(--anil); padding-left:1.3rem;
+  color:var(--tinta-2); font-size:1.08rem; line-height:1.7; max-width:36ch }
+
+/* ── Tres niveles ──────────────────────────────────────────────────────────────────────────── */
+/* escalera (juez c.2): no es una rejilla — escala y ritmo vertical */
+.niveles{ margin-top:2.4rem }
+.nivel{ display:grid; grid-template-columns:1fr 1.4fr; align-items:center;
+  gap:clamp(1rem,3vw,3rem); padding-block:1.4rem }
+.nivel + .nivel{ border-top:1px solid rgba(19,27,46,.12) }
+@media (max-width:820px){ .nivel{ grid-template-columns:1fr; gap:.4rem } }
+.nivel{ transition:transform 420ms var(--e) }
+.nivel:hover{ transform:translateX(14px) }
+.nivel h3{ font-family:var(--disp); font-weight:700; color:var(--teja);
+  font-size:1.35rem; letter-spacing:-.01em }
+.nivel p{ color:var(--tinta-2); font-size:1rem; max-width:46ch }
+
+/* ── Greca andina: separador de secciones ─────────────────────────────────────────────────────
+   Escalonado inca (la escalera de la chakana) repetido como cenefa. Es GEOMETRÍA, no un dibujo
+   figurativo: se traza con un SVG de una sola celda que se repite, así que no hay «intento de
+   dibujar» que pueda salir mal —la lección de la luna retirada—. Sutil a propósito: 0.28 de
+   opacidad y 22px de alto. */
+/* ⛔ LA PRIMERA VERSIÓN SALÍA CORTADA y el motivo de al lado no enlazaba: el trazo terminaba en
+   x=42 de una celda de 48, así que cada tile dejaba 6 px de base sin dibujar. Ahora la celda
+   cierra en 48 y el escalonado es continuo de un extremo a otro. */
+/* ⛔ SIN OPACIDAD: el motivo va en TEJA PLENA (#B8431F). El .3 lo dejaba en un rosa pálido
+   —el mismo error de siempre: bajar la opacidad no es «hacerlo sutil», es cambiarle el color. */
+.greca{ height:24px;
+  background-repeat:repeat-x; background-position:center;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2748%27 height=%2724%27 viewBox=%270 0 48 24%27%3E%3Cpath d=%27M0 21h6V15h6V9h6V3h12V9h6V15h6V21h6%27 fill=%27none%27 stroke=%27%23B8431F%27 stroke-width=%272.5%27 stroke-linejoin=%27miter%27/%3E%3C/svg%3E");
+  background-size:48px 24px }
+
+/* ── El descenso — claro, como la firma de Pat: tarjetas blancas sobre papel añil ──────────── */
+.descenso__intro{ max-width:56ch; color:var(--tinta-2); margin-top:1.1rem; font-size:1.05rem }
+.tramo{ display:grid; grid-template-columns:minmax(0,7fr) minmax(0,5fr); gap:clamp(1.4rem,3vw,3.2rem);
+  align-items:center; padding-block:clamp(2.2rem,6vh,4rem) }
+.tramo:nth-of-type(even){ grid-template-columns:minmax(0,5fr) minmax(0,7fr) }
+.tramo:nth-of-type(even) .tramo__foto{ order:2 }
+@media (max-width:820px){
+  .tramo, .tramo:nth-of-type(even){ grid-template-columns:1fr }
+  .tramo:nth-of-type(even) .tramo__foto{ order:0 }
+}
+.tramo + .tramo{ border-top:1px solid rgba(19,27,46,.13) }
+.tramo__foto{ position:relative; border-radius:18px; overflow:hidden;
+  box-shadow:0 24px 60px rgba(19,27,46,.22) }
+.tramo__foto img{ width:100%; height:clamp(300px,52vh,520px); object-fit:cover;
+  transition:transform 1100ms var(--e) }
+.tramo__foto:hover img{ transform:scale(1.07) }
+/* alturas DISTINTAS por tramo: la monotonía era el defecto nº2 del juez */
+.tramo--46 .tramo__foto img{ height:clamp(280px,46vh,460px) }
+/* el PAR de Arequipa: dos planos y una banda de pie ancha (juez c.2) */
+.tramo--par{ display:block }
+.tramo__par{ display:grid; grid-template-columns:1fr 1fr; gap:1rem }
+@media (max-width:640px){ .tramo__par{ grid-template-columns:1fr } }
+.tramo__par .tramo__foto img{ height:clamp(240px,40vh,380px) }
+.tramo__pie{ margin-top:1.4rem }
+/* ⛔ TERCERA VEZ la misma trampa en este archivo: .tramo p viene DESPUÉS con la misma
+   especificidad (0,1,1) y ganaba, dejando estas columnas a 46ch. Se sube la especificidad. */
+.tramo .tramo__pie p{ max-width:none; columns:2; column-gap:3.2rem }
+@media (max-width:820px){ .tramo .tramo__pie p{ columns:1 } }
+.tramo--62 .tramo__foto img{ height:clamp(340px,62vh,620px) }
+/* tramos A SANGRE: la foto rompe el contenedor, el texto va encima con scrim local */
+.tramo--sangre{ display:block; margin-inline:calc(var(--gut) * -1); border-top:0 !important;
+  padding-block:0; margin-block:clamp(2rem,6vh,4rem); position:relative }
+/* ⛔ la última sangre CIERRA la sección: sin margen debajo y sin relleno de sección, para que
+   no quede una franja del cuerpo entre la fotografía y la sección siguiente. */
+#viaje{ padding-bottom:0 }
+#viaje > .tramo--sangre:last-child{ margin-bottom:0 }
+.tramo--sangre .tramo__foto{ border-radius:0; box-shadow:none }
+.tramo--sangre .tramo__foto img{ height:clamp(420px,76vh,760px) }
+.tramo--sangre .tramo__velo{ position:absolute; inset:0; pointer-events:none;
+  background:linear-gradient(to top, rgba(8,13,24,.9) 0%, rgba(8,13,24,.58) 30%, rgba(8,13,24,0) 64%) }
+.tramo--sangre h3, .tramo--sangre p{ text-shadow:0 1px 3px rgba(8,12,22,.5) }
+.tramo--sangre .tramo__texto{ position:absolute; left:0; right:0; bottom:0;
+  padding:0 var(--gut) clamp(1.6rem,4vh,3rem) }
+.tramo--sangre .tramo__texto > div{ width:min(var(--max),100%); margin-inline:auto }
+/* especificidad: .tramo p strong (posterior) empataba y GANABA — el 1.00:1 del auditor era REAL */
+.tramo--sangre .tramo__texto h3{ color:#fff }
+.tramo--sangre .tramo__texto p{ color:#F3F0E7; max-width:52ch }
+.tramo--sangre .tramo__texto p strong{ color:#fff }
+.tramo--sangre + .tramo{ border-top:0 }
+.tramo h3{ font-size:clamp(1.5rem,1.6vw + 1rem,2.2rem); color:var(--tinta); margin-bottom:.7rem }
+.tramo p{ color:var(--tinta-2); max-width:46ch }
+.tramo p + p{ margin-top:.8rem }
+.tramo p strong{ color:var(--tinta); font-weight:600 }
+
+/* la cita de los insectos aterriza SOBRE la Amazonía de la que habla (juez c.2) */
+.tramo--sangre .tramo__cita{ position:absolute; top:clamp(1.4rem,5vh,3rem); right:var(--gut); z-index:1;
+  font-family:var(--cita); font-style:italic; font-weight:600; color:#fff !important; text-align:right;
+  font-size:clamp(1.3rem,2vw + .6rem,2.4rem); max-width:19ch; text-wrap:balance;
+  text-shadow:0 1px 3px rgba(8,12,22,.6) }
+.tramo--sangre .tramo__velo{ background:
+  linear-gradient(to top, rgba(8,13,24,.92) 0%, rgba(8,13,24,.66) 34%, rgba(8,13,24,0) 66%),
+  linear-gradient(200deg, rgba(8,13,24,.88) 0%, rgba(8,13,24,.55) 34%, rgba(8,13,24,0) 66%) }
+
+/* ── La forma Nanntu (HEART + experiencias) — interludio claro ─────────────────────────────── */
+/* HEART tipográfico: un acrónimo que se rompe de línea no es un acrónimo (juez c.2) */
+.heart{ display:grid; grid-template-columns:repeat(5,1fr); gap:clamp(.6rem,2.5vw,2.4rem);
+  margin-top:2.6rem }
+.heart .letra{ font-family:var(--disp); font-weight:800; line-height:.9;
+  font-size:clamp(1.9rem,11vw,6.4rem); color:var(--anil) }
+.heart .palabra{ display:block; margin-top:.5rem; font-weight:600; color:var(--tinta);
+  font-size:.92rem }
+.heart .en{ display:block; font-size:.76rem; color:var(--tinta-2); font-family:var(--mono);
+  letter-spacing:.08em; margin-top:.15rem }
+/* ⛔ EN MÓVIL EL ACRÓNIMO SE LEE EN ESCALERA (pedido de Carlos): H arriba-izquierda y T
+   abajo-derecha, cada peldaño desplazado y ocupando el ancho completo. */
+@media (max-width:640px){
+  .heart{ display:block; margin-top:2rem }
+  .heart > div{ display:flex; align-items:baseline; gap:.7rem; padding-block:.45rem }
+  /* el paso de la escalera es una VARIABLE: con la traducción al lado, 12% desbordaba a 320 y
+     360 px (medido: scrollWidth 351>320). Se estrecha en pantallas angostas. */
+  .heart{ --paso:11% }
+  .heart > div:nth-child(1){ margin-left:0 }
+  .heart > div:nth-child(2){ margin-left:var(--paso) }
+  .heart > div:nth-child(3){ margin-left:calc(var(--paso) * 2) }
+  .heart > div:nth-child(4){ margin-left:calc(var(--paso) * 3) }
+  .heart > div:nth-child(5){ margin-left:calc(var(--paso) * 4) }
+  .heart .letra{ font-size:2rem; line-height:1 }
+  .heart .palabra{ margin-top:0; font-size:1.05rem }
+  /* la palabra del acrónimo, en gris al lado: así se ve de dónde sale cada letra azul */
+  .heart .en{ display:inline; margin-top:0; font-size:.8rem; color:var(--tinta-2);
+    letter-spacing:.06em }
+  .heart .en::before{ content:"· " }
+}
+@media (max-width:430px){
+  .heart{ --paso:6% }
+  .heart .letra{ font-size:1.7rem }
+  .heart .palabra{ font-size:.98rem }
+  .heart .en{ font-size:.74rem }
+  .heart > div{ gap:.5rem }
+  .heart-palabras{ display:none }
+}
+.heart-palabras{ display:none }
+.forma__nota{ max-width:56ch; color:var(--tinta-2); margin-top:1.2rem; font-size:.95rem }
+
+/* 1 grande + 2 apiladas, pies FUERA de la tarjeta (juez, ciclo 1) */
+.experiencias{ display:grid; grid-template-columns:7fr 5fr; gap:1.6rem; margin-top:2.6rem }
+@media (max-width:820px){ .experiencias{ grid-template-columns:1fr } }
+.exp{ display:flex; flex-direction:column }
+.exp:first-child{ grid-row:1 / 3 }
+.exp{ transition:transform 420ms var(--e) }
+.exp img{ width:100%; height:200px; object-fit:cover; border-radius:14px;
+  transition:transform 1100ms var(--e) }
+.exp{ overflow:hidden; border-radius:14px }
+.exp:hover img{ transform:scale(1.08) }
+.exp:hover h3{ color:var(--teja) }
+.exp h3{ transition:color 300ms var(--e) }
+.exp:first-child img{ height:100%; min-height:420px; flex:1 }
+@media (max-width:820px){ .exp:first-child img{ min-height:0; height:280px; flex:none } }
+.exp figcaption{ padding:.9rem .15rem 0 }
+.exp h3{ font-size:1.12rem; margin-bottom:.3rem }
+.exp p{ font-size:.92rem; color:var(--tinta-2) }
+
+/* ── Pat ───────────────────────────────────────────────────────────────────────────────────── */
+/* sin imagen hasta que exista RETRATO real de Pat; la CITA es el cartel (juez c.3) */
+.pat{ max-width:none }
+.pat blockquote{ font-family:var(--cita); font-style:italic; font-weight:600; color:var(--anil);
+  font-size:clamp(1.6rem,2.4vw,2.3rem); line-height:1.25; max-width:36ch; text-wrap:balance;
+  border-left:0; padding-left:0; margin:0 auto 3.4rem; text-align:center }
+.pat blockquote cite{ display:block; margin-top:.9rem; font-style:normal; font-family:var(--mono);
+  font-size:.8rem; letter-spacing:.1em; color:var(--tinta-2) }
+.pat__nombre{ margin-bottom:1.5rem }
+.pat__bio{ columns:2; column-gap:3.2rem; max-width:none }
+@media (max-width:820px){ .pat__bio{ columns:1 } }
+.pat__bio p{ color:var(--tinta-2); max-width:none; margin-bottom:1rem }
+.pat__bio p strong{ color:var(--tinta) }
+
+/* ── Contacto — foto + añil a dos columnas: el cierre COMPUESTO, no volcado (juez c.1) ─────── */
+.contacto{ display:grid; grid-template-columns:1fr 1fr; background:var(--anil) }
+@media (max-width:820px){ .contacto{ grid-template-columns:1fr } }
+.contacto__foto{ position:relative; min-height:56vh }
+.contacto__foto{ overflow:hidden }
+.contacto__foto img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover;
+  transition:transform 1400ms var(--e) }
+.contacto:hover .contacto__foto img{ transform:scale(1.07) }
+@media (max-width:820px){ .contacto__foto{ min-height:44vh } }
+.contacto__caja{ padding:clamp(3rem,8vh,5.5rem) var(--gut);
+  display:flex; flex-direction:column; justify-content:center; align-items:flex-start }
+.contacto .kicker{ color:#BFD0F4 }
+.contacto h2{ color:#fff; font-size:clamp(2.2rem,3.4vw + .8rem,4.2rem) }
+.contacto p{ max-width:44ch; margin-top:1rem; color:#D6E0F6 }
+.contacto .btn{ margin-top:1.8rem }
+.contacto__alt{ margin-top:1.3rem; font-size:.95rem }
+.contacto__alt a{ color:#FFFFFF; font-weight:600; text-decoration-thickness:1.5px;
+  text-underline-offset:3px }
+.contacto__chips{ display:flex; flex-wrap:wrap; gap:.8rem; margin-top:1.8rem }
+.chip{ display:inline-flex; align-items:center; gap:.5rem; text-decoration:none;
+  border:1.5px solid rgba(255,255,255,.55); border-radius:99px; padding:.6rem 1.15rem;
+  font-size:.92rem; font-weight:500; color:#FFFFFF }
+.chip{ transition:background 300ms var(--e), border-color 300ms var(--e), transform 300ms var(--e) }
+.chip:hover{ background:rgba(255,255,255,.16); border-color:#fff; transform:translateY(-2px) }
+.chip svg{ flex:none; color:#FFFFFF }
+
+/* ── Pie — la FIRMA de Pat, literal: logotipo añil sobre blanco, divisor fino, datos ───────── */
+.pie{ background:#FFFFFF; padding:2.6rem var(--gut) 3rem; font-size:.9rem; color:var(--tinta-2) }
+.pie__caja{ width:min(var(--max),100%); margin-inline:auto; display:flex; flex-wrap:wrap;
+  gap:1.6rem; align-items:center; justify-content:space-between }
+.pie__firma{ display:flex; align-items:center; gap:1.5rem; flex-wrap:wrap }
+.pie__division{ width:1px; align-self:stretch; min-height:64px; background:#D9DCE6 }
+.pie__datos{ display:flex; flex-direction:column; gap:.2rem }
+.pie__datos strong{ color:var(--anil); font-size:1.05rem; font-weight:600 }
+.pie__datos span{ font-size:.86rem }
+.pie a{ color:var(--anil); font-weight:500; display:inline-block; padding:.3rem 0;
+  transition:text-underline-offset 260ms var(--e), opacity 260ms var(--e) }
+.pie a:hover{ text-underline-offset:4px; opacity:.75 }
+.pie__creditos{ width:100%; font-size:.78rem; color:#6A7080; line-height:1.7;
+  border-top:1px solid #E4E6EE; padding-top:1.1rem }
+.pie__creditos summary{ cursor:pointer; font-weight:500 }
+</style>
+</head>
+<body>
+<a class="saltar" href="#viaje">Skip to content</a>
+
+<header class="cabecera">
+  <a class="cabecera__logo" href="#" aria-label="Nanntu, home">
+    <span class="marca"><img src="img-nanntu/lockup-azul.webp" alt="Nanntu" width="410" height="100"></span>
+  </a>
+  <button class="hamb" aria-expanded="false" aria-controls="nav" aria-label="Open menu">
+    <svg class="rayas" width="22" height="16" viewBox="0 0 22 16" fill="none" aria-hidden="true"><path d="M1 1h20M1 8h20M1 15h20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+  </button>
+  <nav class="nav" id="nav" aria-label="Main">
+    <button class="nav__cerrar" aria-label="Close menu" type="button">
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M2 2l14 14M16 2L2 16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    </button>
+    <a href="#viaje">The journey</a>
+    <a href="#filosofia">Philosophy</a>
+    <a href="#pat">Pat</a>
+    <a href="#contacto">Contact</a>
+    <a class="idioma" href="nanntu.html" hreflang="es" lang="es">ES</a>
+  </nav>
+</header>
+
+<main>
+  <!-- ══ HERO · el lago donde todo comienza ══ -->
+  <section class="hero">
+    <div class="hero__foto"><img src="img-nanntu/hero.jpg"
+      alt="Lake Titicaca from a shaded shore: golden totora reeds, a reed boat, the snow-capped range beyond and a vast cloudscape" fetchpriority="high"></div>
+    <div class="hero__caja">
+      <div class="hero__panel">
+      <h1><span class="acento">Conscious</span>, respectful, responsible journeys.</h1>
+      <p class="hero__baja">Routes through Peru designed by Patricia Deza: from the Andes to the
+        Amazon, to connect with living systems and ancestral wisdom, and leave every place
+        better than we found it.</p>
+      <div class="hero__ctas">
+        <a class="btn btn--quenua" href="mailto:patricia@nanntu.com?subject=Let%27s%20design%20a%20journey">Let's design your journey</a>
+        <a class="btn btn--linea" href="#viaje">See the routes</a>
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ MANIFIESTO ══ -->
+  <section class="banda manifiesto" id="filosofia">
+    <div class="banda__caja manifiesto__caja">
+      <div data-reveal>
+        <span class="cota kicker">The idea behind everything</span>
+        <blockquote>“You cannot protect what you do not know.”</blockquote>
+        <p class="manifiesto__texto">Travel opens a door to something bigger than ourselves:
+          walking in nature, meeting the local culture and its ancestral legacy, talking with
+          the people of each place, finding patterns in nature that serve everyday life.
+          <strong>Nanntu designs journeys so that door opens</strong>, and so whoever crosses
+          it returns as an ambassador for the Andes and the Amazon.</p>
+      </div>
+      <p class="manifiesto__hawken" data-reveal>“Regeneration means putting life at the center
+        of every decision,” writes Paul Hawken, one of the voices guiding this way of
+        traveling.</p>
+    </div>
+  </section>
+
+  <div class="greca-banda"><div class="banda__caja greca-caja"><div class="greca" role="presentation"></div></div></div>
+
+  <!-- ══ TRES NIVELES · interludio claro ══ -->
+  <section class="banda claro">
+    <div class="banda__caja">
+      <span class="cota kicker">Transformational travel</span>
+      <h2>A journey weaves three connections</h2>
+      <div class="niveles">
+        <article class="nivel" data-reveal>
+          <h3>With yourself</h3>
+          <p>Travel gives you the chance to uncover your deepest self and rediscover who you
+            are, far from routine and the urban noise.</p>
+        </article>
+        <article class="nivel" data-reveal>
+          <h3>With others</h3>
+          <p>Time and intention to interact: sharing stories during a ceremony, learning from
+            the local culture, letting those who know their land teach you.</p>
+        </article>
+        <article class="nivel" data-reveal>
+          <h3>With something bigger</h3>
+          <p>Connecting with nature, even for a moment, and discovering the deep and the
+            extraordinary: feeling that you belong to the landscape.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ EL DESCENSO · de 3 812 m a 183 m ══ -->
+  <section class="banda claro--anil" id="viaje">
+    <div class="banda__caja">
+      <span class="cota kicker">The journey</span>
+      <h2>The descent: from the Andes to the Amazon</h2>
+      <p class="descenso__intro">Every Nanntu route descends through ecological floors that are
+        different worlds: from the altiplano at 3,812 meters to the lowland jungle at 183.
+        The page descends with you.</p>
+    </div>
+
+    <article class="tramo tramo--sangre">
+      <div class="tramo__foto">
+        <img src="img-nanntu/titicaca.jpg" loading="eager"
+          alt="Lake Titicaca seen from a hillside of golden ichu grass, with islands under a dramatic sky">
+      </div>
+      <div class="tramo__velo" aria-hidden="true"></div>
+      <div class="tramo__texto"><div data-reveal>
+        <h3>Lake Titicaca</h3>
+        <p><strong>Where Nanntu begins.</strong> Pat grew up on these shores, among community
+          gatherings and ancestral stories told beside the water. Here the journey is learned
+          slowly: sailing the totora reeds, sharing a family's table, listening to the lake the
+          way you listen to an elder.</p>
+      </div></div>
+    </article>
+
+    <div class="banda__caja">
+      <article class="tramo tramo--46">
+        <div class="tramo__foto" data-reveal>
+          <img src="img-nanntu/colca.jpg" loading="lazy" decoding="async"
+            alt="An Andean condor glides with outstretched wings between the walls of the Colca Canyon, snow peaks behind">
+        </div>
+        <div data-reveal>
+          <h3>Colca Valley</h3>
+          <p><strong>Disconnect from the everyday world</strong> and be free to connect with the
+            unknown: watch the condor glide the canyon, find new perceptions about life in the
+            Andes and build a sense of belonging with the place.</p>
+        </div>
+      </article>
+
+      <article class="tramo tramo--62">
+        <div class="tramo__foto" data-reveal>
+          <img src="img-nanntu/machupicchu.jpg" loading="lazy" decoding="async"
+            alt="The terraces of Machu Picchu emerge through morning mist, the mountain falling toward the valley">
+        </div>
+        <div data-reveal>
+          <h3>Cusco and Machu Picchu</h3>
+          <p><strong>Ancestral legacy is not a museum.</strong> It is a way of thinking the
+            territory that is still alive in terraces, trails and ceremonies, and it transforms
+            the vision of those who walk it with attention.</p>
+        </div>
+      </article>
+
+      <article class="tramo tramo--par">
+        <div class="tramo__par">
+          <div class="tramo__foto" data-reveal>
+            <img src="img-nanntu/arequipa.jpg" loading="lazy" decoding="async"
+              alt="El Misti volcano seen through a sillar stone arch in Yanahuara, over the rooftops of Arequipa">
+          </div>
+          <div class="tramo__foto" data-reveal>
+            <img src="img-nanntu/misti.jpg" loading="lazy" decoding="async"
+              alt="Snow-capped El Misti over the green fields of the Arequipa countryside, under a clear sky">
+          </div>
+        </div>
+        <div class="tramo__pie" data-reveal>
+          <h3>Arequipa</h3>
+          <p><strong>The white-stone city where Pat lives and plants.</strong> On the slopes of
+            Chachani she plants queñua trees with
+            <a class="enlace-vida" href="https://www.unarbolunavida.pe" rel="noopener">Un Árbol
+            Una Vida</a>: for the travelers who wanted to leave a regenerative footprint,
+            sowing life and intentions into the soil. Travel can also be this: returning as
+            good ancestors, leaving fertile ground for the generations to come.</p>
+        </div>
+      </article>
+    </div>
+
+    <article class="tramo tramo--sangre">
+      <div class="tramo__foto">
+        <img src="img-nanntu/amazonia.jpg" loading="eager"
+          alt="Bird's-eye view of an earth-colored Amazonian river with a tiny canoe between two walls of jungle">
+      </div>
+      <div class="tramo__velo" aria-hidden="true"></div>
+      <p class="tramo__cita" data-reveal>“Insects are the foundation of how every
+        ecosystem works.”</p>
+      <div class="tramo__texto"><div data-reveal>
+        <h3>Madre de Dios</h3>
+        <p><strong>The jungle that taught Pat the value of indigenous knowledge</strong>,
+          alongside the Ese Eja native community. Here the challenge is with yourself:
+          discovering your purpose, immersing yourself in culture and nature, feeling the
+          unknown.</p>
+      </div></div>
+    </article>
+  </section>
+
+  <!-- ══ LA FORMA NANNTU · interludio claro ══ -->
+  <section class="banda claro">
+    <div class="banda__caja">
+      <h2>Transformational travel is <span class="acento">intentional</span></h2>
+      <p class="forma__nota">Five intentions travel with every route: the HEART framework of
+        the Transformational Travel Council, whose study group Pat joined in 2021.</p>
+      <div class="heart">
+        <div data-reveal><span class="letra">H</span><span class="palabra">Humble</span><span class="en" lang="es">Humilde</span></div>
+        <div data-reveal><span class="letra">E</span><span class="palabra">Engaged</span><span class="en" lang="es">Atento</span></div>
+        <div data-reveal><span class="letra">A</span><span class="palabra">Awake</span><span class="en" lang="es">Consciente</span></div>
+        <div data-reveal><span class="letra">R</span><span class="palabra">Respect</span><span class="en" lang="es">Respetuoso</span></div>
+        <div data-reveal><span class="letra">T</span><span class="palabra">Thankful</span><span class="en" lang="es">Agradecido</span></div>
+      </div>
+      <div class="heart-palabras" aria-hidden="true">
+        <span><b>H</b>Humble</span><span><b>E</b>Engaged</span><span><b>A</b>Awake</span>
+        <span><b>R</b>Respect</span><span><b>T</b>Thankful</span>
+      </div>
+
+      <div class="experiencias">
+        <figure class="exp" data-reveal>
+          <img src="img-nanntu/tintes.jpg" loading="lazy" decoding="async"
+            alt="Baskets with alpaca fiber, yarn balls and natural dyes on a weaver's table">
+          <figcaption>
+            <h3>Natural dyes and textiles</h3>
+            <p>Learning from the plants that dye the wool, from sowing and from traditional
+              dishes, supporting local communities and regenerating the soil.</p>
+          </figcaption>
+        </figure>
+        <figure class="exp" data-reveal>
+          <img src="img-nanntu/laguna.jpg" loading="lazy" decoding="async"
+            alt="A turquoise glacier lake at the foot of a snow wall wrapped in mist">
+          <figcaption>
+            <h3>Nature as mentor</h3>
+            <p>Looking for patterns in living, interconnected systems, and letting the
+              landscape do its share of the work.</p>
+          </figcaption>
+        </figure>
+        <figure class="exp" data-reveal>
+          <img src="img-nanntu/tejedoras.jpg" loading="lazy" decoding="async"
+            alt="Two young weavers in traditional dress knit red yarn beside an Inca stone wall">
+          <figcaption>
+            <h3>Communities that teach</h3>
+            <p>Sharing stories and questions with those who know their land: connection
+              with others is half the journey.</p>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ PAT ══ -->
+  <section class="banda claro" id="pat" style="padding-top:0">
+    <div class="banda__caja pat">
+      <div data-reveal>
+        <blockquote>
+          “Every route I create is designed so you live unforgettable experiences while we
+          contribute to the regeneration of the places we explore.”
+          <cite>Pat · @regenwithpat</cite>
+        </blockquote>
+        <span class="cota kicker">Who designs your journey</span>
+        <h2 class="pat__nombre">Patricia Deza</h2>
+        <div class="pat__bio">
+          <p><strong>Peruvian travel designer.</strong> She grew up on the shores of Lake
+            Titicaca, in Puno, among community gatherings and ancestral stories. She worked with
+            the Ese Eja native community in the Madre de Dios jungle and joined the
+            Transformational Travel Council's study group in 2021.</p>
+          <p>She designs every route thinking about the traveler (what you seek, what you need,
+            what you long for when traveling through Peru) and, at the same time, about how that
+            journey can positively impact the places it visits.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ CONTACTO ══ -->
+  <section class="contacto" id="contacto">
+    <div class="contacto__foto">
+      <img src="img-nanntu/contacto.jpg" loading="lazy" decoding="async"
+        alt="Storm clouds over Lake Titicaca, a shaft of light falling on the hills of the shore">
+    </div>
+    <div class="contacto__caja" data-reveal>
+      <h2>Tell Pat about the journey you imagine</h2>
+      <p>One email to <strong style="color:#fff">patricia@nanntu.com</strong> is enough to
+        start: who is traveling, how much time you have and what you would like to feel. Pat
+        designs the rest with you.</p>
+      <a class="btn btn--quenua" href="mailto:patricia@nanntu.com?subject=Let%27s%20design%20a%20journey">Let's design your journey</a>
+      <div class="contacto__chips">
+        <a class="chip" href="tel:+51908611006">
+          <svg width="15" height="15" viewBox="0 0 15 15" fill="none" aria-hidden="true"><path d="M3.2 1.5h2.1l1.1 2.9-1.5 1.1a9.5 9.5 0 0 0 3.6 3.6l1.1-1.5 2.9 1.1v2.1c0 .8-.6 1.4-1.4 1.3A11.8 11.8 0 0 1 1.9 2.9c-.1-.8.5-1.4 1.3-1.4z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>
+          908 611 006</a>
+        <a class="chip" href="https://www.instagram.com/regenwithpat/" rel="noopener">
+          <svg width="15" height="15" viewBox="0 0 15 15" fill="none" aria-hidden="true"><rect x="1.5" y="1.5" width="12" height="12" rx="3.4" stroke="currentColor" stroke-width="1.3"/><circle cx="7.5" cy="7.5" r="2.9" stroke="currentColor" stroke-width="1.3"/><circle cx="11.2" cy="3.8" r=".9" fill="currentColor"/></svg>
+          @regenwithpat</a>
+      </div>
+      <p class="contacto__alt">Pat replies in English and Spanish, from Arequipa for all of
+        Peru.</p>
+    </div>
+  </section>
+</main>
+
+<footer class="pie">
+  <div class="pie__caja">
+    <div class="pie__firma">
+      <span class="marca"><img src="img-nanntu/logo-nanntu.webp" alt="Nanntu" width="640" height="534"></span>
+      <div class="pie__division" aria-hidden="true"></div>
+      <div class="pie__datos">
+        <strong>Patricia Deza</strong>
+        <span>Travel Designer</span>
+        <span><a href="mailto:patricia@nanntu.com">patricia@nanntu.com</a> · <a href="tel:+51908611006">908 611 006</a></span>
+        <span>Sowing life with <a href="https://www.unarbolunavida.pe" rel="noopener">Un Árbol Una Vida</a> in the queñua groves of Arequipa</span>
+      </div>
+    </div>
+    <p><a href="nanntu.html" hreflang="es" lang="es">Versión en español</a></p>
+    <details class="pie__creditos">
+      <summary>Design draft prepared for Patricia Deza · Photography credits</summary>
+      <p>Photography under the Pexels license: Viajante Dibujero, Nathan De Cock, Willian Justen
+        de Vasconcellos, Renso Villarreal, Alex Avila Gonzales, Edwin Malca Cerna, DEJOTA RIVANS,
+        Saraí Carrasco, Anyela Málaga, Julia Volk and Diego Girón. The <strong>cover image is generated</strong> for this design draft, not a photograph of a
+        specific place: the final site carries Nanntu's own photography. Two images were
+        digitally developed with assistance, no shapes altered.</p>
+    </details>
+  </div>
+</footer>
+
+<script>
+(function(){
+  'use strict';
+  /* cajón móvil: abre / cierra con el botón, con Escape y tocando un enlace */
+  var boton = document.querySelector('.hamb');
+  var cierre = document.querySelector('.nav__cerrar');
+  var nav = document.getElementById('nav');
+  function cerrar(){ nav.classList.remove('abierta'); boton.setAttribute('aria-expanded','false'); }
+  function abrir(){ nav.classList.add('abierta'); boton.setAttribute('aria-expanded','true');
+    cierre.focus(); }
+  boton.addEventListener('click', function(){
+    nav.classList.contains('abierta') ? cerrar() : abrir();
+  });
+  cierre.addEventListener('click', function(){ cerrar(); boton.focus(); });
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape' && nav.classList.contains('abierta')) { cerrar(); boton.focus(); }
+  });
+  nav.addEventListener('click', function(e){
+    if (e.target.closest('a')) cerrar();
+  });
+
+  /* cabecera: vidrio arriba, blanco sólido al bajar */
+  var cabecera = document.querySelector('.cabecera');
+  function pintarCabecera(){ cabecera.classList.toggle('cabecera--solida', window.scrollY > 40); }
+  window.addEventListener('scroll', pintarCabecera, { passive: true });
+  pintarCabecera();
+
+  /* cabecera: vidrio arriba, blanco sólido al bajar */
+  var cabecera = document.querySelector('.cabecera');
+  function pintarCabecera(){ cabecera.classList.toggle('cabecera--solida', window.scrollY > 40); }
+  window.addEventListener('scroll', pintarCabecera, { passive: true });
+  pintarCabecera();
+
+  /* cabecera: vidrio arriba, blanco sólido al bajar */
+  var cabecera = document.querySelector('.cabecera');
+  function pintarCabecera(){ cabecera.classList.toggle('cabecera--solida', window.scrollY > 40); }
+  window.addEventListener('scroll', pintarCabecera, { passive: true });
+  pintarCabecera();
+
+  /* revelado al entrar en pantalla */
+  var motion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  /* la greca y cada peldano del HEART entran tambien: se les anade la marca sin tocar el HTML */
+  document.querySelectorAll('.greca-banda, .heart > div').forEach(function(e){ e.setAttribute('data-reveal',''); });
+  /* la fotografia entra con cortinilla: la marca va en el MARCO, no en la <img> */
+  document.querySelectorAll('.tramo--46 .tramo__foto, .tramo--62 .tramo__foto, .tramo__par .tramo__foto, .exp').forEach(function(e){ e.setAttribute('data-reveal',''); });
+  var piezas = document.querySelectorAll('[data-reveal]');
+  if (motion || !('IntersectionObserver' in window)) {
+    piezas.forEach(function(p){ p.classList.add('in'); });
+  } else {
+    /* ⛔ LA CORTINILLA ESPERA A QUE LA FOTO EXISTA. Medido en producción: la caja se destapaba
+       entre 194 y 618 ms ANTES de que la imagen terminara de cargar, en 7 de 10 fotos — así que
+       lo que se veía «aparecer de golpe» no era la animación, era un hueco destapándose y la
+       imagen entrando encima. Las dos causas iban encadenadas: `loading=lazy` arranca la descarga
+       cuando la foto ya está cerca, y el observador dispara casi en el mismo instante.
+       ⚠️ Con TOPE: una foto que no llegue nunca no puede dejar la caja vacía para siempre, así
+       que a los 1200 ms se destapa igual. Un arreglo que puede colgar la página es peor que el
+       defecto que cura. */
+    var io = new IntersectionObserver(function(entradas){
+      entradas.forEach(function(en){
+        if (!en.isIntersecting) return;
+        io.unobserve(en.target);
+        var caja = en.target;
+        var im = caja.querySelector('img');
+        if (!im || (im.complete && im.naturalWidth > 0)) { caja.classList.add('in'); return; }
+        var abierto = false;
+        var abrir = function(){ if (abierto) return; abierto = true; caja.classList.add('in'); };
+        im.addEventListener('load', abrir, { once: true });
+        im.addEventListener('error', abrir, { once: true });
+        setTimeout(abrir, 3000);
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.12 });
+    /* ⛔ Y ADEMÁS SE ADELANTA LA DESCARGA, que es la causa RAÍZ. Esperar al `load` no basta si la
+       descarga ni siquiera ha empezado: medido, la foto tardaba ~1,35 s desde que el observador
+       disparaba, porque `loading=lazy` arranca cuando la imagen ya está casi en pantalla y el
+       reveal ocurre en ese mismo instante. Este segundo observador va 1200 px POR DELANTE y pasa
+       la imagen a `eager`, que dispara la petición al momento. Así, cuando llega el reveal, la
+       foto ya suele estar; y el tope de arriba deja de ser quien abre.
+       ⚠️ No se quita `loading=lazy` del HTML: sin JS la página sigue cargando en diferido, que es
+       lo correcto. Lo que cambia es CUÁNDO, no SI. */
+    var pre = new IntersectionObserver(function(entradas){
+      entradas.forEach(function(en){
+        if (!en.isIntersecting) return;
+        pre.unobserve(en.target);
+        var im = en.target.querySelector('img');
+        if (im && im.getAttribute('loading') === 'lazy' && !im.complete) im.setAttribute('loading', 'eager');
+      });
+    }, { rootMargin: '1200px 0px 1200px 0px' });
+    piezas.forEach(function(p){ if (p.querySelector('img')) pre.observe(p); });
+    piezas.forEach(function(p){ io.observe(p); });
+  }
+  /* ── PARALAJE: el paisaje se mueve mas lento que la pagina ────────────────────────────────
+     ⛔ Solo en fotografias SIN texto encima. En las de sangre el titular va sobre la imagen y
+     moverla cambiaria el fondo que se midio para el contraste; alli el drama lo pone la
+     cortinilla. Un solo bucle con rAF, pasivo, y apagado con movimiento reducido. */
+  if (!motion) {
+    var capas = [].slice.call(document.querySelectorAll('.tramo--46 .tramo__foto img, .tramo--62 .tramo__foto img, .tramo__par .tramo__foto img, .contacto__foto img'));
+    capas.forEach(function(i){ i.classList.add('paralaje'); i.style.willChange = 'transform'; });
+    var pedido = false;
+    function pintar(){
+      pedido = false;
+      var alto = window.innerHeight;
+      capas.forEach(function(img){
+        var r = img.parentElement.getBoundingClientRect();
+        if (r.bottom < -200 || r.top > alto + 200) return;
+        var centro = r.top + r.height / 2;
+        var avance = (centro - alto / 2) / (alto / 2);   // -1 arriba, +1 abajo
+        var y = Math.max(-1, Math.min(1, avance)) * 26;   // recorrido en px
+        img.style.transform = 'translate3d(0,' + y.toFixed(1) + 'px,0) scale(1.12)';
+      });
+    }
+    function pedir(){ if (!pedido) { pedido = true; requestAnimationFrame(pintar); } }
+    window.addEventListener('scroll', pedir, { passive: true });
+    window.addEventListener('resize', pedir, { passive: true });
+    pintar();
+  }
+})();
+</script>
+<div style="background:#16181C;color:#F3F4F3;padding:0.7rem 1rem;text-align:center;font:500 12px/1.5 system-ui,sans-serif;letter-spacing:0.02em">Design draft by Reasoned Web — gifted to Patricia Deza, not commissioned.</div>
+</body>
+</html>

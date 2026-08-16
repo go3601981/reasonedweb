@@ -31,7 +31,14 @@ Este proyecto **LEE** de otras carpetas y **NUNCA les escribe**. Nada de allá d
 | `../CRM Web/wemadeyoursite/site/demos/` | ~28 piezas en inglés (negocios inventados) |
 | `../CRM Web/apps/web/public/demos/` | ~46 piezas en español (mercado peruano) |
 
-⛔⛔ **SOLO CRUZAN PÍXELES** — capturas y video, alojados en reasonedweb.com. Las URLs publicadas
+⛔⛔ **SOLO CRUZAN PÍXELES** — capturas y video, alojados en reasonedweb.com.
+**Enmienda de Carlos (2026-08-16): también cruzan EXHIBICIONES VIVAS** — copias del HTML
+de una pieza, SOLO vía `tools/exhibir.py` (sanitiza banners/precios/metadatos ajenos con
+puerta de residuo cero e inyecta la etiqueta honesta de Reasoned Web al pie). Un exhibit
+es una copia CONGELADA: no se mantiene — si la fuente cambia, se re-genera con la
+herramienta. Los walkthroughs en video se probaron primero y Carlos los retiró el mismo
+día («the videos were not a good idea») a favor de los exhibits; `tools/record.py` queda
+por si vuelven a servir (p. ej. loops de hover en la galería). Las URLs publicadas
 (`tuweb.pe/wemadeyoursite/demos/*`, `tuweb.pe/demos/*`) son **referencia INTERNA de esta sesión**
 para encontrar las piezas — ⛔ **jamás se enlazan desde el sitio publicado**: el sitio no menciona
 tuweb.pe, wemadeyoursite ni ninguna otra marca que no sea Reasoned Web (orden de Carlos), y un

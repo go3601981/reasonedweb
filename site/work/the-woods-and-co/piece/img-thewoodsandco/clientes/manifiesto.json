@@ -1,0 +1,282 @@
+[
+  {
+    "nombre": "Farmaesthetics",
+    "grupo": "beauty",
+    "archivo": "farmaesthetics.webp",
+    "w": 420,
+    "h": 63,
+    "aire": 42.5,
+    "origen": "https://thewoodsandco.com/wp-content/uploads/2024/10/farmaesthetics.jpg"
+  },
+  {
+    "nombre": "The Honey Pot",
+    "grupo": "beauty",
+    "archivo": "the-honey-pot.webp",
+    "w": 356,
+    "h": 120,
+    "aire": 59.9,
+    "origen": "https://thewoodsandco.com/wp-content/uploads/2024/10/HoneyPot.jpg"
+  },
+  {
+    "nombre": "Beauty Bakerie",
+    "grupo": "beauty",
+    "archivo": "beauty-bakerie.webp",
+    "w": 420,
+    "h": 102,
+    "aire": 70.5,
+    "origen": "https://thewoodsandco.com/wp-content/uploads/2024/10/beautybakerie.jpg"
+  },
+  {
+    "nombre": "Mad Hippie",
+    "grupo": "beauty",
+    "archivo": "mad-hippie.webp",
+    "w": 286,
+    "h": 167,
+    "aire": 47.4,
+    "origen": "https://thewoodsandco.com/wp-content/uploads/2024/08/madhippie-475x356-1.jpg"
+  },
+  {
+    "nombre": "Kim Kimble",
+    "grupo": "beauty",
+    "archivo": "kim-kimble.webp",
+    "w": 420,
+    "h": 87,
+    "aire": 58.8,
+    "origen": "https://thewoodsandco.com/wp-content/uploads/2024/10/Kim_Kimble.jpg"
+  },
+  {
+    "nombre": "Patchology",
+    "grupo": "beauty",
+    "archivo": "patchology.webp",
+    "w": 420,
+    "h": 62,
+    "aire": 71.7,
+    "origen": "https://thewoodsandco.com/wp-content/uploads/2024/10/patchology.png"
+  },
+  {
+    "nombre": "Butter London",
+    "grupo": "beauty",
+    "archivo": "butter-london.webp",
+    "w": 325,
+    "h": 166,
+    "aire": 70.9,
+    "origen": "https://thewoodsandco.com/wp-content/uploads/2024/10/butter_london.png"
+  },
+  {
+    "nombre": "Indie Lee",
+    "grupo": "beauty",
+    "archivo": "indie-lee.webp",
+    "w": 420,
+    "h": 43,
+    "aire": 58.7,
+    "origen": "https://thewoodsandco.com/wp-content/uploads/2024/10/indie_lee.png"
+  },
+  {
+    "nombre": "Glow Recipe",
+    "grupo": "beauty",
+    "archivo": "glow-recipe.webp",
+    "w": 415,
+    "h": 40,
+    "aire": 91.6,
+    "origen": "https://thewoodsandco.com/wp-content/uploads/2024/10/glow_recipe-2.png",
+    "nota": "recortado a la tipografia: el original traia tres motas abajo que estiraban la caja"
+  },
+  {
+    "nombre": "Surya Brasil",
+    "grupo": "beauty",
+    "archivo": "surya-brasil.webp",
+    "w": 392,
+    "h": 79,
+    "aire": 43.3,
+    "origen": "https://thewoodsandco.com/wp-content/uploads/2024/08/surya_brasil-475x356-1.jpg"
+  },
+  {
+    "nombre": "Le Mieux",
+    "grupo": "beauty",
+    "archivo": "le-mieux.webp",
+    "w": 341,
+    "h": 151,
+    "aire": 74.4,
+    "origen": "https://thewoodsandco.com/wp-content/uploads/2024/08/lemieux_logo-360x270@2x.jpg"
+  },
+  {
+    "nombre": "Mia Beauty",
+    "grupo": "beauty",
+    "archivo": "mia-beauty.webp",
+    "w": 336,
+    "h": 247,
+    "aire": 72.3,
+    "origen": "https://thewoodsandco.com/wp-content/uploads/2024/08/miabeauty_logo-360x270@2x.jpg"
+  },
+  {
+    "nombre": "emerginC",
+    "grupo": "beauty",
+    "archivo": "emerginc.webp",
+    "w": 363,
+    "h": 96,
+    "aire": 61.2,
+    "origen": "https://thewoodsandco.com/wp-content/uploads/2024/08/emerginc_logo-360x270@2x.jpg"
+  },
+  {
+    "nombre": "Skin Miracle Transformer",
+    "grupo": "beauty",
+    "archivo": "skin-miracle-transformer.webp",
+    "w": 352,
+    "h": 185,
+    "aire": 51.2,
+    "origen": "https://thewoodsandco.com/wp-content/uploads/2024/08/smt_logo-360x270@2x.jpg"
+  },
+  {
+    "nombre": "LED Technologies",
+    "grupo": "salud",
+    "archivo": "led-technologies.webp",
+    "w": 304,
+    "h": 128,
+    "aire": 48.3,
+    "origen": "https://thewoodsandco.com/wp-content/uploads/2024/10/Led_Technologies-1.png"
+  },
+  {
+    "nombre": "HairMax",
+    "grupo": "salud",
+    "archivo": "hairmax.webp",
+    "w": 375,
+    "h": 58,
+    "aire": 44.2,
+    "origen": "https://thewoodsandco.com/wp-content/uploads/2024/08/hairmax_logo-360x270@2x.jpg"
+  },
+  {
+    "nombre": "DMoose",
+    "grupo": "salud",
+    "archivo": "dmoose.webp",
+    "w": 363,
+    "h": 106,
+    "aire": 53.2,
+    "origen": "https://thewoodsandco.com/wp-content/uploads/2024/10/dmoose.jpg"
+  },
+  {
+    "nombre": "Cocofloss",
+    "grupo": "salud",
+    "archivo": "cocofloss.webp",
+    "w": 416,
+    "h": 72,
+    "aire": 29.6,
+    "origen": "https://thewoodsandco.com/wp-content/uploads/2024/10/cocofloss.jpg"
+  },
+  {
+    "nombre": "Advalight",
+    "grupo": "salud",
+    "archivo": "advalight.webp",
+    "w": 272,
+    "h": 112,
+    "aire": 52.3,
+    "origen": "https://thewoodsandco.com/wp-content/uploads/2024/10/Adva.jpg"
+  },
+  {
+    "nombre": "Lane Eight",
+    "grupo": "salud",
+    "archivo": "lane-eight.webp",
+    "w": 352,
+    "h": 136,
+    "aire": 40.2,
+    "origen": "https://thewoodsandco.com/wp-content/uploads/2024/10/Laneeight.jpg"
+  },
+  {
+    "nombre": "Violife",
+    "grupo": "salud",
+    "archivo": "violife.webp",
+    "w": 384,
+    "h": 256,
+    "aire": 43.6,
+    "origen": "https://thewoodsandco.com/wp-content/uploads/2024/08/violife_logo-360x270@2x.jpg"
+  },
+  {
+    "nombre": "Aura Cacia",
+    "grupo": "salud",
+    "archivo": "aura-cacia.webp",
+    "w": 352,
+    "h": 136,
+    "aire": 14.4,
+    "origen": "https://thewoodsandco.com/wp-content/uploads/2024/10/auracacia.jpg"
+  },
+  {
+    "nombre": "Biofreeze",
+    "grupo": "salud",
+    "archivo": "biofreeze.webp",
+    "w": 420,
+    "h": 69,
+    "aire": 34.8,
+    "origen": "https://thewoodsandco.com/wp-content/uploads/2024/10/biofreeze.jpg"
+  },
+  {
+    "nombre": "2XU",
+    "grupo": "salud",
+    "archivo": "2xu.webp",
+    "w": 400,
+    "h": 95,
+    "aire": 29,
+    "origen": "https://thewoodsandco.com/wp-content/uploads/2024/08/2xu_logo-360x270@2x.jpg"
+  },
+  {
+    "nombre": "Bogner",
+    "grupo": "salud",
+    "archivo": "bogner.webp",
+    "w": 327,
+    "h": 64,
+    "aire": 37.9,
+    "origen": "https://thewoodsandco.com/wp-content/uploads/2024/10/Bogner.jpg"
+  },
+  {
+    "nombre": "Life Time",
+    "grupo": "salud",
+    "archivo": "life-time.webp",
+    "w": 258,
+    "h": 60,
+    "aire": 15.1,
+    "origen": "https://thewoodsandco.com/wp-content/uploads/2024/10/lifetime.jpg"
+  },
+  {
+    "nombre": "Loews Hotels",
+    "grupo": "hoteles",
+    "archivo": "loews-hotels.webp",
+    "w": 320,
+    "h": 96,
+    "aire": 54.2,
+    "origen": "https://thewoodsandco.com/wp-content/uploads/2024/10/Loews.jpg"
+  },
+  {
+    "nombre": "The Dolder Grand",
+    "grupo": "hoteles",
+    "archivo": "the-dolder-grand.webp",
+    "w": 415,
+    "h": 112,
+    "aire": 49,
+    "origen": "https://thewoodsandco.com/wp-content/uploads/2024/10/the_dolder.jpg"
+  },
+  {
+    "nombre": "Lungarno Collection",
+    "grupo": "hoteles",
+    "archivo": "lungarno-collection.webp",
+    "w": 188,
+    "h": 187,
+    "aire": 43.9,
+    "origen": "https://thewoodsandco.com/wp-content/uploads/2024/10/lungarnocollection.png"
+  },
+  {
+    "nombre": "Grand Resort Bad Ragaz",
+    "grupo": "hoteles",
+    "archivo": "grand-resort-bad-ragaz.webp",
+    "w": 334,
+    "h": 168,
+    "aire": 53.7,
+    "origen": "https://thewoodsandco.com/wp-content/uploads/2024/10/Grand_Resort.jpg"
+  },
+  {
+    "nombre": "Montage",
+    "grupo": "hoteles",
+    "archivo": "montage.webp",
+    "w": 390,
+    "h": 196,
+    "aire": 73.3,
+    "origen": "https://thewoodsandco.com/wp-content/uploads/2024/10/Montage_DeerValley.jpg"
+  }
+]

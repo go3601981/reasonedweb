@@ -155,6 +155,15 @@ iframe.exhibit { display: block; width: 100%; aspect-ratio: 16 / 10; border: 1px
 .mosaico { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 0.45rem; margin-top: 2rem; }
 .mosaico img { display: block; width: 100%; height: auto; border: 1px solid var(--line); background: var(--ink); }
 
+/* el formulario de disponibilidad: los campos cortos en dos columnas */
+form.contacto { display: grid; gap: 1.1rem; margin-top: 2rem; max-width: 44rem; }
+@media (min-width: 46rem) {
+  form.contacto { grid-template-columns: 1fr 1fr; gap: 1.1rem 1.4rem; }
+  form.contacto .ancho, form.contacto button.enviar, form.contacto .form-status { grid-column: 1 / -1; }
+}
+form.contacto .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+button.enviar[disabled] { opacity: 0.6; cursor: wait; }
+
 /* ── Usabilidad ─────────────────────────────────────────────────── */
 @media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
 section[id] { scroll-margin-top: 1.5rem; }

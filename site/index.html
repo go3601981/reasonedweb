@@ -318,20 +318,34 @@
       <p>Tell me what you ship and when you need it. I answer within one business day —
       write to <a href="mailto:hello@reasonedweb.com">hello@reasonedweb.com</a> or use
       the form.</p>
-      <form data-interim novalidate>
+      <form id="form-contacto" class="contacto" novalidate>
         <label>Name
           <input type="text" name="name" autocomplete="name" required>
         </label>
-        <label>Studio or agency
-          <input type="text" name="org" autocomplete="organization">
+        <label>Work email
+          <input type="email" name="email" autocomplete="email" required>
+        </label>
+        <label>Agency or studio
+          <input type="text" name="company" autocomplete="organization" required>
+        </label>
+        <label>Your role
+          <input type="text" name="role" autocomplete="organization-title"
+                 placeholder="Founder, creative director, head of production…" required>
+        </label>
+        <label>Phone
+          <input type="tel" name="phone" autocomplete="tel" placeholder="+1 …" required>
         </label>
         <label>What do you ship?
           <input type="text" name="ships" placeholder="Sites, e-commerce, brand, product">
         </label>
-        <label>Message
-          <textarea name="message" rows="5" required></textarea>
+        <label class="ancho">What do you need?
+          <textarea name="message" rows="5" required
+                    placeholder="The capacity you're missing, timelines, the work you'd hand over first…"></textarea>
         </label>
-        <button class="enviar" type="submit">Send</button>
+        <label class="hp" aria-hidden="true">Website
+          <input type="text" name="website" tabindex="-1" autocomplete="off">
+        </label>
+        <button class="enviar" type="submit">Check availability</button>
         <p class="form-status" role="status" aria-live="polite"></p>
       </form>
     </div>

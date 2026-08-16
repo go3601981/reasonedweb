@@ -39,30 +39,63 @@
     }
   }
 
-  /* Formulario: compositor de correo, sin backend. MX de reasonedweb.com
-     verificado 2026-08-16; el mensaje viaja por el cliente de correo del
-     visitante y la página lo dice — nada se envía desde aquí. */
-  var form = document.querySelector("form[data-interim]");
+  /* Formulario: envía por /api/contact (Resend, clave en el servidor).
+     Si el endpoint no está o falla, cae al compositor mailto y LO DICE —
+     el visitante nunca pierde su mensaje ni recibe un "enviado" falso. */
+  var form = document.getElementById("form-contacto");
   if (form) {
-    form.addEventListener("submit", function (e) {
-      e.preventDefault();
-      var v = function (n) {
-        var el = form.querySelector('[name="' + n + '"]');
-        return el ? el.value.trim() : "";
-      };
-      var subject = "Project inquiry — " + (v("org") || v("name") || "new project");
+    var v = function (n) {
+      var el = form.querySelector('[name="' + n + '"]');
+      return el ? el.value.trim() : "";
+    };
+    var mailtoFallback = function (st) {
+      var subject = "Availability inquiry — " + (v("company") || v("name"));
       var body =
-        "Name: " + v("name") + "\n" +
-        "Studio or agency: " + v("org") + "\n" +
-        "What they ship: " + v("ships") + "\n\n" +
-        v("message");
-      var st = form.querySelector(".form-status");
-      st.dataset.live = "1";
+        "Name: " + v("name") + "\nEmail: " + v("email") +
+        "\nAgency/studio: " + v("company") + "\nRole: " + v("role") +
+        "\nPhone: " + v("phone") + "\nThey ship: " + v("ships") +
+        "\n\n" + v("message");
       st.textContent =
-        "Your email app should open with the message addressed to hello@reasonedweb.com — nothing is sent from this page itself.";
+        "Direct send is unavailable right now — your email app should open with everything filled in for hello@reasonedweb.com.";
       window.location.href =
         "mailto:hello@reasonedweb.com?subject=" + encodeURIComponent(subject) +
         "&body=" + encodeURIComponent(body);
+    };
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var st = form.querySelector(".form-status");
+      st.dataset.live = "1";
+      var faltan = ["name", "email", "company", "role", "phone", "message"].filter(function (n) {
+        return !v(n);
+      });
+      if (faltan.length) {
+        st.textContent = "Still needed: " + faltan.join(", ") + ".";
+        var primero = form.querySelector('[name="' + faltan[0] + '"]');
+        if (primero) primero.focus();
+        return;
+      }
+      st.textContent = "Sending…";
+      var boton = form.querySelector("button.enviar");
+      boton.disabled = true;
+      fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: v("name"), email: v("email"), company: v("company"),
+          role: v("role"), phone: v("phone"), ships: v("ships"),
+          message: v("message"), website: v("website")
+        })
+      }).then(function (r) {
+        if (!r.ok) throw new Error(String(r.status));
+        return r.json();
+      }).then(function () {
+        st.textContent = "Sent. I answer within one business day — you'll hear from hello@reasonedweb.com.";
+        form.reset();
+        boton.disabled = false;
+      }).catch(function () {
+        boton.disabled = false;
+        mailtoFallback(st);
+      });
     });
   }
 })();

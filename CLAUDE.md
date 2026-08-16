@@ -214,12 +214,14 @@ leen como senior. La curaduría es parte del trabajo de diseño.
 - **El aparato de nota al pie es la interacción-firma del sitio** (aceptado por Carlos). Las
   afirmaciones llevan marcador; el marcador abre el razonamiento escrito. **El compromiso que
   trae:** toda página de caso DEBE sus anotaciones — una página de caso sin anotar se lee rota.
-- **Contacto: formulario + `hello@reasonedweb.com`.** ✅ **MX VERIFICADO 2026-08-16** (set
-  completo de Google Workspace, resolvers públicos Y autoritativos) — el correo quedó impreso
-  en la sección de contacto y en los pies de las 7 páginas del sitio. El formulario es un
-  **compositor mailto sin backend**: abre el cliente de correo del visitante con el mensaje
-  armado y la página dice exactamente eso — nada se envía desde la página. ⛔ Si algún día se
-  quiere endpoint real: **NUEVO y propio de este proyecto** — jamás compartido con nada de
+- **Contacto: formulario + `hello@reasonedweb.com`.** ✅ MX verificado 2026-08-16; correo
+  impreso en contacto y en los 7 pies. **El formulario ENVÍA de verdad (2026-08-16): endpoint
+  propio `site/api/contact.js` (función Vercel) → Resend**, clave SOLO en env vars de Vercel
+  (`RESEND_API_KEY`; opcionales `CONTACT_TO`/`CONTACT_FROM`). Campos que Carlos exige del
+  prospecto: nombre, work email, agencia, ROL, TELÉFONO (+ ships opcional y mensaje); honeypot
+  `website`; reply-to = el email del visitante. **Degradación honesta verificada**: si la
+  clave no está o Resend falla, el frontend cae al compositor mailto Y LO DICE — jamás un
+  «enviado» falso. ⛔ El endpoint es propio de este proyecto — jamás compartido con nada de
   Perú (lección: el form US posteaba al endpoint peruano y horneaba `wa.me/51…`).
 - **Stack: estático, autorado a mano.** HTML/CSS/JS vanilla, sin framework. Se introduce SOLO
   lo absolutamente necesario (orden de Carlos: contexto mínimo). El rendimiento del sitio es
@@ -288,6 +290,11 @@ Lighthouse es ese y es intencional). Los CUATRO tiers de la carta están en pie:
 
 ## Pendientes (cortos)
 
+0. **Resend (MANUAL de Carlos — hasta entonces el form cae a mailto y lo dice)**: cuenta en
+   resend.com → Domains → añadir `reasonedweb.com` y poner los registros DNS que Resend dé
+   en GoDaddy → verificar → API Keys → crear clave → Vercel → proyecto `reasonedweb` →
+   Settings → Environment Variables → `RESEND_API_KEY` (Production) → redeploy (o siguiente
+   push). Probar con un envío real y confirmar que llega a hello@ con reply-to correcto.
 1. **LinkedIn**: ESPERA — perfil desactualizado, no enlazar hasta que Carlos lo renueve.
 2. **Cita de Next Latam** (testimonio): pedir permiso ESCRITO antes de publicar nada.
 3. **Fix upstream del PiP LG** en el fuente de LG-Demo (proyecto aparte; una línea, toggle d5).

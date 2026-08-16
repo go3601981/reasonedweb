@@ -133,6 +133,18 @@ iframe.exhibit { display: block; width: 100%; aspect-ratio: 16 / 10; border: 1px
 /* el sello de notas — la marca B (regla + asterisco), aparato de nota al pie */
 .sello-notas { width: 2.4rem; margin: 4rem auto 0; color: var(--muted); }
 .sello-notas svg { display: block; width: 100%; height: auto; }
+/* el catálogo: pieza propia a lo ancho, separada de la tarjeta del storefront */
+.card--wide { grid-column: 1 / -1; }
+@media (min-width: 46rem) {
+  .card--wide { display: grid; grid-template-columns: 1.15fr 1fr; gap: 0 2rem; align-items: center; }
+  .card--wide h3 { margin-top: 0; }
+}
+/* ── Usabilidad ─────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+section[id] { scroll-margin-top: 1.5rem; }
+button.fn-ref { min-width: 26px; min-height: 24px; }
+/* en móvil el marco 16:10 queda enano: la exhibición gana altura */
+@media (max-width: 40rem) { iframe.exhibit { aspect-ratio: 3 / 4; } }
 
 /* ── Aparato de notas al pie — la interacción-firma ──────────────── */
 button.fn-ref {

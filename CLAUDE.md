@@ -289,12 +289,21 @@ leen como senior. La curaduría es parte del trabajo de diseño.
    ~~¿Variante A o B?~~ **RESUELTA 2026-08-14: Variante B por el papel** (§ Kit LG).
 2. ~~¿UdV commerce antes de lanzar?~~ **RESUELTA 2026-08-13: opción C — desacoplado**.
 3. ~~¿Entran las demos de Perú?~~ **RESUELTA 2026-08-13: como CORPUS** — jamás tiles.
-4. Curaduría tier 2: **galería EN PIE (2026-08-16)** con 12 exhibits vivos en `site/range/`
-   (animal-hospital, auto-body, coffee, dental, gym, hvac, jewelry, law-firm, med-spa,
-   oyster-house, parfum, tree-care) — curaduría PROVISIONAL mía por amplitud de verticales,
-   aprobada en formato por Carlos («12 curated exhibits»); él cambia cualquier pieza con una
-   palabra (las 17 restantes se generan con `tools/exhibir.py` en minutos). Etiqueta clase (c)
-   al pie de cada exhibit + nota [4] de la sección. **El corpus tier 3 sigue pendiente.**
+4. Curaduría tier 2: **galería EN PIE, PODADA POR CARLOS (2026-08-16)** — 9 exhibits vivos en
+   `site/range/` en este ORDEN suyo: oyster-house, gym, auto-body, hvac, jewelry, law-firm,
+   med-spa, parfum, tree-care (retiró animal-hospital, coffee y dental). Los ~20 demos EN
+   restantes se regeneran con `tools/exhibir.py` en minutos si entran. Etiqueta clase (c) al
+   pie de cada exhibit + nota [4] de la sección. **El corpus tier 3 sigue pendiente.**
+5. **El deck UdV es el CATÁLOGO 2026 (33 láminas)** — la fuente NO existe localmente: Carlos
+   lo subió a eureka.pe/UDV/ y de ahí se hizo mirror (html + css + js + 118 assets + fuentes
+   Assistant), sanitizado con exhibir.py (eureka.pe está en la lista de prohibidos) y con los
+   pesados recomprimidos 70→23 MB. **El exhibit en `site/work/ulric-de-varens/deck/` es la
+   única copia local** — si eureka cae, esto es el respaldo. Tiene TARJETA PROPIA a lo ancho
+   en la home (orden de Carlos: separada del storefront). El deck de 16 láminas quedó retirado.
+6. ⛔ **POLÍTICA DE PESTAÑAS (orden Carlos 2026-08-16): salir de una página del sitio abre
+   pestaña nueva** — todo enlace a exhibit (live/, piece/, deck/, range/*) y todo enlace
+   externo lleva `target="_blank" rel="noopener"`. La navegación interna (casos, migas,
+   anclas) queda en la misma pestaña.
 5. Upgrade a fuente licenciada — después, si el sitio lo gana.
 6. ~~Google Workspace para `hello@reasonedweb.com`~~ **RESUELTA 2026-08-16**: Carlos lo creó,
    MX verificado, correo impreso, formulario convertido a compositor mailto (§ Arquitectura).

@@ -7,9 +7,13 @@
 
 ## Qué es
 
-Portafolio personal de Carlos Marruffo en **www.reasonedweb.com**. Único trabajo: que agencias
-de diseño web, **Shopify Partners** y **Klaviyo Partners de EE. UU.** lo contraten como socio de
-producción remoto, en retainer mensual.
+Portafolio personal de Carlos Marruffo en **www.reasonedweb.com**. Único trabajo: que UNA
+agencia de diseño web, **Shopify Partner** o **Klaviyo Partner de EE. UU.** lo tome como socio
+de producción remoto **dedicado, con vocación de full-time**.
+⛔ **Aclaración de Carlos (2026-08-16): el copy JAMÁS lo pinta trabajando para varias agencias
+a la vez.** Nada de «retainer» (suena a capacidad fraccionada entre clientes). La exclusividad
+se dice como rasgo: **«One partner at a time»** — o no se dice nada. La postura de estudio se
+mantiene (sigue vetado «Hire me» / «Open to work»).
 
 ⛔ **No se pide trabajo explícitamente.** Postura de **estudio de un solo integrante**, no de
 candidato: las agencias subcontratan a estudios, no contratan freelancers desde un portafolio.

@@ -209,11 +209,13 @@ leen como senior. La curaduría es parte del trabajo de diseño.
 - **El aparato de nota al pie es la interacción-firma del sitio** (aceptado por Carlos). Las
   afirmaciones llevan marcador; el marcador abre el razonamiento escrito. **El compromiso que
   trae:** toda página de caso DEBE sus anotaciones — una página de caso sin anotar se lee rota.
-- **Contacto: formulario + `hello@reasonedweb.com`.** El Workspace lo crea Carlos (pendiente
-  SUYO, no de la sesión). ⛔ El correo **no se imprime en ninguna página hasta verificar MX**
-  (lección WMYS: se imprimió una dirección cuyo dominio no enrutaba correo). ⛔ El endpoint del
-  formulario es **NUEVO y propio de este proyecto** — jamás compartido con nada de Perú
-  (lección: el form US posteaba al endpoint peruano y horneaba `wa.me/51…`).
+- **Contacto: formulario + `hello@reasonedweb.com`.** ✅ **MX VERIFICADO 2026-08-16** (set
+  completo de Google Workspace, resolvers públicos Y autoritativos) — el correo quedó impreso
+  en la sección de contacto y en los pies de las 7 páginas del sitio. El formulario es un
+  **compositor mailto sin backend**: abre el cliente de correo del visitante con el mensaje
+  armado y la página dice exactamente eso — nada se envía desde la página. ⛔ Si algún día se
+  quiere endpoint real: **NUEVO y propio de este proyecto** — jamás compartido con nada de
+  Perú (lección: el form US posteaba al endpoint peruano y horneaba `wa.me/51…`).
 - **Stack: estático, autorado a mano.** HTML/CSS/JS vanilla, sin framework. Se introduce SOLO
   lo absolutamente necesario (orden de Carlos: contexto mínimo). El rendimiento del sitio es
   una pieza más de la vitrina — «100 Lighthouse, sin framework» es una frase que este público
@@ -294,7 +296,7 @@ leen como senior. La curaduría es parte del trabajo de diseño.
    palabra (las 17 restantes se generan con `tools/exhibir.py` en minutos). Etiqueta clase (c)
    al pie de cada exhibit + nota [4] de la sección. **El corpus tier 3 sigue pendiente.**
 5. Upgrade a fuente licenciada — después, si el sitio lo gana.
-6. Google Workspace para `hello@reasonedweb.com` — MANUAL de Carlos; sin MX verificado el
-   correo no se imprime y el formulario sigue en estado honesto (no envía y lo dice).
+6. ~~Google Workspace para `hello@reasonedweb.com`~~ **RESUELTA 2026-08-16**: Carlos lo creó,
+   MX verificado, correo impreso, formulario convertido a compositor mailto (§ Arquitectura).
 7. ~~Confirmación de clase de UdV y Nanntu~~ **RESUELTA 2026-08-15**: UdV encargo real,
    Nanntu borrador regalado (etiquetas definitivas aplicadas).

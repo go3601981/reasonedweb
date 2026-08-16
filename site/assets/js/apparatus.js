@@ -39,16 +39,30 @@
     }
   }
 
-  /* Formulario: estado honesto mientras el buzón del estudio se aprovisiona.
-     Nada se envía y se dice que nada se envió. */
+  /* Formulario: compositor de correo, sin backend. MX de reasonedweb.com
+     verificado 2026-08-16; el mensaje viaja por el cliente de correo del
+     visitante y la página lo dice — nada se envía desde aquí. */
   var form = document.querySelector("form[data-interim]");
   if (form) {
     form.addEventListener("submit", function (e) {
       e.preventDefault();
+      var v = function (n) {
+        var el = form.querySelector('[name="' + n + '"]');
+        return el ? el.value.trim() : "";
+      };
+      var subject = "Project inquiry — " + (v("org") || v("name") || "new project");
+      var body =
+        "Name: " + v("name") + "\n" +
+        "Studio or agency: " + v("org") + "\n" +
+        "What they ship: " + v("ships") + "\n\n" +
+        v("message");
       var st = form.querySelector(".form-status");
       st.dataset.live = "1";
       st.textContent =
-        "The studio inbox is being provisioned — this form activates when it goes live. Nothing was sent.";
+        "Your email app should open with the message addressed to hello@reasonedweb.com — nothing is sent from this page itself.";
+      window.location.href =
+        "mailto:hello@reasonedweb.com?subject=" + encodeURIComponent(subject) +
+        "&body=" + encodeURIComponent(body);
     });
   }
 })();

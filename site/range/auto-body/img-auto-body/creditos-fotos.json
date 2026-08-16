@@ -1,0 +1,66 @@
+[
+  {
+    "archivo": "cabina-5000k.jpg",
+    "fuente": "Nano Banana (gemini-2.5-flash-image)",
+    "licencia": "generada para este proyecto",
+    "rol": "⭐ EL MOMENTO IRREPETIBLE — sección 4 THE BOOTH, a sangre completa, inversión fotográfica de la página",
+    "prompt": "Interior of a spotless downdraft automotive paint booth, photographed from behind and slightly to the side of a painter in a white hooded Tyvek suit and respirator spraying a metallic blue-grey fender clamped to a rolling stand; brilliant even 5000-kelvin white light from ten wall fixtures; visible atomized paint fog hanging in the beam like fine mist; the white filter walls glowing, sealed white floor; only the painter's back and gloved hands, no face visible; a small sprayed test card clipped to the stand beside the fender; no text, no logos, no brand names anywhere; clean high-key whites with a single cool blue accent in the wet paint; 35mm at f/2.8, faint flare from the fixture nearest the camera; mood: sterile, reverent, the cleanest room in a dirty building — this image must read as the only lit space on an otherwise dark page."
+  },
+  {
+    "archivo": "fichas-rociado.jpg",
+    "fuente": "Nano Banana (gemini-2.5-flash-image)",
+    "licencia": "generada para este proyecto",
+    "rol": "Retrato del concepto — sección 5 COLOR",
+    "prompt": "Overhead macro of six automotive spray-out test cards fanned across a stainless paint-mixing bench, each card a hard-edged rectangle sprayed a slightly different shade of the same silver-blue, each with a strip of masking tape along its lower edge bearing abstract grease-pencil marks with no legible letterforms; a digital mixing scale, a stir stick, and a toner-can ring stain on the bench; light is cold 5000-kelvin from directly above so the metallic flake sparkles differently on every card; no readable text, no logos, no brands; palette stainless grey, silver-blue, black grease pencil, one strip of yellow tape; 60mm macro at f/5.6, slight top-down perspective; mood: a laboratory inside a workshop."
+  },
+  {
+    "archivo": "banco-medicion.jpg",
+    "fuente": "Nano Banana (gemini-2.5-flash-image)",
+    "licencia": "generada para este proyecto",
+    "rol": "Sección 6 STRUCTURE & ADAS — la máquina pesada del oficio",
+    "prompt": "A unibody sedan shell stripped of doors and glass, clamped by its pinch welds onto a scarred safety-yellow steel frame-straightening bench in a dark shop; a hydraulic pulling tower rakes up at the left with a chain under visible tension; laser measuring targets hang beneath the floorpan glowing faint red; the shop beyond is deep warm darkness with red-brown primer walls; no people, no text, no logos; a single hard work light low and to the right throwing long shadows; 28mm at f/5.6; mood: heavy machinery, tension held still, a car mid-surgery."
+  },
+  {
+    "archivo": "granizo-suelo.jpg",
+    "rol": "Atmósfera de fondo de la sección 3 WHAT HAIL DOES",
+    "fuente": "Pexels",
+    "licencia": "Pexels License (uso comercial)",
+    "fotografo": "Julia Filirovska",
+    "url": "https://www.pexels.com/photo/hail-balls-after-heavy-rain-lying-on-ice-8237250/",
+    "alt_original": "Close-up view of frozen hailstones scattered on icy pavement, showcasing winter weather phenomena."
+  },
+  {
+    "archivo": "frente-taller-noche.jpg",
+    "fuente": "Nano Banana (gemini-2.5-flash-image)",
+    "licencia": "generada para este proyecto",
+    "rol": "Cierre — sección 9 VISIT / DISPATCH; el pie de página nace de esta foto",
+    "prompt": "Street view of a low 1950s cinderblock auto body shop on a wide industrial Denver street at blue hour in early summer; three roll-up bay doors, two closed and one open showing warm interior light and a car under a cover; a freight rail spur and wooden telephone poles running parallel in the foreground; wet black asphalt from an afternoon storm reflecting the sky; the Front Range mountains a flat blue silhouette on the far horizon to the left; no signage text, no logos, no people, no license plates; palette cobalt dusk sky, sodium-orange interior spill, wet black asphalt; 35mm at f/4, camera at standing height from across the street; ultra-wide letterbox 21:9; mood: the shop is still open, everyone else has gone home."
+  },
+  {
+    "archivo": "friso-granizo-alba.jpg",
+    "fuente": "Nano Banana (gemini-2.5-flash-image)",
+    "licencia": "generada para este proyecto",
+    "rol": "Friso del fold, panel 1 de 3 — el granizo como calendario del oficio",
+    "prompt": "Extreme raking dawn light across the hood of a dark charcoal sedan covered in dozens of shallow hail dents, shot from a very low oblique angle so the low sun skims the sheet metal and every dent throws a long soft shadow; the paint still wet from overnight rain; a bare industrial roofline and a power line reflected in the clearcoat; no people, no badges, no license plate, no text, no logos; palette limited to cool grey-blue dawn with a warm sodium spill from the left; 100mm macro at f/8, deep focus along the panel; ultra-wide letterbox framing 3:1; mood: forensic, quiet, the hour before the shop opens."
+  },
+  {
+    "archivo": "friso-puerta-cabina.jpg",
+    "fuente": "Nano Banana (gemini-2.5-flash-image)",
+    "licencia": "generada para este proyecto",
+    "rol": "Friso del fold, panel 2 de 3 — la única que sobrevive en móvil; anuncia el momento irrepetible",
+    "prompt": "The closed steel doors of a downdraft automotive paint booth seen head-on inside a dark shop at night; brilliant cold 5000-kelvin white light escapes as a thin hard seam around all four edges of the doors and pools on the sealed concrete floor; the rest of the frame is deep warm darkness with red-brown oxide primer dust on the block walls; a coiled air hose and a rolling parts stand in silhouette; no people, no text, no logos; hard chiaroscuro, the only light source is the leak itself; 35mm at f/2.8; ultra-wide letterbox framing 3:1; mood: a lit room inside a dark building, something happening behind a door."
+  },
+  {
+    "archivo": "friso-tabs-cola.jpg",
+    "fuente": "Nano Banana (gemini-2.5-flash-image)",
+    "licencia": "generada para este proyecto",
+    "rol": "Friso del fold, panel 3 de 3 — el trabajo de manos del PDR",
+    "prompt": "Close overhead view of a neat row of amber plastic glue tabs bonded along the hail-dented roof panel of a silver car, a technician's bare forearms and gloved hands working a mini-lifter on the center tab; hands and forearms only, no face in frame; hot-glue strings and a curved paintless-dent-repair rod resting on a moving blanket at the edge of frame; lighting is a single fluorescent-white reflector board laid across the panel, its striped reflection revealing every dent; palette silver, amber, warm dark background; 50mm at f/4; ultra-wide letterbox framing 3:1; mood: patient handwork, close and precise."
+  },
+  {
+    "archivo": "og-taller.jpg",
+    "fuente": "recorte 1200×630 de friso-granizo-alba.jpg",
+    "licencia": "generada para este proyecto",
+    "rol": "og:image"
+  }
+]

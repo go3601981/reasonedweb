@@ -1,0 +1,69 @@
+[
+  {
+    "archivo": "hero-encia-manos.jpg",
+    "fuente": "Nano Banana (gemini-2.5-flash-image)",
+    "licencia": "generada para este proyecto",
+    "rol": "HERO en formato retrato — cruza la costura del hero y atraviesa la barra 24 h; es la mitad del momento irrepetible",
+    "prompt": "Vertical portrait, tight three-quarter crop: a veterinarian's bare hands — one thumb lifting the upper lip of a large short-haired dark-brindle dog, revealing a clean band of healthy clay-pink gum above the canine tooth. No human face in frame; only hands, forearms and a rolled navy sleeve. The dog's eye is soft and open, muzzle slightly wet. Late-afternoon coastal Georgia light at 4:40 p.m. raking through a window screen, dappled by live-oak leaves; warm 3200K key from the left, deep unlit falloff to the right. 85mm lens, f/2.0, focus locked on the exposed gum, the room behind dissolving. Palette: warm clay-rose, dark brindle brown, deep ivy-green shadow, one cool grey highlight on stainless. Fine 35mm grain, honest skin and fur texture, no retouching gloss. Mood: quiet competence, hands that have done this ten thousand times. No text, no logos, no lettering on collar tags."
+  },
+  {
+    "archivo": "pata-lodo-marisma.jpg",
+    "fuente": "Nano Banana (gemini-2.5-flash-image)",
+    "licencia": "generada para este proyecto",
+    "rol": "seccion The season never closes — el clima como argumento, hecho objeto",
+    "prompt": "Close low-angle photograph on weathered grey dock boards: a large dog's front paw and lower leg caked to the dewclaw in grey-black Lowcountry pluff mud, a garden-hose stream just hitting the pad, water beading and running dark between the toes. A human hand at the edge of frame steadies the leg. Golden hour on a Georgia tidal creek; spartina grass and glassy brown water out of focus behind. 50mm, f/2.8, camera almost resting on the boards. Palette: sulfur-grey mud, weathered silver wood, warm gold water, one note of clay-rose on the paw pad. Wet specular highlights, salt haze, 35mm grain. No faces, no text, no logos."
+  },
+  {
+    "archivo": "garrapata-pinzas-macro.jpg",
+    "fuente": "Nano Banana (gemini-2.5-flash-image)",
+    "licencia": "generada para este proyecto",
+    "rol": "tarjeta de parasitos — la garrapata que en la costa de Georgia trabaja tambien en dias frescos",
+    "prompt": "Macro photograph: bare fingertips parting dense tan dog fur along the base of an ear, fine-point stainless tweezers about to close on an engorged tick at the skin line. Extreme detail on individual hairs and on skin. Hard single-source exam light from upper left, deep shadow at the parting; clinical but warm. 100mm macro, f/5.6, focus plane on the tweezer tips. Palette: tan fur, cool stainless, deep ivy-black shadow, warm skin. Visible tension in the fingers. Fine grain, no gloss. No faces, no text, no logos."
+  },
+  {
+    "archivo": "triaje-mesa-noche.jpg",
+    "fuente": "Nano Banana (gemini-2.5-flash-image)",
+    "licencia": "generada para este proyecto",
+    "rol": "dentro de la banda oscura After 6 p.m. — la sala que espera con nadie en ella",
+    "prompt": "Empty stainless-steel treatment table photographed at 2 a.m. in a dark veterinary treatment room, lit only by a single articulated exam lamp aimed straight down, cutting a hard pool of light on the brushed steel and letting the room fall to near-black green. On the table: a folded fleece warming blanket, a coiled IV line, a bare stethoscope, one open forceps. No people. 35mm, f/2.8, camera at chest height. Palette: cold steel white-blue inside the pool of light, everything else deep ivy near-black, one clay-rose fold in the blanket. Long-exposure stillness, dust visible in the light beam, fine grain. Mood: waiting, ready, nobody has gone home. No text, no logos, no screens showing writing."
+  },
+  {
+    "archivo": "entrada-nocturna-espalda.jpg",
+    "fuente": "Nano Banana (gemini-2.5-flash-image)",
+    "licencia": "generada para este proyecto",
+    "rol": "apice emocional de la banda 24 h — la imagen que justifica la seccion oscura entera",
+    "prompt": "Night exterior, seen from behind: a person in a t-shirt carrying a medium dog wrapped in a bath towel, walking toward the single lit doorway of a low brick building; only their back and the dog's hanging tail are visible. Wet asphalt reflecting the warm doorway light; a live oak heavy with Spanish moss overhead cutting the sky into black lace. Coastal Georgia, humid, 11:40 p.m., just after a summer rain. 35mm, f/2.0, camera low and slightly behind, the doorway blown warm. Palette: deep ivy-black night, wet asphalt carrying clay-rose reflections, one hot warm rectangle of doorway. Heavy atmosphere, halation around the light, grain. No faces, no text, no signage lettering, no logos."
+  },
+  {
+    "archivo": "recuperacion-manta-oxigeno.jpg",
+    "fuente": "Nano Banana (gemini-2.5-flash-image)",
+    "licencia": "generada para este proyecto",
+    "rol": "seccion de la gente — el contrapeso de la noche: despues de la 2 a.m., la manana",
+    "prompt": "Inside a stainless recovery kennel, shot through the open door: a sleeping short-haired cat curled on a clay-rose fleece blanket, thin oxygen tubing running past, the edge of a warm-water pad visible. A single human hand rests flat on the blanket beside the animal, not touching it. Soft low light from a dimmed overhead, early-morning blue leaking from a window out of frame. 50mm, f/1.8, focus on the hand and the animal's flank, the kennel bars going soft. Palette: warm clay-rose blanket, cool steel, deep green shadow, one pale dawn blue. Tender and unsentimental, documentary. Fine grain. No faces, no text, no logos, no writing on charts."
+  },
+  {
+    "archivo": "robles-musgo-laroche.jpg",
+    "rol": "seccion Where we are — el lugar real, no una postal",
+    "fuente": "Pexels",
+    "licencia": "Pexels License (uso comercial)",
+    "fotografo": "Phyllis Lilienthal",
+    "url": "https://www.pexels.com/photo/enchanting-oak-avenue-in-bonaventure-cemetery-32637443/",
+    "alt_original": "Quaint oak-lined road under Spanish moss in Savannah's historic Bonaventure Cemetery on a calm day.",
+    "recorte": "1200x1153 -> 1200x740 (banda superior). El original es la alameda del cementerio Bonaventure: en el tercio inferior se leen lapidas. La banda que la pagina mostraba nunca las incluyo, pero seguian DENTRO del archivo. Recortadas del archivo: la composicion en pantalla no se mueve, el peso del asset baja de 537 a 323 KB y el pie de foto deja de decir 'the last mile' (idiom con doble lectura funebre en una pieza veterinaria)."
+  },
+  {
+    "archivo": "marisma-marea-atardecer.jpg",
+    "rol": "franja panoramica antes del footer — cierre de lugar",
+    "fuente": "Pexels",
+    "licencia": "Pexels License (uso comercial)",
+    "fotografo": "Charly Louise",
+    "url": "https://www.pexels.com/photo/swamp-at-sunset-16565840/",
+    "alt_original": "Serene sunset over marshland in Savannah, Georgia, capturing natural beauty and tranquility."
+  },
+  {
+    "archivo": "og-veterinaria.jpg",
+    "fuente": "recorte 1200×630 de hero-encia-manos.jpg",
+    "licencia": "generada para este proyecto",
+    "rol": "og:image"
+  }
+]

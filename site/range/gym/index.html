@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Iron Island Barbell — a barbell gym on Broadway · Buffalo, New York</title>
+<meta name="description" content="A barbell gym in the Iron Island district of Buffalo. No contract, no machines, a coach on the floor every hour we are open. Drop in for $18 or train by the month.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#8A8E96">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Iron Island Barbell">
+<meta property="og:title" content="Iron Island Barbell — a barbell gym on Broadway, Buffalo">
+<meta property="og:description" content="No contract, no machines, a coach on the floor every hour we are open. Drop in for $18.">
+<meta property="og:image:width" content="1600">
+<meta property="og:image:height" content="1066">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23171A1F'/%3E%3Crect x='3' y='14' width='26' height='4' fill='%238A8E96'/%3E%3Crect x='5' y='9' width='4' height='14' fill='%231A5F9E'/%3E%3Crect x='23' y='9' width='4' height='14' fill='%231A5F9E'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Azeret+Mono:wght@400;500&family=Big+Shoulders+Display:wght@500;600;700&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+<script>document.documentElement.className += ' js';</script>
+<style>
+/* ══════════════════════════════════════════════════════════════════════════════════════════
+   IRON ISLAND BARBELL — Broadway, Buffalo, New York
+
+   ⛔ DE DÓNDE SALE CADA COLOR. Ningún valor sale de una hora, de un clima ni de cómo le da la
+   luz a algo. Y el material del OFICIO manda sobre el del LUGAR: el ladrillo rojo de Buffalo
+   está descartado a propósito —es material de sitio, no de oficio, y no viaja— igual que el
+   default del rubro, que es negro con neón y tampoco es un material: es un cartel.
+
+   Lo que este oficio agarra con las manos son cuatro cosas, iguales en Buffalo y en Fresno:
+   el ACERO desnudo de la barra, el CAUCHO del disco, la MAGNESIA y el código de color de los
+   discos de competición, que es una norma escrita —no una opinión— y en la que el azul es
+   siempre veinte kilos.
+
+   ⛔ Y UNA CONSECUENCIA MEDIDA DEL SUSTRATO MEDIO: sobre un gris de valor intermedio no hay
+   texto de color que aguante AA. Aquí eso NO se resuelve subiendo el gris hasta que el azul
+   entre: se resuelve aceptando que el acento es GRÁFICO —rellenos, la barra, los chips— y que
+   el texto es casi negro. Un acento que no puede pintar un párrafo puede pintar un botón, y
+   en un gimnasio eso es exactamente lo que tiene que hacer.
+   ══════════════════════════════════════════════════════════════════════════════════════════ */
+:root{
+  --acero:#8A8E96;      /* SUSTRATO — acero desnudo de la barra, granallado y sin cromar */
+  --acero-2:#9BA1A9;    /* la cresta del moleteado, pulida por el uso */
+  --acero-3:#787D86;    /* el manguito del extremo, más oscuro por el aceite */
+  --carbon:#171A1F;     /* caucho del disco de goma */
+  --carbon-2:#232830;   /* el mismo caucho por la cara del logotipo hundido */
+  --tiza:#F2F4F6;       /* BANDA — magnesia, el polvo del cajón */
+  --tiza-2:#DFE3E8;     /* magnesia apelmazada en el fondo del cajón */
+  --azul:#1A5F9E;       /* ACENTO — el disco de 20 kg, azul del código de color de competición */
+  --azul-2:#144B7D;     /* el mismo disco por el canto, donde el caucho se ha rozado */
+  --ocre:#C08A2E;       /* la pintura de un disco de hierro viejo. Solo gráfico, jamás texto */
+  --tinta:#16181C;      /* la tinta del rotulador con que se apunta la serie en la pizarra */
+  --tinta-2:#1E2229;    /* el mismo rotulador ya gastado */
+  --hilo:#6E737C;       /* filete a 1 px: la ranura del rack. Solo gráfico, jamás texto */
+  --disp:'Big Shoulders Display',Impact,'Haettenschweiler',sans-serif;
+  --sans:'Manrope',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --mono:'Azeret Mono',ui-monospace,'SFMono-Regular',Consolas,monospace;
+  --hdr:58px;
+  --pad:clamp(1.15rem,4.6vw,4.5rem);
+  --rule:1px solid var(--hilo);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--acero); color:var(--tinta-2);
+  font:400 17px/1.6 var(--sans);
+  overflow-x:hidden; -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%; display:block}
+h1,h2,h3{margin:0; font-family:var(--disp); font-weight:700; letter-spacing:.005em; text-transform:uppercase}
+p{margin:0 0 1rem}
+p:last-child{margin-bottom:0}
+a{color:inherit}
+::selection{background:var(--azul); color:var(--tiza)}
+
+.mono{font:400 11px/1.5 var(--mono); text-transform:uppercase; letter-spacing:.07em; color:var(--tinta-2)}
+.sans{font-family:var(--sans)}
+
+.skip{
+  position:fixed; top:.55rem; left:.55rem; z-index:300;
+  padding:1.05rem 1.1rem; background:var(--azul); color:var(--tiza);
+  font:500 12px/1 var(--mono); text-transform:uppercase; letter-spacing:.09em;
+  text-decoration:none; opacity:0; pointer-events:none; transform:translateY(-180%);
+  transition:transform .18s ease, opacity .18s ease;
+}
+.skip:focus{opacity:1; transform:none; pointer-events:auto; outline:2px solid var(--tiza); outline-offset:2px}
+:focus-visible{outline:3px solid var(--tinta); outline-offset:2px}
+.negro :focus-visible,.hero :focus-visible{outline-color:var(--tiza)}
+
+/* ── cabecera ───────────────────────────────────────────────────────────────────────────── */
+.hdr{
+  position:static; z-index:100;
+  display:flex; align-items:center; justify-content:space-between; gap:1rem;
+  min-height:var(--hdr); padding:0 var(--pad);
+  background:var(--carbon); border-bottom:3px solid var(--azul);
+  box-shadow:0 10px 26px -18px rgba(0,0,0,.95);
+}
+.brand{
+  display:inline-flex; align-items:center; gap:.55rem;
+  font:700 clamp(17px,4vw,23px)/1 var(--disp);
+  letter-spacing:.02em; text-transform:uppercase; text-decoration:none; color:var(--tiza);
+  white-space:nowrap; padding:.95rem 0;
+}
+.brand svg{width:26px; height:26px; flex:0 0 auto; color:var(--azul)}
+.brand:hover{color:#8FC2EC}
+.hdr__right{display:flex; align-items:center; gap:.5rem}
+/* El teléfono a la vista y fuera de la hamburguesa: la mitad de las preguntas de un gimnasio
+   («¿está abierto ahora?», «¿puedo probar hoy?») se hacen llamando desde el mismo teléfono. */
+.hdr__tel{
+  display:inline-flex; align-items:center; gap:.5rem;
+  min-height:46px; padding:.6rem .75rem; text-decoration:none; white-space:nowrap;
+  color:var(--tiza); font:500 13px/1 var(--mono); letter-spacing:.02em;
+  box-shadow:inset 0 0 0 2px var(--azul);
+}
+.hdr__tel:hover{background:var(--azul); color:var(--tiza)}
+.hdr__tel svg{width:16px; height:16px; flex:0 0 auto}
+@media (min-width:1000px){ .hdr__tel{display:none} }
+@media (max-width:999px){ .nav__panel .is-cta{display:none} }
+@media (max-width:560px){ .hdr__tel span{display:none} .hdr__tel{padding:.6rem; min-width:46px; justify-content:center} }
+.nav{display:flex; align-items:center}
+.burger{
+  display:inline-flex; align-items:center; justify-content:center;
+  width:46px; height:46px; padding:0;
+  background:transparent; border:2px solid var(--acero-3); color:var(--tiza); cursor:pointer;
+  box-shadow:inset 0 0 0 1px rgba(242,244,246,.05);
+}
+.burger:hover{border-color:var(--azul); color:#8FC2EC}
+.burger__b{transition:transform .22s ease, opacity .16s ease; transform-origin:center}
+.nav.is-open .burger__b--1{transform:translateY(5px) rotate(45deg)}
+.nav.is-open .burger__b--2{opacity:0}
+.nav.is-open .burger__b--3{transform:translateY(-5px) rotate(-45deg)}
+.nav__panel{display:flex; align-items:center; gap:clamp(.4rem,1.2vw,1.2rem); list-style:none; margin:0; padding:0}
+.nav__panel a{
+  display:block; padding:.85rem .5rem; text-decoration:none;
+  font:600 14px/1.2 var(--disp); text-transform:uppercase; letter-spacing:.05em; color:var(--tiza-2,#DFE3E8);
+}
+.nav__panel a:hover{color:#8FC2EC}
+.nav__panel .is-cta{color:var(--tiza); background:var(--azul); padding:.7rem .85rem; font-family:var(--mono); font-size:12px; font-weight:500}
+.nav__panel .is-cta:hover{background:var(--azul-2); color:var(--tiza)}
+@media (max-width:999px){
+  .burger{display:inline-flex}
+  .nav__panel{
+    position:absolute; top:100%; left:0; right:0;
+    flex-direction:column; align-items:stretch; gap:0;
+    padding:.5rem var(--pad) 1.1rem;
+    background:var(--carbon); border-bottom:3px solid var(--azul);
+    box-shadow:0 24px 40px -22px rgba(0,0,0,.96);
+  }
+  .nav__panel a{padding:1.05rem .1rem; border-bottom:1px solid rgba(242,244,246,.14); font-size:17px}
+  .nav__panel li:last-child a{border-bottom:0}
+  .js .nav__panel{visibility:hidden; opacity:0; transform:translateY(-6px); transition:opacity .2s ease, transform .2s ease, visibility 0s linear .2s}
+  .js .nav.is-open .nav__panel{visibility:visible; opacity:1; transform:none; transition-delay:0s}
+}
+@media (min-width:1000px){ .burger{display:none} }
+.js .hdr{position:sticky; top:0}
+
+.js [data-reveal]{opacity:0; transform:translateY(14px); transition:opacity .7s ease, transform .7s cubic-bezier(.16,.8,.3,1)}
+.js [data-reveal].in{opacity:1; transform:none}
+
+/* ══════════════ FOLD — foto a sangre, titular encima ════════════════════════════════════
+   ⛔ REPARTO. Es el único de la clase «a sangre» que quedaba libre: de las diez piezas de la
+   flota, dos ponen el titular a la izquierda sobre la foto, una a la derecha y una lo pone
+   debajo. Centrado encima, no lo usa ninguna.
+   Y aquí la foto se gana el sitio: es una sala de barra de verdad —contrachapado, anillas,
+   una barra cargada en el suelo— y ninguna palabra de la página dice eso tan rápido.
+
+   ⛔ LA CAPA NO ES DECORACIÓN, ES LA CONDICIÓN DE QUE EL TITULAR SEA LEGIBLE. Se mide contra
+   el fondo PINTADO, no contra el color declarado: sin ella el blanco sobre el contrachapado
+   iluminado no llega a AA. Va como degradado, más densa abajo, para que la mitad superior de
+   la fotografía —que es la que cuenta la sala— siga viéndose. */
+.hero{position:relative; background:var(--carbon); isolation:isolate}
+.hero__pic{position:absolute; inset:0; z-index:0; overflow:hidden}
+.hero__pic img{width:100%; height:100%; object-fit:cover; object-position:50% 46%;
+  filter:saturate(.72) contrast(1.12) brightness(.62)}
+.hero__pic::after{
+  content:''; position:absolute; inset:0;
+  background:linear-gradient(to bottom,rgba(23,26,31,.78) 0%,rgba(23,26,31,.62) 34%,rgba(23,26,31,.82) 78%,rgba(23,26,31,.96) 100%);
+}
+.hero__in{
+  position:relative; z-index:1; max-width:900px; margin:0 auto; text-align:center;
+  padding:clamp(3rem,9vw,6.5rem) var(--pad) clamp(2.6rem,7vw,5rem);
+}
+.eyebrow{margin:0 0 1.1rem}
+.hero .mono{color:#B9C6D4}
+h1{margin:0 0 1.1rem; font:700 clamp(2.6rem,9vw,5.6rem)/.92 var(--disp); color:var(--tiza)}
+h1 i{font-style:normal; color:#8FC2EC}
+.lede{margin:0 auto 1.7rem; max-width:48ch; color:var(--tiza); font-size:clamp(1.04rem,2.2vw,1.2rem)}
+.ctas{display:flex; flex-wrap:wrap; gap:.75rem}
+.hero .ctas{justify-content:center}
+.hero .cta{min-width:min(260px,100%)}
+.cta{
+  display:inline-flex; align-items:center; justify-content:center; gap:.6rem;
+  min-height:56px; padding:1.1rem 1.4rem;
+  background:var(--azul); color:var(--tiza); text-decoration:none;
+  font:500 13px/1.2 var(--mono); text-transform:uppercase; letter-spacing:.07em;
+  box-shadow:0 14px 26px -16px rgba(0,0,0,.95), inset 0 0 0 2px var(--azul-2);
+}
+.cta:hover{background:var(--azul-2); box-shadow:0 16px 28px -14px rgba(0,0,0,.95), inset 0 0 0 2px var(--tiza)}
+.cta svg{width:17px; height:17px; flex:0 0 auto}
+.cta--linea{background:transparent; color:var(--tiza); box-shadow:inset 0 0 0 2px var(--tiza)}
+.cta--linea:hover{background:var(--tiza); color:var(--carbon); box-shadow:inset 0 0 0 2px var(--tiza)}
+.cta--negra{background:var(--carbon); color:var(--tiza); box-shadow:0 14px 26px -18px rgba(0,0,0,.9), inset 0 0 0 2px var(--carbon)}
+.cta--negra:hover{background:var(--azul); color:var(--tiza); box-shadow:inset 0 0 0 2px var(--azul)}
+.hero__facts{
+  display:flex; flex-wrap:wrap; justify-content:center; gap:.5rem 1.5rem;
+  margin:2rem auto 0; padding-top:1.05rem; max-width:62ch; border-top:1px solid rgba(242,244,246,.3);
+}
+.hero__facts span{font:400 10.5px/1.6 var(--mono); text-transform:uppercase; letter-spacing:.07em; color:#C9D4DF}
+.hero__facts b{font-weight:500; color:#8FC2EC}
+
+/* ══════════════ la barra: el dispositivo, y el filete entre secciones ═══════════════════ */
+.bar svg{display:block; width:100%; height:26px}
+.bar__shaft{stroke:var(--hilo); stroke-width:2.4}
+.bar__sleeve{fill:var(--acero-3)}
+.bar__pl{fill:var(--carbon)}
+.bar__pl--az{fill:var(--azul)}
+.bar__pl--oc{fill:var(--ocre)}
+.band{padding:0 var(--pad)}
+.band__in{max-width:1180px; margin:0 auto; border-top:var(--rule); padding-top:.5rem}
+.band .mono{margin:.25rem 0 0; font-size:10px}
+
+/* ══════════════ tejido común ════════════════════════════════════════════════════════════ */
+.sec{position:relative; padding:clamp(3.2rem,8vw,5.6rem) var(--pad)}
+.sec--2{background:var(--acero-2)}
+.claro{background:var(--tiza); color:var(--tinta-2)}
+.negro{background:var(--carbon); color:var(--tiza-2)}
+.negro h2,.negro h3{color:var(--tiza)}
+.negro .mono{color:#B9C6D4}
+.negro .body{color:var(--tiza-2)}
+.wrap{max-width:1180px; margin:0 auto}
+.kicker{margin:0 0 1rem}
+h2{font:700 clamp(1.9rem,5.4vw,3rem)/.98 var(--disp); color:var(--tinta); max-width:18ch; margin:0 0 1.2rem}
+h3{font:600 1.24rem/1.12 var(--disp); color:var(--tinta)}
+.negro h3{color:var(--tiza)}
+.body{max-width:60ch; color:var(--tinta-2)}
+.body em{font-style:italic}
+
+/* ══════════════ §01 — cómo funciona ════════════════════════════════════════════════════ */
+.reglas{display:grid; gap:0; margin-top:2.4rem; grid-template-columns:1fr}
+@media (min-width:640px){ .reglas{grid-template-columns:1fr 1fr} }
+@media (min-width:1020px){ .reglas{grid-template-columns:repeat(4,1fr)} }
+.regla{background:var(--acero); padding:clamp(1.3rem,2.6vw,1.75rem); box-shadow:inset 0 0 0 1px var(--hilo)}
+.regla:hover{background:var(--acero-2); box-shadow:inset 0 0 0 2px var(--azul)}
+.regla svg{display:block; width:36px; height:36px; margin-bottom:.9rem; color:var(--azul-2)}
+.regla h3{margin-bottom:.4rem; font-size:1.16rem}
+.regla p{margin:0; font-size:15.5px; color:var(--tinta-2)}
+
+/* ══════════════ §02 — precios, con la barra como escala ════════════════════════════════ */
+.tarifas{display:grid; gap:1.2rem; grid-template-columns:1fr; margin-top:2.4rem}
+@media (min-width:820px){ .tarifas{grid-template-columns:repeat(3,1fr)} }
+.tarifa{
+  background:var(--tiza); padding:clamp(1.4rem,2.8vw,1.9rem);
+  box-shadow:0 20px 36px -28px rgba(0,0,0,.75), inset 0 0 0 1px rgba(22,24,28,.16);
+  display:grid; align-content:start; gap:.6rem;
+}
+.tarifa--dest{background:var(--carbon); color:var(--tiza-2); box-shadow:0 22px 40px -26px rgba(0,0,0,.9), inset 0 0 0 2px var(--azul)}
+.tarifa--dest h3,.tarifa--dest .precio{color:var(--tiza)}
+.tarifa--dest .mono{color:#B9C6D4}
+.tarifa--dest li{border-color:rgba(242,244,246,.16); color:var(--tiza-2)}
+.tarifa .escala svg{display:block; width:100%; height:34px}
+.tarifa h3{font-size:1.3rem}
+.precio{font:500 clamp(1.9rem,5vw,2.4rem)/1 var(--mono); color:var(--tinta)}
+.precio small{font:400 12px/1 var(--mono); letter-spacing:.06em; text-transform:uppercase; display:block; margin-top:.4rem; color:var(--tinta-2)}
+.tarifa--dest .precio small{color:#B9C6D4}
+.tarifa ul{margin:.6rem 0 0; padding:0; list-style:none}
+.tarifa li{display:grid; grid-template-columns:auto 1fr; gap:.65rem; align-items:start;
+  padding:.55rem 0; border-bottom:1px solid rgba(22,24,28,.12); font-size:15px; color:var(--tinta-2)}
+.tarifa li:last-child{border-bottom:0}
+/* ⛔ VA DESPUÉS DE .tarifa li A PROPÓSITO: misma especificidad, así que manda el orden. Antes
+   estaba antes y el texto de la tarjeta oscura quedaba en tinta sobre caucho — 1.09:1. */
+.tarifa--dest li{color:var(--tiza-2); border-bottom-color:rgba(242,244,246,.16)}
+.tarifa li svg{width:16px; height:16px; margin-top:.22rem; color:var(--azul); flex:0 0 auto}
+.tarifa--dest li svg{color:#8FC2EC}
+.nota{margin-top:1.8rem; font-size:15.5px; color:var(--tinta-2); max-width:64ch}
+.nota b{color:var(--tinta)}
+
+/* ══════════════ figuras ════════════════════════════════════════════════════════════════ */
+.dos{display:grid; gap:clamp(1.8rem,4vw,3rem); grid-template-columns:1fr; align-items:start; margin-top:2.2rem}
+@media (min-width:920px){ .dos{grid-template-columns:1fr .82fr} }
+@media (min-width:920px){ .dos--inv{grid-template-columns:.82fr 1fr} }
+figure{margin:0}
+.pic{position:relative; overflow:hidden; background:var(--carbon);
+  box-shadow:0 16px 24px -22px rgba(0,0,0,.7), inset 0 0 0 1px rgba(22,24,28,.4)}
+.pic img{width:100%; height:100%; object-fit:cover}
+/* El marco lleva el aspecto nativo de cada foto: recorte mínimo. El tratamiento tiene un
+   trabajo concreto: estas tres son interiores cálidos —contrachapado, pintura ocre, ladrillo—
+   y hay que bajarles el amarillo para que el azul del disco siga siendo el único acento. */
+.pic--discos{aspect-ratio:3/2}
+.pic--discos img{filter:saturate(.86) contrast(1.1) brightness(.94)}
+.pic--tiza{aspect-ratio:867/1300}
+.pic--tiza img{filter:saturate(.5) contrast(1.16) brightness(.9)}
+.pic--entreno{aspect-ratio:1600/1141}
+.pic--entreno img{filter:saturate(.72) contrast(1.1) brightness(.9)}
+.pic--sala{aspect-ratio:3/2}
+.pic--sala img{filter:saturate(.7) contrast(1.12) brightness(.88)}
+.cap{margin-top:.95rem; font:400 14.5px/1.55 var(--sans); color:var(--tinta); max-width:60ch}
+.negro .cap{color:var(--tiza-2)}
+
+.lista{margin:1.5rem 0 0; padding:0; list-style:none; display:grid; gap:.9rem}
+.lista li{display:grid; grid-template-columns:auto 1fr; gap:.8rem; align-items:start}
+.lista svg{width:19px; height:19px; margin-top:.26rem; color:var(--azul); flex:0 0 auto}
+.negro .lista svg{color:#8FC2EC}
+.lista span{font-size:16px; color:var(--tinta-2)}
+.negro .lista span{color:var(--tiza-2)}
+
+/* ══════════════ §05 — el inventario de la sala ═════════════════════════════════════════ */
+.kit{margin:2.2rem 0 0; padding:0; list-style:none; border-top:2px solid var(--tinta)}
+.negro .kit{border-top-color:var(--acero-3)}
+.kit li{display:grid; grid-template-columns:1fr auto; gap:.3rem 1.2rem; align-items:baseline;
+  padding:.8rem 0; border-bottom:1px solid rgba(242,244,246,.14)}
+.kit b{font:600 1.05rem/1.2 var(--disp); text-transform:uppercase; letter-spacing:.03em; color:var(--tiza)}
+.kit span{font:400 13px/1.5 var(--mono); color:#B9C6D4; text-align:right}
+.kit p{grid-column:1/-1; margin:.25rem 0 0; font-size:15px; color:var(--tiza-2)}
+
+/* ══════════════ §06 — quién entrena ════════════════════════════════════════════════════ */
+.gente{display:grid; gap:1.2rem; grid-template-columns:1fr; margin-top:2.2rem}
+@media (min-width:820px){ .gente{grid-template-columns:repeat(3,1fr)} }
+.persona{background:var(--acero-2); padding:clamp(1.3rem,2.4vw,1.7rem);
+  box-shadow:0 18px 32px -28px rgba(0,0,0,.8), inset 0 0 0 1px var(--hilo)}
+.persona h3{margin-bottom:.2rem; font-size:1.2rem}
+.persona .mono{margin-bottom:.55rem}
+.persona p{margin:0; font-size:15px; color:var(--tinta-2)}
+
+/* ══════════════ §07/§08 — horario, sitio, preguntas ════════════════════════════════════ */
+.datos{margin:0; padding:0; border-top:2px solid var(--tinta)}
+.datos div{display:flex; flex-wrap:wrap; gap:.3rem 1.2rem; justify-content:space-between;
+  padding:.8rem 0; border-bottom:1px solid rgba(22,24,28,.18)}
+.datos dt{font:400 11px/1.7 var(--mono); letter-spacing:.06em; color:var(--tinta-2); text-transform:uppercase}
+.datos dd{margin:0; font-size:16px; color:var(--tinta)}
+.datos a{color:var(--tinta); text-decoration:none; display:inline-block; padding:.5rem 0;
+  box-shadow:inset 0 -2px 0 0 var(--azul-2)}
+.datos a:hover{background:var(--azul); color:var(--tiza); box-shadow:none}
+.horario{margin:0; padding:0; list-style:none; border-top:2px solid var(--tinta)}
+.horario li{display:flex; flex-wrap:wrap; gap:.3rem 1rem; justify-content:space-between;
+  padding:.75rem 0; border-bottom:1px solid rgba(22,24,28,.18); font-size:16px; color:var(--tinta-2)}
+.horario b{font:600 1rem/1.5 var(--disp); text-transform:uppercase; letter-spacing:.04em; color:var(--tinta)}
+.faqs{margin-top:1.2rem; border-top:2px solid var(--tinta)}
+details.faq{border-bottom:1px solid rgba(22,24,28,.18)}
+details.faq summary{
+  display:flex; align-items:center; justify-content:space-between; gap:1rem;
+  padding:1.05rem 0; cursor:pointer; list-style:none;
+  font:600 1.2rem/1.2 var(--disp); text-transform:uppercase; color:var(--tinta);
+}
+details.faq summary::-webkit-details-marker{display:none}
+details.faq summary:hover{color:var(--azul-2)}
+details.faq summary svg{flex:0 0 auto; width:16px; height:16px; color:var(--azul-2); transition:transform .22s ease}
+details.faq[open] summary svg{transform:rotate(45deg)}
+details.faq .ans{padding:0 0 1.15rem; max-width:64ch; font-size:16px; color:var(--tinta-2)}
+.cierre{
+  margin-top:clamp(2.2rem,5vw,3.2rem); padding:clamp(1.5rem,3.4vw,2.2rem);
+  background:var(--carbon); color:var(--tiza-2); border-left:6px solid var(--azul);
+  box-shadow:0 22px 40px -26px rgba(0,0,0,.9);
+  display:grid; gap:1.3rem; grid-template-columns:1fr;
+}
+@media (min-width:820px){ .cierre{grid-template-columns:1.2fr .8fr; align-items:center} }
+.cierre h2{color:var(--tiza); margin-bottom:.5rem}
+.cierre p{margin:0; color:var(--tiza-2)}
+
+.foot{background:var(--carbon); color:var(--tiza-2); border-top:3px solid var(--azul); padding:clamp(2rem,5vw,3rem) var(--pad)}
+.foot__in{max-width:1180px; margin:0 auto; display:grid; gap:1.3rem}
+@media (min-width:760px){ .foot__in{grid-template-columns:1.2fr 1fr; align-items:end} }
+.foot p{font-size:15px; color:var(--tiza-2); margin:.55rem 0 0}
+.foot .mono{font-size:10px; color:#B9C6D4}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important}
+  .js [data-reveal]{opacity:1; transform:none}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="hdr">
+  <a class="brand" href="#top">
+    <svg viewBox="0 0 32 32" fill="none" aria-hidden="true" focusable="false">
+      <rect x="2" y="14" width="28" height="4" fill="currentColor"/>
+      <rect x="5" y="9" width="4" height="14" fill="currentColor"/>
+      <rect x="23" y="9" width="4" height="14" fill="currentColor"/>
+    </svg>
+    Iron Island Barbell
+  </a>
+  <div class="hdr__right">
+  <a class="hdr__tel" href="tel:+17165550163" aria-label="Call Iron Island Barbell at (716) 555-0163">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+      <path d="M6.2 3.5h3.1l1.5 3.8-2 1.4a11.5 11.5 0 0 0 5.5 5.5l1.4-2 3.8 1.5v3.1a1.7 1.7 0 0 1-1.9 1.7A16.8 16.8 0 0 1 4.5 5.4a1.7 1.7 0 0 1 1.7-1.9z"/>
+    </svg>
+    <span>(716) 555-0163</span>
+  </a>
+  <nav class="nav" id="nav" aria-label="Main">
+    <button class="burger" id="burger" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Open menu">
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true" focusable="false">
+        <path class="burger__b burger__b--1" d="M4 7h16"/>
+        <path class="burger__b burger__b--2" d="M4 12h16"/>
+        <path class="burger__b burger__b--3" d="M4 17h16"/>
+      </svg>
+    </button>
+    <ul class="nav__panel" id="nav-menu">
+      <li><a href="#how">How it works</a></li>
+      <li><a href="#price">What it costs</a></li>
+      <li><a href="#coach">Coaching</a></li>
+      <li><a href="#start">Never lifted</a></li>
+      <li><a href="#room">The room</a></li>
+      <li><a href="#hours">Hours</a></li>
+      <li><a class="is-cta" href="tel:+17165550163">(716) 555-0163</a></li>
+    </ul>
+  </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ══════════════════════════ FOLD — a sangre, titular encima ══════════════════════════ -->
+<section class="hero" id="top">
+  <div class="hero__pic">
+    <img src="img-gym/hero-sala.jpg" width="1600" height="1066" fetchpriority="high" decoding="async"
+         alt="The lifting floor at Iron Island Barbell: a loaded barbell on the platform, plywood walls, rings and a plyo box behind it.">
+  </div>
+
+  <div class="hero__in">
+    <p class="mono eyebrow">Broadway &middot; Iron Island &middot; Buffalo, New York</p>
+
+    <h1>No contract.<br>No machines.<br><i>A coach on the floor.</i></h1>
+
+    <p class="lede">Barbells, racks, a platform and somebody who knows what they are looking at,
+      every hour we are open. Walk in, pay for the day, and see whether this is your kind of room
+      before you commit to anything.</p>
+
+    <div class="ctas">
+      <a class="cta" href="#price">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+          <path d="M3 12h18M6 8v8M18 8v8M9.5 6.5v11M14.5 6.5v11"/>
+        </svg>
+        Drop in for $18
+      </a>
+      <a class="cta cta--linea" href="tel:+17165550163">Call (716) 555-0163</a>
+    </div>
+
+    <p class="hero__facts">
+      <span>Mon&ndash;Fri <b>5:30 AM &ndash; 8:30 PM</b></span>
+      <span>Sat &amp; Sun <b>8:00 AM &ndash; 2:00 PM</b></span>
+      <span>Coached hours <b>every day</b></span>
+      <span>Free lot on Sweet Ave</span>
+    </p>
+  </div>
+</section>
+
+<!-- ══════ filete: una barra cargada, que es también la escala de precios ══════ -->
+<div class="band bar" aria-hidden="true">
+  <div class="band__in">
+    <svg viewBox="0 0 600 26" preserveAspectRatio="none" focusable="false">
+      <line class="bar__shaft" x1="0" y1="13" x2="600" y2="13"/>
+      <rect class="bar__sleeve" x="60" y="10" width="60" height="6"/>
+      <rect class="bar__sleeve" x="480" y="10" width="60" height="6"/>
+      <rect class="bar__pl--az" x="120" y="2" width="9" height="22"/>
+      <rect class="bar__pl--az" x="471" y="2" width="9" height="22"/>
+      <rect class="bar__pl" x="133" y="5" width="7" height="16"/>
+      <rect class="bar__pl" x="460" y="5" width="7" height="16"/>
+      <rect class="bar__pl--oc" x="144" y="7" width="5" height="12"/>
+      <rect class="bar__pl--oc" x="451" y="7" width="5" height="12"/>
+    </svg>
+    <p class="mono">20 kg bar &middot; blue is twenty, yellow is fifteen &middot; the code is the same everywhere</p>
+  </div>
+</div>
+
+<!-- ══════════════════════════ §01 — cómo funciona ══════════════════════════ -->
+<section class="sec" id="how">
+  <div class="wrap">
+    <p class="mono kicker">01 &middot; How it works</p>
+    <h2>Four things, and none of them is a sales call.</h2>
+    <div class="body" data-reveal>
+      <p>This is a room with barbells in it. What you are paying for is the equipment, the space
+        around it, and a coach who is on the floor rather than in an office.</p>
+    </div>
+
+    <div class="reglas">
+      <article class="regla" data-reveal>
+        <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+          <path d="M6 9h20v18H6z"/><path d="M6 14h20"/><path d="M11 20h10"/>
+        </svg>
+        <h3>Pay by the month</h3>
+        <p>Cancel by text, any month, and it stops at the end of it. There is nothing to sign and
+          nobody will ask you why.</p>
+      </article>
+
+      <article class="regla" data-reveal>
+        <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+          <path d="M4 16h24M8 11v10M24 11v10M13 8v16M19 8v16"/>
+        </svg>
+        <h3>Barbells, not machines</h3>
+        <p>Eight platforms, twelve racks, dumbbells to 120 lb. No cable stacks and no televisions
+          on the wall.</p>
+      </article>
+
+      <article class="regla" data-reveal>
+        <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+          <circle cx="16" cy="10" r="4.5"/><path d="M6 27c1.5-6 5.5-9 10-9s8.5 3 10 9"/>
+        </svg>
+        <h3>A coach is always here</h3>
+        <p>Not a personal trainer waiting to be booked &mdash; somebody on the floor whose job is
+          to watch the room and say something when it matters.</p>
+      </article>
+
+      <article class="regla" data-reveal>
+        <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+          <rect x="5" y="6" width="22" height="21" rx="1.5"/><path d="M10 12h12M10 17h12M10 22h7"/>
+        </svg>
+        <h3>Everything is written down</h3>
+        <p>Your sets go on a card in a box by the door, in your handwriting. That card is the
+          whole product, and you can take it with you if you leave.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════ §02 — precios ══════════════════════════ -->
+<section class="sec sec--2" id="price">
+  <div class="wrap">
+    <p class="mono kicker">02 &middot; What it costs</p>
+    <h2>Three ways in. The bar tells you which.</h2>
+    <div class="body" data-reveal>
+      <p>Same price for everybody, posted on the wall by the door. No joining fee, no annual fee,
+        no charge to cancel.</p>
+    </div>
+
+    <div class="tarifas">
+      <article class="tarifa" data-reveal>
+        <div class="escala bar" aria-hidden="true">
+          <svg viewBox="0 0 200 34" focusable="false">
+            <line class="bar__shaft" x1="6" y1="17" x2="194" y2="17"/>
+            <rect class="bar__sleeve" x="30" y="14" width="34" height="6"/>
+            <rect class="bar__sleeve" x="136" y="14" width="34" height="6"/>
+          </svg>
+        </div>
+        <p class="mono">The empty bar</p>
+        <h3>Drop in</h3>
+        <p class="precio">$18<small>per day, any day</small></p>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 12.5l5 5 11-11"/></svg><span>The whole room, all day, no time limit.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 12.5l5 5 11-11"/></svg><span>Ask the coach anything you like while you are here.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 12.5l5 5 11-11"/></svg><span>Credited if you join within a week.</span></li>
+        </ul>
+      </article>
+
+      <article class="tarifa tarifa--dest" data-reveal>
+        <div class="escala bar" aria-hidden="true">
+          <svg viewBox="0 0 200 34" focusable="false">
+            <line class="bar__shaft" x1="6" y1="17" x2="194" y2="17"/>
+            <rect class="bar__sleeve" x="30" y="14" width="34" height="6"/>
+            <rect class="bar__sleeve" x="136" y="14" width="34" height="6"/>
+            <rect class="bar__pl--az" x="64" y="3" width="10" height="28"/>
+            <rect class="bar__pl--az" x="126" y="3" width="10" height="28"/>
+          </svg>
+        </div>
+        <p class="mono">A blue plate a side</p>
+        <h3>Month to month</h3>
+        <p class="precio">$128<small>a month, cancel by text</small></p>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 12.5l5 5 11-11"/></svg><span>Every open hour, seven days.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 12.5l5 5 11-11"/></svg><span>Your card in the box, and a coach who reads it.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 12.5l5 5 11-11"/></svg><span>Bring somebody once a month for free.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 12.5l5 5 11-11"/></svg><span>Pause it for a month at no cost, twice a year.</span></li>
+        </ul>
+      </article>
+
+      <article class="tarifa" data-reveal>
+        <div class="escala bar" aria-hidden="true">
+          <svg viewBox="0 0 200 34" focusable="false">
+            <line class="bar__shaft" x1="6" y1="17" x2="194" y2="17"/>
+            <rect class="bar__sleeve" x="30" y="14" width="34" height="6"/>
+            <rect class="bar__sleeve" x="136" y="14" width="34" height="6"/>
+            <rect class="bar__pl--az" x="64" y="3" width="10" height="28"/>
+            <rect class="bar__pl--az" x="126" y="3" width="10" height="28"/>
+            <rect class="bar__pl" x="76" y="6" width="8" height="22"/>
+            <rect class="bar__pl" x="116" y="6" width="8" height="22"/>
+          </svg>
+        </div>
+        <p class="mono">Two plates a side</p>
+        <h3>Coached</h3>
+        <p class="precio">$245<small>a month, written programme</small></p>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 12.5l5 5 11-11"/></svg><span>Everything above, plus a programme written for you.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 12.5l5 5 11-11"/></svg><span>Rewritten every four weeks off your own numbers.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 12.5l5 5 11-11"/></svg><span>Two filmed lifts a month, reviewed with you.</span></li>
+        </ul>
+      </article>
+    </div>
+
+    <p class="nota">First time on a barbell? Start with the <b>six-week on-ramp, $195</b> &mdash;
+      twelve sessions in a group of four, and it includes the month. After that most people move
+      to month to month and never speak to us about money again.</p>
+  </div>
+</section>
+
+<!-- ══════════════════════════ §03 — coaching ══════════════════════════ -->
+<section class="sec" id="coach">
+  <div class="wrap">
+    <p class="mono kicker">03 &middot; What the coach actually does</p>
+    <h2>Watches. Says one thing. Goes away.</h2>
+
+    <div class="dos">
+      <div>
+        <div class="body" data-reveal>
+          <p>The job is not to count your reps or shout. It is to see the set that is about to go
+            wrong, say the one cue that fixes it, and then leave you alone &mdash; which is what
+            most people want and almost nobody sells.</p>
+        </div>
+        <ul class="lista">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 12.5l5 5 11-11"/></svg>
+            <span>Every coached hour is <b>on the schedule by the door</b>, with a name on it.</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 12.5l5 5 11-11"/></svg>
+            <span>If you would rather train without being corrected, say so once and that is that.</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 12.5l5 5 11-11"/></svg>
+            <span>Nobody here sells supplements, and nothing is for sale at the desk.</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 12.5l5 5 11-11"/></svg>
+            <span>Injured or coming back from surgery? Bring the sheet from your physio and we
+              will work around it, not through it.</span>
+          </li>
+        </ul>
+      </div>
+
+      <figure data-reveal>
+        <div class="pic pic--entreno">
+          <img src="img-gym/entreno.jpg" width="1600" height="1141" loading="lazy" decoding="async"
+               alt="A coach standing beside a lifter working through a set with a loaded barbell.">
+        </div>
+        <p class="cap">Standing where you can see the bar path and nothing else. Most of the job is
+          deciding what not to say.</p>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════ §04 — nunca has levantado ══════════════════════════ -->
+<section class="sec negro" id="start">
+  <div class="wrap">
+    <p class="mono kicker">04 &middot; If you have never touched a barbell</p>
+    <h2>Then this page is written for you, not for the person already doing it.</h2>
+
+    <div class="dos dos--inv">
+      <figure data-reveal>
+        <div class="pic pic--tiza">
+          <img src="img-gym/magnesia.jpg" width="867" height="1300" loading="lazy" decoding="async"
+               alt="Chalked hands gripping a knurled barbell shaft.">
+        </div>
+        <p class="cap">Chalk, a bar and a first session. Everything else is a detail that can wait
+          six weeks.</p>
+      </figure>
+
+      <div>
+        <div class="body" data-reveal>
+          <p>Nobody starts strong and nobody here cares what you can lift on the first day. What
+            the on-ramp does is teach five movements properly, in a group of four, so that you can
+            walk into the room afterwards and know exactly what to do without asking.</p>
+          <p><em>You will not be the weakest person in here.</em> Somebody started last Tuesday,
+            and the person on the next platform is lifting an empty bar on purpose.</p>
+        </div>
+        <ul class="lista">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 12.5l5 5 11-11"/></svg>
+            <span>Six weeks, twelve sessions, four people, <b>$195</b> and it includes the month.</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 12.5l5 5 11-11"/></svg>
+            <span>Squat, press, deadlift, row and carry. That is the whole syllabus.</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 12.5l5 5 11-11"/></svg>
+            <span>Wear anything with flat shoes. There is no dress code and no mirror wall.</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════ §05 — la sala ══════════════════════════ -->
+<section class="sec negro" id="room">
+  <div class="wrap">
+    <p class="mono kicker">05 &middot; What is actually in the room</p>
+    <h2>Six thousand square feet of it, and a list you can check.</h2>
+
+    <div class="dos">
+      <ul class="kit" data-reveal>
+        <li><b>Power racks</b><span>12 &middot; with spotter arms</span>
+          <p>Six with a platform inside, six against the wall for pressing.</p></li>
+        <li><b>Bars</b><span>22 &middot; 20 kg and 15 kg</span>
+          <p>Plus two trap bars, two safety squat bars and a log.</p></li>
+        <li><b>Bumper plates</b><span>4,400 lb &middot; colour coded</span>
+          <p>Blue is twenty kilos, yellow fifteen, green ten. Same code as any meet.</p></li>
+        <li><b>Iron plates</b><span>6,000 lb &middot; calibrated set</span>
+          <p>One calibrated set kept for testing, chalked and checked twice a year.</p></li>
+        <li><b>Dumbbells</b><span>5&ndash;120 lb &middot; in 5 lb steps</span>
+          <p>Rubber hex, on two racks, and they go back where they came from.</p></li>
+        <li><b>Conditioning</b><span>4 bikes &middot; 3 rowers &middot; a sled</span>
+          <p>A 30-yard turf lane down the side of the room for the sled and carries.</p></li>
+      </ul>
+
+      <figure data-reveal>
+        <div class="pic pic--sala">
+          <img src="img-gym/discos.jpg" width="1600" height="1066" loading="lazy" decoding="async"
+               alt="A rack of old painted iron plates against a brick wall, with stencilled weight labels.">
+        </div>
+        <p class="cap">The iron came out of a factory gym on Clinton Street that closed in 2007.
+          It is painted, chipped and dead accurate.</p>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════ §06 — la gente ══════════════════════════ -->
+<section class="sec" id="crew">
+  <div class="wrap">
+    <p class="mono kicker">06 &middot; Who coaches</p>
+    <h2>Three people, all of them on the floor.</h2>
+    <div class="body" data-reveal>
+      <p>Nobody here is a franchise manager and nobody works on commission, because there is
+        nothing to sell you once you are in.</p>
+    </div>
+
+    <div class="gente">
+      <article class="persona" data-reveal>
+        <h3>Dessie Okonkwo</h3>
+        <p class="mono">Head coach &middot; owner</p>
+        <p>Opened the room in 2015 with eight racks and a mortgage. Coaches the on-ramp herself
+          because that is the part that decides whether somebody stays.</p>
+      </article>
+      <article class="persona" data-reveal>
+        <h3>Wes Bagdon</h3>
+        <p class="mono">Coach &middot; mornings</p>
+        <p>Here from 5:30 AM. Twenty years of shift work before this, which is why the early hours
+          are the ones he wanted.</p>
+      </article>
+      <article class="persona" data-reveal>
+        <h3>Marisol Peña</h3>
+        <p class="mono">Coach &middot; returning to lifting</p>
+        <p>Works with people coming back after injury or a long time away, and with anyone who is
+          nervous about the room itself.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════ §07 — horario y sitio ══════════════════════════ -->
+<section class="sec claro" id="hours">
+  <div class="wrap">
+    <p class="mono kicker">07 &middot; Hours and the place</p>
+    <h2>Broadway at Sweet, in the old sheet metal shop.</h2>
+
+    <div class="dos">
+      <ul class="horario" data-reveal>
+        <li><b>Mon&ndash;Fri</b><span>5:30 AM &ndash; 8:30 PM</span></li>
+        <li><b>Saturday</b><span>8:00 AM &ndash; 2:00 PM</span></li>
+        <li><b>Sunday</b><span>8:00 AM &ndash; 2:00 PM &middot; quietest day of the week</span></li>
+        <li><b>Coached hours</b><span>6&ndash;9 AM and 4&ndash;7:30 PM, every weekday</span></li>
+        <li><b>On-ramp groups</b><span>Tue &amp; Thu, 6:30 PM &middot; starts every six weeks</span></li>
+      </ul>
+
+      <div>
+        <dl class="datos">
+          <div><dt>Address</dt><dd>1461 Broadway, Buffalo, NY 14212</dd></div>
+          <div><dt>Phone</dt><dd><a href="tel:+17165550163">(716) 555-0163</a></dd></div>
+          <div><dt>Email</dt><dd><a href="mailto:floor@ironislandbarbell.com">floor@ironislandbarbell.com</a></dd></div>
+          <div><dt>Parking</dt><dd>Free lot on Sweet Ave, plus the street</dd></div>
+          <div><dt>Bus</dt><dd>Route 4 stops at Broadway &amp; Sweet</dd></div>
+          <div><dt>Step-free</dt><dd>Yes, from the lot; the floor is all one level</dd></div>
+          <div><dt>Showers</dt><dd>Four, and they are cleaned twice a day</dd></div>
+          <div><dt>Under 18</dt><dd>From 14, with a parent on the on-ramp</dd></div>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════ §08 — preguntas ══════════════════════════ -->
+<section class="sec" id="faq">
+  <div class="wrap">
+    <p class="mono kicker">08 &middot; Questions we get at the desk</p>
+    <h2>Answered here so you do not have to ask them out loud.</h2>
+
+    <div class="faqs">
+      <details class="faq">
+        <summary>Can I just come and look?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg>
+        </summary>
+        <div class="ans">Yes, any open hour, and nobody will follow you around with a clipboard.
+          If you want to train while you are here it is $18 for the day, and that comes off your
+          first month if you join within a week.</div>
+      </details>
+
+      <details class="faq">
+        <summary>Is this one of those gyms where everyone is enormous?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg>
+        </summary>
+        <div class="ans">No. The average member is in their forties and started here knowing
+          nothing. There are strong people in the room, and the reason they are pleasant to train
+          beside is that they remember being new.</div>
+      </details>
+
+      <details class="faq">
+        <summary>What if I can only come twice a week?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg>
+        </summary>
+        <div class="ans">Then the programme gets written for twice a week. Two honest sessions
+          beats four that you resent, and a coach who tells you otherwise is selling attendance
+          rather than training.</div>
+      </details>
+
+      <details class="faq">
+        <summary>Do I need my own shoes, belt and all that?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg>
+        </summary>
+        <div class="ans">No. Flat shoes and clothes you can move in. There are loaner belts and
+          straps in the bin by the racks, and if you get to the point where your own kit would
+          help, somebody will tell you which and why.</div>
+      </details>
+
+      <details class="faq">
+        <summary>How do I cancel?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg>
+        </summary>
+        <div class="ans">Send a text saying you want to stop. It stops at the end of that month
+          and you are not charged again. No form, no phone call you have to make in business
+          hours, no retention offer.</div>
+      </details>
+
+      <details class="faq">
+        <summary>Is it busy?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg>
+        </summary>
+        <div class="ans">Between 5 and 7 PM on a weekday you may wait for a rack, five minutes at
+          worst. Before 8 AM and on Sunday the room is close to empty. We cap the membership rather
+          than sell past what the floor holds.</div>
+      </details>
+    </div>
+
+    <div class="cierre">
+      <div>
+        <h2>Come in once. That settles it faster than this page can.</h2>
+        <p>Eighteen dollars, no appointment, no tour unless you want one. If it is not your kind of
+          room you will know inside ten minutes, and that is a fine outcome.</p>
+      </div>
+      <div class="ctas">
+        <a class="cta cta--linea" href="tel:+17165550163">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+            <path d="M6.2 3.5h3.1l1.5 3.8-2 1.4a11.5 11.5 0 0 0 5.5 5.5l1.4-2 3.8 1.5v3.1a1.7 1.7 0 0 1-1.9 1.7A16.8 16.8 0 0 1 4.5 5.4a1.7 1.7 0 0 1 1.7-1.9z"/>
+          </svg>
+          (716) 555-0163
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="foot__in">
+    <div>
+      <a class="brand" href="#top">
+        <svg viewBox="0 0 32 32" fill="none" aria-hidden="true" focusable="false">
+          <rect x="2" y="14" width="28" height="4" fill="currentColor"/>
+          <rect x="5" y="9" width="4" height="14" fill="currentColor"/>
+          <rect x="23" y="9" width="4" height="14" fill="currentColor"/>
+        </svg>
+        Iron Island Barbell
+      </a>
+      <p>1461 Broadway, Buffalo, NY 14212 &middot; (716) 555-0163</p>
+      <p class="mono">Mon&ndash;Fri 5:30 AM &ndash; 8:30 PM &middot; Sat &amp; Sun 8:00 AM &ndash; 2:00 PM</p>
+    </div>
+    <div>
+      <p class="mono">Iron Island &middot; Buffalo, New York</p>
+      <p>A barbell gym. Month to month, cancel by text, and the price on the wall is the price
+        for everybody.</p>
+    </div>
+  </div>
+</footer>
+
+
+<script>
+(function () {
+  'use strict';
+
+  var nav = document.getElementById('nav');
+  var btn = document.getElementById('burger');
+  var panel = document.getElementById('nav-menu');
+
+  function abierto() { return nav.classList.contains('is-open'); }
+
+  function abrir() {
+    nav.classList.add('is-open');
+    btn.setAttribute('aria-expanded', 'true');
+    btn.setAttribute('aria-label', 'Close menu');
+    var primero = panel.querySelector('a');
+    if (primero) { try { primero.focus({ preventScroll: true }); } catch (e) { primero.focus(); } }
+  }
+
+  function cerrar(devolverFoco) {
+    if (!abierto()) return;
+    nav.classList.remove('is-open');
+    btn.setAttribute('aria-expanded', 'false');
+    btn.setAttribute('aria-label', 'Open menu');
+    if (devolverFoco) { try { btn.focus({ preventScroll: true }); } catch (e) { btn.focus(); } }
+  }
+
+  btn.addEventListener('click', function (e) {
+    e.stopPropagation();
+    if (abierto()) cerrar(true); else abrir();
+  });
+
+  document.addEventListener('click', function (e) {
+    if (!abierto()) return;
+    if (panel.contains(e.target) || btn.contains(e.target)) return;
+    cerrar(false);
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' || e.key === 'Esc') cerrar(true);
+  });
+
+  panel.addEventListener('click', function (e) {
+    if (e.target.closest('a')) cerrar(false);
+  });
+
+  nav.addEventListener('focusout', function (e) {
+    if (!abierto()) return;
+    var destino = e.relatedTarget;
+    if (!destino) return;
+    if (nav.contains(destino)) return;
+    cerrar(false);
+  });
+
+  window.addEventListener('resize', function () {
+    if (window.innerWidth > 999) cerrar(false);
+  });
+
+  var objetivos = document.querySelectorAll('[data-reveal]');
+  if (!('IntersectionObserver' in window)) {
+    objetivos.forEach(function (el) { el.classList.add('in'); });
+    return;
+  }
+  var obs = new IntersectionObserver(function (entradas) {
+    entradas.forEach(function (en) {
+      if (en.isIntersecting) { en.target.classList.add('in'); obs.unobserve(en.target); }
+    });
+  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.06 });
+  objetivos.forEach(function (el) { obs.observe(el); });
+})();
+</script>
+<div style="background:#16181C;color:#F3F4F3;padding:0.7rem 1rem;text-align:center;font:500 12px/1.5 system-ui,sans-serif;letter-spacing:0.02em">Speculative concept by Reasoned Web — Iron Island Barbell is a fictional business.</div>
+</body>
+</html>

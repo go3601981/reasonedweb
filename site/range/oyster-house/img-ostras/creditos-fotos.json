@@ -1,0 +1,17 @@
+[
+ {
+  "archivo": "textura-hielo-macro.jpg",
+  "rol": "Grano dentro de las bandas --ice-slab. Textura, jamás imagen protagonista — es la división de trabajo declarada: Nano Banana hace FOTOGRAFÍA, Pexels hace TEXTURA.",
+  "fuente": "Pexels",
+  "licencia": "Pexels License (uso comercial)",
+  "fotografo": "Antonio Friedemann",
+  "url": "https://www.pexels.com/photo/pieces-of-crushed-ice-on-black-background-7169100/",
+  "alt_original": "Macro shot showcasing crystal ice cubes against a dark textured background."
+ },
+ {
+  "archivo": "og-shell-belt.jpg",
+  "fuente": "Nano Banana (recorte 1200×630 de hielo-docena-cenital.jpg)",
+  "licencia": "generada para este proyecto",
+  "rol": "og:image"
+ }
+]

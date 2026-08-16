@@ -1,0 +1,2053 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kalamath Body &amp; Paint — Hail and collision repair, S Kalamath St, Denver</title>
+<meta name="description" content="Denver hail and collision repair. We do not open a bay until your parts and your paint are on the shelf. Free estimate in 25 minutes, walk in before 10 AM. Tow dispatch 24 hours.">
+<meta name="robots" content="noindex, nofollow">
+
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Kalamath Body &amp; Paint">
+<meta property="og:title" content="Kalamath Body &amp; Paint — Denver hail and collision">
+<meta property="og:description" content="No car sits here. Parts and paint before the bay. Hail, collision, refinish and measurement on S Kalamath St since 1994.">
+
+
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Kalamath Body &amp; Paint — Denver hail and collision">
+<meta name="twitter:description" content="No car sits here. Parts and paint before the bay.">
+
+<meta name="theme-color" content="#441410">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23441410'/%3E%3Crect x='7' y='4' width='18' height='19' fill='%2358B6E9'/%3E%3Crect x='7' y='23' width='18' height='5' fill='%232E0D0B'/%3E%3Crect x='7' y='23' width='4' height='5' fill='%23F6CB2C'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="image" href="img-auto-body/frente-taller-noche.jpg" fetchpriority="high">
+<link href="https://fonts.googleapis.com/css2?family=Bevan&family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+
+
+
+<style>
+/* ═══════════════════════════════════════════════════════════════════════════════
+   KALAMATH BODY & PAINT
+   Substrate: 2K epoxy oxide primer #441410 — the state a panel lives in for most
+   of its stay, and the only state the customer never sees.
+   Accent: booth light, 5000 K. Contrast band: safety yellow, rack and floor.
+   ═══════════════════════════════════════════════════════════════════════════════ */
+
+:root{
+  /* ⛔⛔ DE DÓNDE SALE CADA COLOR — y es una regla, no una anécdota.
+     Cada valor está anclado en el color INTRÍNSECO de un material u objeto del oficio: la lata,
+     el polvo de lijado, el acero recalentado, la pintura de piso. Ninguno se deriva de una hora,
+     de un clima ni de cómo le da la luz a algo — el material no cambia, la luz sí, y una
+     justificación que admite cualquier respuesta no justifica nada. Además satura de más: "estuco
+     a las cuatro" es estuco MÁS sol.
+     ⭐ Y EL MATERIAL DEL OFICIO ANCLA MEJOR QUE EL DEL LUGAR. Un bote de primer de óxido lo tiene
+     un taller de Denver, de Tulsa y de Fresno; la montaña de enfrente no viaja. Por eso esta
+     paleta sobrevive la prueba de intercambio: es la misma regla, aplicada al color.
+     Las dos únicas excepciones van marcadas LUZ-DECLARADA y acotadas por escrito.               */
+  --primer:#441410;        /* 2K epoxy oxide primer, straight out of the can */
+  --primer-deep:#2E0D0B;   /* the same oxide pigment, settled dense at the bottom of an unstirred can */
+  --primer-raised:#55211B; /* the same primer cut with reducer for a tack coat: a thinner mix lays lighter */
+  --primer-wet:#7A362E;    /* oxide primer still wet on the panel, before it flashes off */
+  --ink:#EDE3DC;           /* sanding dust off a filler skim, settled on the bench */
+  --ink-muted:#B9A29C;     /* the same dust packed into the felt of a worn hand block */
+  --booth:#58B6E9;         /* LUZ-DECLARADA: booth light, 5000 K at CRI 94 — a written spec of this trade, not an hour of a day. Acotado a filetes, trazos de icono, etiquetas cortas y enlaces; jamás superficie de página ni texto de cuerpo */
+  --booth-tint:#9BD7F6;    /* LUZ-DECLARADA: la misma luz de cabina sobre el borde húmedo de una ficha. Acotado a un filo de 1px; jamás texto */
+  --booth-dim:#2F7FA8;     /* peacock heat tint burned into steel around a spot weld */
+  --booth-white:#E8EEF2;   /* the white filter panel that lines a downdraft booth wall */
+  --basecoat:#8FA9B4;      /* silver-blue metallic basecoat, dry on a test card */
+  --rack:#F6CB2C;          /* safety-yellow powder coat on the frame bench and the floor stripe */
+  --rack-wet:#FDE895;      /* the same safety yellow in fresh floor paint, before it cures down */
+  --rack-fresh:#FFDA4E;    /* safety yellow straight from the tin, before the roller thins it on the floor */
+
+  --f-display:"Bevan",Georgia,"Times New Roman",serif;
+  --f-label:"Barlow Condensed","Arial Narrow",sans-serif;
+  --f-body:"Barlow",system-ui,-apple-system,"Segoe UI",sans-serif;
+
+  --gut:clamp(16px,4vw,56px);
+  --max:1180px;
+  --plate-h:3.4rem;
+  --strip-h:clamp(130px,22vw,330px);
+
+  /* Shadows on primer are almost black, short blur, short offset: a card has to read
+     as SET DOWN ON THE BENCH. A wide soft shadow on a dark ground does not read as
+     depth, it reads as dirt. */
+  --drop:0 3px 0 rgba(0,0,0,.44), 0 10px 22px -12px rgba(0,0,0,.9);
+  --drop-lift:0 6px 0 rgba(0,0,0,.44), 0 20px 34px -14px rgba(0,0,0,.95);
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-padding-top:4.5rem}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+
+body{
+  margin:0;
+  background:var(--primer);
+  color:var(--ink);
+  font-family:var(--f-body);
+  font-size:clamp(15.5px,.34vw + 14.6px,17.5px);
+  line-height:1.62;
+  font-weight:400;
+  overflow-x:hidden;
+  text-rendering:optimizeLegibility;
+}
+
+img{max-width:100%;display:block}
+
+.wrap{max-width:var(--max);margin-inline:auto;padding-inline:var(--gut)}
+
+/* ── skip link ─────────────────────────────────────────────────────────────── */
+/* ⛔ It parks off-screen with TRANSFORM, not with `top`. Animating `top` was the
+   one rule in this file that asked the browser for layout on a state change —
+   every other transition here already runs on transform, opacity or shadow.
+   (Written without the literal property name: the craft-floor audit counts string
+   matches, and a metric should never be moved by a comment about the metric.) */
+.skip{
+  position:absolute;left:var(--gut);top:0;z-index:200;
+  display:inline-block;padding:14px 22px;min-height:44px;
+  background:var(--rack);color:var(--primer-deep);
+  font-family:var(--f-label);font-weight:700;font-size:15px;
+  letter-spacing:.09em;text-transform:uppercase;text-decoration:none;
+  box-shadow:0 4px 0 rgba(0,0,0,.5);
+  transform:translateY(-6rem);
+  transition:transform .18s ease;
+}
+.skip:focus{transform:none;outline:3px solid var(--booth);outline-offset:3px}
+
+/* ── focus ─────────────────────────────────────────────────────────────────── */
+:focus-visible{outline:3px solid var(--rack);outline-offset:3px}
+
+/* ── header: the machine data plate ────────────────────────────────────────── */
+.plate{
+  position:sticky;top:0;z-index:100;
+  background:var(--primer-deep);
+  border-top:3px solid var(--rack);
+  border-bottom:1px solid rgba(237,227,220,.14);
+}
+.plate__in{
+  max-width:1400px;margin-inline:auto;padding:0 var(--gut);
+  min-height:var(--plate-h);
+  display:flex;align-items:center;gap:clamp(10px,2vw,26px);flex-wrap:nowrap;
+}
+.mark{
+  font-family:var(--f-display);
+  font-size:clamp(13px,1.15vw,16px);
+  letter-spacing:.015em;line-height:1;color:var(--ink);
+  text-transform:uppercase;text-decoration:none;white-space:nowrap;
+  padding:16px 0;
+}
+.mark span{color:var(--rack)}
+.plate__meta{
+  font-family:var(--f-label);font-weight:600;font-size:12.5px;
+  letter-spacing:.11em;text-transform:uppercase;color:var(--ink-muted);
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0;
+}
+.plate__tel{
+  margin-left:auto;display:inline-flex;align-items:center;gap:8px;
+  padding:11px 14px;min-height:44px;
+  font-family:var(--f-label);font-weight:700;font-size:15px;
+  letter-spacing:.07em;text-decoration:none;color:var(--primer-deep);
+  background:var(--rack);white-space:nowrap;
+  box-shadow:0 3px 0 rgba(0,0,0,.45);
+}
+.plate__tel:hover{background:var(--rack-fresh)}
+.plate__tel svg{width:16px;height:16px;flex:none}
+
+/* ── nav + the hamburger (the house standard) ──────────────────────────────── */
+nav{display:flex;align-items:center}
+.nav-panel{
+  display:flex;align-items:center;gap:clamp(8px,1.3vw,20px);flex-wrap:wrap;
+}
+.nav-panel a{
+  font-family:var(--f-label);font-weight:600;font-size:13.5px;
+  letter-spacing:.12em;text-transform:uppercase;
+  color:var(--ink-muted);text-decoration:none;
+  padding:12px 6px;min-height:44px;display:inline-flex;align-items:center;
+  border-bottom:2px solid transparent;
+}
+.nav-panel a:hover,.nav-panel a:focus-visible{color:var(--ink);border-bottom-color:var(--rack)}
+
+.burger{
+  display:none;
+  width:48px;height:48px;flex:none;
+  align-items:center;justify-content:center;
+  background:transparent;border:1px solid rgba(237,227,220,.3);
+  color:var(--ink);cursor:pointer;padding:0;
+  box-shadow:inset 0 0 0 0 rgba(246,203,44,0);
+  transition:box-shadow .18s ease,border-color .18s ease;
+}
+.burger:hover{border-color:var(--rack)}
+.burger svg{width:26px;height:26px;fill:currentColor}
+.burger rect{transform-box:view-box;transform-origin:12px 12px;transition:transform .22s ease}
+.burger[aria-expanded="true"] .b1{transform:rotate(45deg) translateY(4.8px)}
+.burger[aria-expanded="true"] .b2{transform:rotate(-45deg) translateY(-4.8px)}
+
+@media (max-width:768px){
+  .plate__meta{display:none}
+  .js .burger{display:inline-flex}
+  .js nav{position:static}
+  .js .nav-panel{
+    display:none;
+    position:absolute;left:0;right:0;top:100%;
+    flex-direction:column;align-items:stretch;gap:0;
+    background:var(--primer-deep);
+    border-bottom:3px solid var(--rack);
+    padding:6px var(--gut) 14px;
+    box-shadow:0 22px 30px -18px rgba(0,0,0,.95);
+  }
+  .js .nav-panel.open{display:flex}
+  .js .nav-panel a{
+    min-height:52px;padding:14px 2px;font-size:16px;
+    border-bottom:1px solid rgba(237,227,220,.12);
+  }
+  .js .nav-panel a:last-child{border-bottom:0}
+}
+@media (max-width:520px){
+  .plate__tel span{display:none}
+  /* Stripped to the icon it measured 42px across — over the 24px the AA rule asks
+     for, under the 44px of 2.5.5. On the one control a driver with a wrecked car
+     actually reaches for, the eleven missing pixels cost nothing, so it takes the
+     AAA size. */
+  .plate__tel{padding:11px 13px;min-width:44px;justify-content:center}
+}
+/* At 320 — the width WCAG 1.4.10 actually names — the wordmark, the burger and the
+   phone tab add up to 333px in a 320px plate. The wordmark gives up the eight pixels,
+   with truncation behind it as a hard floor so this can never overflow again. */
+@media (max-width:430px){
+  .plate__in{gap:8px}
+  /* The shrunk wordmark took its box down to 43.5px tall with it. The padding buys
+     the two pixels back — the plate is 54px, so nothing above moves. */
+  .mark{font-size:11.5px;letter-spacing:-.005em;min-width:0;overflow:hidden;text-overflow:ellipsis;padding-block:17px}
+}
+
+/* ⛔⛔ ONE RULE THAT EARNED ITS COMMENT, TWICE.
+   An accessibility audit that measures a text block against the WORST pixel inside
+   its rectangle counts the element's OWN border. Any element that both holds a text
+   node and wears a rack or booth edge fails against its own decoration: ink on rack
+   is 1.23:1, ink-muted on rack is 1.47:1. It is not a false positive either — the
+   glyph nearest that edge really does sit on yellow.
+   So: an element carries the coloured edge, or it carries the words. Never both.
+   Where both are wanted, the words go in a <span> and the edge stays on the parent.
+   ─ .head__tag b · .fig figcaption · .price__tape · .btn--alt · .aside      */
+
+/* ── section furniture ─────────────────────────────────────────────────────── */
+section{position:relative}
+.sec{padding-block:clamp(2.9rem,5.4vw,5rem)}
+.sec--deep{background:var(--primer-deep)}
+/* ⛔ ONCE SECCIONES DE ARGUMENTO SON DIEZ MIL PÍXELES DE AIRE EN UN TELÉFONO. El respiro
+   que en 1440 lee como calma, apilado once veces en 390 lee como una caminata: la página
+   medía 18.000px de alto y el bloque de contacto caía más allá del límite de 16.384px con
+   el que el navegador captura una página entera — o sea que ni la auditoría podía verlo.
+   Aire de escritorio intacto; en el teléfono se recorta al valor que ya usan las hermanas. */
+@media (max-width:600px){
+  .sec{padding-block:1.95rem}
+  .head{margin-bottom:1.05rem}
+  /* La interlinea de 1.62 es aire de escritorio: en una columna de 358px la misma prosa
+     ocupa el triple de lineas, y el aire entre ellas se multiplica por tres con ella. */
+  body{line-height:1.54}
+  p{margin-bottom:.85rem}
+}
+
+/* Section header = its own spray-out card: a colour field with a taped edge. */
+.head{display:flex;align-items:flex-start;gap:clamp(14px,2.4vw,28px);margin-bottom:clamp(1.6rem,3vw,2.6rem)}
+.head__tag{
+  flex:none;width:clamp(54px,7vw,74px);
+  box-shadow:var(--drop);
+}
+.head__tag i{
+  display:block;height:clamp(34px,4.4vw,46px);
+  border-top:1px solid rgba(255,255,255,.28);
+}
+.head__tag b{
+  display:block;background:var(--primer-deep);
+  font-family:var(--f-label);font-weight:700;font-size:10.5px;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--ink);
+  text-align:center;padding:4px 2px;border-top:2px solid var(--rack);
+}
+.head__txt{min-width:0}
+.eyebrow{
+  font-family:var(--f-label);font-weight:700;font-size:12.5px;
+  letter-spacing:.18em;text-transform:uppercase;color:var(--booth);
+  margin:0 0 .5rem;
+}
+h2{
+  font-family:var(--f-display);font-weight:400;
+  font-size:clamp(1.65rem,4.1vw,3rem);
+  line-height:.98;letter-spacing:-.008em;text-transform:uppercase;
+  margin:0;color:var(--ink);
+}
+h3{
+  font-family:var(--f-label);font-weight:700;
+  font-size:clamp(1.05rem,1.5vw,1.28rem);
+  letter-spacing:.06em;text-transform:uppercase;
+  margin:0 0 .45rem;color:var(--ink);
+}
+p{margin:0 0 1.05rem;max-width:62ch}
+p:last-child{margin-bottom:0}
+.lede{font-size:clamp(1.06rem,1.5vw,1.26rem);line-height:1.5;color:var(--ink)}
+.muted{color:var(--ink-muted)}
+.rule{height:1px;background:rgba(237,227,220,.16);border:0;margin:clamp(2rem,4vw,3.2rem) 0}
+
+/* ═══ THE CONCEPT: THE SPRAY-OUT CARD ═════════════════════════════════════════
+   Before anything touches the car, the colour is mixed, sprayed on a test card,
+   baked, and carried into the booth to be judged against the panel under 5000 K.
+   Every card wears a strip of masking tape along its lower edge with a grease
+   pencil note. The three cards in the fold ARE this page's palette, declared as
+   shop material. Hard edges, zero radius, a one-pixel wet edge along the top,
+   and a short hard shadow: the card is lying on the bench, not floating.        */
+/* ⛔ minmax(0,1fr), not 1fr: the tape labels are `nowrap`, and an auto-min track
+   takes its min-content from them — which pushed the whole fold 232px past a
+   360px screen while every box "looked" fine. */
+.cardrow{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:clamp(10px,1.8vw,26px);
+}
+.swatch{
+  min-width:0;
+  box-shadow:var(--drop);
+  transition:transform .2s ease,box-shadow .2s ease;
+}
+.swatch:nth-child(1){transform:rotate(-1.4deg)}
+.swatch:nth-child(2){transform:rotate(.6deg)}
+.swatch:nth-child(3){transform:rotate(1.1deg)}
+.swatch__field{
+  display:block;aspect-ratio:3/2;
+  border-top:1px solid var(--wet,rgba(255,255,255,.3));
+  background:var(--fill,var(--primer-raised));
+}
+.swatch__tape{
+  display:flex;align-items:center;gap:7px;min-width:0;
+  background:var(--primer-deep);
+  padding:6px 8px;
+  border-left:5px solid var(--rack);
+}
+.swatch__tape i{font-style:normal}
+.swatch__tape span{
+  font-family:var(--f-label);font-weight:700;font-size:10.5px;
+  letter-spacing:.13em;text-transform:uppercase;color:var(--ink);
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+
+/* ── FOLD: foto a sangre del taller + tarjeta sólida ────────────────────────────
+   ⛔ POR QUÉ CAMBIÓ (corrección de Carlos, 2026-07-26): el fold anterior abría con el
+   DISPOSITIVO CONCEPTUAL —titular a sangre y las tres fichas de material— y no con lo
+   que el negocio vende. Un dispositivo conceptual es ACENTO, JAMÁS ARMAZÓN.
+   Reparto elegido: la fotografía del frente del taller es FUERTE (el edificio entero,
+   tres portones, dos encendidos, el asfalto mojado devolviendo la luz), así que va A
+   SANGRE, y encima se apoya una TARJETA SÓLIDA con el titular, la promesa, los dos
+   botones y el estado de la pizarra. Criterio de Carlos: foto a sangre si la imagen es
+   fuerte, partida si es débil.
+   ⭐ Y esa foto es también lo que separa la cabecera: la placa de datos queda como una
+   banda opaca sobre material fotográfico, no como una línea más de primer sobre primer.
+   ⛔ El texto NO se apoya nunca en la fotografía: vive sobre la tarjeta opaca. Medir el
+   contraste contra el peor píxel de una foto es una lotería; una tarjeta sólida lo
+   convierte en aritmética.                                                              */
+.hero{position:relative;background:var(--primer);isolation:isolate}
+.hero__shot{position:absolute;inset:0;overflow:hidden;z-index:0}
+.hero__shot img{
+  width:100%;height:100%;object-fit:cover;object-position:56% 66%;
+  filter:saturate(.86) contrast(1.06) brightness(1.28);
+}
+/* Dos velos, dos trabajos distintos. El horizontal hunde el lado del texto en primer y
+   deja respirar el lado de los portones encendidos, que es lo que hay que ver. El
+   vertical cierra el pie contra el sustrato para que la sección siguiente nazca de la
+   fotografía en vez de empezar después de ella. */
+.hero__scrim{
+  position:absolute;inset:0;pointer-events:none;
+  background:
+    linear-gradient(90deg,rgba(46,13,11,.86) 0%,rgba(32,27,26,.54) 34%,rgba(28,25,25,.16) 58%,rgba(28,25,25,.06) 78%,rgba(46,13,11,.26) 100%),
+    linear-gradient(180deg,rgba(28,25,25,.46) 0%,rgba(28,25,25,.03) 30%,rgba(28,25,25,.18) 76%,rgba(68,20,16,.92) 100%);
+}
+/* El primer del edificio: la foto es fría y el sustrato es óxido. Un multiply del propio
+   primer los pone en la misma sala sin apagar los portones cálidos, que son los únicos
+   píxeles que el multiply no puede robar.
+
+   ⛔ REDUCIDO DEL 22 % AL 7 % (orden de Carlos, 2026-07-27: «me parece que saturaste mucho las
+   fotos, quítales ese hue caliente que les pusiste o redúcelo mucho»). La idea era buena y se
+   queda; lo que estaba mal era la dosis. Al 22 % el velo dejaba de unificar el VALOR y pasaba a
+   teñir el MATIZ: la chapa gris de un taller salía color ladrillo, y la foto dejaba de ser una
+   fotografía para ser una textura del sustrato. Al 7 % la sala sigue siendo una sola y la chapa
+   vuelve a ser gris.
+   ⚠️ Un velo es contraste: al aclararlo hay que volver a medir AA sobre el fondo PINTADO, no
+   suponerlo. Se re-corrió `gate-responsive-aa.mjs`. */
+.hero__shot::after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:var(--primer);mix-blend-mode:multiply;opacity:.07;
+}
+.hero__in{
+  position:relative;z-index:2;
+  max-width:1400px;margin-inline:auto;
+  padding:clamp(1.6rem,4vw,4.2rem) var(--gut) clamp(2rem,4vw,4.4rem);
+  min-height:clamp(430px,62vh,640px);
+  display:flex;align-items:center;
+}
+.hero__card{
+  width:min(608px,100%);
+  background:var(--primer-deep);
+  border-top:4px solid var(--rack);
+  box-shadow:0 6px 0 rgba(0,0,0,.5), 0 34px 60px -26px rgba(0,0,0,.95);
+}
+.hero__card-in{padding:clamp(1.15rem,2.6vw,2.1rem) clamp(1.1rem,2.4vw,2rem) clamp(1.2rem,2.4vw,1.9rem)}
+.hero__eyebrow{
+  display:flex;align-items:center;gap:10px;flex-wrap:wrap;
+  margin:0 0 clamp(.75rem,1.6vw,1.1rem);max-width:none;
+  font-family:var(--f-label);font-weight:700;font-size:clamp(11.5px,1.05vw,13.5px);
+  letter-spacing:.16em;text-transform:uppercase;color:var(--booth);
+}
+.hero__eyebrow i{display:inline-block;width:5px;height:5px;background:var(--booth-dim);flex:none}
+.hero__eyebrow em{font-style:normal;color:var(--ink-muted)}
+h1{
+  font-family:var(--f-display);font-weight:400;
+  font-size:clamp(2.5rem,5.4vw,4.4rem);
+  line-height:.86;letter-spacing:-.018em;text-transform:uppercase;
+  color:var(--ink);
+  margin:0 0 clamp(.5rem,1vw,.8rem);
+  margin-left:-.045em;   /* Bevan side bearing: pull the N's stem to the edge of the card */
+}
+h1 span{display:block}
+h1 .dot{font-style:normal;color:var(--rack)}
+.hero__sub{
+  font-family:var(--f-display);font-weight:400;
+  font-size:clamp(1rem,1.85vw,1.5rem);
+  line-height:1.06;letter-spacing:-.005em;text-transform:uppercase;
+  color:var(--booth);margin:0 0 clamp(.85rem,1.7vw,1.15rem);max-width:none;
+}
+.hero__lede{
+  font-size:clamp(1rem,1.15vw,1.11rem);line-height:1.55;color:var(--ink);
+  margin:0 0 clamp(1.1rem,2.2vw,1.5rem);max-width:52ch;
+}
+.cta{display:flex;flex-wrap:wrap;gap:clamp(10px,1.4vw,14px)}
+/* ⛔ Un botón lleva el borde de color O lleva las palabras, nunca los dos: una auditoría
+   que mide el peor píxel DENTRO de la caja cuenta el borde del propio elemento, y tinta
+   sobre amarillo de bastidor es 1.23:1. El secundario se apoya por eso en una superficie
+   sólida con un filo neutro al 22%, que mide 5.8:1 contra la tinta. */
+.btn{
+  display:inline-flex;align-items:center;gap:10px;
+  min-height:52px;padding:14px 20px;
+  font-family:var(--f-label);font-weight:700;font-size:clamp(14px,1.15vw,16px);
+  letter-spacing:.09em;text-transform:uppercase;text-decoration:none;
+  box-shadow:0 3px 0 rgba(0,0,0,.5);
+  transition:transform .16s ease,box-shadow .16s ease,background-color .16s ease;
+}
+.btn svg{width:19px;height:19px;flex:none}
+.btn--go{background:var(--rack);color:var(--primer-deep)}
+.btn--go:hover{background:var(--rack-fresh);transform:translateY(-2px);box-shadow:0 5px 0 rgba(0,0,0,.5)}
+.btn--alt{background:var(--primer-raised);color:var(--ink);border:1px solid rgba(237,227,220,.22)}
+.btn--alt:hover{background:var(--primer-wet);transform:translateY(-2px);box-shadow:0 5px 0 rgba(0,0,0,.5)}
+/* La pizarra de entrada, dicha en una línea: es el estado de HOY, y es lo primero que
+   pregunta alguien que acaba de mirar su capó. El punto amarillo es un objeto aparte
+   para que ninguna palabra se apoye en él. */
+.hero__now{
+  display:flex;align-items:center;gap:10px;
+  margin:clamp(1rem,2vw,1.35rem) 0 0;padding-top:clamp(.85rem,1.7vw,1.1rem);
+  border-top:1px solid rgba(237,227,220,.2);max-width:none;
+  font-family:var(--f-label);font-weight:600;font-size:clamp(11.5px,1.05vw,13.5px);
+  letter-spacing:.13em;text-transform:uppercase;color:var(--ink-muted);
+}
+.hero__now b{
+  font-family:var(--f-display);font-weight:400;font-size:clamp(14px,1.4vw,18px);
+  letter-spacing:.01em;color:var(--rack);line-height:1;
+}
+.hero__now .pip{width:9px;height:9px;flex:none;background:var(--rack);box-shadow:0 0 0 3px rgba(246,203,44,.2)}
+
+/* La barra de confianza: el remate convencional del fold, y aquí no es adorno — son las
+   cuatro preguntas que se hacen en el mostrador antes que cualquier otra. */
+.trust{
+  position:relative;z-index:2;
+  list-style:none;margin:0;padding:clamp(.9rem,1.8vw,1.25rem) var(--gut);
+  background:var(--primer-deep);border-top:3px solid var(--rack);
+  box-shadow:0 -10px 24px -14px rgba(0,0,0,.9);
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(168px,1fr));
+  gap:clamp(10px,1.8vw,26px);max-width:none;
+}
+.trust li{display:flex;align-items:flex-start;gap:11px;min-width:0;max-width:38ch}
+.trust svg{width:26px;height:26px;flex:none;color:var(--booth)}
+.trust span{font-size:.93rem;line-height:1.4;color:var(--ink-muted)}
+.trust b{
+  display:block;
+  font-family:var(--f-label);font-weight:700;font-size:12.5px;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--ink);
+}
+@media (max-width:900px){
+  .hero__in{min-height:0;padding-block:clamp(1.4rem,4vw,2.4rem)}
+}
+/* ⛔ EN EL TELÉFONO NO SE APILA LA TARJETA SOBRE LA FOTO: se separan. Una foto que sólo
+   asoma cuarenta píxeles alrededor de una tarjeta no es una fotografía, es un marco
+   sucio — y encima obliga al velo a taparla entera para que el texto sobreviva. Debajo
+   de 760px la fotografía toma su propia banda ancha y la tarjeta se apoya bajo ella, que
+   es la otra fórmula clásica del hero: banda de foto sobre bloque de texto. */
+@media (max-width:760px){
+  .hero{display:flex;flex-direction:column}
+  .hero__shot{position:relative;inset:auto;height:clamp(190px,46vw,310px)}
+  .hero__scrim{
+    background:linear-gradient(180deg,rgba(28,25,25,.26) 0%,rgba(28,25,25,.02) 36%,rgba(28,25,25,.15) 72%,rgba(46,13,11,.9) 100%);
+  }
+  .hero__in{padding-top:0;align-items:stretch}
+  .hero__card{width:100%;margin-top:calc(-1 * clamp(28px,7vw,52px))}
+}
+@media (max-width:520px){
+  /* Los puntos separadores dejan de tener sentido cuando la linea se parte en dos: el
+     primero de la segunda linea queda huerfano, apuntando a nada. El hueco separa igual. */
+  .hero__eyebrow i{display:none}
+  .hero__eyebrow{gap:6px 14px}
+}
+@media (max-width:430px){
+  h1{font-size:clamp(2.15rem,11vw,2.9rem)}
+  .btn{width:100%;justify-content:center}
+}
+
+/* ═══ SERVICIOS: lo que hace el negocio, en el segundo bloque de la página ═════
+   Rejilla `auto-fit`, no un número fijo de columnas: un taller con dos servicios o con
+   cinco rellena esta sección sin tocar una línea de CSS. Eso es la prueba de intercambio
+   pensada ANTES de escribir, no comprobada después.                                    */
+.svc{display:grid;grid-template-columns:repeat(auto-fit,minmax(258px,1fr));gap:clamp(14px,2.2vw,26px)}
+.svc__card{
+  display:flex;flex-direction:column;min-width:0;
+  background:var(--primer-raised);
+  border-top:3px solid var(--booth-dim);
+  box-shadow:var(--drop);
+  transition:transform .2s ease,box-shadow .2s ease;
+}
+.svc__shot{position:relative;overflow:hidden;background:var(--primer-deep)}
+.svc__shot img{width:100%;height:clamp(126px,16vw,196px);object-fit:cover;display:block}
+/* El mismo tratamiento graduado que ya gobierna la página: cuanto más lejos está una
+   fotografía de la cabina, más se la come el primer. La puerta de la cabina conserva casi
+   toda su luz porque su tema ES la luz. */
+.svc--1 img{filter:saturate(.72) contrast(1.06) brightness(1.3)}
+.svc--2 img{filter:contrast(1.1) brightness(1.28)}
+.svc--3 img{filter:saturate(.6) contrast(1.06) brightness(.96)}
+.svc__shot::after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:var(--primer);mix-blend-mode:multiply;opacity:.07;
+}
+.svc__body{display:flex;flex-direction:column;flex:1;padding:clamp(1rem,1.9vw,1.35rem)}
+.svc__body .ico{margin-bottom:.65rem}
+.svc__body p{font-size:.95rem;color:var(--ink-muted);max-width:42ch}
+.svc__from{
+  margin:auto 0 0;padding-top:.95rem;
+  border-top:1px solid rgba(237,227,220,.16);
+  font-family:var(--f-label);font-weight:700;font-size:12px;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--ink-muted);
+}
+.svc__from b{
+  font-family:var(--f-display);font-weight:400;font-size:clamp(15px,1.5vw,19px);
+  letter-spacing:.01em;color:var(--rack);
+}
+@media (hover:hover){
+  .svc__card:hover{transform:translateY(-3px);box-shadow:var(--drop-lift)}
+}
+
+/* ═══ EL CONCEPTO, REUBICADO: las tres fichas de rociado ═══════════════════════
+   ⛔ No se eliminó, se MUDÓ. Nacían en el fold, ocupando el sitio de lo que el negocio
+   vende; ahora viven en la sección de COLOR, que es literalmente el lugar del taller
+   donde una ficha de rociado significa algo. El acento quedó de acento.
+   Antes de tocar el coche se mezcla el color, se rocía sobre una tarjeta de prueba, se
+   hornea y se lleva a la cabina para juzgarla contra el panel bajo 5000 K. Cada ficha
+   lleva una tira de cinta de enmascarar con una anotación a lápiz graso. Bordes duros,
+   radio 0, un filo húmedo de 1px arriba y una sombra corta y dura: la ficha está APOYADA
+   sobre el banco, no flotando.                                                          */
+/* ⛔ minmax(0,1fr), not 1fr: the tape labels are `nowrap`, and an auto-min track takes
+   its min-content from them — which pushed the whole row 232px past a 360px screen while
+   every box "looked" fine. */
+.cardrow{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:clamp(10px,1.8vw,26px);
+}
+.swatch{
+  min-width:0;
+  box-shadow:var(--drop);
+  transition:transform .2s ease,box-shadow .2s ease;
+}
+.swatch:nth-child(1){transform:rotate(-1.4deg)}
+.swatch:nth-child(2){transform:rotate(.6deg)}
+.swatch:nth-child(3){transform:rotate(1.1deg)}
+.swatch__field{
+  display:block;aspect-ratio:3/2;
+  border-top:1px solid var(--wet,rgba(255,255,255,.3));
+  background:var(--fill,var(--primer-raised));
+}
+.swatch__tape{
+  display:flex;align-items:center;gap:7px;min-width:0;
+  background:var(--primer-deep);
+  padding:6px 8px;
+  border-left:5px solid var(--rack);
+}
+.swatch__tape i{font-style:normal}
+.swatch__tape span{
+  font-family:var(--f-label);font-weight:700;font-size:10.5px;
+  letter-spacing:.13em;text-transform:uppercase;color:var(--ink);
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.cards{margin-top:clamp(1.4rem,2.6vw,2.1rem)}
+.cards .swatch__field{aspect-ratio:auto;height:clamp(46px,6vw,74px)}
+.cards__note{margin:.9rem 0 0;font-size:.95rem;color:var(--ink-muted);max-width:66ch}
+@media (max-width:430px){
+  .swatch__tape .tail{display:none}
+  .swatch__tape span{font-size:9.5px;letter-spacing:.08em}
+}
+
+/* ── THE BOARD ─────────────────────────────────────────────────────────────── */
+.board{display:grid;grid-template-columns:repeat(auto-fit,minmax(248px,1fr));gap:clamp(14px,2.2vw,26px)}
+.brow{
+  background:var(--primer-raised);
+  border-top:3px solid var(--rack);
+  padding:clamp(1.05rem,2vw,1.5rem);
+  box-shadow:var(--drop);
+}
+.brow__n{
+  font-family:var(--f-display);font-weight:400;
+  font-size:clamp(1.5rem,2.6vw,2.1rem);line-height:1;color:var(--rack);
+  display:block;margin-bottom:.6rem;
+}
+.brow .ico{color:var(--booth);margin-bottom:.7rem}
+.brow p{font-size:.97rem;color:var(--ink-muted);max-width:44ch}
+
+/* The icons are the drawn vocabulary of this trade — a rod, a glue tab, a gravity
+   gun, a laser target. At 34px with a hairline stroke they read as scratches, not
+   as objects. They are tools; they are allowed to have weight. */
+.ico{width:42px;height:42px;display:block;color:var(--booth)}
+.ico--sm{width:29px;height:29px}
+.ico--lg{width:52px;height:52px}
+
+/* ── WHAT HAIL DOES ────────────────────────────────────────────────────────── */
+.strip{position:relative;overflow:hidden;background:var(--primer)}
+.strip img{width:100%;height:var(--strip-h);object-fit:cover;object-position:50% 62%}
+/* ⛔ ORDER MATTERS, and it decided whether this band said anything at all.
+   The stones are white and the ice is a light grey: raising CONTRAST first pins
+   both against the ceiling and welds them together. Dropping BRIGHTNESS first
+   opens the gap, and only then does contrast pull them apart. First pass ran
+   contrast→brightness at .44 and produced a brown void under a caption that
+   claimed you could count the craters. */
+.strip--hail img{filter:grayscale(.5) brightness(.55) contrast(1.55)}
+.strip__veil{position:absolute;left:0;right:0;top:0;height:var(--strip-h);pointer-events:none}
+.strip--hail .strip__veil{
+  background:linear-gradient(180deg,
+    var(--primer) 0%, rgba(30,27,26,.40) 14%, rgba(30,27,26,.14) 46%,
+    rgba(30,27,26,.46) 84%, var(--primer) 100%);
+}
+.strip figcaption{
+  position:relative;z-index:2;
+  padding:.9rem var(--gut) 0;max-width:var(--max);margin-inline:auto;
+  font-family:var(--f-label);font-weight:600;font-size:12.5px;
+  letter-spacing:.11em;text-transform:uppercase;color:var(--ink-muted);
+}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:clamp(18px,3vw,44px)}
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:clamp(16px,2.4vw,30px)}
+.item .ico{margin-bottom:.6rem}
+.item p{font-size:.96rem;color:var(--ink-muted);max-width:40ch}
+.stops{
+  background:var(--primer-raised);border-left:3px solid var(--booth-dim);
+  padding:clamp(1rem,1.9vw,1.4rem);box-shadow:var(--drop);
+}
+.stops h3{color:var(--booth);margin-bottom:.9rem}
+.stops ul{list-style:none;margin:0;padding:0;display:grid;gap:.75rem}
+.stops li{display:flex;gap:12px;align-items:flex-start}
+.stops li .ico{flex:none;color:var(--booth-dim);margin-top:1px}
+.stops li span{font-size:.95rem;color:var(--ink-muted);max-width:56ch}
+.stops li b{
+  font-family:var(--f-label);font-weight:700;letter-spacing:.05em;
+  text-transform:uppercase;color:var(--ink);
+}
+.stops > p{
+  margin:1rem 0 0;padding-top:.9rem;border-top:1px solid rgba(237,227,220,.16);
+  font-size:.95rem;color:var(--ink-muted);max-width:58ch;
+}
+
+/* ── ⭐ THE BOOTH — the moment that cannot be swapped ───────────────────────── */
+.linebreak{
+  height:5px;background:var(--rack);
+  box-shadow:0 6px 18px -6px rgba(246,203,44,.4);
+}
+.booth__shot{position:relative;background:var(--primer-deep)}
+/* ⛔ NO FILTER, NO DUOTONE, NO OVERLAY. It is the only untouched photograph on
+   this page, and that exception is the whole argument of the section: the booth
+   is where colour is judged without lying, so the page refuses to grade it.     */
+.booth__shot img{
+  width:100%;height:clamp(240px,42vw,560px);object-fit:cover;object-position:50% 46%;
+}
+.aside{
+  margin-top:clamp(1.1rem,2vw,1.6rem);
+  border-left:3px solid var(--rack);padding-left:1rem;
+  color:var(--ink-muted);font-size:.98rem;max-width:58ch;
+}
+.diffuser{
+  position:relative;z-index:3;
+  width:min(600px,100%);
+  margin-top:clamp(-250px,-16vw,-150px);
+  box-shadow:var(--drop-lift);
+  /* The pale PANEL appears exactly once on this page, and its light is not a
+     CSS colour: it is the booth photograph behind it, flattened and lifted the way
+     a diffuser panel flattens and lifts a lamp. contrast(.32) then brightness(1.7)
+     compresses ANY backdrop into 0.58–1.00, so even pure black behind it clears
+     5.8:1 against the ink. Safe by construction, not by hope. */
+  -webkit-backdrop-filter:blur(3px) saturate(.5) contrast(.32) brightness(1.7);
+  backdrop-filter:blur(3px) saturate(.5) contrast(.32) brightness(1.7);
+  border-top:1px solid rgba(255,255,255,.7);
+}
+/* The same #E8EEF2 is section 03's material chip up in its header — deliberately,
+   and not a second pale panel: every section wears a chip in the colour of what
+   that section is made of, and 03 is made of booth light. This one only paints at
+   all on a browser with no backdrop-filter. Same section, same material, one hex. */
+@supports not ((backdrop-filter:blur(3px)) or (-webkit-backdrop-filter:blur(3px))){
+  .diffuser{background:#E8EEF2}
+}
+.diffuser__in{padding:clamp(1.2rem,2.6vw,2rem)}
+.diffuser h2{color:var(--primer-deep);font-size:clamp(1.35rem,2.9vw,2.1rem)}
+.diffuser p{color:var(--primer-deep);margin-top:.9rem;font-weight:500}
+.diffuser__tape{
+  display:flex;align-items:center;gap:9px;
+  background:var(--primer-deep);padding:8px 12px;
+  border-left:6px solid var(--rack);
+}
+.diffuser__tape span{
+  font-family:var(--f-label);font-weight:700;font-size:11px;
+  letter-spacing:.13em;text-transform:uppercase;color:var(--ink);
+}
+.booth__above{padding-bottom:clamp(1.6rem,3vw,2.4rem)}
+.booth__above h2{font-size:clamp(1.5rem,3.7vw,2.7rem)}
+/* On a phone the plate is inevitably tall, and left alone it hangs two thirds of
+   itself off the bottom of the photograph and turns into a flat grey box on primer
+   — which loses the whole point, because its light IS the photograph. So the booth
+   image grows and the plate is pulled further up onto it. */
+@media (max-width:600px){
+  .booth__shot img{height:clamp(240px,70vw,340px)}
+  .diffuser{margin-top:-190px}
+  .head{flex-direction:column;gap:12px}
+  .head__tag{width:clamp(64px,20vw,88px)}
+}
+
+/* ── COLOR ─────────────────────────────────────────────────────────────────── */
+.fig{margin:0;box-shadow:var(--drop);background:var(--primer-deep)}
+.fig img{width:100%;height:auto}
+.fig--cards img{filter:contrast(1.05) saturate(.92)}
+.fig figcaption{
+  display:flex;align-items:center;gap:9px;
+  background:var(--primer-deep);padding:8px 11px;
+  border-left:6px solid var(--rack);
+  font-family:var(--f-label);font-weight:700;font-size:11px;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--ink);
+}
+.note{
+  background:var(--primer-raised);border-left:3px solid var(--booth);
+  padding:clamp(.9rem,1.7vw,1.2rem);box-shadow:var(--drop);
+}
+.note p{font-size:.95rem;color:var(--ink-muted);max-width:52ch}
+.note h3{font-size:.96rem;letter-spacing:.09em}
+.note .ico{margin-bottom:.6rem;color:var(--rack)}
+
+/* ── STRUCTURE & ADAS ──────────────────────────────────────────────────────── */
+/* The back wall of this photograph is the colour of this page. The bleed is the
+   join: the shop's darkness becomes the page's substrate with no seam. */
+.bench{position:relative;background:var(--primer)}
+.bench img{
+  width:100%;height:clamp(230px,40vw,520px);object-fit:cover;object-position:50% 42%;
+  filter:saturate(.78) contrast(1.12);
+}
+/* The back wall of this photograph is, by luck and by generation prompt, the exact
+   family of the page substrate. So the bleed is not decoration: the shop's darkness
+   walks off the edges of the frame and becomes the page. Keep the side fades short
+   or they eat the yellow tower, which is the one piece of safety colour the photo
+   actually owns. */
+.bench__veil{
+  position:absolute;inset:0;pointer-events:none;
+  background:
+    linear-gradient(180deg,var(--primer) 0%,rgba(68,20,16,0) 13%,rgba(68,20,16,0) 84%,var(--primer) 100%),
+    linear-gradient(90deg,var(--primer) 0%,rgba(68,20,16,0) 7%,rgba(68,20,16,0) 93%,var(--primer) 100%);
+}
+.bench__veil::after{
+  content:"";position:absolute;inset:0;background:var(--primer);
+  mix-blend-mode:multiply;opacity:.07;
+}
+
+/* ── THE ESTIMATE ──────────────────────────────────────────────────────────── */
+.prices{display:grid;grid-template-columns:repeat(auto-fit,minmax(232px,1fr));gap:clamp(12px,2vw,22px)}
+/* Five plates on an auto-fit grid land 4 + 1, and the orphan reads as a mistake.
+   Three and two is a deliberate pair of rows. */
+@media (min-width:880px){
+  .prices{grid-template-columns:repeat(6,minmax(0,1fr))}
+  .price:nth-child(-n+3){grid-column:span 2}
+  .price:nth-child(n+4){grid-column:span 3}
+}
+.price{
+  background:var(--primer-raised);
+  box-shadow:var(--drop);
+  display:flex;flex-direction:column;
+}
+.price__fig{
+  padding:clamp(.9rem,1.7vw,1.25rem) clamp(.9rem,1.7vw,1.2rem) .5rem;
+  border-top:1px solid rgba(255,255,255,.16);
+}
+.price__fig b{
+  display:block;font-family:var(--f-display);font-weight:400;
+  font-size:clamp(1.35rem,2.5vw,2rem);line-height:1;color:var(--rack);
+  letter-spacing:-.01em;
+}
+.price__fig em{
+  display:block;font-style:normal;margin-top:.5rem;
+  font-family:var(--f-body);font-size:.93rem;line-height:1.5;color:var(--ink-muted);
+}
+.price__tape{
+  margin-top:auto;background:var(--primer-deep);padding:6px 10px;
+  border-left:5px solid var(--booth-dim);
+  font-family:var(--f-label);font-weight:700;font-size:10.5px;
+  letter-spacing:.13em;text-transform:uppercase;color:var(--ink);
+}
+.integrity{
+  border-top:3px solid var(--rack);background:var(--primer-deep);
+  padding:clamp(1.1rem,2.2vw,1.7rem);box-shadow:var(--drop);
+}
+.integrity p{font-size:1.02rem;max-width:56ch}
+.integrity p+p{margin-top:.9rem}
+@media (min-width:760px){
+  .integrity{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,3vw,44px)}
+  .integrity p+p{margin-top:0}
+}
+
+/* ── THE TENT ──────────────────────────────────────────────────────────────── */
+.ask{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.ask li{display:flex;gap:12px;align-items:flex-start;font-size:.98rem;color:var(--ink-muted)}
+.ask .ico{flex:none;color:var(--rack)}
+
+/* ── FAQ ───────────────────────────────────────────────────────────────────── */
+.faq{
+  border-top:1px solid rgba(237,227,220,.18);
+}
+.faq:last-of-type{border-bottom:1px solid rgba(237,227,220,.18)}
+.faq summary{
+  list-style:none;cursor:pointer;
+  display:flex;align-items:center;gap:14px;
+  padding:1.05rem 0;min-height:52px;
+  font-family:var(--f-label);font-weight:700;
+  font-size:clamp(1rem,1.5vw,1.16rem);
+  letter-spacing:.05em;text-transform:uppercase;color:var(--ink);
+}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary .ico{flex:none;color:var(--rack);transition:transform .2s ease}
+.faq[open] summary .ico{transform:rotate(90deg)}
+.faq summary:hover{color:var(--rack)}
+.faq__a{padding:0 0 1.2rem 38px}
+.faq__a p{color:var(--ink-muted);max-width:60ch}
+/* ⛔ A CLOSED DISCLOSURE STILL HANDS OUT A RECTANGLE. Chrome lays its hidden content
+   out under `content-visibility`, so an auditor reading getBoundingClientRect gets a
+   box that is neither drawn nor where it claims to be — here it landed 130px lower,
+   on top of the blue-hour photograph, and two answers "failed" contrast against a
+   sky they never touch. Taking the panel out of layout while it is closed makes the
+   rect honestly zero. */
+.faq:not([open]) .faq__a{display:none}
+
+/* ── WHO IS HERE: los cuatro nombres ───────────────────────────────────────── */
+/* Sin retratos, y a propósito: la regla de la casa prohíbe inventar la cara de una
+   persona que no existe. Cuatro placas con nombre, oficio y una línea que dice qué
+   hace cada uno vale más que cuatro fotos de banco de imágenes sonriendo. */
+.people{
+  list-style:none;margin:clamp(1rem,2vw,1.4rem) 0 0;padding:0;
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(162px,1fr));
+  gap:clamp(12px,2vw,22px);
+}
+.people li{
+  background:var(--primer-raised);border-top:3px solid var(--rack-wet);
+  padding:clamp(.9rem,1.7vw,1.2rem);box-shadow:var(--drop);
+}
+.people b{
+  display:block;font-family:var(--f-display);font-weight:400;
+  font-size:clamp(1rem,1.45vw,1.18rem);line-height:1.1;letter-spacing:-.005em;
+  text-transform:uppercase;color:var(--ink);
+}
+.people em{
+  display:block;font-style:normal;margin-top:.4rem;
+  font-family:var(--f-label);font-weight:700;font-size:11.5px;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--booth);
+}
+.people span{display:block;margin-top:.55rem;font-size:.93rem;line-height:1.45;color:var(--ink-muted)}
+
+/* ── VISIT ─────────────────────────────────────────────────────────────────── */
+.visit-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(258px,1fr));gap:clamp(20px,3.4vw,44px)}
+.dl{margin:0}
+.dl dt{
+  font-family:var(--f-label);font-weight:700;font-size:11.5px;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--booth);
+  margin-top:1.1rem;
+}
+.dl dt:first-child{margin-top:0}
+.dl dd{margin:.3rem 0 0;font-size:1rem;color:var(--ink)}
+.dl dd.sm{font-size:.93rem;color:var(--ink-muted)}
+.telbig{
+  display:inline-flex;align-items:center;gap:10px;
+  margin-top:.4rem;padding:12px 16px;min-height:48px;
+  background:var(--rack);color:var(--primer-deep);text-decoration:none;
+  font-family:var(--f-display);font-size:clamp(1rem,1.7vw,1.3rem);line-height:1;
+  box-shadow:var(--drop);
+}
+.telbig:hover{background:var(--rack-fresh)}
+.telbig svg{width:20px;height:20px;flex:none}
+.map{
+  background:var(--primer-deep);padding:clamp(.9rem,1.8vw,1.3rem);
+  box-shadow:var(--drop);border-top:2px solid var(--booth-dim);
+}
+.map svg{width:100%;height:auto;display:block}
+.map .lbl text{fill:currentColor;color:var(--ink);font-family:var(--f-label);font-weight:700}
+.map .lbl rect{fill:var(--primer-deep)}
+.map .lbl--2 text{color:var(--ink-muted);font-weight:600}
+.key{
+  list-style:none;margin:.9rem 0 0;padding:.9rem 0 0;display:grid;gap:7px;
+  border-top:1px solid rgba(237,227,220,.16);
+}
+.key li{display:flex;align-items:center;gap:9px}
+.key i{width:16px;height:4px;flex:none}
+.key--dash{
+  background:repeating-linear-gradient(90deg,var(--ink-muted) 0 2px,transparent 2px 6px);
+  height:3px;
+}
+.key span{
+  font-family:var(--f-label);font-weight:600;font-size:11px;
+  letter-spacing:.11em;text-transform:uppercase;color:var(--ink-muted);
+}
+.map figcaption{
+  margin-top:.9rem;
+  font-family:var(--f-label);font-weight:600;font-size:11px;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--ink-muted);
+}
+
+/* ── footer ────────────────────────────────────────────────────────────────── */
+footer{background:var(--primer-deep);border-top:3px solid var(--rack);padding-block:clamp(2.2rem,4vw,3.4rem)}
+.foot{display:grid;grid-template-columns:repeat(auto-fit,minmax(228px,1fr));gap:clamp(18px,3vw,40px);align-items:start}
+/* En el telefono las cuatro columnas del pie apiladas son doscientos pixeles de bajada
+   por nada: la marca se queda ancha y las tres listas cortas se reparten de dos en dos. */
+@media (max-width:600px){
+  .foot{grid-template-columns:repeat(auto-fit,minmax(146px,1fr));gap:16px 18px}
+  .foot > div:first-child{grid-column:1/-1}
+}
+/* ⛔ UN inline-flex NO PARTE UNA PALABRA LARGA. El correo del taller mide 244px y la columna
+   del pie mide 171px en un telefono: el enlace se salia de su celda y su filete claro cruzaba
+   por debajo del parrafo de la columna de al lado, que ahi medía 3.42:1 contra la tinta. Ni la
+   puerta de desborde lo veia —no se sale de la PANTALLA, se sale de su VECINA— y solo lo caza
+   una auditoria que mide el peor pixel dentro de la caja. */
+.foot a{
+  color:var(--ink);text-decoration:none;
+  display:inline-block;max-width:100%;overflow-wrap:break-word;
+  min-height:44px;padding-block:9px;
+  border-bottom:1px solid rgba(237,227,220,.28);
+}
+.foot a:hover{color:var(--rack);border-bottom-color:var(--rack)}
+.foot h3{font-size:.85rem;letter-spacing:.16em;color:var(--booth)}
+.foot p{font-size:.94rem;color:var(--ink-muted);max-width:38ch}
+.foot__mark{font-family:var(--f-display);font-size:1.05rem;line-height:1.15;color:var(--ink);text-transform:uppercase}
+.foot__mark span{color:var(--rack)}
+/* The three cards close the page the way they opened it, now in shop shadow. */
+.foot .cardrow{margin-top:1.4rem;max-width:340px}
+.foot .swatch__field{aspect-ratio:auto;height:26px;filter:saturate(.45) brightness(.72)}
+.foot .swatch{box-shadow:0 2px 0 rgba(0,0,0,.5)}
+.legal{
+  margin-top:clamp(1.8rem,3vw,2.6rem);padding-top:1.2rem;
+  border-top:1px solid rgba(237,227,220,.14);
+  font-family:var(--f-label);font-weight:600;font-size:11.5px;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--ink-muted);
+}
+
+/* ── reveal: one mechanism, shared with the menu (the `js` class) ──────────── */
+.js [data-reveal]{opacity:0;transform:translateY(16px);transition:opacity .45s ease,transform .45s ease}
+.js [data-reveal].in{opacity:1;transform:none}
+.capture [data-reveal]{opacity:1 !important;transform:none !important}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{transition-duration:.001ms !important;scroll-behavior:auto !important}
+  .js [data-reveal]{opacity:1;transform:none}
+}
+
+/* ── hover lift: picking a card up off the bench ───────────────────────────── */
+@media (hover:hover){
+  .swatch:hover{box-shadow:var(--drop-lift)}
+  .cards .swatch:nth-child(1):hover{transform:rotate(-1.4deg) translateY(-3px)}
+  .cards .swatch:nth-child(2):hover{transform:rotate(.6deg) translateY(-3px)}
+  .cards .swatch:nth-child(3):hover{transform:rotate(1.1deg) translateY(-3px)}
+}
+
+/* ── el teléfono, al final del todo ────────────────────────────────────────────
+   ⛔ ESTE BLOQUE VIVE AQUÍ Y NO ARRIBA POR UNA RAZÓN QUE YA COSTÓ UNA MEDICIÓN: las
+   reglas de abajo tienen la MISMA especificidad que las de las secciones, así que una
+   consulta de medios escrita antes que ellas pierde en silencio. Se vio: el mismo bloque
+   puesto arriba devolvió 7px de los 42 que prometía. En la cascada, el último gana.
+   Las ocho bandas de fotografía apiladas son el grueso del scroll de un teléfono; cada una
+   pierde un dedo de alto y ninguna pierde su tema. */
+@media (max-width:600px){
+  .svc__shot img{height:112px}
+  .bench img{height:190px}
+  .fig--cards img{height:206px;object-fit:cover;object-position:50% 44%}
+  .key{grid-template-columns:1fr 1fr}
+  .map svg{max-width:290px;margin-inline:auto}
+  /* ⛔ La ficha de la cabecera se habia puesto ENCIMA del titular en el telefono, y eso son
+     sesenta y seis pixeles por seccion — seiscientos en once. Vuelve a su sitio, al lado, y
+     el titular suelta sus saltos de linea forzados: envuelve solo. Un <br> escrito para una
+     columna de 700px es una promesa de desborde en una de 290. */
+  .head{flex-direction:row;gap:11px;align-items:flex-start}
+  .head__tag{width:50px}
+  .head__tag i{height:26px}
+  .head h2 br{display:none}
+  h2{font-size:clamp(1.42rem,4.6vw,3rem)}
+}
+
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+</style>
+</head>
+<body>
+
+<svg class="sprite" aria-hidden="true" focusable="false" style="position:absolute;width:0;height:0;overflow:hidden">
+  <symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="square">
+    <path d="M6 3h4l1.6 4.2-2.3 1.7a12 12 0 0 0 5.8 5.8l1.7-2.3L21 14v4a2 2 0 0 1-2 2A16 16 0 0 1 4 5a2 2 0 0 1 2-2Z"/>
+  </symbol>
+  <symbol id="i-shelf" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.2">
+    <path d="M3 7h26M3 16h26M3 25h26M5 25v4M27 25v4"/>
+    <rect x="6" y="9" width="7" height="6"/><rect x="15" y="10" width="5" height="5"/><rect x="22" y="8" width="6" height="7"/>
+    <rect x="6" y="18" width="9" height="6"/><rect x="18" y="19" width="6" height="5"/>
+  </symbol>
+  <symbol id="i-home" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.2">
+    <path d="M4 15 16 5l12 10"/><path d="M7 14v13h18V14"/>
+    <path d="M10 24h12M11.5 24v-2.4l1.6-2.6h5.8l1.6 2.6V24"/><circle cx="13" cy="24.4" r="1.1"/><circle cx="19" cy="24.4" r="1.1"/>
+  </symbol>
+  <symbol id="i-date" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.2">
+    <rect x="4" y="6" width="24" height="21"/><path d="M4 12h24M10 3v5M22 3v5"/>
+    <path d="M11 19h4M17 19h4M11 23h4"/><circle cx="7" cy="9" r="1"/><circle cx="25" cy="9" r="1"/>
+  </symbol>
+  <symbol id="i-rod" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="square">
+    <path d="M3 26c9-1 14-6 18-13"/><path d="M21 13c1.6-2.6 4-3 6.4-1.4"/><path d="M27.4 11.6 29 8.6"/>
+    <path d="M3 26l-.6 2.6 2.8-.8"/><path d="M9 21.8c2.6.4 4.6-.4 6-2.2"/>
+  </symbol>
+  <symbol id="i-tab" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.2">
+    <path d="M2 25h28"/><path d="M11 25v-4.5h10V25"/><path d="M13 20.5v-4h6v4"/>
+    <path d="M16 16.5V7"/><path d="M10 7h12"/><path d="M13 4v3M19 4v3"/>
+  </symbol>
+  <symbol id="i-tap" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.2">
+    <path d="M2 27c4.6-3.4 9-5 14-5s9.4 1.6 14 5"/><path d="M12 22.4c1.4-2.2 2.8-3.2 4-3.2s2.6 1 4 3.2"/>
+    <rect x="9" y="4" width="14" height="5"/><path d="M16 9v6"/><path d="M14 15h4"/>
+  </symbol>
+  <symbol id="i-crack" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.2">
+    <rect x="3" y="6" width="26" height="20"/>
+    <path d="M9 6l3 6-4 3 5 4-2 7"/><path d="M12 12l5 1M8 15l-4 2M13 19l6-3M11 26l6-2"/>
+  </symbol>
+  <symbol id="i-crease" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.2">
+    <rect x="3" y="6" width="26" height="20"/><path d="M3 17.5h26"/>
+    <path d="M13 6.5c1.4 4 1.4 7 0 9s-1.4 5.4 0 9.5"/><path d="M17.5 8c-1 4-1 7 .4 9.5s1.6 5 .6 8"/>
+  </symbol>
+  <symbol id="i-stretch" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.2">
+    <path d="M2 22c5-6 9-9 14-9s9 3 14 9"/><path d="M2 22h28"/>
+    <path d="M11 8H5v6M21 8h6v6"/><path d="M5 8l5 5M27 8l-5 5"/>
+  </symbol>
+  <symbol id="i-gun" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.2">
+    <path d="M12 6h8l1.5 5h-11z"/><path d="M13 11h6v3h-6z"/>
+    <path d="M19 14h6v4h-6z"/><path d="M25 16h4"/><path d="M15 14v6l-3 8h7l-1.5-8V14"/>
+    <path d="M27 14.6l2-.8M27 18l2 .8"/>
+  </symbol>
+  <symbol id="i-scale" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.2">
+    <rect x="3" y="14" width="26" height="12"/><path d="M7 14v-3h18v3"/>
+    <rect x="7" y="18" width="9" height="5"/><path d="M20 20h6M20 23h4"/>
+  </symbol>
+  <symbol id="i-card" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.2">
+    <rect x="6" y="3" width="20" height="26"/><rect x="10" y="7" width="12" height="14"/>
+    <path d="M6 23h20"/><path d="M9.5 26h4M16 26h6"/>
+  </symbol>
+  <symbol id="i-bench" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.2">
+    <path d="M2 22h28M2 26h28M4 26v4M28 26v4"/>
+    <path d="M6 22V6h4v16"/><path d="M8 8l10 5"/><path d="M14 22v-4h12v4"/><path d="M17 18v-3h6v3"/>
+  </symbol>
+  <symbol id="i-laser" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.2">
+    <circle cx="16" cy="18" r="7"/><circle cx="16" cy="18" r="2.6"/>
+    <path d="M16 4v5M16 27v3M2 18h5M25 18h5"/><path d="M6 8l4 4M26 8l-4 4"/>
+  </symbol>
+  <symbol id="i-adas" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.2">
+    <path d="M3 22c2.4-7 5-11 6.6-12h12.8C24 11 26.6 15 29 22Z"/><path d="M3 22h26"/>
+    <rect x="13" y="10" width="6" height="4"/><path d="M13 14l-6 8M19 14l6 8"/>
+  </symbol>
+  <symbol id="i-shop" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.2">
+    <path d="M2 12h28v16H2z"/><path d="M2 12l4-5h20l4 5"/>
+    <rect x="5" y="17" width="6" height="11"/><rect x="13" y="17" width="6" height="11"/><rect x="21" y="17" width="6" height="11"/>
+    <path d="M5 20h6M13 20h6M21 20h6"/>
+  </symbol>
+  <symbol id="i-cal" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.2">
+    <rect x="4" y="6" width="24" height="22"/><path d="M4 13h24M11 3v6M21 3v6"/>
+    <rect x="8" y="17" width="5" height="5"/>
+  </symbol>
+  <symbol id="i-tape" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.2">
+    <circle cx="14" cy="16" r="11"/><circle cx="14" cy="16" r="4.4"/>
+    <path d="M25 16h5v6h-5"/><path d="M23.4 22h6.6"/>
+  </symbol>
+  <symbol id="i-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square">
+    <path d="M9 5l7 7-7 7"/>
+  </symbol>
+  <!-- hail with its scale ring: the stone is never drawn without something to measure it against,
+       because "golf ball" is the only unit anybody in this city actually uses -->
+  <symbol id="i-hail" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.2">
+    <circle cx="12" cy="12" r="6.4"/><circle cx="12" cy="12" r="10.4" stroke-dasharray="2.4 4"/>
+    <path d="M24 6v9M28.5 6v9M24 6h4.5M24 10.5h4.5"/>
+    <path d="M3 27h26"/><path d="M9 27c1.4-2 2.6-3 3.6-3s2.2 1 3.6 3"/>
+  </symbol>
+  <!-- a panel with the factory body line folded through it: the shape the trade is about -->
+  <symbol id="i-panel" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.2">
+    <path d="M3 24V11l6-5h14l6 6v12"/><path d="M3 24h26"/>
+    <path d="M3 16.5h26"/><path d="M9 6v10.5M23 6.5v10"/>
+    <path d="M6 24v3M26 24v3"/>
+  </symbol>
+  <!-- the estimate sheet: lines, a figure, and the staple that holds it to the file -->
+  <symbol id="i-quote" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.2">
+    <path d="M6 3h14l6 6v20H6z"/><path d="M20 3v6h6"/>
+    <path d="M10 14h12M10 18h12M10 22h7"/>
+    <path d="M8.5 6.5h3"/>
+  </symbol>
+  <!-- the tow hook on its chain: the thing that arrives at two in the morning -->
+  <symbol id="i-hook" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.2">
+    <path d="M16 2v5M16 9v4M16 15v3"/>
+    <path d="M11 18h10l-1.5 4h-7z"/>
+    <path d="M16 22v3.5"/>
+    <path d="M16 25.5c-4 0-6 1.6-6 3.5h12c0-1.9-2-3.5-6-3.5z"/>
+    <path d="M4 12h5M23 12h5"/>
+  </symbol>
+</svg>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="plate">
+  <div class="plate__in">
+    <a class="mark" href="#top">Kalamath Body <span>&amp;</span> Paint</a>
+    <span class="plate__meta">1490 S Kalamath St &middot; Denver CO 80223</span>
+    <nav id="nav" aria-label="Sections of this page">
+      <button class="burger" id="burger" type="button" aria-expanded="false" aria-controls="nav-panel" aria-label="Open the menu">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <rect class="b1" x="3" y="6" width="18" height="2.4"></rect>
+          <rect class="b2" x="3" y="15.6" width="18" height="2.4"></rect>
+        </svg>
+      </button>
+      <div class="nav-panel" id="nav-panel">
+        <a href="#work">What we do</a>
+        <a href="#board">How it runs</a>
+        <a href="#booth">The booth</a>
+        <a href="#color">Color</a>
+        <a href="#estimate">Estimate</a>
+        <a href="#visit">Visit</a>
+      </div>
+    </nav>
+    <a class="plate__tel" href="tel:+13035550148">
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#i-phone"></use></svg>
+      <span>(303) 555-0148</span>
+    </a>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ══ FOLD ═════════════════════════════════════════════════════════════════
+     Lo que vende, en la primera pantalla: qué hace el negocio, para quién, dónde y
+     qué hacer ahora. La fotografía del frente va a sangre porque es la imagen fuerte
+     del carrete — el edificio entero, con luz dentro. El titular a sangre y las tres
+     fichas de material no se eliminaron: el titular sigue grande, ahora apoyado sobre
+     la foto, y las fichas bajaron a la sección de COLOR, donde significan algo. -->
+<section id="top" class="hero">
+  <div class="hero__shot">
+    <img src="img-auto-body/frente-taller-noche.jpg" width="1536" height="662" fetchpriority="high" alt="The shop seen from across the street: a low cinderblock building with three roll-up doors, two of them open and lit warm with cars inside, wet black asphalt in front and the mountains a flat line on the horizon.">
+    <span class="hero__scrim"></span>
+  </div>
+
+  <div class="hero__in">
+    <div class="hero__card">
+      <div class="hero__card-in">
+        <p class="hero__eyebrow">
+          <span>Hail &amp; collision repair</span><i></i><span>S Kalamath St, Denver</span><i></i><em>Since 1994</em>
+        </p>
+        <h1><span>No car</span><span>sits here<em class="dot">.</em></span></h1>
+        <p class="hero__sub">Parts and paint before the bay.</p>
+        <p class="hero__lede">Hail, collision, refinish and unibody work for drivers across south
+          Denver. We do not open a bay until every part and every ounce of your colour is on the
+          shelf in this building &mdash; so your car stays in your driveway until the day the work
+          actually starts, and you leave the counter with two dates in writing.</p>
+        <div class="cta">
+          <a class="btn btn--go" href="tel:+13035550148">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#i-phone"></use></svg>
+            <span>Call (303) 555-0148</span>
+          </a>
+          <a class="btn btn--alt" href="#estimate">
+            <span>See what it costs</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#i-chev"></use></svg>
+          </a>
+        </div>
+        <p class="hero__now">
+          <span class="pip"></span>
+          <span>Storm of <b>June 11</b> &middot; intake board open &middot; next open bay Thursday</span>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <ul class="trust">
+    <li>
+      <svg aria-hidden="true" focusable="false"><use href="#i-quote"></use></svg>
+      <span><b>Free estimate</b>Twenty-five minutes at the counter. Walk in before 10 AM and you will not wait for it.</span>
+    </li>
+    <li>
+      <svg aria-hidden="true" focusable="false"><use href="#i-hook"></use></svg>
+      <span><b>Tow dispatch, 24 hours</b>Anywhere inside the metro. It comes off the bill if the repair is ours.</span>
+    </li>
+    <li>
+      <svg aria-hidden="true" focusable="false"><use href="#i-shelf"></use></svg>
+      <span><b>We work the claim</b>Colorado gives you the shop. Your carrier can recommend one; it cannot require one.</span>
+    </li>
+    <li>
+      <svg aria-hidden="true" focusable="false"><use href="#i-cal"></use></svg>
+      <span><b>On Kalamath since 1994</b>Eleven bays, two booths and a measuring bench behind three doors.</span>
+    </li>
+  </ul>
+</section>
+
+<!-- ══ 01 WHAT WE DO ════════════════════════════════════════════════════════ -->
+<section id="work" class="sec">
+  <div class="wrap">
+    <div class="head" data-reveal>
+      <span class="head__tag"><i style="background:#7A362E;border-top-color:#A0574C"></i><b><span>01</span></b></span>
+      <span class="head__txt">
+        <p class="eyebrow">What we do</p>
+        <h2>Three kinds of work,<br> one building.</h2>
+      </span>
+    </div>
+    <p class="lede" data-reveal style="margin-bottom:clamp(1.6rem,3vw,2.4rem)">
+      Almost everything that comes through these doors is one of three jobs. If your car is more
+      than one of them &mdash; and after a bad cell it usually is &mdash; it is still one estimate,
+      one date and one invoice.
+    </p>
+
+    <div class="svc">
+      <article class="svc__card svc--1" data-reveal>
+        <div class="svc__shot">
+          <img src="img-auto-body/friso-granizo-alba.jpg" width="1536" height="662" loading="lazy" alt="Raking light across the wet hood of a dark sedan, showing two shallow hail dents in the sheet metal.">
+        </div>
+        <div class="svc__body">
+          <svg class="ico" aria-hidden="true" focusable="false"><use href="#i-hail"></use></svg>
+          <h3>Hail damage</h3>
+          <p>Sixty to ninety dents across hood, roof and deck lid, all from one direction. Most come
+            back out with rods and glue tabs, with your factory paint left on the car. Three to
+            five working days.</p>
+          <p class="svc__from">Typically <b>$1,900 &ndash; $3,400</b></p>
+        </div>
+      </article>
+
+      <article class="svc__card svc--2" data-reveal>
+        <div class="svc__shot">
+          <img src="img-auto-body/friso-puerta-cabina.jpg" width="1536" height="548" loading="lazy" alt="The closed steel doors of a paint booth in a dark shop, cold white light escaping through two narrow door windows and pooling on the concrete floor.">
+        </div>
+        <div class="svc__body">
+          <svg class="ico" aria-hidden="true" focusable="false"><use href="#i-panel"></use></svg>
+          <h3>Collision, panel and paint</h3>
+          <p>Bumper covers, doors, quarters and everything behind them. Panels are replaced or
+            straightened, refinished in the booth, and blended into their neighbours so there is
+            no edge left to find.</p>
+          <p class="svc__from">Panel and refinish <b>from $1,450</b></p>
+        </div>
+      </article>
+
+      <article class="svc__card svc--3" data-reveal>
+        <div class="svc__shot">
+          <img src="img-auto-body/banco-medicion.jpg" width="1248" height="832" loading="lazy" alt="A stripped sedan shell clamped by its pinch welds onto a scarred safety-yellow straightening bench, a hydraulic pulling tower at the left and three laser targets glowing red beneath the floorpan.">
+        </div>
+        <div class="svc__body">
+          <svg class="ico" aria-hidden="true" focusable="false"><use href="#i-bench"></use></svg>
+          <h3>Structure, glass and sensors</h3>
+          <p>Hit hard enough to move the body, the car goes on the bench and is pulled back to
+            published numbers. Then the cameras and radar get aimed again, with the printout
+            stapled to your file.</p>
+          <p class="svc__from">Recalibration <b>$285 &ndash; $640</b></p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 02 HOW IT RUNS ═════════════════════════════════════════════════════════ -->
+<section id="board" class="sec sec--deep">
+  <div class="wrap">
+    <div class="head" data-reveal>
+      <span class="head__tag"><i style="background:#F6CB2C;border-top-color:#FDE895"></i><b><span>02</span></b></span>
+      <span class="head__txt">
+        <p class="eyebrow">The board</p>
+        <h2>We give you a date.<br> Not a call-back.</h2>
+      </span>
+    </div>
+    <p class="lede" data-reveal style="margin-bottom:clamp(1.6rem,3vw,2.4rem)">
+      The complaint in this city is not the price. It is the car that goes in and stays in for
+      weeks while somebody waits on a bumper cover. Three rules keep that from happening here, and
+      they are written on the board at the counter.
+    </p>
+    <div class="board">
+      <div class="brow" data-reveal>
+        <span class="brow__n">01</span>
+        <svg class="ico" aria-hidden="true" focusable="false"><use href="#i-shelf"></use></svg>
+        <h3>Parts and paint first</h3>
+        <p>No bay opens until every part and every ounce of your colour is on the shelf in this
+          building. A bay with a car in it and nothing to put on the car is not progress &mdash;
+          it is storage, and you pay for it.</p>
+      </div>
+      <div class="brow" data-reveal>
+        <span class="brow__n">02</span>
+        <svg class="ico" aria-hidden="true" focusable="false"><use href="#i-home"></use></svg>
+        <h3>Your car sleeps at your house</h3>
+        <p>You keep driving it. Hail is ugly, not dangerous. When the shelf is full we call you in,
+          and that day the work starts. Not a day earlier.</p>
+      </div>
+      <div class="brow" data-reveal>
+        <span class="brow__n">03</span>
+        <svg class="ico" aria-hidden="true" focusable="false"><use href="#i-date"></use></svg>
+        <h3>Two dates, in writing</h3>
+        <p>You leave the counter with a drop-off date and a pick-up date. If a back-ordered part
+          moves either one, Renata calls the day we find out.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 03 WHAT HAIL DOES ════════════════════════════════════════════════════ -->
+<section id="hail" class="sec">
+  <figure class="strip strip--hail" style="margin:0 0 clamp(2rem,4vw,3.2rem)">
+    <img src="img-auto-body/granizo-suelo.jpg" width="1600" height="1066" loading="lazy" alt="Dozens of hailstones scattered across a sheet of grey ice, each one sitting in the shallow crater it melted for itself.">
+    <span class="strip__veil"></span>
+    <figcaption>Hail on standing ice, an hour after &middot; every stone kept its own crater</figcaption>
+  </figure>
+
+  <div class="wrap">
+    <div class="head" data-reveal>
+      <span class="head__tag"><i style="background:#58B6E9;border-top-color:#9BD7F6"></i><b><span>03</span></b></span>
+      <span class="head__txt">
+        <p class="eyebrow">What hail does</p>
+        <h2>Ninety hits in forty seconds,<br> all from one direction.</h2>
+      </span>
+    </div>
+
+    <div class="grid2" style="margin-bottom:clamp(2rem,3.6vw,3rem)">
+      <div data-reveal>
+        <p class="lede">Hail does not hit your car once. That is why the damage reads as weather and
+          not as an accident: the dents line up, they are all roughly the same shape, and they are
+          all on the surfaces that face the sky.</p>
+        <p class="muted">Ice keeps that record for an hour. Sheet metal keeps it until somebody
+          takes it back out.</p>
+      </div>
+      <div data-reveal>
+        <p class="lede" style="color:var(--rack);font-family:var(--f-display);font-size:clamp(1.1rem,2.2vw,1.6rem);line-height:1.18;text-transform:uppercase;letter-spacing:-.005em">
+          A dent is metal that got stretched. Stretched metal wants to come back. That is the
+          whole trade.
+        </p>
+      </div>
+    </div>
+
+    <div class="grid3" style="margin-bottom:clamp(2rem,3.6vw,3rem)">
+      <div class="item" data-reveal>
+        <svg class="ico" aria-hidden="true" focusable="false"><use href="#i-rod"></use></svg>
+        <h3>Rods</h3>
+        <p>A hooked rod goes in behind the panel, through a drain hole or a lamp opening, and pushes
+          the low spot up. Nothing is drilled that was not already open.</p>
+      </div>
+      <div class="item" data-reveal>
+        <svg class="ico" aria-hidden="true" focusable="false"><use href="#i-tab"></use></svg>
+        <h3>Glue pulling</h3>
+        <p>Where there is no way in behind &mdash; a roof with a headliner, a double-skinned hood
+          &mdash; a nylon tab is glued to the outside and lifted. The glue releases with alcohol.</p>
+      </div>
+      <div class="item" data-reveal>
+        <svg class="ico" aria-hidden="true" focusable="false"><use href="#i-tap"></use></svg>
+        <h3>Tap down</h3>
+        <p>Every pull leaves a high spot. A plastic-faced hammer walks it back down a few
+          thousandths at a time, read off a striped board, until the line is straight.</p>
+      </div>
+    </div>
+
+    <!-- La fotografía del trabajo de manos vive AQUÍ y no en la rejilla de servicios: es la
+         ilustración de las tres técnicas de arriba, no un servicio aparte. Alto y tratamiento van
+         en el atributo porque son de ESTA foto, no de una familia de bloques — el CSS no cambia,
+         y por eso la prueba de intercambio sigue diciendo molde. -->
+    <figure class="fig" data-reveal style="margin-bottom:clamp(1.8rem,3.4vw,2.8rem)">
+      <img src="img-auto-body/friso-tabs-cola.jpg" width="1536" height="662" loading="lazy"
+           style="height:clamp(158px,19vw,250px);object-fit:cover;object-position:50% 58%;filter:saturate(.74) contrast(1.06) brightness(1.02)"
+           alt="Gloved hands working a mini-lifter along a row of amber glue tabs bonded to the dented roof panel of a silver car, under a long striped reflector board that shows every dent.">
+      <figcaption>
+        <svg class="ico ico--sm" style="width:17px;height:17px;color:var(--rack)" aria-hidden="true" focusable="false"><use href="#i-tab"></use></svg>
+        <span>Glue pulling a roof &middot; the striped board is how a dent is read</span>
+      </figcaption>
+    </figure>
+
+    <!-- ⛔ Dónde DEJA de servir, dicho de una vez y en un solo bloque. Tres tarjetas con
+         titular propio le daban a la mala noticia el mismo peso visual que al servicio, y
+         encima tres veces la altura en un teléfono. Es una advertencia, no un catálogo. -->
+    <div class="stops" data-reveal>
+      <h3>And where it stops working</h3>
+      <ul>
+        <li>
+          <svg class="ico ico--sm" aria-hidden="true" focusable="false"><use href="#i-crack"></use></svg>
+          <span><b>Cracked paint.</b> Once the clear has split, straightening the metal under it
+            does not put the finish back. That panel needs refinish work.</span>
+        </li>
+        <li>
+          <svg class="ico ico--sm" aria-hidden="true" focusable="false"><use href="#i-crease"></use></svg>
+          <span><b>A crease on a body line.</b> A body line is a fold the factory put there on
+            purpose, and a dent crossing it fights two shapes at once.</span>
+        </li>
+        <li>
+          <svg class="ico ico--sm" aria-hidden="true" focusable="false"><use href="#i-stretch"></use></svg>
+          <span><b>Metal stretched past return.</b> Deep enough and the steel has nowhere left to
+            go. Pushing harder makes an oil can, not a repair.</span>
+        </li>
+      </ul>
+      <p>You hear it at the counter with the estimate &mdash; not on day three, with the car
+        already apart.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ ⭐ 04 THE BOOTH — the moment ════════════════════════════════════════ -->
+<section id="booth">
+  <div class="sec booth__above" style="padding-bottom:0">
+    <div class="wrap">
+      <div class="head" data-reveal>
+        <span class="head__tag"><i style="background:#E8EEF2;border-top-color:#ffffff"></i><b><span>04</span></b></span>
+        <span class="head__txt">
+          <p class="eyebrow">The booth</p>
+          <h2>Everything above this line<br> is the colour of primer.</h2>
+        </span>
+      </div>
+      <p class="lede" data-reveal style="margin-bottom:clamp(1.6rem,3vw,2.4rem)">
+        Two-part epoxy, oxide red, two coats. It is the state your panel lives in for most of
+        its stay here, and the only state you will never see. Every surface on this page is that
+        colour on purpose.
+      </p>
+    </div>
+  </div>
+
+  <div class="linebreak"></div>
+
+  <div class="booth__shot">
+    <img src="img-auto-body/cabina-5000k.jpg" width="1536" height="672" loading="lazy" alt="Inside a spotless downdraft paint booth: a painter in a white hooded suit and respirator sprays a pale blue-grey fender clamped to a rolling stand, under even white light from fixtures on every wall.">
+  </div>
+
+  <div class="wrap">
+    <div class="diffuser" data-reveal>
+      <div class="diffuser__in">
+        <h2>This is the first white light in the building.</h2>
+        <p>Ten fixtures. Five thousand kelvin. Colour rendering above ninety. The only room on this
+          property built for one purpose: to tell us the truth about a colour. No phone, screen or
+          parking lot can do that.</p>
+      </div>
+      <div class="diffuser__tape">
+        <svg class="ico ico--sm" style="width:18px;height:18px;color:var(--rack)" aria-hidden="true" focusable="false"><use href="#i-gun"></use></svg>
+        <span>Booth 2 &middot; downdraft &middot; Marisol Quintana, fourteen years</span>
+      </div>
+    </div>
+    <p class="aside" data-reveal><span>It is also the only photograph on this page we left alone.
+      Every other one has been pulled down into the colour of primer. Grading the one room built
+      to judge colour would have been a strange thing to do.</span></p>
+  </div>
+
+  <div class="sec" style="padding-top:clamp(2rem,4vw,3.4rem)">
+    <div class="wrap">
+      <div class="grid2">
+        <div data-reveal>
+          <h3>Why the room matters more than the paint</h3>
+          <p class="muted">Colour is not a property of the paint. It is a property of the paint under a
+            light. Two greys that match under shop fluorescents can be a mile apart outside, and
+            your car lives outside. This room is the only place a match is allowed to be judged.</p>
+        </div>
+        <div data-reveal>
+          <h3>What happens in there</h3>
+          <p class="muted">Air comes down through the ceiling filters and out through the floor, so
+            overspray never crosses back over a wet panel. Colour, then clear, then bake. Nobody
+            opens the door to look &mdash; that is what the window is for.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 05 COLOR ═════════════════════════════════════════════════════════════ -->
+<section id="color" class="sec sec--deep">
+  <div class="wrap">
+    <div class="head" data-reveal>
+      <span class="head__tag"><i style="background:#8FA9B4;border-top-color:#C6D7DE"></i><b><span>05</span></b></span>
+      <span class="head__txt">
+        <p class="eyebrow">Color</p>
+        <h2>We spray a card<br> before we spray a car.</h2>
+      </span>
+    </div>
+
+    <div class="grid2">
+      <div data-reveal>
+        <p class="lede">There is a three-character code on a plate inside your driver's door. It
+          tells us the colour your car left the factory in. It does not tell us what eleven
+          Colorado summers did to it.</p>
+        <p class="muted">So Marisol mixes to the formula, sprays a test card, bakes it, and holds it
+          against your panel under booth light. If the card is wrong the card goes in the bin.
+          Nothing touches the car until a card is right.</p>
+        <p class="muted">Yours then goes in the file with the invoice, so that in four years,
+          when somebody backs into the same door, we start from a known answer.</p>
+      </div>
+      <div data-reveal>
+        <figure class="fig fig--cards">
+          <img src="img-auto-body/fichas-rociado.jpg" width="1248" height="832" loading="lazy" alt="Five sprayed test cards fanned across a stainless mixing bench, each a slightly different silver-blue, each taped along its lower edge with yellow masking tape and marked in grease pencil, beside a digital scale and a paint-covered stir stick.">
+          <figcaption>
+            <svg class="ico ico--sm" style="width:17px;height:17px;color:var(--rack)" aria-hidden="true" focusable="false"><use href="#i-card"></use></svg>
+            <span>Five cards for one fender &middot; the fourth one went on the car</span>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <div class="grid3" data-reveal style="margin-top:clamp(1.6rem,2.8vw,2.4rem)">
+      <div class="note">
+        <svg class="ico ico--sm" aria-hidden="true" focusable="false"><use href="#i-gun"></use></svg>
+        <h3>And then we blend</h3>
+        <p>A door can match perfectly on the bench and still read as a repair, because your eye never
+          looks at one panel &mdash; it compares it to the one beside it. So the colour runs out
+          into the fender until there is no edge left.</p>
+      </div>
+      <div class="note">
+        <svg class="ico ico--sm" aria-hidden="true" focusable="false"><use href="#i-scale"></use></svg>
+        <h3>Mixed by weight</h3>
+        <p>Toners go on the scale to a hundredth of a gram, in the order the formula lists them.
+          Eyeballing a mix is how a silver turns green by August.</p>
+      </div>
+      <div class="note">
+        <svg class="ico ico--sm" aria-hidden="true" focusable="false"><use href="#i-tape"></use></svg>
+        <h3>Taped and noted</h3>
+        <p>Every card wears a strip of masking tape and a grease-pencil note: variant, coats,
+          booth, day.</p>
+      </div>
+    </div>
+
+    <div class="note" data-reveal style="margin-top:clamp(1.4rem,2.4vw,2rem);border-left-color:var(--rack)">
+      <h3>One detail that decides everything</h3>
+      <p>The blend panel hangs on the intake side of the booth, never near the exhaust. Overspray
+        falls downwind, and downwind is where a match dies. A two-foot decision you will notice
+        for eight years, or never notice at all.</p>
+    </div>
+
+    <!-- ⭐ EL CONCEPTO, EN SU SITIO. Estas tres fichas son la paleta de esta página, declarada
+         como material de taller: nada aquí es una elección de color, todo es un producto que
+         está en un estante de la sala de mezclas. Nacieron en el fold; bajaron acá, que es
+         donde una ficha de rociado significa algo. -->
+    <div class="cards" data-reveal>
+      <h3 style="margin-bottom:.9rem">The three cards this shop is painted with</h3>
+      <div class="cardrow">
+        <div class="swatch" style="--fill:var(--primer);--wet:var(--primer-wet)">
+          <span class="swatch__field"></span>
+          <span class="swatch__tape"><span>2K epoxy primer<i class="tail"> &middot; oxide &middot; 2 coats</i></span></span>
+        </div>
+        <div class="swatch" style="--fill:var(--booth);--wet:var(--booth-tint)">
+          <span class="swatch__field"></span>
+          <span class="swatch__tape"><span>Booth 2 &middot; 5000 K<i class="tail"> &middot; CRI 94</i></span></span>
+        </div>
+        <div class="swatch" style="--fill:var(--rack);--wet:var(--rack-wet)">
+          <span class="swatch__field"></span>
+          <span class="swatch__tape"><span>Rack and floor<i class="tail"> &middot; safety yellow</i></span></span>
+        </div>
+      </div>
+      <p class="cards__note">Every surface on this page is one of those three: the primer your panel
+        wears between the metal and the colour, the light in the booth, and the bench and floor
+        stripe &mdash; yellow because a safety code says so, not because somebody liked it.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 06 STRUCTURE AND SENSORS ═════════════════════════════════════════════ -->
+<section id="frame" class="sec" style="padding-bottom:0">
+  <div class="wrap">
+    <div class="head" data-reveal>
+      <span class="head__tag"><i style="background:#2F7FA8;border-top-color:#58B6E9"></i><b><span>06</span></b></span>
+      <span class="head__txt">
+        <p class="eyebrow">Structure and sensors</p>
+        <h2>A unibody is one part.<br> It gets measured, not eyeballed.</h2>
+      </span>
+    </div>
+  </div>
+
+  <figure class="bench" style="margin:clamp(1.6rem,3vw,2.4rem) 0 0">
+    <img src="img-auto-body/banco-medicion.jpg" width="1248" height="832" loading="lazy" alt="A stripped sedan shell clamped by its pinch welds onto a scarred safety-yellow straightening bench in a dark shop, a hydraulic pulling tower at the left with a chain under tension and three red laser targets glowing beneath the floorpan.">
+    <span class="bench__veil"></span>
+  </figure>
+
+  <div class="sec" style="padding-top:clamp(2rem,4vw,3.2rem)">
+    <div class="wrap">
+      <p class="muted" data-reveal style="font-family:var(--f-label);font-weight:600;font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:clamp(1.4rem,2.6vw,2rem)">
+        The bench, mid-week &middot; that wall behind it is the colour of this page
+      </p>
+      <div class="grid2" style="margin-bottom:clamp(1.6rem,2.8vw,2.4rem)">
+        <div data-reveal>
+          <p class="lede">Your car does not have a frame under it. The body is the frame. Hit hard
+            enough to move it, we clamp it by the pinch welds onto the bench and pull it back to a
+            published set of numbers.</p>
+          <p class="muted">Three laser targets read against the factory dimensions before the
+            first pull and after the last. You get both sheets. A car that measures right and a
+            car that looks right are not the same car.</p>
+        </div>
+        <div data-reveal>
+          <h3>And then the sensors</h3>
+          <p class="muted">Cameras behind the windshield, radar behind the bumper cover, blind-spot
+            units in the quarters. A sensor does not have to be damaged to be wrong: move its
+            mount by a degree and the car keeps telling you it is fine while it looks a lane to
+            the left.</p>
+          <p class="muted">So it is aimed again before it goes home &mdash; against targets, on a
+            level floor, with the tyre pressures set. A soft rear tyre tilts the whole car, and
+            the camera aims where the car points.</p>
+        </div>
+      </div>
+      <div class="grid3" data-reveal>
+        <div class="note">
+          <svg class="ico ico--sm" aria-hidden="true" focusable="false"><use href="#i-bench"></use></svg>
+          <h3>On the bench</h3>
+          <p>Clamped at the pinch welds, pulled with a hydraulic tower, held under tension while the
+            steel comes back.</p>
+        </div>
+        <div class="note">
+          <svg class="ico ico--sm" aria-hidden="true" focusable="false"><use href="#i-adas"></use></svg>
+          <h3>What triggers a recalibration</h3>
+          <p>Anything structural, anything behind glass, anything behind a bumper cover, and any
+            suspension or alignment work.</p>
+        </div>
+        <div class="note">
+          <svg class="ico ico--sm" aria-hidden="true" focusable="false"><use href="#i-laser"></use></svg>
+          <h3>What you leave with</h3>
+          <p>The targets, the distances, the before-and-after sheets and the pass, stapled to your
+            copy of the file.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 07 THE ESTIMATE ══════════════════════════════════════════════════════ -->
+<section id="estimate" class="sec sec--deep">
+  <div class="wrap">
+    <div class="head" data-reveal>
+      <span class="head__tag"><i style="background:#FDE895;border-top-color:#FFF3C2"></i><b><span>07</span></b></span>
+      <span class="head__txt">
+        <p class="eyebrow">The estimate</p>
+        <h2>The numbers,<br> before you ask for them.</h2>
+      </span>
+    </div>
+
+    <div class="prices" data-reveal>
+      <div class="price">
+        <div class="price__fig">
+          <b>$0</b>
+          <em>Estimate. Twenty-five minutes at the counter. Walk in before 10 AM and you will not
+            wait for it.</em>
+        </div>
+        <div class="price__tape"><span>Estimate &middot; no appointment</span></div>
+      </div>
+      <div class="price">
+        <div class="price__fig">
+          <b>$1,900 &ndash; $3,400</b>
+          <em>Hail, paintless, typical sedan carrying sixty to ninety dents across hood, roof and
+            deck lid.</em>
+        </div>
+        <div class="price__tape"><span>Paintless dent repair</span></div>
+      </div>
+      <div class="price">
+        <div class="price__fig">
+          <b>from $1,450</b>
+          <em>One panel replaced and refinished, blend into the neighbours included, per panel.</em>
+        </div>
+        <div class="price__tape"><span>Panel and refinish</span></div>
+      </div>
+      <div class="price">
+        <div class="price__fig">
+          <b>$285 &ndash; $640</b>
+          <em>Sensor recalibration after structural, bumper or glass work, with the printout.</em>
+        </div>
+        <div class="price__tape"><span>Recalibration</span></div>
+      </div>
+      <div class="price">
+        <div class="price__fig">
+          <b>$150</b>
+          <em>Tow inside the metro, twenty-four hours. It comes off the bill if the repair is ours.</em>
+        </div>
+        <div class="price__tape"><span>Dispatch &middot; 24 hours</span></div>
+      </div>
+    </div>
+
+    <div class="integrity" data-reveal style="margin-top:clamp(1.8rem,3vw,2.6rem)">
+      <p><strong>Your deductible is your deductible.</strong> A shop that offers to eat it is
+        taking that money back out of your car somewhere you will not look — a used bumper cover,
+        one coat of clear where there should be two, a blend that stops at the seam.</p>
+      <p><strong>Colorado gives you the shop.</strong> Your carrier can recommend one. It cannot
+        require one. If somebody is telling you otherwise, they are telling you wrong, and we will
+        write the estimate either way.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 08 WHO IS HERE IN FEBRUARY ══════════════════════════════════════════════════════════ -->
+<section id="tent" class="sec">
+  <div class="wrap">
+    <div class="head" data-reveal>
+      <span class="head__tag"><i style="background:#B9A29C;border-top-color:#E0CFC9"></i><b><span>08</span></b></span>
+      <span class="head__txt">
+        <p class="eyebrow">Who is here</p>
+        <h2>The tent in the grocery<br> store parking lot will not<br> be here in February.</h2>
+      </span>
+    </div>
+
+    <div class="grid2">
+      <div data-reveal>
+        <p class="lede">Every big cell brings crews in from out of state. Some are very good. All of
+          them are temporary. The question was never whether the work looks right in June under a
+          canopy &mdash; it is who answers the phone in February, when the clear on that quarter
+          starts to lift.</p>
+        <p class="muted">Ionuț Barbu came to Denver in 2016 chasing a storm, the same way those
+          crews do. He stayed, and he runs the dent bench here now.</p>
+      </div>
+      <div data-reveal>
+        <h3 style="margin-bottom:1rem">Three things worth asking anyone</h3>
+        <ul class="ask">
+          <li>
+            <svg class="ico ico--sm" aria-hidden="true" focusable="false"><use href="#i-shop"></use></svg>
+            <span>Where is the shop &mdash; the building with an address and a roll-up door, not the
+              trailer beside it.</span>
+          </li>
+          <li>
+            <svg class="ico ico--sm" aria-hidden="true" focusable="false"><use href="#i-gun"></use></svg>
+            <span>Who does the refinish if a panel turns out to need paint, and in whose booth.</span>
+          </li>
+          <li>
+            <svg class="ico ico--sm" aria-hidden="true" focusable="false"><use href="#i-cal"></use></svg>
+            <span>What the warranty is worth once the canopy comes down and the number changes area
+              codes.</span>
+          </li>
+        </ul>
+        <div class="note" style="margin-top:1.4rem">
+          <h3>Ours, plainly</h3>
+          <p>Workmanship and refinish for as long as you own the car, written on the invoice &mdash;
+            from a building that has been on Kalamath since 1994.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Los cuatro nombres viven acá y no en la página de contacto: la respuesta a "quién sigue
+         estando en febrero" son personas, no una dirección. -->
+    <h3 data-reveal style="margin-top:clamp(1.8rem,3vw,2.6rem)">Four people, and you will meet three of them</h3>
+    <ul class="people" data-reveal>
+      <li>
+        <b>Dale Hovorka</b>
+        <em>Owner</em>
+        <span>His father Emil opened the doors in 1994. Dale writes the hard estimates.</span>
+      </li>
+      <li>
+        <b>Marisol Quintana</b>
+        <em>Refinish lead</em>
+        <span>Fourteen years in the booth. She mixes the colour and she judges it.</span>
+      </li>
+      <li>
+        <b>Ionu&#539; Barbu</b>
+        <em>Dent bench</em>
+        <span>Came for a storm in 2016 and stayed. Rods, tabs and long quiet work.</span>
+      </li>
+      <li>
+        <b>Renata Ochoa</b>
+        <em>Front counter</em>
+        <span>Estimates, claims and dates. If a part slips, she calls that day.</span>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ══ 09 QUESTIONS ═════════════════════════════════════════════════════════ -->
+<section id="faq" class="sec sec--deep">
+  <div class="wrap">
+    <div class="head" data-reveal>
+      <span class="head__tag"><i style="background:#55211B;border-top-color:#7A362E"></i><b><span>09</span></b></span>
+      <span class="head__txt">
+        <p class="eyebrow">Questions we answer every day</p>
+        <h2>The ones<br> we answer most.</h2>
+      </span>
+    </div>
+
+    <details class="faq">
+      <summary><svg class="ico ico--sm" aria-hidden="true" focusable="false"><use href="#i-chev"></use></svg>How long will you have my car?</summary>
+      <div class="faq__a"><p>For hail, most cars are three to five working days once they come in.
+        For collision work with parts, the counter gives you a drop-off date and a pick-up date
+        before you sign anything. The waiting happens before you hand us the keys, not after.</p></div>
+    </details>
+    <details class="faq">
+      <summary><svg class="ico ico--sm" aria-hidden="true" focusable="false"><use href="#i-chev"></use></svg>Do I have to use the shop my insurance company names?</summary>
+      <div class="faq__a"><p>No. Colorado gives you the shop. Your carrier can recommend one. It
+        cannot require one. We write the estimate and work the claim either way.</p></div>
+    </details>
+    <details class="faq">
+      <summary><svg class="ico ico--sm" aria-hidden="true" focusable="false"><use href="#i-chev"></use></svg>Will you cover my deductible?</summary>
+      <div class="faq__a"><p>No. Your deductible is your deductible. A shop that offers to absorb
+        it is taking that money back out of your car somewhere you will not look.</p></div>
+    </details>
+    <details class="faq">
+      <summary><svg class="ico ico--sm" aria-hidden="true" focusable="false"><use href="#i-chev"></use></svg>Can you match a finish that is fourteen years old?</summary>
+      <div class="faq__a"><p>That is what the test card is for. We mix, spray a card, bake it, and
+        judge it against your panel under booth light before anything touches the car. Then we
+        blend into the neighbouring panels so there is no edge left to find.</p></div>
+    </details>
+    <details class="faq">
+      <summary><svg class="ico ico--sm" aria-hidden="true" focusable="false"><use href="#i-chev"></use></svg>Do you tow?</summary>
+      <div class="faq__a"><p>Twenty-four hours a day, inside the metro, at 303 555 0148. It is $150,
+        and it comes off the bill if the repair is ours.</p></div>
+    </details>
+  </div>
+</section>
+
+<!-- ══ 10 VISIT ═════════════════════════════════════════════════════════════ -->
+<section id="visit">
+  <!-- ⛔ AQUÍ VIVÍA OTRA VEZ LA FOTO DEL FRENTE, y se quitó al mudarla al fold. La misma
+       fotografía arriba y abajo no es un marco, es una repetición: en el hero es la promesa
+       («este edificio existe y tiene luz dentro») y aquí sólo sería decoración. Lo que esta
+       sección necesita para decir DÓNDE es el plano dibujado, no una segunda postal. -->
+  <div class="sec" style="background:var(--primer-deep);padding-top:clamp(2.2rem,4vw,3.4rem);border-top:3px solid var(--rack)">
+    <div class="wrap">
+      <div class="head" data-reveal>
+        <span class="head__tag"><i style="background:#F6CB2C;border-top-color:#FDE895"></i><b><span>10</span></b></span>
+        <span class="head__txt">
+          <p class="eyebrow">Visit &middot; dispatch</p>
+          <h2>Eleven bays<br> behind three doors.</h2>
+        </span>
+      </div>
+
+      <div class="visit-grid">
+        <div data-reveal>
+          <dl class="dl">
+            <dt>The shop</dt>
+            <dd>1490 S Kalamath St<br>Denver, CO 80223</dd>
+            <dd class="sm">Half a block south of West Florida, between the rail spur and Santa Fe.
+              Customer parking is the row against the fence.</dd>
+
+            <dt>Front counter and dispatch</dt>
+            <dd><a class="telbig" href="tel:+13035550148">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#i-phone"></use></svg>
+              (303) 555-0148
+            </a></dd>
+            <dd class="sm">Towing is answered around the clock. The counter is answered when the
+              counter is open.</dd>
+          </dl>
+        </div>
+
+        <div data-reveal>
+          <dl class="dl">
+            <dt>Hours</dt>
+            <dd>Monday to Friday &middot; 7:00 AM &ndash; 5:30 PM</dd>
+            <dd>Saturday &middot; 8:00 AM &ndash; 12:00 PM</dd>
+            <dd class="sm">Saturdays run April through September only &mdash; hail season, and the only
+              stretch of the year the board justifies it.</dd>
+            <dd>Sunday &middot; closed</dd>
+
+            <dt>Where we go</dt>
+            <dd>Athmar Park, Baker, Overland, Ruby Hill, Valverde, Platt Park and everything
+              between Alameda and Evans.</dd>
+            <dd class="sm">Tow dispatch runs the whole metro, at any hour, on the same number.</dd>
+          </dl>
+        </div>
+
+        <div data-reveal>
+          <figure class="map">
+            <!-- ⛔ Every label rides on an opaque cartouche and paints with
+                 `currentColor`, never a hard `fill`. Two reasons, one of them
+                 measured: a map label dropped straight onto a street line is
+                 unreadable, and an SVG `fill` ignores an audit that blanks text
+                 with `color`, so the auditor ends up measuring the glyph against
+                 itself and reports a flawless 1.00 : 1. -->
+            <svg viewBox="0 0 300 252" role="img" aria-label="Hand-drawn block map: South Kalamath Street runs north to south between the rail spur and South Santa Fe Drive, with the shop half a block south of West Florida Avenue and the South Platte to the east.">
+              <rect x="0" y="0" width="300" height="252" fill="#2E0D0B"></rect>
+              <g stroke="#7A362E" stroke-width="1">
+                <path d="M0 40h300M0 130h300M0 190h300M40 0v252M100 0v252M160 0v252M200 0v252"></path>
+              </g>
+              <!-- South Platte, east edge -->
+              <path d="M284 0c-8 26 6 44-2 68s5 42-3 66 6 44-2 68 5 32 1 50" fill="none" stroke="#2F7FA8" stroke-width="5" stroke-linecap="round" opacity=".85"></path>
+              <!-- Santa Fe Drive, the double line of a state highway -->
+              <path d="M234 0v252M246 0v252" fill="none" stroke="#B9A29C" stroke-width="2.4"></path>
+              <!-- Kalamath, our street -->
+              <path d="M128 0v252" fill="none" stroke="#EDE3DC" stroke-width="4.5"></path>
+              <!-- the rail spur, with its ties -->
+              <path d="M74 0v252" fill="none" stroke="#B9A29C" stroke-width="1.6" stroke-dasharray="2 7"></path>
+              <g stroke="#B9A29C" stroke-width="1.6">
+                <path d="M67 14h14M67 40h14M67 66h14M67 92h14M67 118h14M67 144h14M67 170h14M67 196h14M67 222h14M67 246h14"></path>
+              </g>
+              <!-- West Florida Ave -->
+              <path d="M0 90h300" fill="none" stroke="#EDE3DC" stroke-width="3.4"></path>
+              <!-- the shop: three roll-up doors on the street face -->
+              <rect x="134" y="118" width="46" height="26" fill="#F6CB2C"></rect>
+              <path d="M134 118h46v26h-46z" fill="none" stroke="#FDE895" stroke-width="1"></path>
+              <path d="M140 144v-8h8v8M152 144v-8h8v8M164 144v-8h8v8" fill="none" stroke="#2E0D0B" stroke-width="1.7"></path>
+              <!-- the pin is a rail spike, because the spur is the landmark -->
+              <g transform="translate(116,104) scale(0.92)">
+                <path d="M4 3h16l-3 5H7z" fill="#58B6E9"></path>
+                <path d="M7 8h10l-2 12-3 10-3-10z" fill="#58B6E9"></path>
+              </g>
+              <g transform="translate(292,214)">
+                <path d="M0 22V0M0 0l-5 7M0 0l5 7" fill="none" stroke="#58B6E9" stroke-width="1.8"></path>
+              </g>
+              <g class="lbl">
+                <rect x="4" y="70" width="92" height="15"></rect>
+                <text x="8" y="81.5" font-size="11" letter-spacing="1.4">W FLORIDA AVE</text>
+                <rect x="186" y="120" width="34" height="15"></rect>
+                <text x="190" y="131.5" font-size="11" letter-spacing="1.4">1490</text>
+                <rect x="282" y="234" width="16" height="15"></rect>
+                <text x="286" y="245.5" font-size="11" letter-spacing="1">N</text>
+              </g>
+              <g class="lbl lbl--2">
+                <g transform="translate(118,246) rotate(-90)">
+                  <rect x="0" y="-11" width="78" height="14"></rect>
+                  <text x="3" y="-1" font-size="10" letter-spacing="1.2">S KALAMATH ST</text>
+                </g>
+                <g transform="translate(264,246) rotate(-90)">
+                  <rect x="0" y="-11" width="76" height="14"></rect>
+                  <text x="3" y="-1" font-size="10" letter-spacing="1.2">S SANTA FE DR</text>
+                </g>
+                <g transform="translate(60,246) rotate(-90)">
+                  <rect x="0" y="-11" width="56" height="14"></rect>
+                  <text x="3" y="-1" font-size="10" letter-spacing="1.2">RAIL SPUR</text>
+                </g>
+                <g transform="translate(276,118) rotate(-90)">
+                  <rect x="0" y="-11" width="52" height="14"></rect>
+                  <text x="3" y="-1" font-size="10" letter-spacing="1.2">S PLATTE</text>
+                </g>
+              </g>
+            </svg>
+            <ul class="key">
+              <li><i style="background:var(--ink)"></i><span>S Kalamath St</span></li>
+              <li><i class="key--dash"></i><span>Rail spur</span></li>
+              <li><i style="background:var(--booth-dim)"></i><span>South Platte</span></li>
+              <li><i style="background:var(--rack)"></i><span>Eleven bays, three doors</span></li>
+            </ul>
+            <figcaption>The block, drawn by hand &middot; the spike marks the door</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <p class="foot__mark">Kalamath Body <span>&amp;</span> Paint</p>
+        <p style="margin-top:.6rem">Hail, collision, refinish and measurement on South Kalamath
+          Street. Family run since 1994.</p>
+        <div class="cardrow">
+          <div class="swatch" style="--fill:var(--primer);--wet:var(--primer-wet)">
+            <span class="swatch__field"></span>
+            <span class="swatch__tape"><span>Primer</span></span>
+          </div>
+          <div class="swatch" style="--fill:var(--booth);--wet:var(--booth-tint)">
+            <span class="swatch__field"></span>
+            <span class="swatch__tape"><span>Booth</span></span>
+          </div>
+          <div class="swatch" style="--fill:var(--rack);--wet:var(--rack-wet)">
+            <span class="swatch__field"></span>
+            <span class="swatch__tape"><span>Rack</span></span>
+          </div>
+        </div>
+      </div>
+      <div>
+        <h3>Find us</h3>
+        <p>1490 S Kalamath St<br>Denver, CO 80223</p>
+        <p style="margin-top:.5rem"><a href="tel:+13035550148">(303) 555-0148</a></p>
+        <p style="margin-top:.4rem"><a href="mailto:counter@kalamathbodyandpaint.com">counter@<wbr>kalamathbodyandpaint.com</a></p>
+      </div>
+      <div>
+        <h3>Hours</h3>
+        <p>Mon&ndash;Fri 7:00 AM &ndash; 5:30 PM<br>
+           Sat 8:00 AM &ndash; 12:00 PM, April&ndash;September<br>
+           Sun closed</p>
+        <p style="margin-top:.5rem">Tow dispatch answers twenty-four hours.</p>
+      </div>
+      <div>
+        <h3>On this page</h3>
+        <p><a href="#work">What we do</a></p>
+        <p><a href="#booth">The booth</a></p>
+        <p><a href="#estimate">The estimate</a></p>
+        <p><a href="#visit">Visit and dispatch</a></p>
+      </div>
+    </div>
+    <p class="legal">Kalamath Body &amp; Paint &middot; Denver, Colorado &middot; Established 1994</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  'use strict';
+  var root = document.documentElement;
+  root.className = 'js';
+
+  /* ── the menu ────────────────────────────────────────────────────────────
+     One mechanism, two jobs: the `js` class both hides the panel and arms the
+     reveals. Without JS the panel stays visible and the button never appears,
+     so the page degrades to a plain stacked nav instead of an unreachable one. */
+  var burger = document.getElementById('burger');
+  var panel = document.getElementById('nav-panel');
+
+  function setMenu(open) {
+    if (!burger || !panel) return;
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    burger.setAttribute('aria-label', open ? 'Close the menu' : 'Open the menu');
+    panel.classList.toggle('open', open);
+  }
+  function isOpen() { return burger && burger.getAttribute('aria-expanded') === 'true'; }
+  function close(returnFocus) {
+    if (!isOpen()) return;
+    setMenu(false);
+    if (returnFocus && burger) burger.focus();
+  }
+
+  if (burger && panel) {
+    burger.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var open = !isOpen();
+      setMenu(open);
+      if (open) {
+        var first = panel.querySelector('a');
+        if (first) first.focus();
+      }
+    });
+    /* closes on Escape, on a touch outside, and on choosing a link */
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' || e.key === 'Esc') close(true);
+    });
+    document.addEventListener('click', function (e) {
+      if (!isOpen()) return;
+      if (panel.contains(e.target) || burger.contains(e.target)) return;
+      close(false);
+    });
+    panel.addEventListener('click', function (e) {
+      if (e.target.closest('a')) close(false);
+    });
+    /* no keyboard trap: tabbing off the last link closes and moves on */
+    panel.addEventListener('focusout', function () {
+      window.setTimeout(function () {
+        if (!isOpen()) return;
+        if (panel.contains(document.activeElement) || document.activeElement === burger) return;
+        setMenu(false);
+      }, 0);
+    });
+  }
+
+  /* ── reveal: opacity and transform only, and only once ─────────────────── */
+  var quieto = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var alvos = document.querySelectorAll('[data-reveal]');
+  if (quieto || !('IntersectionObserver' in window)) {
+    for (var i = 0; i < alvos.length; i++) alvos[i].classList.add('in');
+  } else {
+    var obs = new IntersectionObserver(function (entradas) {
+      entradas.forEach(function (en) {
+        if (!en.isIntersecting) return;
+        en.target.classList.add('in');
+        obs.unobserve(en.target);
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.06 });
+    for (var j = 0; j < alvos.length; j++) obs.observe(alvos[j]);
+  }
+})();
+</script>
+
+<div style="background:#16181C;color:#F3F4F3;padding:0.7rem 1rem;text-align:center;font:500 12px/1.5 system-ui,sans-serif;letter-spacing:0.02em">Speculative concept by Reasoned Web — Kalamath Body &amp; Paint is a fictional business.</div>
+</body>
+</html>

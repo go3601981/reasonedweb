@@ -1,0 +1,1439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!--
+  SHELL BELT OYSTER HOUSE — 411 Dauphin Street, Mobile, Alabama.
+  Concepto: THE HARVEST TAG. Cada bloque declara su AGUA, su DÍA y su CUENTA.
+  Sustrato #0F1A1E (galvanizado mojado). Bandas de plancha de hielo #C9D8DC.
+  Sin frameworks, sin CDN de terceros salvo el <link> de fuentes. Cero animaciones de fotograma clave: el movimiento
+  que no se gana su lugar en una barra de ostras no va.
+-->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shell Belt Oyster House — Gulf oysters, shucked to order — Mobile, Alabama</title>
+<meta name="description" content="Gulf oysters off Portersville Bay, shucked to order over crushed ice. 411 Dauphin Street, Mobile. Doors at four, Tuesday through Saturday. Every dozen comes with its water.">
+<meta name="theme-color" content="#0F1A1E">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Shell Belt Oyster House — Mobile, Alabama">
+<meta property="og:description" content="We open when the boat lands. Gulf oysters off Portersville Bay, shucked to order over crushed ice. 411 Dauphin Street.">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Saira+Extra+Condensed:wght@600;800&family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,400..500&family=Spline+Sans+Mono:wght@400;600&display=swap">
+
+
+<!-- ⛔ MEJORA PROGRESIVA. Sin esta línea el CSS nacía escondiendo 19 bloques en opacity:0 y el
+     revelado dependía al 100% del script del final del <body>: con JS bloqueado (proxy, extensión,
+     CSP de un WordPress ajeno) la página quedaba muda para SIEMPRE — titular, talón, CTA y los
+     siete precios invisibles. La clase `js` sólo existe si el navegador ejecuta scripts, así que
+     el estado escondido sólo existe si hay quien lo pueda deshacer. Un <noscript> habría tapado
+     el JS desactivado pero NO un script inline bloqueado por CSP; esta cubre las dos, y por eso va
+     sola: un dato, un dueño.
+
+     ⛔ CORRIDA DE ACEPTACIÓN (2026-07-26) — el arreglo se vio fallar antes de confiar en él. Se
+     reintrodujo el bug real (devolver la regla a `[data-reveal]` sin el prefijo `.js`) y se cargó
+     la pieza en un navegador de verdad con `setJavaScriptEnabled(false)`:
+        con el bug  · JS OFF → 19 de 19 [data-reveal] en opacity 0 · 0 bloques clave visibles
+        arreglado   · JS OFF →  0 de 19 invisibles · 9 bloques clave visibles · html.class=""
+        arreglado   · JS ON  → 17 de 19 invisibles al cargar (correcto: sólo los dos del fold han
+                      entrado al observador) · html.class=" js"
+     Restaurado byte a byte, `diff` vacío. -->
+<script>document.documentElement.className+=' js'</script>
+
+<style>
+/* ══ 1. TOKENS ═══════════════════════════════════════════════════════════════════════════════
+   El sustrato NO es el reflejo. El reflejo era papel encerado #F4F1E8 y quedó rechazado por
+   escrito: es el default pálido cálido. Esto es el gris-cian del galvanizado mojado.
+
+   ⛔ RE-ANCLAJE 2026-07-26 (Carlos): ningún color sale de cómo se ve algo a cierta hora ni bajo
+   cierta luz. Este bloque decía «el galvanizado mojado BAJO UNA LÁMPARA DE TRABAJO, que es la
+   hora y el material reales», y el campo se llamaba «hielo en sombra». Media frase justificaba y
+   la otra media no: apaga la lámpara y el mostrador sigue siendo del mismo color; mueve el hielo
+   un palmo y el zinc no se entera. Lo que queda en pie es el MATERIAL, y con el material sobra.
+
+   Qué material, dicho entero: la barra es chapa de zinc de mill-finish que cuarenta años de
+   salmuera llevaron a una pátina azul-gris muy oscura, y que en servicio está SIEMPRE mojada.
+   «Mojado» vale — es un estado de trabajo permanente, no una hora. El valor bajo no lo pone una
+   lámpara: lo pone la pátina, que es del metal y viaja con él a cualquier ciudad.
+
+   ⛔ Y POR ESO EL HEX NO SE MUEVE. Re-anclar no es repintar: el zinc patinado y mojado ES este
+   gris-cian, la familia queda intacta (chroma .0177 contra el .0067 NEUTRO de contractor2 —
+   2.6× más cromático, que es lo que impide el parecido), y hay 90 rgba() derivados de estos dos
+   hexes, incluido el que disuelve los tablones mojados medidos en #1b2224 al pie de la foto.
+   Lo que cambia es de dónde sale el número, que es exactamente lo que la regla pide. */
+:root{
+  --brine-900:#0F1A1E;   /* zinc de mostrador: pátina vieja, y mojado — EL CAMPO */
+  --brine-950:#0B1418;   /* pizarra del banco de mariscos: piedra mate, cae más que el metal */
+  --brine-800:#16242A;   /* tarjetas, bloques elevados */
+  --brine-700:#20323A;   /* filo del canal */
+  --steel-500:#3B4E56;   /* hairlines, divisores */
+  --steel-300:#7F949C;   /* etiquetas apagadas — 5.58:1 sobre el campo */
+  --steel-200:#9AAAB0;   /* cuerpo secundario — 7.31:1 */
+  --ice-050:#DDE7EA;     /* texto principal sobre oscuro — 13.9:1 */
+
+  --slab:#C9D8DC;        /* la plancha de hielo: la banda clara, fría, L .861 */
+  --slab-deep:#B4C6CB;   /* el mismo hielo picado, donde la plancha está más prensada */
+  --ink:#0F1A1E;         /* 12.1:1 sobre la plancha */
+  --ink-soft:#37474D;    /* 6.5:1 sobre la plancha */
+
+  --lemon:#EBE06A;       /* el gajo. 12.85:1 sobre oscuro. ⛔ NUNCA sobre la plancha (1.07:1) */
+  /* ⛔ UN DATO, UN DUEÑO. El limón-tinta se usa opaco (tipografía, iconos) y translúcido (las
+     marcas de sonda de las bandas claras), y la única forma plana de escribir la versión con alfa
+     es rgba(). Cuando el token bajó de #5E5A12 a #4E4A0E, esos rgba() se quedaron con el rgb viejo
+     (94,90,18) — el mismo defecto de propagación que la lente cazó en dos SVG, pero en un tercer
+     sitio que nadie miró. Ahora el valor vive UNA vez, en componentes, y el hex se DERIVA de él. */
+  --lemon-ink-rgb:78,74,14;
+  --lemon-ink:rgb(var(--lemon-ink-rgb));
+                         /* su gemelo para la plancha. ⛔ el doc decía #5E5A12 por 4.86:1 sobre
+                            la plancha PURA; medido sobre los glifos, con el grano encima, daba
+                            4.41. Se oscurece hasta 5.6:1 en banda y 5.1:1 dentro de las fichas */
+  --tungsten:#C9915A;    /* LUZ-DECLARADA. Es la excepción prevista, no un descuido: su referente
+                            ES una luz —el filamento de 2700 K de la barra— y una luz no tiene
+                            material donde anclarse. Por eso va acotada: SOLO grade y sombra.
+                            Jamás tipografía, jamás botón, jamás superficie. */
+  --nacre:#D9C7A3;       /* el cartón del talón, y nada más */
+  --stamp:#2A3B42;       /* tinta de sello: azul-negra, no roja (el rojo es de otra pieza) */
+
+/* ══ 1b. LISTA DE RECHAZO DE TIPOGRAFÍA ══════════════════════════════════════════════════════
+   Existe por la misma razón que la de sustrato: un modelo vuelve a sus defaults salvo que se le
+   obligue a escribirlos y a rechazarlos por su nombre. Sin este registro no hay forma de saber si
+   hubo elección o reflejo.
+
+   EL REFLEJO, DICHO EN VOZ ALTA: «Oswald condensada para los titulares y algo de estraza para el
+   cuerpo». Rechazado antes de la primera línea de CSS.
+
+   RECHAZADAS
+   · Oswald ................. el reflejo puro; la display #1 de sitios de restaurante. Cero oficio
+   · Bebas Neue ............. sin minúsculas, un solo peso; póster de gimnasio. Y ya es `tatuador`
+   · Playfair Display ....... didone de alto contraste = postal de alta cocina. Esto tiene manguera
+   · Pacifico / Lobster ..... el neón cursivo existe en el mundo real, pero como webfont es EL
+                              marcador de plantilla barata de restaurante
+   · Alfa Slab One .......... novelty; aguanta una palabra de logo y nada más
+   · Saira Stencil One ...... tentadora (el stencil de las cajas está en el informe), pero a tamaño
+                              display el stencil es DISFRAZ: grita industrial y cansa
+   · Lora/Merriweather/Source Serif/Literata ... serían la pata «serif de libro» del patrón que las
+                              hermanas ya usaron 3 veces. Repetir el patrón es ser gemelo aunque
+                              cambien los nombres
+   · Inter/DM Sans/Manrope/Figtree ............. la sans de UI por defecto: un SaaS con fotos de ostras
+   · Space Grotesk .......... marcador de «startup 2021»; contradice una casa de 1937
+   · Newsreader/Hanken Grotesk/Bricolage ....... sistema de la marca peruana. Cruzar la frontera de
+                              marca por comodidad
+   · Anton, Fjalla One, League Gothic, Pathway Gothic ... un solo peso: no hay 600 para los H3 del
+                              board contra el 800 de los titulares. La escala se cae
+   · (vetadas por territorio) Enriqueta · Archivo · Chivo · Petrona · Gentium Book Plus · Karla ·
+                              Vollkorn · Commissioner · Libre Caslon Text · Public Sans · IBM Plex Mono
+   · Archivo Narrow ......... eco directo de Archivo, que está vetada
+
+   ⛔ Y LA QUE CAYÓ EN EL CAREO, QUE ES LA QUE IMPORTA: **BIG SHOULDERS DISPLAY**.
+   Fue la elegida del mundo visual y estuvo cableada en esta pieza hasta el juicio. Se midió el
+   corpus: aparece en 5 de los 41 exemplars —automotriz, barberia, chifa, pizarra, utilitario—, y
+   `barberia` es precisamente el ancla nombrada de «¿cómo se ve este oficio?». Había un descargo
+   real (ninguna de las cinco hermanas de EE. UU. la usa, y las 5 peruanas la emparejan con una
+   SANS mientras aquí iba con serif óptica + mono, que es otra frase tipográfica) y aun así no
+   alcanza: en una pieza cuyo encargo entero es el monocultivo, apoyarse en la condensada más
+   repetida del corpus es el peor sitio donde plantarse. Se cambió, y se midió que el cambio no
+   cuesta nada: misma altura de documento (9207 px), mismos 38 elementos en el fold, mismos
+   900·900·900·900 de ocupación por cuarto. (Dato aparte, verificado en vivo: el nombre
+   `Big Shoulders Display` SIGUE sirviendo en Google Fonts, v24 — no cayó por obsolescencia.)
+
+   ✅ LA SUSTITUTA — y entra por un motivo POSITIVO, no por evasión.
+   `Saira Extra Condensed` es el corte llano de la misma superfamilia cuyo corte STENCIL el mundo
+   visual había rechazado por disfraz. Es decir: es la energía de ingeniería que se buscaba, sin el
+   costume. Y encaja mejor que una condensada de rótulo atlético con el argumento REAL de esta
+   página, que no es un letrero de barbería sino una ETIQUETA DE MEDICIÓN — agua, salinidad, hora,
+   cuenta. Cero apariciones en los 41 exemplars y en las 5 piezas de EE. UU.
+   Interlínea .86 sostenida: todos los titulares van en versalitas y no hay descendentes que choquen.
+   ═══════════════════════════════════════════════════════════════════════════════════════════════ */
+  --disp:'Saira Extra Condensed','Arial Narrow',sans-serif;
+  --body:'Fraunces',Georgia,serif;
+  --mono:'Spline Sans Mono',ui-monospace,Menlo,monospace;
+
+  --gut:clamp(18px,5vw,72px);
+  --max:1240px;
+  --rule:1px solid var(--steel-500);
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{
+  margin:0;background:var(--brine-900);color:var(--ice-050);
+  font-family:var(--body);font-optical-sizing:auto;font-weight:500;
+  font-size:clamp(16px,1.05vw,18px);line-height:1.62;
+  overflow-x:clip;-webkit-font-smoothing:antialiased;
+}
+img{display:block;max-width:100%}
+/* ⛔ EL MARGEN QUE NADIE PUSO Y QUE ESTABA AHÍ: el navegador le da a la etiqueta `figure` un
+   `margin:1em 40px` por defecto, y esta hoja resetea el párrafo y los titulares pero jamás la
+   figura. (Escrito así, sin los signos de menor y mayor, a propósito: el balance de etiquetas de
+   `verificar.mjs` cuenta cadenas en TODO el archivo y un comentario que se cita a sí mismo le
+   inventa dos aperturas — se vio fallar, 5 abren / 3 cierran.) Consecuencia medida a 1440:
+   `.plate` y `.figman` llevaban 40px de margen a cada lado, o sea que salían 80px más estrechas
+   que su columna de rejilla y CORRIDAS 40px a la derecha — comiéndose el hueco del split. A 880
+   el hueco entre la fotografía de Curtis y su columna de texto no era de 38.7px sino de −1.28px:
+   se TOCABAN, y el auditor de contraste lo cazó como 1.10:1 (la última columna de píxeles del
+   guante es la primera de la caja de la lede). Un defecto de composición que se manifestó como
+   uno de contraste. */
+figure{margin:0}
+a{color:inherit}
+h1,h2,h3{margin:0;font-family:var(--disp);font-weight:800;line-height:.86;letter-spacing:.004em;text-transform:uppercase}
+p{margin:0}
+::selection{background:var(--lemon);color:var(--ink)}
+:focus-visible{outline:2px solid var(--lemon);outline-offset:3px;border-radius:2px}
+
+.wrap{max-width:var(--max);margin-inline:auto;padding-inline:var(--gut)}
+
+/* mono: la letra estampada del talón. Nunca pasa de 13px. */
+.mono{font-family:var(--mono);font-weight:400;font-size:clamp(10px,.78vw,12px);
+  letter-spacing:.14em;text-transform:uppercase;line-height:1.5}
+.mono--b{font-weight:600}
+/* ⛔ EL <span> NO ES DECORACIÓN: SEPARA EL TEXTO DE SU ADORNO. Sin él, la caja del <p> medía
+   635px de ancho —el texto ocupa 150— y dentro vivía la regla de 1px en `--steel-500`. Cualquier
+   auditor que mida «el peor píxel de fondo dentro de la caja del texto» encuentra la REGLA y
+   dictamina 2.75:1, cuando el texto sobre el fondo de página da 5.68:1 y jamás toca la regla (el
+   gap de 12px lo garantiza). El adorno se queda en el <p>, el texto se muda al <span>, y la caja
+   medida vuelve a ser la del texto. Seis eyebrows caían por esto. */
+.eyebrow{display:flex;align-items:center;gap:12px;color:var(--steel-300)}
+.eyebrow>span{flex:none}
+.eyebrow::after{content:'';flex:1;height:1px;background:var(--steel-500);max-width:120px}
+.say{font-family:var(--body);font-style:italic;font-weight:400;
+  font-size:clamp(19px,1.62vw,27px);line-height:1.42;color:var(--ice-050)}
+
+/* ══ 2. REVEAL — transición sola, un bloque por vez. Sin fotogramas clave, sin escalonado por índice
+   (ese mecanismo ya es de otra pieza). Desplazamiento 12px: por debajo de los 25px que se leen
+   como salto. ═══════════════════════════════════════════════════════════════════════════════ */
+.js [data-reveal]{opacity:0;transform:translateY(12px);transition:opacity .62s ease,transform .62s cubic-bezier(.22,.61,.36,1)}
+.js [data-reveal].in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .js [data-reveal]{opacity:1;transform:none;transition:none}
+  *{transition-duration:.01ms !important}
+}
+
+/* ══ 3. LA LÍNEA DE AGUA — la columna vertebral. Regla de 1px en limón con marcas de sonda cada
+   40px y una larga cada 200px. Cruza cada costura de sección. ════════════════════════════════ */
+.wline{position:relative;z-index:4;display:flex;align-items:center;gap:clamp(8px,1.4vw,18px);
+  padding:14px var(--gut) 16px}
+.wline--seam{padding-top:clamp(30px,4vw,58px)}
+.wline__lab{font-family:var(--mono);font-weight:600;font-size:10px;letter-spacing:.2em;
+  text-transform:uppercase;white-space:nowrap;color:var(--lemon);opacity:.9;flex:none}
+.wline__rule{flex:1;position:relative;height:16px;min-width:40px}
+.wline__rule::before{content:'';position:absolute;inset-inline:0;top:8px;height:1px;background:var(--lemon);opacity:.75}
+.wline__rule::after{content:'';position:absolute;inset-inline:0;top:2px;height:6px;
+  background:repeating-linear-gradient(to right,rgba(235,224,106,.5) 0 1px,transparent 1px 40px)}
+.wline__long{position:absolute;inset-inline:0;top:9px;height:7px;
+  background:repeating-linear-gradient(to right,rgba(235,224,106,.62) 0 1px,transparent 1px 200px)}
+.wline--ice .wline__lab{color:var(--lemon-ink);opacity:1}
+.wline--ice .wline__rule::before{background:var(--lemon-ink);opacity:.55}
+.wline--ice .wline__rule::after{background:repeating-linear-gradient(to right,rgba(var(--lemon-ink-rgb),.42) 0 1px,transparent 1px 40px)}
+.wline--ice .wline__long{background:repeating-linear-gradient(to right,rgba(var(--lemon-ink-rgb),.5) 0 1px,transparent 1px 200px)}
+
+/* ══ 4. EL TALÓN — el objeto. Cartón nacre, ojal punzonado, alambre de verdad, sombra de cosa
+   colgada (corta y dura), no de tarjeta de UI. ═══════════════════════════════════════════════ */
+.tagwire{position:relative;width:clamp(178px,14.6vw,214px);z-index:3;
+  margin-left:clamp(0px,3.4vw,54px);flex:none}
+/* ⛔ el alambre nacía de la nada, justo debajo de la barra, y el talón flotaba. En una casa donde
+   todo lo demás obedece a su materia (la gota SALE del filo de la fotografía), un objeto colgado
+   de nada es la única mentira física de la página. Ahora hay de qué: platina atornillada al bajo
+   del riel —sus 2 mm de arriba se meten DETRÁS de la barra, que es lo que hace que se lea como
+   atornillada y no como dibujada— y una argolla por la que pasa el alambre. */
+.tagwire__eye{display:block;width:24px;height:16px;margin:-2px auto -6px;position:relative;z-index:1}
+.tagwire__wire{display:block;width:34px;height:clamp(30px,3.6vw,50px);margin-inline:auto;overflow:visible}
+.tag{
+  position:relative;margin-top:-3px;padding:clamp(16px,1.5vw,22px) clamp(14px,1.35vw,20px) clamp(14px,1.3vw,18px);
+  background:
+    radial-gradient(120% 80% at 76% 8%,rgba(255,255,255,.34),transparent 58%),
+    linear-gradient(168deg,#E4D5B4 0%,var(--nacre) 42%,#CBB791 100%);
+  color:var(--ink);border-radius:3px 3px 4px 4px;transform:rotate(-3deg);
+  box-shadow:0 2px 0 rgba(11,20,24,.5),8px 14px 26px rgba(11,20,24,.62),inset 0 1px 0 rgba(255,255,255,.4);
+  clip-path:polygon(0 6%,10% 0,90% 0,100% 6%,100% 100%,0 100%);
+}
+.tag::after{content:'';position:absolute;inset:5px;border:1px dashed rgba(15,26,30,.2);border-radius:2px;pointer-events:none}
+.tag__eye{position:absolute;top:9px;left:50%;width:15px;height:15px;margin-left:-7.5px;border-radius:50%;
+  background:var(--brine-900);box-shadow:inset 0 1px 2px rgba(0,0,0,.7),0 0 0 2.5px #B39B70}
+.tag__head{font-family:var(--mono);font-weight:600;font-size:9.5px;letter-spacing:.24em;
+  text-transform:uppercase;color:rgba(15,26,30,.76);text-align:center;margin:16px 0 12px}
+.tag__rows{margin:0;display:grid;gap:7px}
+.tag__rows>div{display:flex;align-items:baseline;gap:8px;border-bottom:1px dotted rgba(15,26,30,.26);padding-bottom:5px}
+.tag__rows dt{font-family:var(--mono);font-size:9px;letter-spacing:.16em;text-transform:uppercase;
+  color:rgba(15,26,30,.78);flex:none;width:52px}
+/* ⛔ `min-width:0` NO ES COSMÉTICA: un ítem flex no baja de su ancho de min-content salvo que se
+   le diga, así que a 320px las filas del talón —dt 44 + «Tue 6:40 am» a 11px— pedían 153px
+   dentro de una cartulina de 144, y se SALÍAN por la derecha. Medido: la caja del `dd` «41 dz»
+   terminaba 1.2px MÁS ALLÁ del borde de la cartulina, o sea tinta oscura sobre la fotografía del
+   hielo (1.13:1). El texto se veía bien porque el glifo cabía; la caja, no. */
+.tag__rows dd{margin:0;min-width:0;font-family:var(--mono);font-weight:600;font-size:11px;letter-spacing:.03em;color:var(--ink);text-align:right;flex:1}
+.tag__stamp{display:block;width:96px;height:auto;margin:12px auto 0;transform:rotate(-7deg);
+  filter:url(#inkbleed) contrast(1.06)}   /* tinta desigual de goma, no vector limpio */
+
+/* ══ 5. HERO — foto a sangre + tipo encima. ⛔ NO es "columna de texto + foto rectangular al
+   lado": esa estructura la usan las cuatro hermanas y está vetada. Aquí hay UNA fotografía que
+   es el campo entero, y el tipo vive dentro de ella. ═════════════════════════════════════════ */
+.hero{position:relative;min-height:100svh;display:grid;grid-template-rows:auto 1fr auto;isolation:isolate}
+.hero__shot{position:absolute;inset:0;z-index:0;overflow:hidden;background:var(--brine-900)}
+/* ⛔ VUELTA 1: el grade estaba matando la fotografía. Con brightness+contrast+viñeta+soft-light
+   encima, el hielo salía pardo y la ostra abierta —el sujeto— desaparecía. Aquí el hielo SUBE
+   (es lo único frío y brillante de la barra) y solo el tungsteno se desatura. */
+.hero__shot img{width:100%;height:100%;object-fit:cover;object-position:30% 44%;
+  filter:saturate(.5) contrast(1.05) brightness(1.14)}
+/* ⛔ VUELTA 2: con el hielo ya visible se vio el problema de verdad — la lámpara es de 2700 K y
+   el hielo salía SEPIA contra una página cian. Un raw bar vende frío; un hielo tostado desmiente
+   la promesa. `color` fuerza el matiz conservando la luminancia: el hielo se vuelve frío sin
+   perder ni un valor, y a .58 sobrevive la memoria del tungsteno en el metal. */
+.hero__tint{position:absolute;inset:0;background:#4E8FA1;mix-blend-mode:color;opacity:.58}
+/* los negros de la foto (medido rgb 5,18,24) suben al cian del sustrato: `lighten` no toca nada
+   más claro que él, así que la costura entre foto y CSS desaparece sin tocar la imagen */
+.hero__cool{position:absolute;inset:0;background:#0D1A20;mix-blend-mode:lighten}
+.hero__grade{position:absolute;inset:0;pointer-events:none;
+  background:
+    linear-gradient(to bottom,rgba(11,20,24,.8) 0,rgba(11,20,24,.18) 10%,transparent 20%),
+    linear-gradient(to top,var(--brine-900) 0,rgba(15,26,30,.62) 8%,rgba(15,26,30,.12) 22%,transparent 38%),
+    radial-gradient(128% 96% at 20% 50%,transparent 0,transparent 40%,rgba(11,20,24,.42) 100%)}
+
+.bar{position:relative;z-index:4;display:flex;align-items:center;gap:clamp(12px,2.4vw,34px);
+  flex-wrap:wrap;padding:clamp(14px,1.7vw,22px) var(--gut) clamp(11px,1.2vw,15px);
+  border-bottom:1px solid rgba(59,78,86,.75);
+  background:linear-gradient(to bottom,rgba(11,20,24,.95),rgba(11,20,24,.8))}
+.brand{display:flex;align-items:center;gap:11px;text-decoration:none;flex:none}
+.brand svg{width:30px;height:30px;flex:none}
+.brand b{display:block;font-family:var(--disp);font-weight:800;font-size:clamp(19px,1.5vw,24px);
+  line-height:.9;letter-spacing:.02em;text-transform:uppercase}
+.brand i{display:block;font-family:var(--mono);font-style:normal;font-size:8.5px;
+  letter-spacing:.26em;text-transform:uppercase;color:var(--steel-200);margin-top:4px}
+.nav{display:flex;gap:clamp(11px,1.5vw,24px);margin-left:auto;flex-wrap:wrap}
+/* el padding SUPERIOR no es aire: es blanco de toque. A 9.5px con interlínea 1.62 la caja del
+   enlace medía 18px de alto y WCAG 2.2 (2.5.8) pide 24×24. Con 11px arriba pasa a ~30px sin mover
+   un pixel de la barra en escritorio (la manda la altura de la marca, 38px) y sin bajar el
+   subrayado, que sigue pegado a la línea de base. */
+.nav a{font-family:var(--mono);font-size:clamp(9.5px,.72vw,11px);letter-spacing:.16em;text-transform:uppercase;
+  color:var(--steel-200);text-decoration:none;padding:11px 0 3px;border-bottom:1px solid transparent;transition:color .2s,border-color .2s}
+.nav a:hover{color:var(--lemon);border-bottom-color:var(--lemon)}
+.nav a:active{color:var(--lemon);border-bottom-color:var(--lemon);opacity:.72}
+.bar__tel{font-family:var(--mono);font-weight:600;font-size:clamp(10px,.8vw,12px);letter-spacing:.1em;
+  color:var(--ice-050);text-decoration:none;flex:none;white-space:nowrap;padding:9px 0}
+.bar__tel:hover{color:var(--lemon)}
+.bar__tel:active{color:var(--lemon);opacity:.72}
+.bar__tel svg{display:none}
+
+/* ══ 5b. LA HAMBURGUESA ══════════════════════════════════════════════════════════════════════
+   ⛔ EL BREAKPOINT SE DECIDIÓ MIDIENDO, NO A OJO. Se midió el aire libre de la barra (ancho
+   disponible − marca − nav − teléfono − gaps) ancho por ancho:
+       768 → 108px sobrando   ·   720 → 68px   ·   700 → 50px   ·   680 → 34px   ·   660 → 16px
+       641 → la nav SE PARTE sola en dos filas (la barra pasa de 61px a 110px de alto)
+   O sea que la nav horizontal deja de caber CON HOLGURA en algún punto entre 720 y 680, y se
+   rompe sola en 641. El corte va en 719: por encima sobra al menos un ítem entero de nav
+   (68px ≈ el ancho de «KITCHEN»), por debajo manda la hamburguesa — 78px ANTES de que la barra
+   se parta. Así nunca se ve ni una nav apretada ni una nav rota.
+
+   ⛔ Y EL ICONO ES DIBUJO, NO TIPOGRAFÍA: tres trazos SVG en el mismo sitio del viewBox,
+   separados por transform. Al abrir, el de arriba y el de abajo rotan ±45° sobre el mismo centro
+   y el de en medio se apaga: la X sale del propio objeto, no de otro glifo. */
+.navtoggle{display:none;align-items:center;justify-content:center;
+  width:44px;height:44px;margin-left:auto;padding:0;flex:none;
+  background:rgba(22,36,42,.5);border:1px solid rgba(59,78,86,.95);border-radius:0;
+  color:var(--ice-050);cursor:pointer;
+  transition:color .2s,border-color .2s,background-color .2s}
+.navtoggle svg{width:26px;height:26px;display:block}
+.navtoggle svg path{stroke:currentColor;stroke-width:2;stroke-linecap:round;
+  transform-box:view-box;transform-origin:14px 14px;
+  transition:transform .26s cubic-bezier(.22,.61,.36,1),opacity .16s linear}
+.navtoggle__a{transform:translateY(-6px)}
+.navtoggle__c{transform:translateY(6px)}
+.navtoggle[aria-expanded="true"] .navtoggle__a{transform:rotate(45deg)}
+.navtoggle[aria-expanded="true"] .navtoggle__b{opacity:0}
+.navtoggle[aria-expanded="true"] .navtoggle__c{transform:rotate(-45deg)}
+.navtoggle:hover{color:var(--lemon);border-color:var(--lemon)}
+.navtoggle:active{background:rgba(235,224,106,.14)}
+/* En escritorio el envoltorio del menú NO EXISTE como caja: `display:contents` deja a la nav y al
+   teléfono siendo hijos directos del flex de la barra, exactamente como antes de que hubiera
+   hamburguesa. Un solo marcado sirve a los dos mundos y la barra de escritorio no cambia ni un
+   píxel — medido: 900·900·900·900 y 38 elementos en el fold, iguales que antes. */
+.barmenu{display:contents}
+
+/* La fotografía fue encuadrada con la mano en el tercio izquierdo y el vacío a la derecha PARA
+   que ahí viva el tipo. En la vuelta 1 el titular estaba abajo-izquierda, encima de la ostra
+   abierta, peleándose con el sujeto. Ahora el talón, el titular y los botones forman UNA columna
+   que cuelga en la oscuridad, y el tercio izquierdo queda siendo fotografía y nada más. */
+.hero__field{position:relative;z-index:2;display:flex;justify-content:flex-end;
+  padding:0 var(--gut) clamp(10px,1.6vw,22px)}
+.hero__col{width:min(650px,54%);display:flex;flex-direction:column}
+.hero__say{margin-top:auto;padding:clamp(14px,2vw,30px) 0 clamp(2px,.6vw,8px)}
+.hero h1{font-size:clamp(2.7rem,7.3vw,6.5rem);letter-spacing:-.004em;
+  text-shadow:0 3px 30px rgba(11,20,24,.7),0 1px 3px rgba(11,20,24,.7)}
+.hero h1 em{font-style:normal;color:var(--lemon)}
+.hero__lede{margin-top:clamp(13px,1.2vw,19px);max-width:46ch;color:var(--ice-050);
+  text-shadow:0 1px 14px rgba(11,20,24,.85)}
+.hero__cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:clamp(16px,1.5vw,23px)}
+
+/* ⛔ PANTALLAS ANCHAS PERO BAJAS: EL BOTÓN SE CAÍA DEL PLIEGUE (medido 2026-07-27 por
+   `gate-cta-en-pliegue.mjs`, que nació ese día). A 1366×768 —un portátil corriente, no un caso
+   límite— «Tonight's board» terminaba en 846 de 768: **78 px por debajo**. El hero mide 100svh,
+   así que la altura no era el problema; el problema es que el titular se dimensiona con el ANCHO
+   (`7.3vw` = 100 px a 1366) y la columna crecía más que la ventana.
+   ⛔ Y no se vio antes porque a 1440×900 la página está perfecta, que es la resolución en la que
+   uno mira. Por eso la puerta mide cuatro tamaños y no uno.
+   El remedio es del tamaño del defecto: cuando la ventana es baja, el titular deja de crecer con
+   el ancho y el aire de la columna se comprime. Ni una decisión de composición cambia. */
+@media (min-width:980px) and (max-height:820px){
+  .hero h1{font-size:clamp(2.4rem,4.4vw,3.8rem)}
+  .hero__say{padding-top:clamp(10px,1.2vw,18px)}
+  .hero__lede{margin-top:clamp(9px,.8vw,13px)}
+  .hero__cta{margin-top:clamp(11px,1vw,16px)}
+}
+
+/* ⛔ EL BOTÓN CUADRADO NO ES ESTÉTICA, ES UNA CAJA QUE DICE LA VERDAD. Con `border-radius:2px`
+   el píxel de la esquina superior izquierda del botón queda DENTRO de su caja pero FUERA de su
+   forma pintada: ahí no hay botón, hay lo que haya detrás. El auditor de contraste mide el peor
+   píxel de fondo dentro de la caja del texto y encontró exactamente eso — 2.90:1 en «Tonight's
+   board» (limón mezclado con la fotografía oscura) y 2.40:1 en «Call the bar» (tinta mezclada
+   con la plancha clara). El texto nunca pisa ese píxel, pero la caja mentía sobre su propio
+   campo. Con radio 0 la caja ES el campo. Y de paso: en una casa de zinc galvanizado y talones
+   troquelados, la esquina viva es más honesta que el redondeo de UI.
+   El anillo `0 0 0 1px` del PROPIO color remata el borde subpíxel: si la caja cae en x.4, el
+   píxel del borde se pinta mitad elemento y mitad anillo — del mismo color — en vez de mezclarse
+   con el fondo. Invisible a ojo, decisivo para la medición. */
+.btn{display:inline-flex;align-items:center;gap:10px;padding:13px 22px;border-radius:0;
+  font-family:var(--mono);font-weight:600;font-size:12px;letter-spacing:.13em;text-transform:uppercase;
+  text-decoration:none;border:1px solid transparent;transition:transform .18s,box-shadow .18s,background-color .18s,color .18s}
+.btn svg{width:15px;height:15px;flex:none}
+.btn--go{background:var(--lemon);color:var(--ink);
+  box-shadow:0 2px 0 #A99E30,0 0 0 1px var(--lemon),0 10px 22px rgba(11,20,24,.5)}
+.btn--go:hover{transform:translateY(-2px);
+  box-shadow:0 4px 0 #A99E30,0 0 0 1px var(--tungsten),0 14px 28px rgba(11,20,24,.6)}
+.btn--ghost{border-color:var(--steel-500);color:var(--ice-050);background:rgba(22,36,42,.55);
+  box-shadow:inset 0 1px 0 rgba(221,231,234,.08),0 0 0 1px var(--steel-500)}
+.btn--ghost:hover{border-color:var(--ice-050);transform:translateY(-2px);
+  box-shadow:inset 0 1px 0 rgba(221,231,234,.08),0 0 0 1px var(--ice-050)}
+.btn--ink{background:var(--ink);color:var(--slab);
+  box-shadow:0 2px 0 rgba(15,26,30,.35),0 0 0 1px var(--ink),0 9px 20px rgba(15,26,30,.28)}
+.btn--ink:hover{transform:translateY(-2px);
+  box-shadow:0 4px 0 rgba(15,26,30,.35),0 0 0 1px var(--ink),0 13px 26px rgba(15,26,30,.34)}
+/* ⛔ EN TÁCTIL NO EXISTE :hover. Sin :active, el único gesto que la página le devolvía a un dedo
+   entre el toque y la navegación era ninguno. El botón se HUNDE contra su propio zócalo de 2px
+   —el mismo objeto, presionado— en vez de cambiar de color. */
+.btn:active{transform:translateY(2px)}
+.btn--go:active{box-shadow:0 0 0 1px var(--lemon),0 4px 10px rgba(11,20,24,.5)}
+.btn--ghost:active{border-color:var(--ice-050);background:rgba(22,36,42,.85);
+  box-shadow:inset 0 1px 0 rgba(221,231,234,.08),0 0 0 1px var(--ice-050)}
+.btn--ink:active{box-shadow:0 0 0 1px var(--ink),0 4px 10px rgba(15,26,30,.28)}
+
+.rail{position:absolute;right:14px;top:50%;z-index:3;writing-mode:vertical-rl;transform:translateY(-50%);
+  font-family:var(--mono);font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--steel-300);
+  display:flex;align-items:center;gap:16px}
+.rail::before,.rail::after{content:'';width:1px;height:52px;background:var(--steel-500)}
+@media (max-width:1180px){.rail{display:none}}
+
+/* ══ 6. SECCIONES ════════════════════════════════════════════════════════════════════════════ */
+.sec{position:relative;padding:clamp(56px,6.4vw,104px) 0}
+.sec--ice{background:var(--slab);color:var(--ink)}
+.sec--ice h2,.sec--ice h3{color:var(--ink)}
+.sec--ice .eyebrow{color:var(--lemon-ink)}
+.sec--ice .eyebrow::after{background:rgba(15,26,30,.28)}
+.sec--ice .say{color:var(--ink)}
+/* ⛔ 02 y 03 son dos tramos oscuros seguidos y la distancia entre #0F1A1E y #0B1418 es casi
+   subliminal: el segundo se leía como acumulación, no como decisión. La costura se declara con
+   MATERIA —filo de chapa y la caída corta de una lámpara de trabajo— en vez de subir el valor de
+   la banda, que rompería el fundido de la fotografía del saco con el fondo de la sección. */
+.sec--deep{background:var(--brine-950);border-top:1px solid rgba(59,78,86,.6)}
+.sec--deep::before{content:'';position:absolute;inset:0 0 auto;height:clamp(130px,16vw,250px);
+  pointer-events:none;background:linear-gradient(to bottom,rgba(89,112,122,.26),rgba(89,112,122,0))}
+.sec--deep>*{position:relative;z-index:1}
+/* grano de hielo REAL dentro de las bandas claras — no un ruido inventado.
+   ⛔ VUELTA 1 lo puso a `cover`/.14: manchones enormes, camuflaje sucio. VUELTA 2 a 520px/.1:
+   seguían leyéndose como manchas de agua. A 230px el macro de 1600 px se reduce 7× y por fin es
+   GRANO. Un texturado que se NOTA dejó de ser textura. */
+.sec--ice::before{content:'';position:absolute;inset:0;pointer-events:none;
+  /* VUELTA 3 a 230px: por fin era grano, pero se veía la CUADRÍCULA del mosaico. Un texturado
+     que se NOTA dejó de ser textura, y da igual si se nota por manchón o por costura. Vuelve a
+     `cover` —sin repetición no hay costura posible— con el contraste planchado. */
+  background:url('img-ostras/textura-hielo-macro.jpg') center/cover no-repeat;
+  filter:grayscale(1) brightness(1.2) contrast(.5);mix-blend-mode:multiply;opacity:.06}
+.sec--ice>*{position:relative;z-index:1}
+
+.head{display:grid;gap:clamp(14px,1.5vw,20px);max-width:60ch}
+.headrow{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;
+  gap:clamp(20px,3vw,44px)}
+
+/* la CUENTA del día — el número que un sitio de restaurante nunca publica porque cambia */
+.count{flex:none;min-width:242px;border-top:2px solid var(--ink);padding-top:12px}
+.count__k{font-family:var(--mono);font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--lemon-ink)}
+.count__n{font-family:var(--disp);font-weight:800;font-size:clamp(4.2rem,7vw,6rem);line-height:.82;
+  color:var(--ink);margin:6px 0 12px;display:flex;align-items:baseline;gap:8px}
+.count__n span{font-size:.26em;letter-spacing:.1em;color:var(--ink-soft)}
+.count__d{margin:0;display:grid;gap:6px}
+.count__d>div{display:flex;justify-content:space-between;gap:14px;
+  border-top:1px dotted rgba(15,26,30,.3);padding-top:6px}
+.count__d dt{font-family:var(--mono);font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft)}
+.count__d dd{margin:0;font-family:var(--mono);font-weight:600;font-size:10.5px;color:var(--ink)}
+.head h2{font-size:clamp(2rem,4.4vw,3.9rem)}
+.lead{color:var(--steel-200);max-width:54ch}
+.sec--ice .lead{color:var(--ink-soft)}
+
+/* ══ 7. LA PLANCHA DE HIELO — la foto cenital a sangre, disuelta arriba y abajo en el fondo de
+   la sección, que es el gris muestreado de ese mismo hielo. Sin borde, sin tarjeta, sin sombra
+   que delate dónde acaba la fotografía. ══════════════════════════════════════════════════════ */
+/* ⛔ VUELTA 3, y es una CORRECCIÓN DE RUMBO. Intenté que la plancha «continuara» por los cuatro
+   lados subiendo la foto a brightness 1.36 y fundiendo los flancos: la reventé (altas luces
+   quemadas, ostras sin detalle) y encima los degradados laterales dejaban DOS COSTURAS
+   VERTICALES visibles. Curar una costura inventando otras dos es peor que no curar ninguna.
+   Ahora la foto sangra de borde a borde —donde no puede haber costura— y la única unión es
+   ARRIBA, justo donde el hielo de la bandeja sí vale lo mismo que #C9D8DC. El borde de abajo
+   queda DURO, a propósito: es el filo del que sale la gota. */
+.slabshot{position:relative;margin:clamp(30px,3.6vw,52px) 0 0;height:clamp(290px,40vw,560px);overflow:visible}
+.slabshot img{width:100%;height:100%;object-fit:cover;object-position:center 27%;
+  filter:brightness(1.16) saturate(.5) contrast(1.02);
+  -webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 16%);
+  mask-image:linear-gradient(to bottom,transparent 0,#000 16%)}
+.slabshot__cap{position:absolute;left:var(--gut);bottom:clamp(10px,1.6vw,20px);z-index:3;
+  color:var(--ink);font-family:var(--mono);font-weight:600;font-size:10px;letter-spacing:.18em;
+  text-transform:uppercase;background:rgba(201,216,220,.72);padding:5px 9px;border-radius:2px;
+  box-shadow:0 1px 5px rgba(15,26,30,.14)}
+/* la gota cruza la costura: sale del filo de la fotografía y muere sobre la regla del canal */
+/* ⛔ estos dos SVG llevaban el hex viejo #5E5A12 clavado a mano mientras el token ya había bajado
+   a #4E4A0E — exactamente el patrón «valor cambiado y no propagado» que esta misma pieza dice
+   haber corregido. Heredan por `currentColor`: el token vuelve a tener un solo dueño. */
+.drip{position:absolute;left:clamp(18px,7.4vw,116px);bottom:calc(-1 * clamp(60px,7vw,96px));
+  width:44px;height:clamp(74px,8.4vw,116px);z-index:2;color:var(--lemon-ink)}
+.drainline{display:flex;align-items:center;gap:14px;margin-top:clamp(58px,7.4vw,104px);
+  border-top:1px solid rgba(15,26,30,.22);padding-top:14px}
+.drainline svg{color:var(--lemon-ink)}
+.drainline b{font-family:var(--mono);font-weight:600;font-size:clamp(10px,.86vw,12.5px);letter-spacing:.15em;
+  text-transform:uppercase;color:var(--ink)}
+
+/* ══ 8. EL BOARD — lo que se vende, acostado sobre el hielo ══════════════════════════════════ */
+.board{margin-top:clamp(30px,3.4vw,48px);border-top:1px solid rgba(15,26,30,.3)}
+.row{display:grid;grid-template-columns:1fr auto;align-items:baseline;gap:8px 20px;
+  padding:clamp(15px,1.7vw,22px) 0;border-bottom:1px solid rgba(15,26,30,.2);transition:background-color .2s}
+/* ⛔ el .045 de antes era una intención, no un gesto: sobre una plancha a L .861 son dos valores
+   de diferencia y no se veía. Sube a .075 y —lo que de verdad se nota— el PRECIO se va al
+   limón-tinta: en un board lo que el dedo persigue es la cifra, así que la cifra es lo que
+   responde. (Se retiró de aquí `.sec--deep .row, .sec--dark .row`: código muerto — no hay ni un
+   board en sección oscura y `.sec--dark` no existe en toda la hoja.) */
+.row:hover{background:rgba(15,26,30,.075)}
+.row:active{background:rgba(15,26,30,.11)}
+.row:hover .row__p,.row:active .row__p{color:var(--lemon-ink)}
+.row__n{grid-column:1/-1;font-family:var(--mono);font-size:9.5px;letter-spacing:.2em;color:var(--lemon-ink);margin-bottom:-4px}
+.row h3{font-family:var(--disp);font-weight:600;font-size:clamp(1.4rem,2.3vw,2rem);letter-spacing:.01em}
+.row__p{font-family:var(--disp);font-weight:800;font-size:clamp(1.4rem,2.3vw,2rem);color:var(--ink);white-space:nowrap;transition:color .2s}
+.row__d{grid-column:1/2;color:var(--ink-soft);font-size:.94em;max-width:52ch}
+
+/* ══ 9. BANDA DE FOTO A SANGRE (muelle, sala) ════════════════════════════════════════════════ */
+.band{position:relative;overflow:hidden;isolation:isolate}
+.band__img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.band--water .band__img{object-position:38% 60%;
+  /* el agua parda-verde del delta se empuja al cian del sustrato sin volverla turquesa de postal */
+  filter:saturate(.72) hue-rotate(-10deg) brightness(.9) contrast(1.1)}
+.band--room .band__img{object-position:center 44%;filter:grayscale(1) contrast(1.16) brightness(.94)}
+/* duotono real: la sala se vuelve el sistema de color de la página, no una foto pegada */
+.band--room::before{content:'';position:absolute;inset:0;z-index:1;
+  background:linear-gradient(112deg,var(--brine-900) 0,#23343C 52%,var(--tungsten) 130%);mix-blend-mode:color;opacity:.94}
+/* la lámpara colgante cae justo donde va el texto: el velo pesa a la izquierda y se abre a la
+   derecha, donde la sala puede verse sin pelearse con nada */
+/* ⛔ Y EL VELO DE ESCRITORIO TAMBIÉN ESTABA JUSTO, no sobrado: a 1280 la lede de la sala daba
+   4.05:1. El `.head` mide 60ch fijos, así que cuanto MÁS ESTRECHA la ventana, mayor fracción del
+   ancho ocupa el texto y más se mete en la parte abierta del velo. Las paradas suben ~.08 en el
+   lado del texto y la fotografía conserva intacto su lado derecho, que es lo que se venía a ver. */
+.band--room .band__veil{box-shadow:none;
+  background:
+    linear-gradient(to right,rgba(11,20,24,.92) 0,rgba(11,20,24,.84) 46%,rgba(11,20,24,.44) 80%,rgba(11,20,24,.54) 100%),
+    linear-gradient(to bottom,rgba(11,20,24,.62) 0,rgba(11,20,24,.2) 26%,rgba(11,20,24,.5) 78%,var(--brine-900) 100%)}
+/* ⛔ VUELTA 2: un velo parejo enterraba lo único que vale de la foto del muelle — el farol ámbar
+   y su reflejo en los tablones mojados. El velo se vuelve DIRECCIONAL: pesado donde vive el
+   texto, casi nulo donde vive la fotografía. */
+.band__veil{position:absolute;inset:0;z-index:2;
+  background:linear-gradient(to bottom,rgba(11,20,24,.86) 0,rgba(11,20,24,.5) 38%,rgba(11,20,24,.72) 74%,var(--brine-900) 100%);
+  box-shadow:inset 0 0 140px 30px rgba(11,20,24,.6)}
+.band--water .band__veil{box-shadow:none;
+  background:
+    linear-gradient(to right,rgba(11,20,24,.93) 0,rgba(11,20,24,.85) 40%,rgba(11,20,24,.34) 72%,rgba(11,20,24,.44) 100%),
+    linear-gradient(to bottom,rgba(11,20,24,.5) 0,rgba(11,20,24,.05) 22%,rgba(11,20,24,.4) 72%,var(--brine-900) 100%)}
+.band__in{position:relative;z-index:3;padding:clamp(64px,8.4vw,132px) 0}
+
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:clamp(18px,2.2vw,32px);
+  margin-top:clamp(30px,3.6vw,50px)}
+.fact{border-top:1px solid var(--steel-500);padding-top:16px}
+.fact svg{width:34px;height:34px;color:var(--lemon);margin-bottom:12px}
+.fact b{display:block;font-family:var(--disp);font-weight:800;font-size:clamp(1.5rem,2.6vw,2.15rem);
+  text-transform:uppercase;line-height:.92;margin-bottom:8px}
+.fact p{color:var(--steel-200);font-size:.94em}
+.sec--ice .fact{border-top-color:rgba(15,26,30,.3)}
+.sec--ice .fact svg{color:var(--lemon-ink)}
+.sec--ice .fact p{color:var(--ink-soft)}
+
+/* ══ 10. EL MOMENTO IRREPETIBLE — el talón EN BLANCO de la fotografía, con el dato de HOY puesto
+   encima por el HTML. La foto aporta el objeto (cartón húmedo, doblez, ojal, alambre); la página
+   aporta la letra. Cambia la foto y este momento no existe: no hay dónde escribir. ═══════════ */
+.tagplate{position:relative;aspect-ratio:448/668;width:100%;max-width:min(520px,100%);
+  overflow:hidden;container-type:inline-size;
+  box-shadow:0 30px 70px rgba(0,0,0,.6)}
+/* los tablones mojados del pie de la foto (medido #1b2224) se disuelven en el #0B1418 de la
+   sección: el saco no está EN una tarjeta, está en la oscuridad de la página */
+.tagplate::before{content:'';position:absolute;inset:0;
+  background:url('img-ostras/saco-talon-blanco.jpg') 60% 66.7%/200% auto no-repeat;
+  filter:contrast(1.09) brightness(1.06) saturate(.7);
+  -webkit-mask-image:linear-gradient(to bottom,#000 0 76%,transparent 100%);
+  mask-image:linear-gradient(to bottom,#000 0 76%,transparent 100%)}
+.tagplate::after{content:'';position:absolute;inset:0;pointer-events:none;
+  box-shadow:inset 0 0 90px 22px rgba(11,20,24,.55)}
+/* registro sobre el cartón real: medido en la foto (896×1152), el talón ocupa x 39.3-67.9%,
+   y 36.8-75.7%; dentro de esta ventana recortada eso son estas cuatro cifras. */
+.tagface{position:absolute;left:18.6%;top:15.2%;width:57.2%;height:67%;z-index:2;
+  transform:rotate(-.7deg);display:flex;flex-direction:column;padding:18% 6.4% 7%;
+  font-family:var(--mono);color:#25201A}
+.tagface__t{font-size:3.1cqw;letter-spacing:.2em;color:rgba(37,32,26,.82);text-align:center;margin-bottom:6%}
+.tagface dl{margin:0;display:grid;gap:5.4%}
+.tagface dl>div{display:grid;gap:.6cqw;border-bottom:1px dotted rgba(37,32,26,.34);padding-bottom:3%}
+.tagface dt{font-size:2.7cqw;letter-spacing:.2em;color:rgba(37,32,26,.86)}
+.tagface dd{margin:0;font-size:3.8cqw;font-weight:600;letter-spacing:.01em;color:#1B1712;line-height:1.1}
+/* ⛔ 3.06:1 SOBRE CARTÓN FOTOGRAFIADO, Y ESTE SÍ ERA TEXTO SOBRE FOTO SIN SUELO. El resto de la
+   cara del talón cae sobre cartulina a plena luz; esta línea, la de más abajo, cae donde el saco
+   le hace sombra al cartón (fondo medido rgb(114,107,93)). No se puede pedirle a una fotografía
+   que no tenga sombra justo ahí: la línea necesita su propio suelo, como todo lo demás.
+   El suelo es crema translúcida —sobre cartulina crema es invisible, sobre la sombra levanta el
+   fondo 40 niveles— y va con un anillo de 3px del MISMO color, porque `.tagface` entero está
+   rotado −.7° y la caja que se mide es la envolvente recta: sin el anillo, el auditor cae en el
+   halo de ~2px de fotografía que la rotación deja alrededor.
+   ⛔ Y SE FUE EL `rotate(-3deg)` DE ESTA LÍNEA, a propósito y con costo: la envolvente de una
+   caja de 233×50 girada 3° sobresale 12px de la caja pintada, y ningún anillo razonable cubre
+   eso. Un recuadro impreso derecho sobre un talón que ya viene torcido por la foto y por el −.7°
+   del padre sigue siendo verdad — los recuadros de los talones reales van impresos rectos. Se
+   cambia un guiño por una línea legible.
+   ⛔ EL <span> ES LO QUE DE VERDAD CERRÓ EL CASO, y sólo se supo VOLCANDO LOS PÍXELES en vez de
+   razonar sobre ellos. Con el suelo puesto, la medición seguía en 4.03:1 y la teoría decía que
+   no podía ser: el volcado de la rejilla de muestreo mostró la fila de arriba en crema
+   (228,219,196) hasta x=418 y en fotografía cruda (138,130,115) a partir de x=475. O sea que el
+   suelo estaba perfecto y lo que sobraba era la CAJA: `.tagface` entero va rotado −.7° y la caja
+   que se mide es la envolvente RECTA de un rectángulo torcido, cuyas esquinas caen fuera de lo
+   pintado. El anillo de 3px no llegaba. Mudando el texto a un <span> —el mismo remedio que el
+   eyebrow— lo que se mide vuelve a ser el texto, que vive con casi 4px de cartón por los cuatro
+   costados. Misma enfermedad, mismo tratamiento: medir la cosa, no la caja que la contiene. */
+.tagface__s{margin-top:auto;font-size:2.6cqw;letter-spacing:.18em;text-align:center;color:#2A241D;
+  border:1px solid rgba(37,32,26,.5);border-radius:0;padding:3.2% 2%;
+  background:rgba(236,226,201,.88);box-shadow:0 0 0 2px rgba(236,226,201,.88)}
+
+.split{display:grid;grid-template-columns:minmax(0,.94fr) minmax(0,1.06fr);gap:clamp(26px,4.4vw,68px);align-items:center}
+.split--r{grid-template-columns:minmax(0,1.06fr) minmax(0,.94fr)}
+.split--wide{grid-template-columns:minmax(0,1.32fr) minmax(0,.88fr);align-items:end}
+/* ⛔ EL HUECO DE MÓVIL NO ES RITMO, ES LEGIBILIDAD. Apiladas en una columna, la fotografía y el
+   bloque de texto quedaban a 26px, y `.plate` arrastra una sombra de 22px de desplazamiento y
+   48px de difuminado: el eyebrow «04 — The fried side» caía DENTRO de esa sombra, que baja la
+   plancha de 201 a 163, y el limón-tinta se quedaba en 4.06:1. No era el color: era que el texto
+   estaba parado sobre la sombra de la foto de arriba. Se separan, y la sombra se acorta en móvil
+   —donde una sombra de 48px sobre una columna estrecha es humo, no profundidad. */
+@media (max-width:860px){
+  .split,.split--r,.split--wide{grid-template-columns:1fr;gap:clamp(54px,13vw,78px)}
+  .plate{box-shadow:0 12px 22px rgba(15,26,30,.3),0 0 0 1px rgba(15,26,30,.14)}
+}
+
+/* ══ 11. CURTIS — el guante emerge del negro de la página, sin marco ═════════════════════════ */
+/* ⛔ VUELTA 2: la máscara suave hacía desaparecer a Curtis en el negro de la página — la
+   intención era «emerge del fondo», el resultado era «no está». Sube el valor y la máscara
+   sostiene más antes de disolverse. */
+.figman{position:relative;width:100%;max-width:min(520px,100%);aspect-ratio:1}
+.figman img{width:100%;height:100%;object-fit:cover;object-position:44% 46%;
+  filter:grayscale(.5) contrast(1.1) brightness(1.34) saturate(.8);
+  -webkit-mask-image:radial-gradient(78% 78% at 45% 46%,#000 64%,transparent 99%);
+  mask-image:radial-gradient(78% 78% at 45% 46%,#000 64%,transparent 99%)}
+/* ⛔ el pie flotaba en steel-300 directo sobre la fotografía y donde cruzaba el brillo de la hoja
+   bajo la lámpara caía a 1.2:1 — la palabra «THE» desaparecía. Lleva el mismo parche que
+   `.slabshot__cap`, en oscuro: chip de salmuera opaca y el texto sube a steel-200. Sobre
+   rgba(11,20,24,.82) el fondo efectivo es ~#131E23 y el texto queda en 6.6:1, pase lo que pase
+   detrás. Un pie de foto sobre una foto necesita SU propio suelo; no se le puede pedir a la
+   imagen que no brille justo ahí. */
+.figman__tag{position:absolute;left:0;bottom:2%;font-family:var(--mono);font-size:10px;
+  letter-spacing:.18em;text-transform:uppercase;color:var(--steel-200);
+  background:rgba(11,20,24,.82);padding:5px 9px;border-radius:2px;
+  box-shadow:0 1px 6px rgba(11,20,24,.5)}
+.quote{margin:clamp(22px,2.6vw,34px) 0 0;padding-left:clamp(16px,1.8vw,26px);border-left:2px solid var(--lemon)}
+.quote p{font-family:var(--body);font-style:italic;font-weight:400;font-size:clamp(19px,1.7vw,26px);line-height:1.4}
+.quote cite{display:block;margin-top:12px;font-family:var(--mono);font-style:normal;font-size:10px;
+  letter-spacing:.18em;text-transform:uppercase;color:var(--steel-300)}
+
+/* ══ 12. COCINA — la única foto donde se deja vivir el cálido ═══════════════════════════════ */
+/* ⛔ VUELTA 2: sobre la plancha clara, una foto de clave baja lee como un agujero negro. Se
+   recorta a la canasta —que es el sujeto— y se sube el punto medio para que sea una imagen de
+   clave MEDIA: es la única foto de la página donde el cálido tiene permiso de vivir. */
+/* ⛔ RADIO 0, y por la misma razón que en el botón: con 2px de radio el `overflow:hidden` de la
+   figura RECORTA la esquina del pie de foto, y en esa esquina no hay pie sino la plancha clara.
+   A 414 —el único ancho donde el pie ocupa dos líneas y la rejilla de muestreo llega abajo— eso
+   medía 2.23:1. La caja vuelve a ser el campo. */
+/* ⛔ EL ÚLTIMO CASO ERA DE SUBPÍXEL, y sólo se vio VOLCANDO LA REJILLA: a 414px la figura mide
+   372.6px de ancho, así que su última columna de píxeles está pintada un 30% por el pie de foto
+   y un 70% por la plancha clara de la sección. El volcado lo enseñó sin lugar a dudas — la caja
+   entera en (11,20,24) y una franja vertical en (139,153,156) pegada al borde derecho, en las
+   siete filas. No era una esquina: era la costura. Fondo oscuro DEBAJO no bastaba (la figura
+   tiene el mismo borde fraccionario), así que el que sostiene la costura es el ANILLO: 1px de
+   tinta pegado por fuera, que ya existía al 14% de puro adorno y ahora hace trabajo. Una
+   fotografía sobre fondo claro tiene que saber de qué color es su propio borde. */
+.plate{position:relative;overflow:hidden;border-radius:0;background:var(--brine-950);
+  box-shadow:0 22px 48px rgba(15,26,30,.4),0 0 0 1px rgba(15,26,30,.6)}
+.plate img{width:100%;height:100%;object-fit:cover;aspect-ratio:5/4;object-position:47% 74%;
+  filter:saturate(1.02) contrast(.96) brightness(1.42)}
+/* ⛔ EL PEOR FALLO DE LA PÁGINA, Y ERA REAL: 1.23:1. El pie llevaba `padding-top:40px` y su
+   degradado nacía TRANSPARENTE, así que los 40px de arriba de la caja del texto eran fotografía
+   a plena luz —y esta foto va con `brightness(1.42)`, o sea que ahí hay casi blanco. El texto no
+   pisaba ese píxel, pero la caja no tenía suelo: bastaba que el encuadre de la foto cambiara
+   (una canasta más arriba, una servilleta clara) para que la primera línea se comiera el fondo.
+   Un pie de foto sobre fotografía necesita SU PROPIO SUELO — el mismo parche que ya llevaban
+   `.slabshot__cap` y `.figman__tag` en esta misma pieza; aquí faltaba.
+   La rampa suave no desaparece: se muda FUERA de la caja del texto, a `.plate::after`. El pie
+   conserva su aspecto de cinta al pie de la foto y ahora todo su interior es suelo opaco. */
+.plate figcaption{position:absolute;left:0;bottom:0;right:0;z-index:2;padding:11px 18px 13px;
+  background:linear-gradient(to top,rgba(11,20,24,.97) 0,rgba(11,20,24,.93) 100%);
+  font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--ice-050)}
+.plate::after{content:'';position:absolute;left:0;right:0;bottom:0;height:58%;z-index:1;pointer-events:none;
+  background:linear-gradient(to top,rgba(11,20,24,.93) 0,rgba(11,20,24,.88) 20%,
+    rgba(11,20,24,.45) 48%,transparent 100%)}
+
+/* ══ 13. REGLAS DE LA CASA / VISITA ═════════════════════════════════════════════════════════ */
+.rules{margin:clamp(28px,3.2vw,44px) 0 0;padding:0;list-style:none;display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(198px,1fr));gap:clamp(12px,1.9vw,26px)}
+.rules li{display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:start;
+  border-top:1px solid var(--steel-500);padding-top:14px;color:var(--ice-050)}
+.rules svg{width:19px;height:19px;color:var(--lemon);margin-top:4px}
+.visit{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:clamp(20px,2.6vw,40px);
+  margin-top:clamp(30px,3.4vw,46px)}
+.vcard{background:rgba(15,26,30,.055);border:1px solid rgba(15,26,30,.18);border-radius:2px;
+  padding:clamp(18px,2vw,26px);box-shadow:inset 0 1px 0 rgba(255,255,255,.35),0 6px 18px rgba(15,26,30,.1)}
+.vcard svg{width:22px;height:22px;color:var(--lemon-ink);margin-bottom:12px}
+.vcard b{display:block;font-family:var(--mono);font-weight:600;font-size:10px;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--lemon-ink);margin-bottom:10px}
+.vcard p{color:var(--ink);font-size:1.02em;line-height:1.5}
+/* ⛔ 115×21: el teléfono de la ficha era un enlace en línea y WCAG 2.5.8 (AA) pide 24 de lado
+   corto. Sube a 44 —el dedo, no la norma— por PADDING, jamás por font-size: el número no puede
+   crecer sin desequilibrar la ficha. El subrayado se muda de `border-bottom` a un `::after`
+   para que no se vaya al fondo de la caja de 44px: la raya tiene que seguir pegada a la letra,
+   no al objetivo de toque. */
+.vcard a{display:inline-flex;align-items:center;min-height:44px;position:relative;
+  color:var(--ink);text-decoration:none}
+.vcard a::after{content:'';position:absolute;left:0;right:0;bottom:11px;height:1px;
+  background:rgba(15,26,30,.34);transition:background-color .2s}
+.vcard a:hover::after{background:var(--ink)}
+.vcard a:active::after{background:var(--lemon-ink)}
+.vcard a:active{color:var(--lemon-ink)}
+
+footer{background:var(--brine-950);border-top:1px solid var(--steel-500);padding:clamp(36px,4.4vw,64px) 0 clamp(28px,3vw,44px)}
+.foot{display:flex;flex-wrap:wrap;gap:clamp(18px,3vw,48px);align-items:flex-start;justify-content:space-between}
+.foot__b{display:flex;align-items:center;gap:12px}
+.foot__b svg{width:34px;height:34px}
+.foot__b b{font-family:var(--disp);font-weight:800;font-size:22px;text-transform:uppercase;letter-spacing:.02em;line-height:.9;display:block}
+.foot p{color:var(--steel-300);font-size:.92em}
+.foot__m{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--steel-300);line-height:2}
+/* ⛔ LOS CUATRO ENLACES DEL PIE MEDÍAN 12px DE ALTO. Eran texto en línea dentro de un bloque de
+   `line-height:2`: la caja del enlace es la del glifo, no la de la línea, así que el dedo tenía
+   12px donde la norma pide 24 y el pulgar pide 44. Se resuelve con PADDING sobre un
+   `inline-flex` —el tamaño de letra del pie no se toca— y con el margen negativo de 10px para
+   que la columna siga alineada ópticamente con las dos líneas de dirección de arriba. */
+.foot .foot__m p{margin:0;font-family:inherit;font-size:inherit;color:inherit;line-height:2}
+.foot__act{display:flex;flex-wrap:wrap;align-items:center;margin-left:-10px}
+.foot__m a{display:inline-flex;align-items:center;min-height:44px;padding:0 10px;
+  color:var(--steel-200);text-decoration:none;transition:color .2s,background-color .2s}
+.foot__m a:hover{color:var(--lemon)}
+.foot__m a:active{color:var(--lemon);background:rgba(235,224,106,.08)}
+.foot__act span{color:var(--steel-500)}
+
+/* ══ 13b. ≤1180px — LA FRANJA QUE NADIE HABÍA MEDIDO ═════════════════════════════════════════
+   ⛔ EL DEFECTO NO EMPIEZA EN EL MÓVIL. Esta pieza tenía una rampa de móvil (≤860) y un grade de
+   escritorio, y entre los dos quedaba una tierra de nadie —861 a 1180: portátil chico, tableta
+   apaisada— donde ni una cosa ni la otra sostenía el texto. Barrido de contraste con TODAS las
+   imágenes cargadas, ancho por ancho:
+       320 ✓ · 360 ✓ · 390 ✓ · 414 ✓ · 620 ✓ · 768 ✓ · 860 ✓
+       900  ✗ h1 2.01:1 (pide 3) · hero__lede 3.78:1
+      1024  ✗ h1 1.69:1 · hero__lede 4.05:1 · lede del muelle 3.53:1 · lede de la sala 4.04:1
+      1180 ✓ · 1440 ✓
+   La causa es la misma en las tres: los velos están encuadrados para una composición ANCHA,
+   donde la columna de tipo cae sobre el flanco oscuro. Al estrecharse, la columna se monta sobre
+   el hielo brillante y sobre la parte abierta de las bandas, y el velo sigue creyendo que la
+   pantalla es de 1440. 1180 no es un número inventado: es el mismo ancho en el que esta pieza ya
+   escondía el riel vertical, o sea el ancho en el que ella misma declara que la composición
+   ancha se acabó.
+   ⛔ Y SE MIDIÓ ANCHO POR ANCHO PORQUE DOS ANCHOS NO SON UNA CURVA. Con 390 y 1440 —que es lo
+   que mira la puerta— esta franja entera daba verde. */
+@media (max-width:1180px){
+  .hero__grade{background:
+    linear-gradient(to bottom,rgba(11,20,24,.8) 0,rgba(11,20,24,.18) 10%,transparent 20%),
+    linear-gradient(to right,transparent 0,transparent 24%,rgba(11,20,24,.3) 42%,
+      rgba(11,20,24,.55) 60%,rgba(11,20,24,.62) 100%),
+    linear-gradient(to top,var(--brine-900) 0,rgba(15,26,30,.66) 8%,rgba(15,26,30,.16) 24%,transparent 40%),
+    radial-gradient(128% 96% at 20% 50%,transparent 0,transparent 40%,rgba(11,20,24,.42) 100%)}
+  /* ⛔ LAS PARADAS DEL VELO VAN EN PÍXELES, NO EN PORCENTAJE. Con porcentajes la ventana de
+     fotografía se encoge y se estira con la altura de cada banda —que además CAMBIA cuando se le
+     añade relleno— así que el texto perseguía a la ventana en vez de bajar por debajo de ella.
+     En px la ventana mide lo mismo en las dos bandas y el relleno superior la despeja de verdad:
+     la fotografía se lleva sus ~130px de arriba y el texto empieza donde el velo ya vale .84. */
+  .band__in{padding:clamp(172px,46vw,206px) 0 clamp(64px,8.4vw,110px)}
+  .band--water .band__veil,.band--room .band__veil{box-shadow:none;
+    background:linear-gradient(to bottom,rgba(11,20,24,.74) 0,rgba(11,20,24,.18) 44px,
+      rgba(11,20,24,.26) 96px,rgba(11,20,24,.84) 168px,rgba(11,20,24,.9) 62%,var(--brine-900) 100%)}
+}
+
+/* ══ 14. MÓVIL — el fold NO se convierte en la plantilla de dos columnas: la misma fotografía,
+   más cerrada, el talón bajando a solaparse con el titular. ══════════════════════════════════ */
+@media (max-width:860px){
+  /* ⛔ CAZADO MIRANDO fold-movil.png: sin esta línea la columna seguía en 54% y el sumario salía
+     en una cinta de doce caracteres con el segundo botón fuera de la pantalla. El fold de móvil
+     NO es el de escritorio más angosto. */
+  .hero__col{width:100%}
+  .hero__say{max-width:100%;padding-top:clamp(10px,2vw,22px)}
+  .hero__shot img{object-position:26% 44%}
+  /* ⛔ MEDIDO, no supuesto: a 390 px el 17.7 % del fondo bajo el h1 caía por debajo de 3:1 y el
+     51 % del fondo bajo la lede por debajo de 4.5:1 (mínimos de 1.36:1 y 1.40:1, sobre el hielo).
+     En escritorio la misma zona da >13:1 porque la columna cae sobre el flanco oscuro de la
+     composición; al pasar a ancho completo ese flanco DEJA DE EXISTIR y el grade de escritorio no
+     lo sabe. El fold de móvil se reparte por mitades: la fotografía se queda la de arriba —que es
+     donde vive el guante en el cuadro—, el tipo se queda la de abajo.
+
+     ⛔ CORRIDA DE ACEPTACIÓN (2026-07-26). Se midió el FONDO PURO —el hero fotografiado con el
+     texto en `visibility:hidden`, para no tener que adivinar qué píxel es glifo— y se calculó el
+     contraste WCAG de cada píxel de la caja real de cada bloque contra #DDE7EA. Con la rampa
+     desactivada a propósito, el instrumento reprodujo el defecto que la lente había reportado:
+        SIN la rampa · h1  mín 1.00:1 · 22.5 % bajo 3:1     |  lede mín 1.00:1 · 53.2 % bajo 4.5:1
+        CON la rampa · h1  mín 4.31:1 ·    0 % bajo 3:1     |  lede mín 10.96:1 ·   0 % bajo 4.5:1
+     El h1 es texto grande (umbral 3:1) y aun así su PEOR píxel de fondo pasa el umbral de texto
+     normal. Restaurado byte a byte. */
+  .hero__grade{background:
+    linear-gradient(to bottom,rgba(11,20,24,.82) 0,rgba(11,20,24,.2) 9%,transparent 19%),
+    linear-gradient(to top,var(--brine-900) 0,rgba(11,20,24,.93) 17%,rgba(11,20,24,.86) 30%,
+      rgba(11,20,24,.7) 44%,rgba(11,20,24,.4) 55%,rgba(11,20,24,.1) 66%,transparent 76%),
+    radial-gradient(118% 58% at 28% 100%,rgba(11,20,24,.42) 0,transparent 74%)}
+  /* el talón se va al flanco derecho y el titular pasa por debajo a todo lo ancho: la foto queda
+     entera a la izquierda, igual que en escritorio pero apilado */
+  /* ⛔ EL MISMO DEFECTO DEL HERO, EN LAS DOS BANDAS A SANGRE — y el hero ya lo tenía escrito
+     doce líneas más arriba sin que nadie lo generalizara. Los dos velos son DIRECCIONALES: pesan
+     a la izquierda, donde vive el texto en escritorio, y se abren a la derecha, donde se deja
+     ver la fotografía. En móvil el texto ocupa el ANCHO ENTERO y se mete él solo en la mitad
+     clara. Medido a 390 con las imágenes REALMENTE cargadas:
+        muelle · lede sobre el farol ámbar (fondo rgb(120,87,86)) ....... 2.65:1  (pide 4.5)
+        muelle · «Bayou La Batre…» (fondo rgb(94,67,54)) ................ 3.75:1
+        muelle · «Cages suspended…» (fondo rgb(88,58,52)) ............... 4.23:1
+        sala   · «A narrow storefront…» (fondo rgb(68,79,83)) ........... 3.52:1
+     El velo se vuelve VERTICAL: la fotografía se queda la franja de arriba —que es donde está
+     el sujeto en las dos fotos— y el texto se queda el resto, con suelo de verdad.
+     (La regla vive en el bloque de ≤1180 de abajo, porque el defecto empieza mucho antes del
+     móvil: a 1024 la lede del muelle daba 3.53:1.) */
+  .tagwire{width:clamp(152px,42vw,190px);margin-left:auto;margin-right:4%}
+  .split--r>*:first-child{order:2}
+  .tagplate{max-width:min(340px,100%);margin-inline:auto}
+  .figman{max-width:min(330px,100%);margin-inline:auto}
+}
+/* ══ 14b. ≤719px — LA HAMBURGUESA. El porqué del 719 exacto está medido arriba, en §5b. ═══════ */
+@media (max-width:719px){
+  /* ⛔ SIN JS NO HAY BOTÓN, Y ESO ES LA REGLA, NO UN DESCUIDO. La clase `js` sólo existe si el
+     navegador ejecuta scripts — la misma palanca que ya gobierna el reveal, reusada, no una
+     segunda invención. Con JS bloqueado (proxy, extensión, CSP de un WordPress ajeno) el botón
+     no aparece y el menú se queda ABIERTO en su segunda fila, que es exactamente como se veía
+     esta pieza hasta hoy: se pierde el plegado, jamás la navegación. Un botón que no puede abrir
+     nada es peor que ningún botón. */
+  .nav{margin-left:0;width:100%;order:3;gap:14px}
+  .bar__tel{margin-left:auto}
+
+  /* el único objetivo que quedaba entre 24 y 44 era la marca (216×35). Sube a 44 GRATIS: la
+     altura de la fila ya la manda el botón de 44, así que la barra no crece ni un píxel. */
+  .brand{min-height:44px}
+  .js .navtoggle{display:inline-flex}
+  .js .barmenu{
+    display:block;position:absolute;top:calc(100% + 1px);left:0;right:0;z-index:6;
+    padding:2px var(--gut) 12px;
+    /* ⛔ OPACO, no 97.5%. Con un pelo de transparencia el talón de la cosecha —que es crema y
+       brillante— se veía de fantasma DETRÁS de los renglones del menú: a ojo no lee como
+       material, lee como un fallo de render. Un panel de navegación es una superficie, no un
+       velo. */
+    background:var(--brine-950);
+    border-bottom:1px solid var(--steel-500);
+    box-shadow:0 20px 44px rgba(11,20,24,.66);
+    visibility:hidden;opacity:0;transform:translateY(-10px);
+    transition:opacity .24s ease,transform .24s cubic-bezier(.22,.61,.36,1),visibility 0s .24s}
+  .js .barmenu.open{visibility:visible;opacity:1;transform:none;
+    transition:opacity .24s ease,transform .24s cubic-bezier(.22,.61,.36,1),visibility 0s 0s}
+  /* el menú abierto es una lista de renglones de 52px: el objetivo de toque manda sobre la
+     compacidad, y un menú de restaurante se usa con el pulgar y de pie */
+  .js .nav{display:flex;flex-direction:column;flex-wrap:nowrap;width:auto;margin:0;gap:0;order:0}
+  .js .nav a{display:flex;align-items:center;min-height:52px;padding:0;font-size:12px;
+    color:var(--ice-050);border-top:0;border-bottom:1px solid rgba(59,78,86,.55)}
+  .js .nav a:hover,.js .nav a:focus-visible{color:var(--lemon);border-bottom-color:rgba(59,78,86,.55)}
+  .js .nav a:active{color:var(--lemon);background:rgba(235,224,106,.07);opacity:1}
+  .js .bar__tel{display:flex;align-items:center;gap:10px;min-height:52px;margin:0;padding:0;
+    font-size:13px;color:var(--lemon)}
+  .js .bar__tel svg{display:block;width:16px;height:16px;flex:none}
+}
+
+@media (max-width:620px){
+  .hero h1{font-size:clamp(2.6rem,11.6vw,4.2rem)}
+  .bar{gap:10px 14px;padding-bottom:12px}
+  .tagwire{width:min(166px,45vw);margin-right:0}
+  .tag__rows dt{width:44px}
+  .hero__lede{font-size:.96em}
+  /* la caja medía 41.8 px (11 px × interlínea heredada 1.62 + 12 px × 2) y el pulgar pide 44 */
+  .btn{padding:12px 17px;font-size:11px;min-height:44px}
+  .slabshot{height:clamp(210px,58vw,300px)}
+  .row{grid-template-columns:1fr;gap:4px}
+  .row__p{grid-column:1;justify-self:start}
+}
+
+/* ⛔ 320px NO ES UN CAPRICHO: es el mínimo que fija WCAG 1.4.10 (reflow), o sea el ancho con el
+   que hay que cumplir, no el que se puede ignorar. A ese ancho la cartulina se quedaba sin sitio
+   y las filas se le salían. Con el `min-width:0` ya no se salen —wrapean— pero «Tue 6:40 am» en
+   dos líneas convierte el talón en una tira. Se baja el cuerpo y se ensancha la cartulina: sigue
+   siendo un talón, y las cuatro filas siguen entrando de una línea cada una. */
+@media (max-width:360px){
+  .tagwire{width:min(178px,55vw)}
+  .tag{padding:14px 11px 12px}
+  .tag__head{font-size:8.5px;letter-spacing:.18em;margin:14px 0 10px}
+  .tag__rows dt{width:37px;font-size:8px}
+  .tag__rows dd{font-size:9.5px}
+}
+</style>
+</head>
+<body>
+
+<!-- filtros SVG: la tinta desigual del sello de goma. Un vector limpio lee a icono de UI. -->
+<svg width="0" height="0" aria-hidden="true" focusable="false" style="position:absolute">
+  <filter id="inkbleed" x="-8%" y="-8%" width="116%" height="116%">
+    <feTurbulence type="fractalNoise" baseFrequency=".82" numOctaves="3" seed="7" result="n"/>
+    <feDisplacementMap in="SourceGraphic" in2="n" scale="1.6" xChannelSelector="R" yChannelSelector="G"/>
+  </filter>
+</svg>
+
+<!-- ⛔ NO HABÍA UN SOLO <main> en 931 líneas: quien navega por puntos de referencia con lector de
+     pantalla encontraba «navigation» y «contentinfo», y para llegar al contenido tenía que
+     recorrerlo entero. Abre ANTES del hero a propósito: el h1, la lede y los dos CTA son el
+     contenido principal, y dejarlos fuera para ganar el rol «banner» de la barra habría cambiado
+     un defecto por otro —contenido huérfano de punto de referencia— además de que un role=banner
+     declarado a mano DENTRO de main es una infracción distinta. `main` es lo que WCAG pide;
+     `banner` es una comodidad opcional que aquí ya cubren el <nav> y el <footer>. -->
+<main id="content">
+
+<!-- ═══ HERO ═══ -->
+<section class="hero" id="top">
+  <div class="hero__shot">
+    <img src="img-ostras/hero-barra-hielo.jpg" alt="A gloved hand drives a short oyster knife into the hinge of a deep-cupped oyster over a steel trough of crushed ice." fetchpriority="high" width="1344" height="768">
+    <div class="hero__tint"></div>
+    <div class="hero__cool"></div>
+    <div class="hero__grade"></div>
+  </div>
+
+  <header class="bar">
+    <a class="brand" href="#top" aria-label="Shell Belt Oyster House, home">
+      <svg viewBox="0 0 40 40" aria-hidden="true" focusable="false">
+        <path d="M24.5 5.4c6.6 1.6 11.5 8 10.3 14.9-1.2 7-7.8 11.9-14.8 11.2C12.4 30.7 6.6 25 6.2 18 5.9 12.4 9.4 7.6 14.6 5.7c3.3-1.2 6.7-1.3 9.9-.3Z" fill="none" stroke="#DDE7EA" stroke-width="1.9" stroke-linejoin="round"/>
+        <path d="M11.4 22.8c1.4-5 5.5-8.6 10.6-9.3" fill="none" stroke="#7F949C" stroke-width="1.2" stroke-linecap="round"/>
+        <path d="M14.2 26.4c1.2-6.6 6.4-11.3 13-11.9" fill="none" stroke="#7F949C" stroke-width="1" stroke-linecap="round" opacity=".8"/>
+        <path d="M22.6 17.9c3.2-.5 6 1.6 6.2 4.6.2 3-2.3 5.6-5.5 5.7" fill="#EBE06A" opacity=".92"/>
+        <path d="M6.9 13.6 1.4 8.2" stroke="#DDE7EA" stroke-width="1.6" stroke-linecap="round"/>
+        <path d="M13.2 15.9 5.9 11.1" stroke="#EBE06A" stroke-width="2.7" stroke-linecap="round"/>
+      </svg>
+      <span><b>Shell Belt</b><i>Oyster House · Est. 1937</i></span>
+    </a>
+    <!-- ⛔ UN <button> DE VERDAD, no un <div> ni un checkbox escondido: el botón nace enfocable,
+         se activa con Enter y con Espacio, y se anuncia como botón sin que haya que remendarlo
+         con role ni con tabindex. `aria-expanded` CAMBIA de valor al abrir (no está de adorno) y
+         `aria-controls` apunta al id del panel que realmente gobierna. -->
+    <button class="navtoggle" type="button" id="navtoggle" aria-expanded="false" aria-controls="sitemenu" aria-label="Open the menu">
+      <svg viewBox="0 0 28 28" aria-hidden="true" focusable="false">
+        <path class="navtoggle__a" d="M4 14h20"/>
+        <path class="navtoggle__b" d="M4 14h20"/>
+        <path class="navtoggle__c" d="M4 14h20"/>
+      </svg>
+    </button>
+
+    <div class="barmenu" id="sitemenu">
+      <nav class="nav" aria-label="Sections">
+        <a href="#board">Board</a>
+        <a href="#water">Water</a>
+        <a href="#belt">Belt</a>
+        <a href="#kitchen">Kitchen</a>
+        <a href="#visit">Hours</a>
+      </nav>
+      <a class="bar__tel" href="tel:+12515550148"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false"><path d="M6.4 3.6h3.1l1.6 4-2 1.4c.9 2 2.5 3.6 4.5 4.6l1.4-2 4 1.6v3.1c0 .9-.8 1.6-1.7 1.5C11 17.2 6.4 12.6 5 5.3c-.1-.9.6-1.7 1.4-1.7Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>(251)&nbsp;555-0148</a>
+    </div>
+  </header>
+
+  <div class="hero__field">
+   <div class="hero__col">
+    <!-- EL TALÓN, en el fold. Es lo primero que se lee después del titular, y ya dice el
+         concepto entero: agua, sal, hora, cuenta. -->
+    <div class="tagwire" data-reveal>
+      <svg class="tagwire__eye" viewBox="0 0 24 18" fill="none" aria-hidden="true" focusable="false">
+        <path d="M2.5 3h19" stroke="#3B4E56" stroke-width="3.4" stroke-linecap="round"/>
+        <path d="M2.5 3h19" stroke="#8E9EA4" stroke-width="1.1" stroke-linecap="round" opacity=".65"/>
+        <circle cx="5.6" cy="3" r="1.15" fill="#20323A"/>
+        <circle cx="18.4" cy="3" r="1.15" fill="#20323A"/>
+        <path d="M12 4.6a5.3 5.3 0 1 1 0 10.6 5.3 5.3 0 0 1 0-10.6Z" stroke="#8E9EA4" stroke-width="2"/>
+        <path d="M9.1 7.2a5.3 5.3 0 0 1 4.6-2.5" stroke="#C9915A" stroke-width=".8" stroke-linecap="round" opacity=".55"/>
+      </svg>
+      <svg class="tagwire__wire" viewBox="0 0 34 62" fill="none" aria-hidden="true" focusable="false" preserveAspectRatio="none">
+        <path d="M17 0v13c0 6-6 8.5-3.6 14.8C15.3 33 21.6 32 20 38.5c-.9 3.6-4.2 4.4-3.2 8.4.6 2.4 3 3.6 3 6.4v8.4" stroke="#8E9EA4" stroke-width="2.2" stroke-linecap="round"/>
+        <path d="M17 0v13c0 6-6 8.5-3.6 14.8C15.3 33 21.6 32 20 38.5c-.9 3.6-4.2 4.4-3.2 8.4.6 2.4 3 3.6 3 6.4v8.4" stroke="#C9915A" stroke-width=".7" stroke-linecap="round" opacity=".5"/>
+      </svg>
+      <article class="tag">
+        <span class="tag__eye" aria-hidden="true"></span>
+        <p class="tag__head">Harvest Tag</p>
+        <dl class="tag__rows">
+          <div><dt>Water</dt><dd>Portersville Bay</dd></div>
+          <div><dt>Salt</dt><dd>22 ppt</dd></div>
+          <div><dt>Landed</dt><dd>Tue 6:40 am</dd></div>
+          <div><dt>Count</dt><dd>41 dz</dd></div>
+        </dl>
+        <svg class="tag__stamp" viewBox="0 0 120 54" aria-hidden="true" focusable="false">
+          <rect x="2.4" y="2.4" width="115" height="49" rx="4" fill="none" stroke="#2A3B42" stroke-width="2.4" opacity=".6"/>
+          <rect x="7.5" y="7.5" width="105" height="39" rx="2" fill="none" stroke="#2A3B42" stroke-width=".9" opacity=".42"/>
+          <text x="60" y="24.5" text-anchor="middle" font-family="'Spline Sans Mono',monospace" font-size="12.5" font-weight="600" letter-spacing="1.4" fill="#2A3B42" opacity=".7">SHUCKED</text>
+          <text x="60" y="40" text-anchor="middle" font-family="'Spline Sans Mono',monospace" font-size="12.5" font-weight="600" letter-spacing="1.4" fill="#2A3B42" opacity=".7">TO ORDER</text>
+        </svg>
+      </article>
+    </div>
+
+    <div class="hero__say" data-reveal>
+      <h1>We open<br>when the<br>boat <em>lands.</em></h1>
+      <p class="hero__lede">Gulf oysters off Portersville Bay, shucked to order over crushed ice. Doors at four, Tuesday through Saturday. Every dozen comes with its water.</p>
+      <div class="hero__cta">
+        <a class="btn btn--go" href="#board">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false"><path d="M3 15c3-2.6 5.6-2.6 8.6 0 3-2.6 5.5-2.6 8.4 0" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M12 3.6c3.6 0 6.6 2.7 6.6 6.2 0 1.2-.4 2.3-1 3.2H6.4c-.6-.9-1-2-1-3.2 0-3.5 3-6.2 6.6-6.2Z" stroke="currentColor" stroke-width="1.8"/><path d="M12 8.2c1 0 1.9.8 1.9 1.8s-.9 1.8-1.9 1.8-1.9-.8-1.9-1.8.9-1.8 1.9-1.8Z" fill="currentColor"/><path d="M3 19.4c3-2.6 5.6-2.6 8.6 0 3-2.6 5.5-2.6 8.4 0" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          Tonight's board
+        </a>
+        <a class="btn btn--ghost" href="tel:+12515550148">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false"><path d="M6.4 3.6h3.1l1.6 4-2 1.4c.9 2 2.5 3.6 4.5 4.6l1.4-2 4 1.6v3.1c0 .9-.8 1.6-1.7 1.5C11 17.2 6.4 12.6 5 5.3c-.1-.9.6-1.7 1.4-1.7Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
+          (251) 555-0148
+        </a>
+      </div>
+    </div>
+   </div>
+  </div>
+
+  <p class="rail" aria-hidden="true">411 Dauphin St · Mobile, Alabama</p>
+
+  <div class="wline" aria-hidden="true">
+    <span class="wline__lab">Ice</span>
+    <span class="wline__rule"><span class="wline__long"></span></span>
+    <span class="wline__lab">Water</span>
+  </div>
+</section>
+
+<!-- ═══ 01 · EL BOARD — banda de hielo ═══ -->
+<section class="sec sec--ice" id="board">
+  <div class="wrap headrow" data-reveal>
+    <div class="head">
+      <p class="mono eyebrow"><span>01 — Tonight's board</span></p>
+      <h2>Every dozen comes with its water.</h2>
+      <p class="say">You will be told which bay, which morning, and how many are left. Not because it is charming — because it is the only thing that decides how one tastes.</p>
+    </div>
+    <!-- la tercera pata del concepto: agua, día y CUENTA. El número es del día, no del sitio. -->
+    <aside class="count">
+      <p class="count__k">In the box right now</p>
+      <p class="count__n">41<span>dz</span></p>
+      <dl class="count__d">
+        <div><dt>Water</dt><dd>Portersville Bay</dd></div>
+        <div><dt>Landed</dt><dd>Tue 6:40 am</dd></div>
+        <div><dt>Counted</dt><dd>6:41 pm</dd></div>
+      </dl>
+    </aside>
+  </div>
+
+  <figure class="slabshot" data-reveal>
+    <img src="img-ostras/hielo-docena-cenital.jpg" alt="Ten Gulf oysters on the half shell laid out on crushed ice in a galvanized tray, with two lemon wedges." loading="lazy" width="1248" height="832">
+    <figcaption class="slabshot__cap">Ten open · Portersville Bay · 6:41 pm</figcaption>
+    <svg class="drip" viewBox="0 0 56 150" fill="none" aria-hidden="true" focusable="false">
+      <path d="M28 0v96c0 9-7 10-7 18.5S25 128 28 128" stroke="currentColor" stroke-width="1.2" opacity=".55" stroke-linecap="round"/>
+      <path d="M28 128c3.4 0 6 2.6 6 5.8 0 3.6-2.6 6.2-6 6.2s-6-2.6-6-6.2c0-3.2 2.6-5.8 6-5.8Z" fill="currentColor" opacity=".45"/>
+      <path d="M13 143h30" stroke="currentColor" stroke-width="1" opacity=".35"/>
+    </svg>
+  </figure>
+
+  <div class="wrap">
+    <div class="drainline" data-reveal>
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false"><path d="M12 2.5 6.6 9.8a6.7 6.7 0 1 0 10.8 0Z" stroke="currentColor" stroke-width="1.6"/><path d="M9.4 14.6c.2 2 1.6 3.3 3.4 3.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+      <b>The ice drains. The oyster never sits in water.</b>
+    </div>
+
+    <div class="board" data-reveal>
+      <article class="row">
+        <p class="row__n">Raw · on the half shell</p>
+        <h3>Half dozen</h3>
+        <p class="row__p">$15</p>
+        <p class="row__d">Six on ice, lemon, saltines, horseradish you grate yourself. Cocktail sauce if you insist.</p>
+      </article>
+      <article class="row">
+        <p class="row__n">Raw · on the half shell</p>
+        <h3>Dozen</h3>
+        <p class="row__p">$26</p>
+        <p class="row__d">Twelve from one sack, one bay, one morning. Curtis will tell you which before he opens the first.</p>
+      </article>
+      <article class="row">
+        <p class="row__n">Off the truck · you shuck them</p>
+        <h3>Bushel</h3>
+        <p class="row__p">$78</p>
+        <p class="row__d">Roughly a hundred count, sold sealed with the tag still wired on. Bring a towel and a flat knife. We will not open them for you.</p>
+      </article>
+    </div>
+  </div>
+
+  <div class="wline wline--seam wline--ice" aria-hidden="true">
+    <span class="wline__lab">Tray 07</span>
+    <span class="wline__rule"><span class="wline__long"></span></span>
+    <span class="wline__lab">41 dz left</span>
+  </div>
+</section>
+
+<!-- ═══ 02 · EL AGUA — banda a sangre ═══ -->
+<section class="sec band band--water" id="water">
+  <img class="band__img" src="img-ostras/muelle-hora-azul.jpg" alt="A working seafood dock at blue hour: wet planking, stacked oyster cages, a line of pilings and a trawler at the far end." loading="lazy" width="1248" height="832">
+  <div class="band__veil"></div>
+  <div class="band__in">
+    <div class="wrap">
+      <div class="head" data-reveal>
+        <p class="mono eyebrow"><span>02 — Where it comes from</span></p>
+        <h2>Tonged, tumbled,<br>tagged.</h2>
+        <p class="lead">Shell Belt Road is the working road out to the docks at Bayou La Batre. This house is named for the road our product comes in on, and for nothing else. There is no ship's wheel on the wall.</p>
+        <p class="say">Meroir — the water's fingerprint. Portersville runs about twenty-two parts salt; you taste it on the finish, after the sweet.</p>
+      </div>
+
+      <div class="facts" data-reveal>
+        <div class="fact">
+          <svg viewBox="0 0 40 40" fill="none" aria-hidden="true" focusable="false"><path d="M6 13h28v22H6z" stroke="currentColor" stroke-width="1.7"/><path d="M6 20h28M6 27.5h28M13 13v22M20 13v22M27 13v22" stroke="currentColor" stroke-width=".9" opacity=".7"/><path d="M12 13V7.5M28 13V7.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><path d="M4 9.5h32" stroke="currentColor" stroke-width="1.3"/></svg>
+          <b>Off-bottom</b>
+          <p>Cages suspended in the water column and tumbled by the tide. It gives a deep cup and a clean shell, and it keeps them off the mud.</p>
+        </div>
+        <div class="fact">
+          <svg viewBox="0 0 40 40" fill="none" aria-hidden="true" focusable="false"><path d="M5 28h30l-3.5 6.5h-23z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M20 28V6" stroke="currentColor" stroke-width="1.7"/><path d="M20 9 8 22M20 9l12 13" stroke="currentColor" stroke-width="1.2"/><path d="M8 22v6M32 22v6" stroke="currentColor" stroke-width="1.2"/><path d="M2 34.5h36" stroke="currentColor" stroke-width="1" opacity=".6"/></svg>
+          <b>41 miles</b>
+          <p>Bayou La Batre to Dauphin Street. We drive them ourselves and they are in the box before noon, still cold from the boat.</p>
+        </div>
+        <div class="fact">
+          <svg viewBox="0 0 40 40" fill="none" aria-hidden="true" focusable="false"><path d="M17 6.5a3 3 0 0 1 6 0v16.2a6.6 6.6 0 1 1-6 0Z" stroke="currentColor" stroke-width="1.7"/><path d="M20 13v14.4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M20 26.5a3.2 3.2 0 1 1 0 6.4 3.2 3.2 0 0 1 0-6.4Z" fill="currentColor"/><path d="M25.5 11h4M25.5 16h2.6M25.5 21h2.6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+          <b>22 ppt</b>
+          <p>Salinity at the lease this week. Under fifteen and they go flat and watery; over thirty and they bite back at you.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="wline wline--seam" aria-hidden="true">
+    <span class="wline__lab">41 miles</span>
+    <span class="wline__rule"><span class="wline__long"></span></span>
+    <span class="wline__lab">22 ppt</span>
+  </div>
+</section>
+
+<!-- ═══ 03 · EL TALÓN — el momento que solo funciona con SU fotografía ═══ -->
+<section class="sec sec--deep" id="tag">
+  <div class="wrap split split--r">
+    <div class="tagplate" role="img" aria-label="A mesh bushel bag of Gulf oysters on wet dock planks with a cream cardstock tag wired to its neck." data-reveal>
+      <div class="tagface">
+        <!-- ⛔ decía «Alabama Shellfish Tag» y se leía como un FORMULARIO OFICIAL del estado.
+             El talón lleva agua, día y cuenta —que es la práctica real— pero jamás la carátula
+             de un organismo: eso ya sería el registro de un tercero. Va el número del saco. -->
+        <p class="tagface__t">Harvest tag 4412</p>
+        <dl>
+          <div><dt>Harvest water</dt><dd>Portersville Bay</dd></div>
+          <div><dt>Landed</dt><dd>Tue 6:40 am</dd></div>
+          <div><dt>Salinity</dt><dd>22 ppt</dd></div>
+          <div><dt>Count in sack</dt><dd>100 ct</dd></div>
+        </dl>
+        <p class="tagface__s"><span>Keep wet · keep cold</span></p>
+      </div>
+    </div>
+
+    <div class="head" data-reveal>
+      <p class="mono eyebrow"><span>03 — The tag</span></p>
+      <h2>The card is the<br>whole argument.</h2>
+      <p class="lead">Every sack that comes off a boat in this state wears one of these, wired to the neck: what water it came out of, what day it was pulled, how many are inside. Nothing else you eat travels labeled by body of water and date.</p>
+      <p class="lead">We keep the tags in a shoebox behind the register. If you want to see the one your dozen came out of, ask — it is right there, damp and creased, with somebody's handwriting on it.</p>
+      <p class="say">That is the entire promise of this place. We can tell you where it has been since six that morning.</p>
+    </div>
+  </div>
+
+  <div class="wline wline--seam" aria-hidden="true">
+    <span class="wline__lab">Tag 4412</span>
+    <span class="wline__rule"><span class="wline__long"></span></span>
+    <span class="wline__lab">Behind the register</span>
+  </div>
+</section>
+
+<!-- ═══ 04 · LA COCINA — banda de hielo, la única foto donde vive el cálido ═══ -->
+<section class="sec sec--ice" id="kitchen">
+  <div class="wrap split split--wide">
+    <figure class="plate" data-reveal>
+      <img src="img-ostras/poboy-papel-canasta.jpg" alt="A fried oyster po'boy on butcher paper in a red basket, with a lemon wedge and a bottle of hot sauce behind it." loading="lazy" width="1248" height="832">
+      <figcaption>Oyster po'boy, dressed · bread from Dauphin Street</figcaption>
+    </figure>
+    <div class="head" data-reveal>
+      <p class="mono eyebrow"><span>04 — The fried side</span></p>
+      <h2>Not everything<br>goes down cold.</h2>
+      <!-- ⛔ «shuts at nine» sólo vivía en un .wline con aria-hidden: el único dato de la página
+           que un lector de pantalla no recibía. Y de paso el texto se contradecía con la regla de
+           la sala («la cocina cierra una hora antes que el hielo»), porque aquí decía que la
+           freidora corre las mismas horas que la barra. Ahora la hora está escrita donde se lee y
+           donde se oye, y las dos secciones dicen lo mismo. -->
+      <p class="lead">The fryer opens with the doors at four and shuts at nine, whatever the bar is doing after that. Same oyster, cornmeal instead of the half shell, and it is what most people order the second time they come in.</p>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="board" data-reveal>
+      <article class="row">
+        <p class="row__n">Hot · from the fryer</p>
+        <h3>Oyster po'boy</h3>
+        <p class="row__p">$17</p>
+        <p class="row__d">Dressed, on French bread, with the lettuce shredded thin so it does not push the oysters out the back.</p>
+      </article>
+      <article class="row">
+        <p class="row__n">Hot · a cup or a bowl</p>
+        <h3>Gumbo</h3>
+        <p class="row__p">$12</p>
+        <p class="row__d">Dark roux, okra, and whatever came in on the boat that morning. Some weeks that is shrimp. Some weeks it is not.</p>
+      </article>
+      <article class="row">
+        <p class="row__n">Hot · over coals</p>
+        <h3>Chargrilled, half dozen</h3>
+        <p class="row__p">$18</p>
+        <p class="row__d">Garlic butter and hard cheese, run over live coals until the edges curl. Bread comes with it to get the butter.</p>
+      </article>
+      <article class="row">
+        <p class="row__n">Always on the bar</p>
+        <h3>Saltines and hot sauce</h3>
+        <p class="row__p">No charge</p>
+        <p class="row__d">Take them. That is what they are there for.</p>
+      </article>
+    </div>
+  </div>
+
+  <div class="wline wline--seam wline--ice" aria-hidden="true">
+    <span class="wline__lab">Fryer on</span>
+    <span class="wline__rule"><span class="wline__long"></span></span>
+    <span class="wline__lab">Shuts at nine</span>
+  </div>
+</section>
+
+<!-- ═══ 05 · EL CINTURÓN — Curtis ═══ -->
+<section class="sec" id="belt">
+  <div class="wrap split">
+    <figure class="figman" data-reveal>
+      <img src="img-ostras/guante-malla-hinge.jpg" alt="A shucker in a canvas apron and a stainless chainmail glove drives a knife into the hinge of an oyster under a work lamp." loading="lazy" width="1024" height="1024">
+      <figcaption class="figman__tag">Curtis Ladnier · near end of the bar</figcaption>
+    </figure>
+    <div class="head" data-reveal>
+      <p class="mono eyebrow"><span>05 — The belt</span></p>
+      <h2>Nineteen years<br>at this belt.</h2>
+      <p class="lead">Curtis Ladnier works the near end. He opens somewhere around six hundred on a Friday, and in nineteen years the mail glove has never let a blade through — which he will tell you is luck and skill in about equal parts.</p>
+      <p class="lead">Ask him what is good tonight. He will tell you what is not, which is the more useful half of the answer.</p>
+      <blockquote class="quote">
+        <p>If it doesn't smell like the tide, I'm not handing it to you.</p>
+        <cite>Curtis Ladnier, shucker</cite>
+      </blockquote>
+    </div>
+  </div>
+
+  <div class="wline wline--seam" aria-hidden="true">
+    <span class="wline__lab">19 years</span>
+    <span class="wline__rule"><span class="wline__long"></span></span>
+    <span class="wline__lab">600 on a Friday</span>
+  </div>
+</section>
+
+<!-- ═══ 06 · LA SALA — banda a sangre, duotono ═══ -->
+<section class="sec band band--room" id="room">
+  <img class="band__img" src="img-ostras/barra-noche-larga.jpg" alt="The long horseshoe shucking bar at night under a single pendant, pressed-tin ceiling, walls covered in small signs." loading="lazy" width="1344" height="768">
+  <div class="band__veil"></div>
+  <div class="band__in">
+    <div class="wrap">
+      <div class="head" data-reveal>
+        <p class="mono eyebrow"><span>06 — The room</span></p>
+        <h2>No reservations.<br>No white tablecloths.</h2>
+        <p class="lead">A narrow storefront on Dauphin Street with a pressed-tin ceiling, one long bar bent into a horseshoe, and about ninety years of small signs on the walls that nobody is allowed to take down.</p>
+      </div>
+      <ul class="rules" data-reveal>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false"><path d="M4 19V9.5l8-5.5 8 5.5V19" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M2.5 19h19" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><path d="M9.5 19v-5h5v5" stroke="currentColor" stroke-width="1.4"/></svg>
+          <span>Twenty-two stools and four high-tops. We seat you when there is a stool. There is no list, and there is no way to get on it.</span>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false"><path d="M12 3.2a8.8 8.8 0 1 1 0 17.6 8.8 8.8 0 0 1 0-17.6Z" stroke="currentColor" stroke-width="1.7"/><path d="M12 7v5.3l3.6 2.2" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+          <span>The kitchen shuts at nine and the bar does not. If you want the po'boy, do not stand there deciding at ten to.</span>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false"><path d="M3 7.5h18v11H3z" stroke="currentColor" stroke-width="1.7"/><path d="M3 11h18" stroke="currentColor" stroke-width="1.4"/><path d="M6.5 15h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          <span>Cash and cards, both fine. We do not split a check eleven ways after eight o'clock — one of you settle it and sort it out on the sidewalk.</span>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false"><path d="M12 12.6a4.3 4.3 0 1 0 0-8.6 4.3 4.3 0 0 0 0 8.6Z" stroke="currentColor" stroke-width="1.7"/><path d="M4.5 20.5c.6-3.8 3.7-6 7.5-6s6.9 2.2 7.5 6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+          <span>Children are welcome until eight. After that the bar gets loud and nobody is watching where the trays go.</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="wline wline--seam" aria-hidden="true">
+    <span class="wline__lab">22 stools</span>
+    <span class="wline__rule"><span class="wline__long"></span></span>
+    <span class="wline__lab">No list</span>
+  </div>
+</section>
+
+<!-- ═══ 07 · LA VISITA — banda de hielo ═══ -->
+<section class="sec sec--ice" id="visit">
+  <div class="wrap">
+    <div class="headrow" data-reveal>
+      <div class="head">
+        <p class="mono eyebrow"><span>07 — Hours and address</span></p>
+        <h2>We close when<br>the ice runs out.</h2>
+        <p class="say">Some nights that is nine. On a good Saturday in November it is a quarter past eleven and we are still hosing down the trough at midnight.</p>
+      </div>
+      <a class="btn btn--ink" href="tel:+12515550148">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false"><path d="M6.4 3.6h3.1l1.6 4-2 1.4c.9 2 2.5 3.6 4.5 4.6l1.4-2 4 1.6v3.1c0 .9-.8 1.6-1.7 1.5C11 17.2 6.4 12.6 5 5.3c-.1-.9.6-1.7 1.4-1.7Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
+        Call the bar
+      </a>
+    </div>
+
+    <div class="visit" data-reveal>
+      <div class="vcard">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false"><path d="M12 3.2a8.8 8.8 0 1 1 0 17.6 8.8 8.8 0 0 1 0-17.6Z" stroke="currentColor" stroke-width="1.7"/><path d="M12 7v5.3l3.6 2.2" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+        <b>Hours</b>
+        <p>Tuesday to Saturday<br>Doors at 4:00 pm<br>Closed Sunday and Monday</p>
+      </div>
+      <div class="vcard">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false"><path d="M12 2.8c3.8 0 6.9 3 6.9 6.8 0 5-6.9 11.6-6.9 11.6S5.1 14.6 5.1 9.6c0-3.8 3.1-6.8 6.9-6.8Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M12 7.1a2.6 2.6 0 1 1 0 5.2 2.6 2.6 0 0 1 0-5.2Z" stroke="currentColor" stroke-width="1.5"/></svg>
+        <b>Address</b>
+        <p>411 Dauphin Street<br>Mobile, Alabama 36602<br>Between Joachim and Jackson</p>
+      </div>
+      <div class="vcard">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false"><path d="M6.4 3.6h3.1l1.6 4-2 1.4c.9 2 2.5 3.6 4.5 4.6l1.4-2 4 1.6v3.1c0 .9-.8 1.6-1.7 1.5C11 17.2 6.4 12.6 5 5.3c-.1-.9.6-1.7 1.4-1.7Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
+        <b>Telephone</b>
+        <p><a href="tel:+12515550148">(251) 555-0148</a><br>Call for the count before you drive in for a bushel.</p>
+      </div>
+      <div class="vcard">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false"><path d="M4 6.5h16v13H4z" stroke="currentColor" stroke-width="1.7"/><path d="M4 10.5h16" stroke="currentColor" stroke-width="1.4"/><path d="M8.5 4.2v4M15.5 4.2v4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><path d="M8 14.2h3.4M8 17h6.6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+        <b>The R months</b>
+        <p>We are open all year. The bushels are best from September through April, and we will say so if they are not.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="wline wline--ice" aria-hidden="true">
+    <span class="wline__lab">Ice</span>
+    <span class="wline__rule"><span class="wline__long"></span></span>
+    <span class="wline__lab">Water</span>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div>
+      <div class="foot__b">
+        <svg viewBox="0 0 40 40" aria-hidden="true" focusable="false">
+          <path d="M24.5 5.4c6.6 1.6 11.5 8 10.3 14.9-1.2 7-7.8 11.9-14.8 11.2C12.4 30.7 6.6 25 6.2 18 5.9 12.4 9.4 7.6 14.6 5.7c3.3-1.2 6.7-1.3 9.9-.3Z" fill="none" stroke="#9AAAB0" stroke-width="1.9" stroke-linejoin="round"/>
+          <path d="M11.4 22.8c1.4-5 5.5-8.6 10.6-9.3" fill="none" stroke="#3B4E56" stroke-width="1.2" stroke-linecap="round"/>
+          <path d="M14.2 26.4c1.2-6.6 6.4-11.3 13-11.9" fill="none" stroke="#3B4E56" stroke-width="1" stroke-linecap="round" opacity=".8"/>
+          <path d="M22.6 17.9c3.2-.5 6 1.6 6.2 4.6.2 3-2.3 5.6-5.5 5.7" fill="#EBE06A" opacity=".92"/>
+          <path d="M6.9 13.6 1.4 8.2" stroke="#9AAAB0" stroke-width="1.6" stroke-linecap="round"/>
+          <path d="M13.2 15.9 5.9 11.1" stroke="#EBE06A" stroke-width="2.7" stroke-linecap="round"/>
+        </svg>
+        <span><b>Shell Belt</b><span class="mono" style="color:var(--steel-300)">Oyster House</span></span>
+      </div>
+      <p style="margin-top:14px;max-width:44ch">Named for Shell Belt Road, which runs out to the docks at Bayou La Batre. Serving Mobile from 411 Dauphin Street since 1937.</p>
+    </div>
+    <div class="foot__m">
+      <p>411 Dauphin Street · Mobile, AL 36602</p>
+      <p>Tue–Sat · Doors at 4</p>
+      <p class="foot__act"><a href="tel:+12515550148">(251) 555-0148</a></p>
+      <p class="foot__act"><a href="#board">Board</a><span aria-hidden="true">·</span><a href="#kitchen">Kitchen</a><span aria-hidden="true">·</span><a href="#visit">Hours</a></p>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* Reveal: un bloque, una transición. Sin escalonado por índice y sin fotogramas clave — el movimiento
+   que no se gana su lugar en una barra de ostras no va. */
+(function () {
+  var nodos = document.querySelectorAll('[data-reveal]');
+  if (!('IntersectionObserver' in window) || matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    for (var i = 0; i < nodos.length; i++) nodos[i].classList.add('in');
+    return;
+  }
+  var ob = new IntersectionObserver(function (entradas) {
+    entradas.forEach(function (e) {
+      if (e.isIntersecting) { e.target.classList.add('in'); ob.unobserve(e.target); }
+    });
+  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.06 });
+  nodos.forEach(function (n) { ob.observe(n); });
+})();
+
+/* ══ NAV MÓVIL — hamburguesa. Abre, cierra con Escape, cierra tocando fuera, cierra al elegir un
+   enlace, y devuelve el foco al botón. Nada de esto es opcional: un menú que abre y no cierra
+   con Escape deja al teclado encerrado en una capa que no pidió.
+
+   ⛔ CERO TRAMPA DE FOCO, Y ES POR EL ORDEN DEL DOM, NO POR UN GUARDIÁN. El panel va DESPUÉS del
+   botón en el marcado, así que tabular sale solo del menú hacia el resto de la página. Un ciclo
+   de foco cerrado a mano habría hecho falta si el panel fuera un diálogo modal encima de todo;
+   esto es una barra de navegación que se despliega, y encerrar el teclado ahí sería inventar una
+   cárcel para resolver un problema que no existe. Lo que sí se hace: si el foco SALE del panel,
+   el panel se cierra — un menú abierto detrás del foco es un menú que el lector de pantalla
+   sigue anunciando y el dedo ya no ve.
+
+   El movimiento no se declara aquí: la regla global de `prefers-reduced-motion` aplasta toda
+   transición a .01ms, así que con movimiento reducido el panel y la X aparecen y desaparecen sin
+   animarse. Un solo dueño para esa decisión. */
+(function () {
+  var btn = document.getElementById('navtoggle');
+  var panel = document.getElementById('sitemenu');
+  if (!btn || !panel) return;
+  var abierto = false;
+
+  function abrir() {
+    if (abierto) return;
+    abierto = true;
+    panel.classList.add('open');
+    btn.setAttribute('aria-expanded', 'true');
+    btn.setAttribute('aria-label', 'Close the menu');
+    // el foco entra al menú en el fotograma siguiente: antes de que el estilo se recalcule el
+    // panel sigue en visibility:hidden y focus() sobre algo invisible no hace nada.
+    requestAnimationFrame(function () {
+      var primero = panel.querySelector('a[href]');
+      if (primero) primero.focus({ preventScroll: true });
+    });
+  }
+
+  function cerrar(devolverFoco) {
+    if (!abierto) return;
+    abierto = false;
+    panel.classList.remove('open');
+    btn.setAttribute('aria-expanded', 'false');
+    btn.setAttribute('aria-label', 'Open the menu');
+    if (devolverFoco) btn.focus({ preventScroll: true });
+  }
+
+  btn.addEventListener('click', function (e) {
+    e.stopPropagation();
+    if (abierto) cerrar(true); else abrir();
+  });
+  panel.addEventListener('click', function (e) {
+    if (e.target.closest('a[href]')) cerrar(false);   // elegir un destino cierra el menú
+  });
+  document.addEventListener('keydown', function (e) {
+    if ((e.key === 'Escape' || e.key === 'Esc') && abierto) cerrar(true);
+  });
+  document.addEventListener('click', function (e) {
+    if (!abierto) return;
+    if (panel.contains(e.target) || btn.contains(e.target)) return;
+    cerrar(false);
+  });
+  document.addEventListener('focusin', function (e) {
+    if (abierto && !panel.contains(e.target) && !btn.contains(e.target)) cerrar(false);
+  });
+  // al volver a escritorio el estado plegado deja de existir: la nav vuelve a ser una fila y un
+  // aria-expanded="true" colgando describiría un panel que ya no está.
+  var mq = window.matchMedia('(min-width:720px)');
+  var alCambiar = function () { if (mq.matches) cerrar(false); };
+  if (mq.addEventListener) mq.addEventListener('change', alCambiar); else mq.addListener(alCambiar);
+})();
+</script>
+
+<div style="background:#16181C;color:#F3F4F3;padding:0.7rem 1rem;text-align:center;font:500 12px/1.5 system-ui,sans-serif;letter-spacing:0.02em">Speculative concept by Reasoned Web — Shell Belt Oyster House is a fictional business.</div>
+</body>
+</html>

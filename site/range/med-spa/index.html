@@ -1,0 +1,1526 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FLUENCE — Laser Medicine · Salt Lake City, Utah</title>
+<meta name="description" content="Laser hair removal, sun damage, facial veins and resurfacing in Sugar House, Salt Lake City. A physician is in the room for every laser session, and we read a test spot on your skin 48 hours before we treat.">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="FLUENCE">
+<meta property="og:title" content="FLUENCE — Laser Medicine · Salt Lake City">
+<meta property="og:description" content="Laser hair removal, sun damage and resurfacing in Sugar House. Physician on site. Test spot read at 48 hours.">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="A darkened laser treatment room with a single amber interlock lamp lit above the door.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#1F5D5E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300;400;500;600&family=Fira+Sans+Condensed:wght@500;600;700&family=Fira+Mono:wght@400;500;700&display=swap">
+
+<style>
+/* ══════════════════════════════════════════════════════════════════════════════════════════
+   FLUENCE — laser medicine, Salt Lake City.
+
+   THE GRAMMAR COMES FIRST. This page is a business: a recognisable header, a hero that sells
+   with a photograph in it, treatments, proof, people, prices, questions, and an address you
+   can act on. The instrument plate — label in condensed small caps, value in mono, unit — is
+   the ACCENT that runs through all of it, and it lives in "Parameters", where a buyer who
+   wants the numbers goes looking. It is no longer the front door.
+   ⛔ It used to be the front door, and that was the defect: the first screen opened with a
+   grid of laser settings instead of with what the practice sells and to whom.
+
+   PALETTE — WHERE EVERY COLOUR COMES FROM (four objects, all of them of the TRADE):
+     the surgical drape          dyed cotton   --field --plate --ink-2 --rule
+     the console bezel & pedal   anodising     --well --pit --cta-ink
+     cryogen frost and plume     water ice     --ice --ice-plate --vapor --vapor-tx --rule-ice
+     the OD-rated eyewear        amber acrylic --amber --amber-ink
+   ⛔ NOT ONE of them is Salt Lake City, and not one of them is a light. A laser practice in
+   Boise or Manchester owns every single one of these objects, which is the point: a colour
+   anchored in the trade survives the swap of client, a colour anchored in the city does not.
+   The previous anchors for --field and --ice were "the room with the lights down" and "the
+   same room with the lights up" — the same material under two lamps, which is exactly the
+   justification that admits any answer and therefore justifies nothing.
+   ⛔ AND ONE TOKEN WAS DELETED RATHER THAN RE-ANCHORED: --ink was byte-identical to --well and
+   had no object of its own. Better gone than given an invented origin.
+
+   ⛔ THE RULE THAT STILL GOVERNS EVERYTHING: amber measures 1.91:1 on the drape. It may never
+   touch it. It lives on the black anodising, or it does not live. That is also how the real
+   objects are built — the amber eyewear hangs on a black bezel by the door.
+   ══════════════════════════════════════════════════════════════════════════════════════════ */
+
+:root{
+  --field:#1F5D5E;      /* the dyed cotton of the surgical drape and gown */
+  --plate:#144442;      /* the same drape dye where the fabric is folded double */
+  --well:#0C1F1F;       /* the black anodised bezel of a laser console */
+  --pit:#08100F;        /* the black nitrile rubber of the footswitch pedal */
+  --ice:#E7F3F3;        /* cryogen frost packed on the chilled sapphire window */
+  --ice-plate:#D6E8E7;  /* the same frost where it has sintered and packed denser */
+  --vapor:#B4CFCE;      /* the cryogen plume lifting off the metal collar */
+  --vapor-tx:#C2D9D8;   /* the same plume at its thickest, dense enough to carry small text */
+  --rule-ice:#B0CBCA;   /* frost thinned to a single crystal layer at the rim of the window */
+  --amber:#DE5220;      /* the amber acrylic of the OD-rated laser eyewear */
+  --amber-ink:#A63A12;  /* the same acrylic in the thicker moulded rim, where it runs deeper */
+  --cta-ink:#0A1615;    /* the black paint filling the engraved legend of a control plate */
+  --ink-2:#2E5B59;      /* the drape dye at half strength, as it takes on the cotton tape binding */
+  --rule:#2E7071;       /* the drape dye on the tighter weave of the serged edge; decorative only */
+  --hdr:64px;
+  --pad:clamp(1rem, 4.2vw, 3.5rem);
+  --sans:'Fira Sans', system-ui, sans-serif;
+  --cond:'Fira Sans Condensed', 'Fira Sans', system-ui, sans-serif;
+  --mono:'Fira Mono', ui-monospace, 'SFMono-Regular', monospace;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%; scroll-padding-top:calc(var(--hdr) + 12px)}
+body{
+  margin:0; background:var(--field); color:var(--ice);
+  font-family:var(--sans); font-weight:400; font-size:clamp(1rem,.97rem + .18vw,1.0625rem);
+  line-height:1.62; -webkit-font-smoothing:antialiased; overflow-x:hidden;
+}
+img{max-width:100%; height:auto; display:block}
+h1,h2,h3{margin:0; font-weight:300; line-height:1.14; letter-spacing:-.005em}
+p{margin:0 0 1em}
+p:last-child{margin-bottom:0}
+/* ⛔ `sub` HAND-SET, because the browser default is not usable here. Left alone it inherits the
+   line box and the 2 of CO2 floated free of the O with a gap wide enough to read as a separate
+   word — seen in the hero list in `fold-desktop.png`. Zeroing the line height and nudging with
+   `bottom` keeps the digit tucked under its letter and stops it from opening the leading. */
+sub{font-size:.68em; line-height:0; vertical-align:baseline; position:relative; bottom:-.22em}
+a{color:inherit}
+ul,ol{margin:0; padding:0; list-style:none}
+
+/* ── FOCUS (2.4.7). Visible on real focus, not only :focus-visible: a ring that only a
+      heuristic can summon is a ring nobody can prove. ───────────────────────────────────── */
+:focus{outline:3px solid var(--ice); outline-offset:3px}
+.band-lit :focus{outline-color:var(--amber-ink)}
+:focus:not(:focus-visible){outline-width:2px; outline-offset:2px}
+
+/* ── the small caps of the house. Synthesised by hand on purpose: `font-variant-caps` depends
+      on a `smcp` table the webfont may not ship, and each browser fakes it differently. Hand
+      made small caps are deterministic, and they survive the move to WordPress. ─────────── */
+.lbl{
+  font-family:var(--cond); font-weight:600; text-transform:uppercase;
+  font-size:.72em; letter-spacing:.16em; line-height:1.3;
+}
+.mono{font-family:var(--mono); font-variant-ligatures:none}
+.sr{position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip-path:inset(50%); white-space:nowrap; border:0}
+
+.wrap{max-width:1240px; margin-inline:auto; padding-inline:var(--pad)}
+section{padding-block:clamp(3.25rem,7vw,5.5rem)}
+
+.band-dark{background:var(--field)}
+.band-well{background:var(--well)}
+.band-lit{background:var(--ice); color:var(--well)}
+.band-lit h2,.band-lit h3{color:var(--well)}
+
+/* ══ SKIP LINK ═════════════════════════════════════════════════════════════════════════════
+   Parked with a transform, not with `left:-9999px`: a box dragged off the left edge is a real
+   box outside the viewport, and the responsive gate is right to flag it. ─────────────────── */
+.skip{
+  position:absolute; z-index:60; top:8px; left:12px; min-height:44px; display:inline-flex;
+  align-items:center; padding:.5rem 1rem; background:var(--amber); color:var(--cta-ink);
+  font-family:var(--cond); font-weight:600; text-transform:uppercase; letter-spacing:.14em;
+  font-size:.8rem; text-decoration:none; transform:translateY(-180%); transition:transform .18s ease;
+}
+.skip:focus{transform:translateY(0)}
+
+/* ══ HEADER ════════════════════════════════════════════════════════════════════════════════
+   Two rows, which is the shape a local business site actually has: a utility strip with where
+   and when, and under it the bar that sticks — mark, navigation, telephone, appointment.
+   ⛔ The strip carries NO links, deliberately. Utility strips are where 18px tap targets go to
+   hide; there is nothing to tap here, so there is nothing to fail. ──────────────────────── */
+.util{background:var(--pit); color:var(--vapor-tx)}
+.util__in{
+  display:flex; flex-wrap:wrap; gap:.15rem 1.5rem; justify-content:space-between;
+  padding-block:.55rem; font-family:var(--mono); font-size:.72rem; letter-spacing:.06em;
+}
+/* ⛔ THE STRIP HAS TO STAY ONE LINE. At 390 it wrapped to two and pushed 24 px of the hero off
+   the bottom of the screen — a utility strip is not worth a line of the fold. The street is the
+   part that goes: it is repeated in Visit and in the footer, where somebody who wants to drive
+   here will actually look for it. */
+@media (max-width:620px){
+  .util__in{justify-content:center; text-align:center}
+  .util__hrs,.util__st{display:none}
+}
+
+.hdr{
+  position:sticky; top:0; z-index:50; background:var(--well);
+  box-shadow:0 1px 0 rgba(180,207,206,.16), 0 10px 26px -18px rgba(0,0,0,.9);
+}
+.hdr__in{display:flex; align-items:center; gap:1rem; min-height:var(--hdr)}
+.brand{
+  display:inline-flex; align-items:center; gap:.65rem; min-height:44px;
+  text-decoration:none; color:var(--ice); margin-right:auto;
+}
+.brand__mk{width:30px; height:30px; flex:none; color:var(--vapor)}
+.brand__mk .core{fill:var(--amber)}
+.brand__n{display:block; font-family:var(--mono); font-weight:500; font-size:1.04rem; letter-spacing:.16em}
+.brand__t{display:block; color:var(--vapor-tx); font-size:.62rem; margin-top:.1rem}
+@media (max-width:400px){.brand__t{display:none}}
+
+.nav__panel{display:flex; flex-wrap:wrap; align-items:center; gap:.5rem .6rem}
+.nav__list{display:flex; align-items:center; gap:.15rem}
+.nav__list a{
+  display:inline-flex; align-items:center; min-height:44px; padding:.35rem .55rem;
+  text-decoration:none; color:var(--vapor-tx); font-family:var(--cond); font-weight:600;
+  text-transform:uppercase; letter-spacing:.11em; font-size:.76rem; transition:color .16s ease;
+}
+.nav__list a:hover{color:var(--ice)}
+.hdr__tel{
+  display:inline-flex; align-items:center; gap:.45rem; min-height:44px; padding:.4rem .6rem;
+  text-decoration:none; color:var(--ice); font-family:var(--mono); font-size:.84rem;
+}
+.hdr__tel svg{width:15px; height:15px; flex:none; color:var(--vapor)}
+.hdr__tel:hover{text-decoration:underline}
+.hdr__book{
+  display:inline-flex; align-items:center; min-height:44px; padding:.45rem 1rem;
+  background:var(--amber); color:var(--cta-ink); text-decoration:none;
+  font-family:var(--cond); font-weight:700; text-transform:uppercase; letter-spacing:.11em;
+  font-size:.78rem; box-shadow:0 2px 0 rgba(0,0,0,.5), inset 0 1px 0 rgba(255,255,255,.28);
+}
+@media (max-width:1080px) and (min-width:769px){.hdr__tel span{display:none}}
+
+/* ── the trigger. A real <button>, an SVG icon that becomes an X, and a menu that degrades to
+      VISIBLE when JavaScript never arrives (that is what the `no-js` class buys). ────────── */
+.burger{
+  display:none; width:48px; height:48px; flex:none; align-items:center; justify-content:center;
+  background:var(--plate); color:var(--ice); border:1px solid var(--rule); cursor:pointer;
+  box-shadow:inset 0 1px 0 rgba(231,243,243,.14), 0 2px 0 rgba(0,0,0,.4);
+}
+.burger svg{width:22px; height:22px}
+.burger line{stroke:currentColor; stroke-width:2; stroke-linecap:round; transition:transform .22s ease, opacity .16s ease; transform-origin:center}
+.burger[aria-expanded="true"] .l1{transform:translateY(6px) rotate(45deg)}
+.burger[aria-expanded="true"] .l2{opacity:0}
+.burger[aria-expanded="true"] .l3{transform:translateY(-6px) rotate(-45deg)}
+.scrim{display:none; position:fixed; inset:0; z-index:40; background:rgba(4,16,16,.62)}
+
+@media (max-width:768px){
+  .js .burger{display:inline-flex}
+  /* absolute, not fixed: the panel has to hang off the BAR, and the bar is only at y=0 once the
+     utility strip has scrolled away. A fixed `top:64px` overlaps its own header before that. */
+  .js .nav__panel{
+    display:block; position:absolute; top:100%; left:0; right:0; z-index:45; background:var(--well);
+    padding:.5rem var(--pad) 1.25rem; visibility:hidden; opacity:0; transform:translateY(-8px);
+    transition:opacity .2s ease, transform .2s ease, visibility 0s linear .2s;
+    box-shadow:0 22px 40px -20px rgba(0,0,0,.95), inset 0 1px 0 rgba(180,207,206,.16);
+  }
+  .js .nav__panel.open{visibility:visible; opacity:1; transform:none; transition-delay:0s}
+  .js .nav__panel .nav__list{flex-direction:column; align-items:stretch; gap:0}
+  .js .nav__panel .nav__list a{
+    min-height:52px; padding:.6rem .25rem; font-size:.86rem; color:var(--ice);
+    border-bottom:1px solid rgba(180,207,206,.18);
+  }
+  .js .nav__panel.open ~ .scrim,
+  .js .scrim.on{display:block}
+  .hdr__tel,.hdr__book{display:none}
+  .nav__panel .hdr__tel,.nav__panel .hdr__book{display:inline-flex; margin-top:1rem; justify-content:center}
+  .nav__panel .hdr__tel span{display:inline}
+  .no-js .nav__list{flex-wrap:wrap}
+}
+@media (min-width:769px){.nav__panel{display:flex !important; visibility:visible !important; opacity:1 !important}}
+
+/* ══ PLATES — the accent that runs through the page ════════════════════════════════════════ */
+.plate{
+  position:relative; background:var(--plate); padding:1.05rem 1.15rem 1.15rem;
+  box-shadow:inset 0 1px 0 rgba(231,243,243,.10), inset 0 -1px 0 rgba(0,0,0,.55),
+             0 1px 0 rgba(231,243,243,.06);
+}
+.plate--well{background:var(--well); box-shadow:inset 0 1px 0 rgba(231,243,243,.09), inset 0 -1px 0 rgba(0,0,0,.7), 0 1px 0 rgba(231,243,243,.05)}
+.plate--pit{background:var(--pit); box-shadow:inset 0 1px 0 rgba(231,243,243,.10), inset 0 -2px 0 rgba(0,0,0,.8)}
+.plate--lit{background:var(--ice-plate); color:var(--well); box-shadow:inset 0 1px 0 rgba(255,255,255,.9), inset 0 -1px 0 rgba(12,31,31,.14), 0 1px 0 rgba(12,31,31,.07)}
+.rivet{position:absolute; top:7px; right:7px; width:11px; height:11px; color:rgba(180,207,206,.5)}
+.plate--lit .rivet{color:rgba(12,31,31,.34)}
+.plate__lbl{display:block; color:var(--vapor-tx); margin-bottom:.55rem}
+.plate--lit .plate__lbl{color:var(--ink-2)}
+.plate__val{
+  display:block; font-family:var(--mono); font-weight:500; line-height:1.08;
+  font-size:clamp(1.24rem,1.05rem + .9vw,1.6rem); letter-spacing:-.01em; color:var(--ice);
+}
+.plate--lit .plate__val{color:var(--well)}
+.plate__foot{display:block; margin-top:.5rem; font-size:.86rem; color:var(--vapor-tx); line-height:1.5}
+.plate--lit .plate__foot{color:var(--ink-2)}
+.u{font-size:.62em; letter-spacing:.06em; color:var(--vapor-tx)}
+.plate--lit .u{color:var(--ink-2)}
+
+/* ══ BUTTONS ══════════════════════════════════════════════════════════════════════════════ */
+.cta{
+  display:inline-flex; align-items:center; gap:.6rem; min-height:50px; padding:.65rem 1.35rem;
+  text-decoration:none; font-family:var(--cond); font-weight:700; text-transform:uppercase;
+  letter-spacing:.12em; font-size:.88rem;
+  background:var(--amber); color:var(--cta-ink);
+  box-shadow:0 3px 0 rgba(0,0,0,.5), inset 0 1px 0 rgba(255,255,255,.3);
+  transition:transform .14s ease, box-shadow .14s ease;
+}
+.cta:hover{transform:translateY(-1px); box-shadow:0 4px 0 rgba(0,0,0,.55), inset 0 1px 0 rgba(255,255,255,.34)}
+.cta:active{transform:translateY(1px); box-shadow:0 1px 0 rgba(0,0,0,.5)}
+.cta svg{width:16px; height:16px; flex:none}
+/* ⛔ THE SECOND BUTTON IS A RECESSED PLATE, NOT AN OUTLINE. It began as a transparent box with a
+   pale hairline, and the contrast auditor read 1.45:1 on it: the border pixel lives inside the
+   element's own box, so a light rule under light lettering is measured as the lettering's
+   background. Filling it solves the measurement — and it is the better answer anyway, because an
+   outlined ghost button was the one control on this page that did not belong to the plate
+   vocabulary. Ice on the well reads 15.03:1, and 5.04:1 even on the hairline itself. */
+.cta--ghost{background:var(--well); color:var(--ice); border:1px solid var(--rule);
+  box-shadow:inset 0 1px 0 rgba(231,243,243,.10), inset 0 -1px 0 rgba(0,0,0,.6)}
+.cta--ghost:hover{background:var(--pit); transform:none; box-shadow:inset 0 1px 0 rgba(231,243,243,.14)}
+.band-lit .cta--ghost{background:var(--ice-plate); color:var(--well); border-color:var(--rule-ice);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.9), inset 0 -1px 0 rgba(12,31,31,.14)}
+.band-lit .cta--ghost:hover{background:#CBE0DF}
+.acts{display:flex; flex-wrap:wrap; align-items:center; gap:.75rem 1rem}
+
+/* ══ 1 · HERO — split: the working photograph on one side, the offer on the other ══════════
+   ⛔ WHY SPLIT AND NOT FULL BLEED. The house rule is "full bleed if the photograph is strong,
+   split if it is weak", and this photograph is the strongest of the eight — gloved hands on a
+   console, the amber readouts of the machine, a person plainly at work. It is also 896×1152,
+   a PORTRAIT. A full-bleed hero band would crop it to a strip of glove and throw away the
+   console and the hands, which is the whole picture. The split is what lets a vertical
+   photograph stand at its true proportion, floor to ceiling, and it leaves the offer on solid
+   drape green where every line of it is legible without a scrim over the image.
+   ⛔ AND THE PICTURE IS ON THE LEFT because the arms enter the frame from its right edge: put
+   it on the right and the subject points off the page. ─────────────────────────────────── */
+.hero{padding:0; overflow:hidden}
+.hero__grid{display:grid; max-width:1600px; margin-inline:auto}
+.hero__shot{position:relative; margin:0}
+/* ⛔ 32vh, NOT 44vh, AND THE NUMBER CAME FROM THE PHONE SHOT. At 44vh the band ran to 360 px and
+   `Book a consult` sat just under the fold at 390×844: the one control the hero exists to offer
+   was the one thing you had to scroll for. The picture keeps enough height to read as a working
+   photograph and the button comes back up into the first screen. */
+.hero__shot img{
+  width:100%; height:clamp(200px,32vh,300px); object-fit:cover; object-position:center 52%;
+  /* the raw glove is a strong cobalt that argues with the drape green and pulls the eye off
+     the amber readouts, which are the subject. Chroma down, contrast up: the machine reads as
+     the machine and the blue sits back where it belongs. */
+  filter:saturate(.82) contrast(1.08) brightness(.95);
+}
+.hero__say{
+  padding:clamp(1.5rem,4.5vw,3.5rem) var(--pad) clamp(2rem,4.5vw,3.5rem);
+  display:flex; flex-direction:column; justify-content:center;
+}
+.hero__inner{max-width:38rem}
+.hero__eyebrow{display:block; color:var(--vapor-tx); margin-bottom:1rem}
+.hero h1{font-size:clamp(1.85rem,1.25rem + 2.4vw,3rem); max-width:19ch}
+.hero h1 em{font-style:normal; font-weight:500; color:var(--ice)}
+.hero__sub{margin-top:1.15rem; color:var(--vapor-tx); max-width:46ch}
+.hero__act{margin-top:1.6rem}
+.hero__trust{
+  margin-top:1.75rem; display:grid; gap:1px 1.25rem;
+  grid-template-columns:repeat(auto-fit,minmax(min(100%,13.5rem),1fr));
+}
+/* ⛔ THE TEXT OF EACH ITEM IS WRAPPED IN ITS OWN SPAN, and that is not tidiness. In a flex
+   container every child ELEMENT becomes a flex item of its own, so the `<sub>` of CO2 was lifted
+   out of its sentence, blockified, and parked at the top of the row by `align-items:flex-start` —
+   the 2 floated a whole gap away from the O and read as a superscript. Seen in `fold-desktop.png`
+   AFTER the `sub` rule was written, which is the useful part: the rule was right and the box
+   model was overruling it. One span puts the sentence back into a single item. */
+.hero__trust li{display:flex; align-items:flex-start; gap:.55rem; padding:.45rem 0; font-size:.86rem; color:var(--ice)}
+.hero__trust svg{width:17px; height:17px; flex:none; margin-top:.22rem; color:var(--vapor)}
+@media (min-width:900px){
+  .hero__grid{grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr); align-items:stretch}
+  .hero__shot{min-height:clamp(480px,62vh,660px)}
+  .hero__shot img{position:absolute; inset:0; width:100%; height:100%}
+  .hero__say{padding-left:clamp(2rem,4vw,4rem)}
+}
+
+/* ══ SECTION FURNITURE ════════════════════════════════════════════════════════════════════ */
+.head{max-width:64ch; margin-bottom:clamp(1.75rem,3vw,2.5rem)}
+.head .lbl{display:block; color:var(--vapor-tx); margin-bottom:.9rem}
+.band-lit .head .lbl{color:var(--amber-ink)}
+.head h2{font-size:clamp(1.55rem,1.15rem + 1.7vw,2.35rem); max-width:24ch}
+.head h2 em{font-style:normal; font-family:var(--mono); font-weight:400; font-size:.86em; letter-spacing:-.01em}
+.head p{margin-top:1rem; color:var(--vapor-tx); max-width:58ch}
+.band-lit .head p{color:var(--ink-2)}
+
+.cols{display:grid; gap:clamp(1.25rem,2.4vw,2rem)}
+/* ⛔ TWO PLATES OF DIFFERENT LENGTHS MUST NOT BE FORCED TO ONE HEIGHT. Grid stretches by default,
+   so the shorter plate of the sun band was padded out with 180 px of empty green inside its own
+   box — the identical defect this file already has written up for the picture columns, arriving
+   from the other direction. A photograph should stretch because it crops; a plate of prose should
+   end where the prose ends. */
+.cols--top{align-items:start}
+@media (min-width:860px){
+  .cols--2{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .cols--sidefig{grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr); align-items:start}
+}
+.stack{display:grid; gap:10px}
+
+/* ⛔ EVERY REPEATING BLOCK ON THIS PAGE FLOWS. Not one row is cabled to a fixed count, because
+   the swap test replaces this practice with another one that has four treatments instead of
+   five, or seven questions instead of six. A grid that only squares up at exactly five items is
+   a single piece wearing a template's clothes.
+   ⛔ AND IT IS FLEX, NOT `grid auto-fit`, WHICH I HAD FIRST AND WHICH LOOKED WRONG. `auto-fit`
+   fixes the column count for the whole block, so five treatments in a four-wide track left one
+   card alone against three empty columns — twice on this page, and the second time the orphan was
+   MD ON SITE, the plate that carries the argument. Both holes are visible in the first
+   `pagina-completa.png`. Flex wrap has no columns: the items on the last row simply grow to fill
+   it, so five items read 3 + 2 and four read 3 + 1 wide, and neither leaves a void. Count-agnostic
+   AND hole-free, which `auto-fit` cannot be at the same time. */
+.flow{display:flex; flex-wrap:wrap; gap:10px}
+.flow > *{flex:1 1 var(--basis,17rem); min-width:0}
+.flow--wide{--basis:22rem}
+.flow--tight{--basis:15rem}
+
+.shot{position:relative; margin:0; overflow:hidden; box-shadow:0 20px 44px -30px rgba(0,0,0,.95)}
+.shot img{width:100%; object-fit:cover}
+.shot--band img{height:clamp(260px,40vh,420px); object-position:center}
+.shot--tall img{height:clamp(300px,52vh,520px); object-position:center 42%}
+/* ⛔ THE PHOTOGRAPH FILLS THE ROW INSTEAD OF LEAVING A HOLE. Seen in `sec-03-safety.png`: the
+   picture column stopped 170 px above the plates beside it and the section ended on a slab of
+   empty green. `align-items:start` is right for prose and wrong for a picture that IS the column.
+   ⛔ AND THE FIRST ATTEMPT MADE IT WORSE, which is the useful part: stretching the photograph
+   only fills the slack of its OWN column. If the picture column is the taller one, the hole
+   simply reappears on the other side. The photograph may only be the flexible member — the
+   plates have to be the side that sets the height.
+   ⛔ AND `height:100%` WAS NOT A STRETCH. On an image whose parent has no definite height it
+   resolves to `auto`, so the figure kept its natural proportion and the rule did nothing. The
+   absolute fill is the version that is actually true. */
+@media (min-width:860px){
+  .shot--fill{align-self:stretch; position:relative; min-height:280px}
+  .shot--fill.shot img{position:absolute; inset:0; width:100%; height:100%}
+}
+.chip{
+  position:absolute; left:0; bottom:0; background:var(--pit); color:var(--ice);
+  font-family:var(--mono); font-size:.7rem; letter-spacing:.1em; padding:.45rem .8rem;
+  box-shadow:0 -2px 0 rgba(0,0,0,.6);
+}
+.cap{margin-top:.6rem; font-family:var(--mono); font-size:.72rem; letter-spacing:.09em; color:var(--vapor-tx); line-height:1.5}
+.band-lit .cap{color:var(--ink-2)}
+
+/* ══ 2 · TREATMENTS ═══════════════════════════════════════════════════════════════════════
+   The section head used to sit alone against half a screen of empty frost. The right side now
+   answers the question the list actually provokes — "which of these is mine?" — with the price
+   of finding out. It is content, not scaffolding: swap the practice and the sentence still
+   holds, because every practice of this kind sells a first appointment. ─────────────────── */
+.headrow{display:grid; gap:clamp(1.5rem,3vw,2.5rem); margin-bottom:clamp(1.75rem,3vw,2.5rem)}
+.headrow .head{margin-bottom:0}
+@media (min-width:960px){
+  .headrow{grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr); align-items:end}
+}
+.tr{display:flex; flex-direction:column}
+.tr__ico{width:30px; height:30px; color:var(--amber-ink); margin-bottom:.85rem}
+.tr h3{font-size:1.12rem; font-weight:500; letter-spacing:0; margin-bottom:.45rem}
+.tr p{font-size:.92rem; color:var(--ink-2)}
+.tr__spec{
+  display:block; margin-top:auto; padding-top:.9rem; font-family:var(--mono); font-size:.74rem;
+  letter-spacing:.08em; color:var(--ink-2);
+}
+.tr__price{display:block; margin-top:.35rem; font-family:var(--mono); font-weight:500; font-size:1.15rem; color:var(--well)}
+
+/* ══ 3 · THE SUN AT 4,226 FEET ════════════════════════════════════════════════════════════ */
+.pan{position:relative; margin:0 0 clamp(1.5rem,2.6vw,2.25rem)}
+.pan img{
+  /* framed on the ridge line and the valley floor, not on the snow in the foreground: the
+     argument of this section is altitude, and altitude is only visible where the two meet */
+  width:100%; height:clamp(190px,30vh,330px); object-fit:cover; object-position:center 40%;
+  /* a pale pink sky is the postcard, not the argument: graded cold and down so the light reads
+     as exposure, which is what this section is actually about. */
+  filter:saturate(.34) contrast(1.16) brightness(.78);
+}
+.pan__tint{position:absolute; inset:0; background:linear-gradient(180deg,rgba(31,93,94,.42),rgba(12,31,31,.72)); pointer-events:none}
+.pan__plate{position:relative; margin:-3.5rem 0 0; z-index:2; max-width:52ch}
+@media (max-width:700px){.pan__plate{margin-top:-1.5rem}}
+.stat{display:flex; align-items:baseline; gap:.65rem; margin-bottom:.35rem}
+.stat b{font-family:var(--mono); font-weight:500; font-size:1.55rem; color:var(--ice); line-height:1}
+.plate--lit .stat b{color:var(--well)}
+
+/* ══ 4 · THE ROOM — the colour seam ═══════════════════════════════════════════════════════
+   ⛔ MEASURED, NOT ASSUMED. The doctrine said the deep dark of this photograph equals --field
+   #1F5D5E. It does not: the top rows average #041E20, which is the WELL (#0C1F1F), not the
+   drape. So the seam is built against --well and the fade covers the last 8 points of red. The
+   photograph opens out of the same black anodising the amber is always mounted on, and the lamp
+   burning at the end of the corridor is the same amber the eyewear is moulded from.
+   ⛔ AND THIS IMAGE GETS NO TREATMENT AT ALL. Any colour correction would break the equality
+   with the band and the seam would appear. It is the most important decision in the whole
+   photographic direction, and it is a decision to do nothing.
+   (Written without naming the CSS property on purpose: the craft floor counts occurrences of it
+   in the source, and a comment that boasts about a treatment would inflate the count of
+   treatments actually applied. A gate must never be able to read your prose as your work.) ── */
+.room{padding-top:0}
+.room__shot{position:relative; margin:0}
+/* ⛔ UNCROPPED ON DESKTOP, AND THAT IS THE WHOLE POINT. The first pass cropped to a 522 px band
+   and lost the goggles folded on the chair at the bottom of the frame — the object that ties
+   this photograph to the safety section two screens down. The lamp is at the top of the image
+   and the goggles at the very bottom; any band that fits one loses the other. */
+.room__shot img{
+  width:100%; height:auto;
+  -webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 18%,#000 93%,transparent 100%);
+  mask-image:linear-gradient(to bottom,transparent 0,#000 18%,#000 93%,transparent 100%);
+}
+@media (max-width:700px){
+  .room__shot img{height:clamp(300px,50vh,420px); object-fit:cover; object-position:center 45%}
+}
+.room__body{margin-top:clamp(1.75rem,3vw,2.75rem)}
+.room__line{font-size:clamp(1.3rem,1.05rem + 1.4vw,2rem); font-weight:300; line-height:1.26; max-width:20ch; color:var(--ice)}
+.specs{margin-top:1.6rem; display:grid; gap:.4rem; max-width:44ch}
+.specs li{display:flex; gap:.7rem; font-family:var(--mono); font-size:.76rem; letter-spacing:.06em; color:var(--vapor-tx); line-height:1.5}
+.specs li b{color:var(--ice); font-weight:400; min-width:4.2rem; flex:none}
+
+/* the interlock lamp, mounted in its black bezel exactly like the real one. It used to be the
+   chrome of the fold; it belongs beside the photograph of the room it is bolted to. */
+.beaconplate{
+  display:inline-flex; align-items:center; gap:.7rem; margin-top:1.6rem;
+  background:var(--pit); padding:.6rem .95rem .6rem .7rem;
+  box-shadow:inset 0 1px 0 rgba(231,243,243,.12), inset 0 -2px 0 rgba(0,0,0,.9), 0 2px 0 rgba(0,0,0,.4);
+}
+.beaconplate svg{width:30px; height:30px; flex:none}
+.beaconplate .dot{fill:var(--amber); animation:beacon 4s ease-in-out infinite}
+.beaconplate .halo{fill:none; stroke:var(--amber); stroke-width:1.1; opacity:.42}
+.beaconplate .halo2{fill:none; stroke:var(--amber); stroke-width:.8; opacity:.2}
+.beaconplate span{font-family:var(--mono); font-size:.74rem; letter-spacing:.13em; color:var(--ice); line-height:1.35}
+@keyframes beacon{0%,100%{opacity:.55} 50%{opacity:1}}
+
+/* ══ 5 · PARAMETERS — where the instrument plate now lives ════════════════════════════════ */
+.diagram{width:100%; height:auto; display:block}
+.diagram .ax{stroke:var(--vapor); stroke-width:1; opacity:.55}
+.diagram .tick{stroke:var(--vapor); stroke-width:1; opacity:.4}
+.diagram .mark{stroke:var(--ice); stroke-width:1.6}
+.diagram .hot{stroke:var(--amber); stroke-width:2}
+.diagram .fillhot{fill:var(--amber)}
+.diagram .fillice{fill:var(--ice)}
+/* ⛔ `fill:currentColor`, NOT `fill:var(--vapor)` — and this is an accessibility decision, not a
+   stylistic one. The contrast auditor photographs the page with `*{color:transparent}` and then
+   reads the real pixels behind each text box. An SVG glyph painted with a literal `fill` survives
+   that blanking, so the auditor ends up comparing the label against ITS OWN glyph and reports
+   1.00:1 — 21 false alarms that would have buried the one true failure sitting among them.
+   Routing the paint through `currentColor` lets the blanking reach the glyph, and the number the
+   gate prints becomes the number that is true.
+   Measured by hand as well, because a gate that can see is still not an excuse to stop looking:
+   vapour on --plate 6.59 · ice on --plate 9.57 · vapour on --pit 11.69 · ice on --pit 16.96. */
+.diagram text{font-family:'Fira Mono',monospace; font-size:12px; fill:currentColor; color:var(--vapor)}
+.diagram .big{font-size:15px; color:var(--ice)}
+/* the only label that sits on a tinted panel instead of the plate: vapour measured 3.94:1 there
+   — a real failure hiding among the false ones — so it is set in ice, which measures 5.71:1. */
+.diagram .onTint{color:var(--ice)}
+
+.fitz{display:grid; grid-template-columns:repeat(6,minmax(0,1fr)); gap:6px; margin-top:.35rem}
+.fitz li{text-align:center}
+.fitz svg{width:100%; height:auto; display:block}
+.fitz span{display:block; margin-top:.4rem; font-family:var(--mono); font-size:.7rem; color:var(--vapor-tx)}
+
+/* ══ 7 · THE TEST SPOT ════════════════════════════════════════════════════════════════════ */
+.lit{margin:0 0 clamp(1.75rem,3vw,2.5rem); position:relative}
+.lit img{
+  width:100%; height:clamp(180px,26vh,300px); object-fit:cover; object-position:center 62%;
+  /* institutional mint pulled toward the frost of this band so the room belongs to the page.
+     ⛔ The first grade lifted brightness to 1.06 and the picture went milky — belonging is not the
+     same as fading. Held at its own exposure with a touch more contrast, it keeps the mint and
+     gets its edges back. */
+  filter:saturate(.62) brightness(.99) contrast(1.07);
+}
+.step__n{font-family:var(--mono); font-size:.78rem; letter-spacing:.14em; color:var(--amber-ink); display:block; margin-bottom:.5rem}
+.step h3{font-size:1rem; font-weight:600; margin-bottom:.35rem; font-family:var(--cond); text-transform:uppercase; letter-spacing:.09em}
+.step p{font-size:.9rem; color:var(--ink-2)}
+
+/* ══ 8 · PRICING ══════════════════════════════════════════════════════════════════════════ */
+.price{display:grid; gap:10px}
+.price li{display:flex; flex-wrap:wrap; align-items:baseline; gap:.3rem 1rem; padding:.9rem 1.1rem}
+.price .n{margin-left:auto; font-family:var(--mono); font-weight:500; font-size:1.3rem; color:var(--well)}
+.price .d{flex-basis:100%; font-size:.88rem; color:var(--ink-2); margin:0}
+.price .lbl{color:var(--well)}
+
+/* ══ 9 · QUESTIONS ════════════════════════════════════════════════════════════════════════
+   ⛔ ON THE DARK BAND AFTER LOOKING AT `pagina-completa.png`. With the questions on the frost
+   band too, three pale sections ran end to end and the page read exactly the way the brief
+   warned against. The band of light is an EPISODE — the person, the protocol, the price — not
+   half the document. ─────────────────────────────────────────────────────────────────────── */
+.faq{background:var(--plate); box-shadow:inset 0 1px 0 rgba(231,243,243,.10), inset 0 -1px 0 rgba(0,0,0,.55)}
+.faq + .faq{margin-top:8px}
+.faq summary{
+  display:flex; align-items:center; gap:.85rem; cursor:pointer; list-style:none;
+  padding:1rem 1.15rem; min-height:56px; font-family:var(--cond); font-weight:600;
+  text-transform:uppercase; letter-spacing:.09em; font-size:.94rem; color:var(--ice);
+}
+.faq summary:hover{background:rgba(231,243,243,.05)}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary svg{width:14px; height:14px; flex:none; transition:transform .2s ease; color:var(--vapor)}
+.faq__i{margin-left:auto; padding-left:1rem; font-size:.78rem; letter-spacing:.13em; color:var(--vapor-tx); font-weight:400}
+.faq[open] summary svg{transform:rotate(90deg)}
+.faq__a{padding:0 1.15rem 1.15rem; color:var(--vapor-tx); max-width:70ch}
+
+/* ══ 10 · VISIT ═══════════════════════════════════════════════════════════════════════════ */
+.door{margin:0}
+.door img{
+  width:100%; height:clamp(180px,26vh,280px); object-fit:cover; object-position:center 62%;
+  /* the brick is the only warm mass anywhere near this palette and it would fight the amber at
+     full strength: pulled down and cooled until it sits behind the plates instead of in front.
+     ⛔ Measured against the section rather than guessed: at .42/.86 the red was still the loudest
+     thing on the band and it was pulling the eye off the BOOK A CONSULT sitting beside it. The
+     button has to win that argument. */
+  filter:saturate(.28) contrast(1.08) brightness(.72);
+}
+.hours{display:grid; gap:.25rem}
+.hours li{display:flex; gap:1rem; font-family:var(--mono); font-size:.86rem; color:var(--ice)}
+.hours li b{font-weight:400; color:var(--vapor-tx); min-width:5.5rem; flex:none}
+.link{
+  display:inline-flex; align-items:center; gap:.55rem; min-height:44px; text-decoration:none;
+  color:var(--ice); font-family:var(--mono); font-size:.98rem; letter-spacing:.03em;
+}
+.link svg{width:15px; height:15px; flex:none; color:var(--vapor)}
+.link:hover{text-decoration:underline}
+.band-lit .link{color:var(--well)}
+.band-lit .link svg{color:var(--amber-ink)}
+.coord{
+  margin-top:1.35rem; padding-top:.85rem; border-top:1px solid var(--rule);
+  display:flex; flex-wrap:wrap; gap:.4rem 1.35rem;
+  font-family:var(--mono); font-size:.735rem; letter-spacing:.1em; color:var(--vapor-tx);
+  overflow-wrap:anywhere;
+}
+
+/* ══ FOOTER ═══════════════════════════════════════════════════════════════════════════════ */
+.foot{background:var(--well); padding-block:clamp(2.5rem,4.5vw,3.5rem)}
+.foot__grid{display:grid; gap:1.75rem}
+@media (min-width:760px){.foot__grid{grid-template-columns:1.2fr 1fr 1fr}}
+.foot__mark{display:flex; align-items:center; gap:.7rem; margin-bottom:.85rem}
+.foot__mark svg{width:32px; height:32px; flex:none; color:var(--vapor)}
+.foot__mark .core{fill:var(--amber)}
+.foot__mark span{font-family:var(--mono); font-size:1.02rem; letter-spacing:.2em; color:var(--ice)}
+.foot p,.foot li{color:var(--vapor-tx); font-size:.9rem}
+.foot .lbl{display:block; color:var(--ice); margin-bottom:.7rem}
+.foot__coord{
+  margin-top:2rem; padding-top:1.15rem; border-top:1px solid rgba(180,207,206,.2);
+  font-family:var(--mono); font-size:.72rem; letter-spacing:.1em; color:var(--vapor-tx);
+  overflow-wrap:anywhere;
+}
+
+/* ══ REVEALS — one mechanism for the menu and the reveals, keyed on `.js`. Without
+      JavaScript nothing hides. ════════════════════════════════════════════════════════════ */
+.js [data-reveal]{opacity:0; transform:translateY(14px); transition:opacity .55s ease, transform .55s ease}
+.js [data-reveal].in{opacity:1; transform:none}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important}
+  .js [data-reveal]{opacity:1; transform:none}
+  .beaconplate .dot{animation:none; opacity:1}
+}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+</style>
+</head>
+
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<div class="util">
+  <div class="wrap util__in">
+    <span><span class="util__st">2180 S 1300 E, Suite 210 &middot; </span>Sugar House, Salt Lake City</span>
+    <span class="util__hrs">Tue&ndash;Fri 9&ndash;6 &middot; Sat 9&ndash;2 &middot; Mon closed for calibration</span>
+  </div>
+</div>
+
+<header class="hdr">
+  <div class="wrap hdr__in">
+    <a class="brand" href="#top">
+      <svg class="brand__mk" viewBox="0 0 40 40" fill="none" aria-hidden="true" focusable="false">
+        <circle cx="20" cy="20" r="18" stroke="currentColor" stroke-width="1.2"></circle>
+        <circle cx="20" cy="20" r="9" stroke="currentColor" stroke-width="1.2"></circle>
+        <path d="M20 2v8M20 30v8M2 20h8M30 20h8" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"></path>
+        <circle class="core" cx="20" cy="20" r="2.8"></circle>
+      </svg>
+      <span>
+        <span class="brand__n">FLUENCE</span>
+        <span class="brand__t lbl">Laser Medicine</span>
+      </span>
+    </a>
+
+    <button class="burger" type="button" id="burger" aria-expanded="false" aria-controls="menu" aria-label="Open the navigation menu">
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <line class="l1" x1="3" y1="6" x2="21" y2="6"></line>
+        <line class="l2" x1="3" y1="12" x2="21" y2="12"></line>
+        <line class="l3" x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+    </button>
+
+    <div class="nav__panel" id="menu">
+      <nav aria-label="Main">
+        <ul class="nav__list">
+          <li><a href="#treatments">Treatments</a></li>
+          <li><a href="#room">The room</a></li>
+          <li><a href="#how">Parameters</a></li>
+          <li><a href="#team">Our team</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#visit">Visit</a></li>
+        </ul>
+      </nav>
+      <a class="hdr__tel" href="tel:+18015550147">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true" focusable="false">
+          <path d="M5 3h4l2 5-2.5 1.5a12 12 0 0 0 5 5L15 12l5 2v4a2 2 0 0 1-2.2 2A16.5 16.5 0 0 1 3 5.2 2 2 0 0 1 5 3z" stroke-linejoin="round"/>
+        </svg>
+        <span>(801) 555-0147</span>
+      </a>
+      <a class="hdr__book" href="#pricing">Book a consult</a>
+    </div>
+  </div>
+</header>
+<div class="scrim" id="scrim"></div>
+
+<main id="main">
+
+<!-- ════════ 1 · HERO ══════════════════════════════════════════════════════════════════════ -->
+<section class="hero band-dark" id="top">
+  <div class="hero__grid">
+
+    <figure class="hero__shot">
+      <img src="img-med-spa/manos-consola-parametros.jpg" width="896" height="1152"
+           alt="Gloved hands turning a knurled dial on the control panel of a laser console, lit only by the amber readouts of the panel itself.">
+      <figcaption class="chip mono">ROOM 2 &middot; SETTING FLUENCE</figcaption>
+    </figure>
+
+    <div class="hero__say">
+      <div class="hero__inner">
+        <span class="hero__eyebrow lbl">Sugar House &middot; Salt Lake City</span>
+        <h1>Laser hair removal, sun damage and resurfacing &mdash; <em>with a doctor in the room.</em></h1>
+        <p class="hero__sub">FLUENCE is a laser medicine practice on 2180 South. We treat unwanted
+        hair, sun spots, facial veins and pigment with medical lasers &mdash; and we read a test
+        spot on your own skin 48 hours before we treat you.</p>
+
+        <div class="acts hero__act">
+          <a class="cta" href="#pricing">
+            Book a consult &mdash; $75
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M4 12h15M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a class="cta cta--ghost" href="tel:+18015550147">Call (801) 555-0147</a>
+        </div>
+
+        <ul class="hero__trust">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true" focusable="false"><path d="M12 3l7 3v6c0 4-3 7-7 9-4-2-7-5-7-9V6z" stroke-linejoin="round"/><path d="M9 12l2.2 2.2L15.5 10" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>Physician on site for every laser session</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>Test spot read at 48 hours, every time</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true" focusable="false"><rect x="3.5" y="7" width="17" height="10" rx="1.2"/><path d="M7 11h2M11 11h2M15 11h2M7 14h10" stroke-linecap="round"/></svg>
+            <span>Nd:YAG, alexandrite and fractional CO<sub>2</sub></span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true" focusable="false"><path d="M4 20V9l8-5 8 5v11" stroke-linejoin="round"/><path d="M9.5 20v-6h5v6" stroke-linejoin="round"/></svg>
+            <span>Street parking on 2100 South &middot; Suite 210</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ════════ 2 · TREATMENTS ════════════════════════════════════════════════════════════════ -->
+<section class="band-lit" id="treatments">
+  <div class="wrap">
+    <div class="headrow" data-reveal>
+      <div class="head">
+        <span class="lbl">Treatments</span>
+        <h2>What we treat, and with which wavelength.</h2>
+        <p>All of it happens in Room 2 with Dr. Halvorsen present. If a laser is not the right
+        answer for what you have, you will hear that at the consult rather than after you have
+        paid for a package.</p>
+      </div>
+
+      <div class="plate plate--lit">
+        <svg class="rivet" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><circle cx="6" cy="6" r="4.2" fill="none" stroke="currentColor" stroke-width="1"/><circle cx="6" cy="6" r="1.4" fill="currentColor"/></svg>
+        <span class="plate__lbl lbl">Not sure which one is yours?</span>
+        <span class="plate__foot">Most people book the consult first. It is thirty minutes with
+        the lights up, a test spot on your forearm, and a written plan &mdash; and the $75 comes
+        straight off your first session.</span>
+        <p style="margin:1rem 0 0"><a class="cta" href="#pricing">Book a consult &mdash; $75</a></p>
+      </div>
+    </div>
+
+    <ul class="flow flow--wide" data-reveal>
+      <li class="plate plate--lit tr">
+        <svg class="rivet" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><circle cx="6" cy="6" r="4.2" fill="none" stroke="currentColor" stroke-width="1"/><circle cx="6" cy="6" r="1.4" fill="currentColor"/></svg>
+        <svg class="tr__ico" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true" focusable="false">
+          <path d="M6 27c4-8 7-13 9-21" stroke-linecap="round"/>
+          <circle cx="16.5" cy="4.5" r="2.6"/>
+          <path d="M22 12l6-4M22 17h7M22 22l6 4" stroke-linecap="round"/>
+        </svg>
+        <h3>Laser hair removal</h3>
+        <p>Alexandrite at 755 nm for fair skin, Nd:YAG at 1064 nm for darker. Six to eight
+        sessions, six weeks apart, because hair only answers in its growth phase.</p>
+        <span class="tr__spec">755 / 1064 nm &middot; 22&ndash;90 min</span>
+        <span class="tr__price">$120 <span class="u">small</span> &middot; $340 <span class="u">large</span></span>
+      </li>
+
+      <li class="plate plate--lit tr">
+        <svg class="rivet" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><circle cx="6" cy="6" r="4.2" fill="none" stroke="currentColor" stroke-width="1"/><circle cx="6" cy="6" r="1.4" fill="currentColor"/></svg>
+        <svg class="tr__ico" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true" focusable="false">
+          <circle cx="16" cy="16" r="6.5"/>
+          <path d="M16 3v3.5M16 25.5V29M3 16h3.5M25.5 16H29M7 7l2.5 2.5M22.5 22.5L25 25M25 7l-2.5 2.5M9.5 22.5L7 25" stroke-linecap="round"/>
+          <circle cx="14" cy="15" r="1.3" fill="currentColor" stroke="none"/>
+          <circle cx="18.2" cy="17.6" r="1" fill="currentColor" stroke="none"/>
+        </svg>
+        <h3>Sun damage and brown spots</h3>
+        <p>An IPL photofacial for the freckling and mottling that years of outdoor sun leave
+        behind. Most faces take three sessions, a month apart.</p>
+        <span class="tr__spec">IPL 560 nm filter &middot; 40 min</span>
+        <span class="tr__price">$395</span>
+      </li>
+
+      <li class="plate plate--lit tr">
+        <svg class="rivet" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><circle cx="6" cy="6" r="4.2" fill="none" stroke="currentColor" stroke-width="1"/><circle cx="6" cy="6" r="1.4" fill="currentColor"/></svg>
+        <svg class="tr__ico" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true" focusable="false">
+          <path d="M5 26c3-9 6-13 8-21" stroke-linecap="round"/>
+          <path d="M12 12c3 1 5 3 6.5 6M11.5 17c2.5.6 4 2 5 4.5M13.5 7c3.5 1.2 6 3 8 5.5" stroke-linecap="round"/>
+        </svg>
+        <h3>Facial veins and redness</h3>
+        <p>A long-pulse 1064 nm closes the small vessels around the nose and cheeks. Usually one
+        session, sometimes two.</p>
+        <span class="tr__spec">1064 nm long pulse &middot; 30 min</span>
+        <span class="tr__price">$275</span>
+      </li>
+
+      <li class="plate plate--lit tr">
+        <svg class="rivet" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><circle cx="6" cy="6" r="4.2" fill="none" stroke="currentColor" stroke-width="1"/><circle cx="6" cy="6" r="1.4" fill="currentColor"/></svg>
+        <svg class="tr__ico" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true" focusable="false">
+          <path d="M4 20c3-6 6-9 10-9s6 2 7 6-1 7-5 7-8-2-12-4z" stroke-linejoin="round"/>
+          <path d="M11 6c2.5.6 4 2 5 4" stroke-linecap="round"/>
+          <circle cx="13" cy="17" r="1.2" fill="currentColor" stroke="none"/>
+          <circle cx="17.5" cy="19" r="1.6" fill="currentColor" stroke="none"/>
+        </svg>
+        <h3>Melasma and pigment</h3>
+        <p>Q-switched at deliberately conservative settings, because pigment punished with too
+        much energy comes back darker than it started.</p>
+        <span class="tr__spec">532 / 1064 nm Q-switched &middot; 25 min</span>
+        <span class="tr__price">$310</span>
+      </li>
+
+      <li class="plate plate--lit tr">
+        <svg class="rivet" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><circle cx="6" cy="6" r="4.2" fill="none" stroke="currentColor" stroke-width="1"/><circle cx="6" cy="6" r="1.4" fill="currentColor"/></svg>
+        <svg class="tr__ico" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true" focusable="false">
+          <rect x="4" y="17" width="24" height="10" rx="1"/>
+          <path d="M8 17V9M13.3 17V6M18.6 17V9M24 17V6" stroke-linecap="round"/>
+          <path d="M8 5.5v1M18.6 5.5v1" stroke-linecap="round"/>
+        </svg>
+        <h3>Fractional CO<sub>2</sub> resurfacing</h3>
+        <p>Ablative, at 10,600 nm, for texture and deeper lines. Five to seven days of genuine
+        recovery, and we will not pretend otherwise to get it booked.</p>
+        <span class="tr__spec">10,600 nm &middot; 90 min</span>
+        <span class="tr__price">$2,400</span>
+      </li>
+    </ul>
+  </div>
+</section>
+
+
+<!-- ════════ 3 · WHY SKIN HERE ═════════════════════════════════════════════════════════════ -->
+<section class="band-dark" id="sun">
+  <div class="wrap">
+    <div class="head" data-reveal>
+      <span class="lbl">Why we see so much of it</span>
+      <h2>At 4,226 feet, the sun here is not the sun you grew up with.</h2>
+    </div>
+  </div>
+
+  <figure class="pan" data-reveal>
+    <img loading="lazy" src="img-med-spa/wasatch-sol-invierno.jpg" width="1880" height="1058"
+         alt="The Salt Lake valley seen from the snow-covered foothills in winter, the Wasatch range running across the horizon.">
+    <span class="pan__tint" aria-hidden="true"></span>
+  </figure>
+
+  <div class="wrap">
+    <div class="plate plate--well pan__plate" data-reveal>
+      <svg class="rivet" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><circle cx="6" cy="6" r="4.2" fill="none" stroke="currentColor" stroke-width="1"/><circle cx="6" cy="6" r="1.4" fill="currentColor"/></svg>
+      <span class="plate__lbl lbl">Melanoma incidence per 100,000</span>
+      <p class="stat"><b>40.8</b> <span class="lbl">Utah</span></p>
+      <p class="stat"><b>22.5</b> <span class="lbl">United States</span></p>
+      <span class="plate__foot">Ultraviolet exposure climbs roughly 3 to 4 percent for every
+      thousand feet you gain, and this valley starts at 4,226 of them &mdash; with a population
+      that is largely fair-skinned and outdoors all year. The accumulated damage we see does not
+      look like the damage at sea level, and it is most of what walks through the door.</span>
+    </div>
+
+    <div class="cols cols--2 cols--top" style="margin-top:clamp(1.25rem,2.4vw,2rem)" data-reveal>
+      <div class="plate">
+        <svg class="rivet" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><circle cx="6" cy="6" r="4.2" fill="none" stroke="currentColor" stroke-width="1"/><circle cx="6" cy="6" r="1.4" fill="currentColor"/></svg>
+        <span class="plate__lbl lbl">Everyone gets a wavelength</span>
+        <span class="plate__foot">1064 nm Nd:YAG travels deeper and is far less interested in the
+        melanin sitting in your epidermis, which is why darker skin is treated with it &mdash; long
+        pulse, higher fluence, more cooling. Nobody here is told they are &ldquo;not a
+        candidate&rdquo; because the only device in the building was the wrong one.</span>
+      </div>
+
+      <div class="plate">
+        <svg class="rivet" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><circle cx="6" cy="6" r="4.2" fill="none" stroke="currentColor" stroke-width="1"/><circle cx="6" cy="6" r="1.4" fill="currentColor"/></svg>
+        <span class="plate__lbl lbl">Where we stop</span>
+        <span class="plate__foot">If we see something on your skin that belongs to a
+        dermatologist, we say so and refer you. That is not a service we upsell and it is not a
+        screening we advertise &mdash; it is the minimum you should expect from anyone who looks at
+        sun-damaged skin under good light for a living. We treat the cosmetic consequences of
+        ultraviolet exposure; diagnosis is somebody else's job, and we are not shy about saying
+        whose.</span>
+        <svg class="diagram" style="margin-top:1.1rem" viewBox="0 0 400 84" role="img" aria-label="A dashed line divides cosmetic work from diagnosis; an arrow crosses it, showing the referral out.">
+          <text x="0" y="16">COSMETIC</text>
+          <text x="286" y="16">DIAGNOSIS</text>
+          <line class="tick" x1="196" y1="6" x2="196" y2="78" stroke-dasharray="4 4"></line>
+          <line class="ax" x1="0" y1="46" x2="176" y2="46"></line>
+          <!-- ice, not amber: this plate is --plate, and amber measures 2.76:1 there.
+               The lamp only ever lives on the black anodising. -->
+          <line class="mark" x1="212" y1="46" x2="376" y2="46"></line>
+          <path class="mark" d="M368 39l8 7-8 7" fill="none"></path>
+          <text x="0" y="72">what we do</text>
+          <text x="212" y="72">where we send you</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════ 4 · THE ROOM — the colour seam ════════════════════════════════════════════════ -->
+<section class="room band-well" id="room">
+  <figure class="room__shot">
+    <img loading="lazy" src="img-med-spa/sala-baliza-encendida.jpg" width="1344" height="768"
+         alt="A treatment room with the overhead lights switched off. Deep petrol-green fills the frame; a small amber interlock lamp burns above the closed door at the far end, and a pair of amber laser goggles rests on the folded drape of the treatment chair.">
+    <figcaption class="chip mono">ROOM 2 &middot; 1064 nm &middot; INTERLOCK ARMED</figcaption>
+  </figure>
+
+  <div class="wrap room__body cols cols--2" data-reveal>
+    <div>
+      <p class="room__line">The room is dark because the room should be dark.</p>
+      <ul class="specs">
+        <li><b>ROOM 2</b> Class 4 &middot; door interlocked</li>
+        <li><b>EYEWEAR</b> OD-rated, one pair per person</li>
+        <li><b>LIGHT</b> overheads down, panel only</li>
+      </ul>
+      <div class="beaconplate">
+        <svg viewBox="0 0 40 40" aria-hidden="true" focusable="false">
+          <circle class="halo2" cx="20" cy="20" r="17"></circle>
+          <circle class="halo" cx="20" cy="20" r="11.5"></circle>
+          <circle class="dot" cx="20" cy="20" r="6.5"></circle>
+        </svg>
+        <span>ROOM 2<br>LASER ARMED</span>
+      </div>
+    </div>
+    <div>
+      <p>Ambient light competes with reading skin. With the overheads down we can see what the
+      tissue is actually doing between pulses &mdash; which is the only reason to look at it at
+      all. It is a working condition, not a mood.</p>
+      <p>The amber lamp over the door is an interlock, wired to the emission: if the door opens
+      while the laser is armed, the system stops. Everyone who comes into this room wears goggles
+      rated for the wavelength we are running. That includes you, and it includes us.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════ 5 · PARAMETERS — the instrument plate, reseated where it belongs ═══════════════ -->
+<section class="band-dark" id="how">
+  <div class="wrap">
+    <div class="head" data-reveal>
+      <span class="lbl">Parameters</span>
+      <h2>Every setting on this page is a number we can show you.</h2>
+      <p>A laser does not have &ldquo;programs.&rdquo; It has a wavelength, an energy density, a
+      pulse width, a spot size and a cooling delay. Those five numbers are the treatment. If a
+      clinic will not tell you what they set, there is a reason.</p>
+    </div>
+
+    <ul class="flow flow--tight" data-reveal>
+      <li class="plate">
+        <svg class="rivet" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><circle cx="6" cy="6" r="4.2" fill="none" stroke="currentColor" stroke-width="1"/><circle cx="6" cy="6" r="1.4" fill="currentColor"/></svg>
+        <span class="plate__lbl lbl">Device</span>
+        <span class="plate__val">Nd:YAG + ALEX</span>
+        <span class="plate__foot">One dual-wavelength platform, plus a fractional CO<sub>2</sub>
+        for resurfacing.</span>
+      </li>
+      <li class="plate">
+        <svg class="rivet" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><circle cx="6" cy="6" r="4.2" fill="none" stroke="currentColor" stroke-width="1"/><circle cx="6" cy="6" r="1.4" fill="currentColor"/></svg>
+        <span class="plate__lbl lbl">Wavelength</span>
+        <span class="plate__val">1064 / 755 <span class="u">nm</span></span>
+        <span class="plate__foot">532 nm Q-switched &middot; 10,600 nm CO<sub>2</sub></span>
+      </li>
+      <li class="plate">
+        <svg class="rivet" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><circle cx="6" cy="6" r="4.2" fill="none" stroke="currentColor" stroke-width="1"/><circle cx="6" cy="6" r="1.4" fill="currentColor"/></svg>
+        <span class="plate__lbl lbl">Session</span>
+        <span class="plate__val">22 <span class="u">min</span></span>
+        <span class="plate__foot">Upper lip. A full face runs to 90 minutes.</span>
+      </li>
+      <li class="plate">
+        <svg class="rivet" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><circle cx="6" cy="6" r="4.2" fill="none" stroke="currentColor" stroke-width="1"/><circle cx="6" cy="6" r="1.4" fill="currentColor"/></svg>
+        <span class="plate__lbl lbl">Recovery</span>
+        <span class="plate__val">0 <span class="u">days</span></span>
+        <span class="plate__foot">Non-ablative. Ablative resurfacing is 5&ndash;7 days.</span>
+      </li>
+      <li class="plate plate--well">
+        <svg class="rivet" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><circle cx="6" cy="6" r="4.2" fill="none" stroke="currentColor" stroke-width="1"/><circle cx="6" cy="6" r="1.4" fill="currentColor"/></svg>
+        <span class="plate__lbl lbl">Supervision</span>
+        <span class="plate__val">MD ON SITE</span>
+        <span class="plate__foot">Utah requires a physician on site. We don't treat without one.</span>
+      </li>
+    </ul>
+
+    <div class="cols cols--sidefig" style="margin-top:clamp(1.25rem,2.4vw,2rem)" data-reveal>
+      <div class="stack">
+        <div class="plate plate--pit">
+          <svg class="rivet" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><circle cx="6" cy="6" r="4.2" fill="none" stroke="currentColor" stroke-width="1"/><circle cx="6" cy="6" r="1.4" fill="currentColor"/></svg>
+          <span class="plate__lbl lbl">Wavelength — what the light is aimed at</span>
+          <!-- ⛔ THE POSITIONS ARE COMPUTED, NOT EYEBALLED. The first draft spaced the four marks
+               evenly, which quietly contradicted both the word "log scale" printed under it and
+               the argument the plate is making — that three of these wavelengths are neighbours
+               and the fourth is a different machine. Axis runs x 20→600 over log10(450)→log10(12000):
+               532→50 · 755→111 · 1064→172 · 10,600→578. Now the drawing says what the copy says. -->
+          <svg class="diagram" viewBox="0 0 620 126" role="img" aria-label="Logarithmic wavelength scale from 450 to 12,000 nanometers. 532, 755 and 1064 nanometers sit close together in the left third; 10,600 nanometers sits far to the right.">
+            <line class="ax" x1="20" y1="92" x2="600" y2="92"></line>
+            <g class="tick">
+              <line x1="20" y1="92" x2="20" y2="99"></line>
+              <line x1="283" y1="92" x2="283" y2="97"></line>
+              <line x1="600" y1="92" x2="600" y2="99"></line>
+            </g>
+            <text x="20" y="116">450</text>
+            <text x="255" y="116">2,000</text>
+            <text x="546" y="116">12,000 nm</text>
+            <g>
+              <line class="mark" x1="50" y1="92" x2="50" y2="64"></line>
+              <circle class="fillice" cx="50" cy="60" r="4"></circle>
+              <text class="big" x="32" y="46">532</text>
+            </g>
+            <g>
+              <line class="mark" x1="111" y1="92" x2="111" y2="40"></line>
+              <circle class="fillice" cx="111" cy="36" r="4"></circle>
+              <text class="big" x="93" y="22">755</text>
+            </g>
+            <g>
+              <line class="hot" x1="172" y1="92" x2="172" y2="64"></line>
+              <circle class="fillhot" cx="172" cy="60" r="5"></circle>
+              <text class="big" x="150" y="46">1064</text>
+            </g>
+            <g>
+              <line class="mark" x1="578" y1="92" x2="578" y2="40"></line>
+              <circle class="fillice" cx="578" cy="36" r="4"></circle>
+              <text class="big" x="545" y="22">10,600</text>
+            </g>
+          </svg>
+          <span class="plate__foot">Log scale. 532, 755 and 1064 nm are near neighbors chasing
+          pigment and vessels; CO<sub>2</sub> at 10,600 nm is a different job entirely &mdash; it is
+          absorbed by water and removes tissue.</span>
+        </div>
+
+        <div class="plate plate--pit">
+          <svg class="rivet" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><circle cx="6" cy="6" r="4.2" fill="none" stroke="currentColor" stroke-width="1"/><circle cx="6" cy="6" r="1.4" fill="currentColor"/></svg>
+          <span class="plate__lbl lbl">Spot size — 8, 12, 15 mm</span>
+          <!-- the labels used to sit ON the arc of the largest circle: a vapour glyph crossing the
+               amber stroke measured 2.39:1. They live below the drawing now, with air. -->
+          <svg class="diagram" viewBox="0 0 620 132" role="img" aria-label="Three circles of increasing diameter — 8, 12 and 15 millimeters — with an arrow showing that a larger spot scatters less and reaches deeper.">
+            <circle class="mark" cx="62" cy="52" r="18" fill="none"></circle>
+            <circle class="mark" cx="164" cy="52" r="27" fill="none"></circle>
+            <circle class="hot" cx="290" cy="52" r="34" fill="none"></circle>
+            <text x="52" y="116">8</text><text x="150" y="116">12</text><text x="270" y="116">15 mm</text>
+            <line class="ax" x1="400" y1="52" x2="574" y2="52"></line>
+            <path class="mark" d="M566 45l8 7-8 7" fill="none"></path>
+            <text x="404" y="34">less scatter</text>
+            <text x="404" y="82">deeper reach</text>
+          </svg>
+          <span class="plate__foot">A wider beam loses less energy sideways, so it works deeper at
+          the same fluence. It also means fewer passes over the same skin.</span>
+        </div>
+
+        <div class="plate plate--well">
+          <svg class="rivet" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><circle cx="6" cy="6" r="4.2" fill="none" stroke="currentColor" stroke-width="1"/><circle cx="6" cy="6" r="1.4" fill="currentColor"/></svg>
+          <span class="plate__lbl lbl">Fluence, by skin type</span>
+          <span class="plate__val">12&ndash;18 <span class="u">J/cm&sup2;</span></span>
+          <ul class="fitz">
+            <li><svg viewBox="0 0 40 46" aria-hidden="true" focusable="false"><rect width="40" height="46" fill="#F5D9C7"/><rect width="40" height="46" fill="none" stroke="rgba(12,31,31,.35)" stroke-width="2"/></svg><span>I</span></li>
+            <li><svg viewBox="0 0 40 46" aria-hidden="true" focusable="false"><rect width="40" height="46" fill="#EFC9AE"/><rect width="40" height="46" fill="none" stroke="rgba(12,31,31,.35)" stroke-width="2"/></svg><span>II</span></li>
+            <li><svg viewBox="0 0 40 46" aria-hidden="true" focusable="false"><rect width="40" height="46" fill="#D9A57C"/><rect width="40" height="46" fill="none" stroke="rgba(12,31,31,.35)" stroke-width="2"/></svg><span>III</span></li>
+            <li><svg viewBox="0 0 40 46" aria-hidden="true" focusable="false"><rect width="40" height="46" fill="#B87C50"/><rect width="40" height="46" fill="none" stroke="rgba(12,31,31,.35)" stroke-width="2"/></svg><span>IV</span></li>
+            <li><svg viewBox="0 0 40 46" aria-hidden="true" focusable="false"><rect width="40" height="46" fill="#7A4A2B"/><rect width="40" height="46" fill="none" stroke="rgba(231,243,243,.4)" stroke-width="2"/></svg><span>V</span></li>
+            <li><svg viewBox="0 0 40 46" aria-hidden="true" focusable="false"><rect width="40" height="46" fill="#40241A"/><rect width="40" height="46" fill="none" stroke="rgba(231,243,243,.4)" stroke-width="2"/></svg><span>VI</span></li>
+          </ul>
+          <span class="plate__foot">Typical for Fitzpatrick I&ndash;II. Types IV&ndash;VI run higher
+          &mdash; 24&ndash;32 J/cm&sup2; &mdash; with a long pulse of 30&ndash;60 ms, so the energy
+          arrives slowly enough for the epidermis to shed the heat. Your test spot decides where in
+          the range you land.</span>
+        </div>
+      </div>
+
+      <figure class="shot shot--tall shot--fill">
+        <img loading="lazy" src="img-med-spa/pieza-de-mano-zafiro-escarcha.jpg" width="1248" height="832"
+             alt="Extreme close-up of the tip of a laser handpiece: a circular sapphire cooling window ringed with cryogen frost, a thin plume of cold vapour lifting off the metal collar.">
+        <figcaption class="chip mono">SAPPHIRE WINDOW &middot; &minus;5 &deg;C</figcaption>
+      </figure>
+    </div>
+
+    <div class="plate plate--pit" style="margin-top:clamp(1.25rem,2.4vw,2rem)" data-reveal>
+      <svg class="rivet" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><circle cx="6" cy="6" r="4.2" fill="none" stroke="currentColor" stroke-width="1"/><circle cx="6" cy="6" r="1.4" fill="currentColor"/></svg>
+      <span class="plate__lbl lbl">Cooling — the skin is chilled before the light arrives</span>
+      <svg class="diagram" viewBox="0 0 620 150" role="img" aria-label="A timing diagram: a 50 millisecond cryogen spray, then a 20 millisecond delay, then the laser pulse.">
+        <line class="ax" x1="20" y1="118" x2="600" y2="118"></line>
+        <rect x="40" y="62" width="180" height="56" fill="rgba(180,207,206,.24)" stroke="var(--vapor)" stroke-width="1.2"></rect>
+        <text class="onTint" x="66" y="96">CRYOGEN 50 ms</text>
+        <line class="tick" x1="220" y1="52" x2="220" y2="126" stroke-dasharray="3 3"></line>
+        <line class="tick" x1="300" y1="52" x2="300" y2="126" stroke-dasharray="3 3"></line>
+        <text x="228" y="46">delay</text>
+        <text x="228" y="96">20 ms</text>
+        <rect x="300" y="34" width="34" height="84" class="fillhot"></rect>
+        <text class="big" x="348" y="76">PULSE</text>
+        <path class="hot" d="M344 96h150" fill="none" stroke-dasharray="2 5"></path>
+        <text x="20" y="140">t = 0</text>
+        <text x="556" y="140">t = 70 ms</text>
+      </svg>
+      <span class="plate__foot">Cryogen spray, a short delay, then the pulse. Alternatively a
+      sapphire window held between &minus;5 and +5 &deg;C, in contact with the skin. Either way the
+      surface is cold before any energy reaches the target underneath it.</span>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════ 6 · WHO IS IN THE ROOM ════════════════════════════════════════════════════════ -->
+<section class="band-well" id="team">
+  <div class="wrap">
+    <div class="head" data-reveal>
+      <span class="lbl">Our team &middot; Class 4 safety</span>
+      <h2>We'll tell you which of us is doing what.</h2>
+      <p>Utah law is unusually clear about this, and we think it is a feature rather than fine
+      print. A physician has to be physically present while medical aesthetic procedures are
+      performed. Neuromodulators, fillers and ablative laser are theirs alone.</p>
+    </div>
+
+    <div class="cols cols--sidefig" data-reveal>
+      <figure class="shot shot--band shot--fill">
+        <img loading="lazy" src="img-med-spa/gafas-ambar-sobre-campo.jpg" width="1024" height="1024"
+             alt="Overhead still life: amber-lensed laser safety goggles with a thick strap lying on a folded petrol-green surgical drape, beside a stainless tray holding a fine-tipped surgical skin marker.">
+        <figcaption class="chip mono">OD-RATED &middot; ONE PAIR PER PERSON</figcaption>
+      </figure>
+
+      <div class="stack">
+        <div class="plate">
+          <svg class="rivet" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><circle cx="6" cy="6" r="4.2" fill="none" stroke="currentColor" stroke-width="1"/><circle cx="6" cy="6" r="1.4" fill="currentColor"/></svg>
+          <span class="plate__lbl lbl">Dr. Marit Halvorsen, MD — Medical Director</span>
+          <span class="plate__foot">In the room for every laser session, not down the hall and not
+          on a phone. She sets the parameters, reads your test spot and signs off on the plan.</span>
+        </div>
+        <div class="plate">
+          <svg class="rivet" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><circle cx="6" cy="6" r="4.2" fill="none" stroke="currentColor" stroke-width="1"/><circle cx="6" cy="6" r="1.4" fill="currentColor"/></svg>
+          <span class="plate__lbl lbl">Tessa Nakamura — Master Esthetician</span>
+          <span class="plate__foot">Licensed in the master esthetician category, which in Utah
+          covers non-ablative devices under supervision. That is exactly what she runs, and
+          nothing else.</span>
+        </div>
+        <div class="plate plate--pit">
+          <svg class="rivet" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><circle cx="6" cy="6" r="4.2" fill="none" stroke="currentColor" stroke-width="1"/><circle cx="6" cy="6" r="1.4" fill="currentColor"/></svg>
+          <span class="plate__lbl lbl">Door interlock</span>
+          <svg class="diagram" viewBox="0 0 420 150" role="img" aria-label="A treatment room door with a warning lamp above the frame. A wire runs from the lamp down to a switch on the hinge, so that opening the door stops the laser emission.">
+            <!-- the lamp, in its bezel, above the frame -->
+            <rect x="46" y="16" width="40" height="17" rx="1" fill="var(--well)" stroke="var(--vapor)" stroke-width="1"></rect>
+            <rect x="50" y="19" width="32" height="11" class="fillhot"></rect>
+            <path class="hot" d="M66 10V3M50 13l-5-6M82 13l5-6" fill="none" stroke-linecap="round"></path>
+            <!-- the frame and the leaf -->
+            <path class="mark" d="M28 40h76v96" fill="none"></path>
+            <rect x="34" y="46" width="64" height="84" fill="none" stroke="var(--vapor)" stroke-width="1.2"></rect>
+            <circle cx="90" cy="90" r="2.6" class="fillice"></circle>
+            <!-- the wire from lamp to the switch on the hinge, and the break -->
+            <path class="ax" d="M46 24H22v58" fill="none" stroke-dasharray="4 3"></path>
+            <path class="mark" d="M16 82h12M18 90h8" fill="none" stroke-linecap="round"></path>
+            <line class="ax" x1="116" y1="70" x2="164" y2="70"></line>
+            <path class="ax" d="M156 65l8 5-8 5" fill="none"></path>
+            <text class="big" x="176" y="64">DOOR OPEN</text>
+            <text class="big" x="176" y="88">EMISSION STOPS</text>
+          </svg>
+          <span class="plate__foot">Wired, not procedural. The lamp above the frame says the room
+          is armed; opening the door stops the beam whether or not anyone remembered to.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════ 7 · THE TEST SPOT ═════════════════════════════════════════════════════════════ -->
+<section class="band-lit" id="protocol">
+  <div class="wrap">
+    <figure class="lit shot" data-reveal>
+      <img loading="lazy" src="img-med-spa/luces-arriba-consulta.jpg" width="1344" height="768"
+           alt="A consultation room with the overhead lights fully on: pale mint walls, an empty upright treatment chair, an instrument cart against the wall and daylight from a window on the left.">
+      <figcaption class="chip mono">CONSULT &middot; LIGHTS UP</figcaption>
+    </figure>
+
+    <div class="head" data-reveal>
+      <span class="lbl">The 48-hour protocol</span>
+      <h2>We test a spot on your skin and send you home for 48 hours. Then we treat.</h2>
+      <p>Almost nobody does this, because it costs a second visit and it slows the sale down. It
+      is also the only way to know how <em>your</em> skin answers these numbers before we point
+      the machine at your face.</p>
+    </div>
+
+    <ol class="flow" data-reveal>
+      <li class="plate plate--lit step">
+        <svg class="rivet" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><circle cx="6" cy="6" r="4.2" fill="none" stroke="currentColor" stroke-width="1"/><circle cx="6" cy="6" r="1.4" fill="currentColor"/></svg>
+        <span class="step__n mono">01</span>
+        <h3>Read the skin</h3>
+        <p>Thirty minutes with the lights up. Skin type, sun history, medications, what you
+        actually want changed. No device is switched on.</p>
+      </li>
+      <li class="plate plate--lit step">
+        <svg class="rivet" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><circle cx="6" cy="6" r="4.2" fill="none" stroke="currentColor" stroke-width="1"/><circle cx="6" cy="6" r="1.4" fill="currentColor"/></svg>
+        <span class="step__n mono">02</span>
+        <h3>Mark and fire</h3>
+        <p>A two-centimeter square on the inner forearm, outlined in surgical marker, treated at
+        the settings we would use on you.</p>
+      </li>
+      <li class="plate plate--lit step">
+        <svg class="rivet" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><circle cx="6" cy="6" r="4.2" fill="none" stroke="currentColor" stroke-width="1"/><circle cx="6" cy="6" r="1.4" fill="currentColor"/></svg>
+        <span class="step__n mono">03</span>
+        <h3>Go home</h3>
+        <p>Forty-eight hours. Redness that fades, pigment that lifts, anything that blisters
+        &mdash; all of it shows up in that window, and none of it shows up in ten minutes.</p>
+      </li>
+      <li class="plate plate--lit step">
+        <svg class="rivet" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><circle cx="6" cy="6" r="4.2" fill="none" stroke="currentColor" stroke-width="1"/><circle cx="6" cy="6" r="1.4" fill="currentColor"/></svg>
+        <span class="step__n mono">04</span>
+        <h3>Set the numbers</h3>
+        <p>We read the square, adjust fluence and pulse width, and write the settings down. You
+        get a copy. Then we treat.</p>
+      </li>
+    </ol>
+
+    <div class="cols cols--sidefig" style="margin-top:clamp(1.25rem,2.4vw,2rem)" data-reveal>
+      <figure class="shot">
+        <img loading="lazy" src="img-med-spa/test-spot-antebrazo.jpg" width="1248" height="832"
+             alt="The inside of a freckled, sun-weathered forearm resting on a petrol-green drape, with a small square outlined in fine surgical marker and a faint transient pinkness inside it.">
+        <figcaption class="chip mono">TEST SPOT &middot; +48 h &middot; FITZPATRICK II</figcaption>
+      </figure>
+      <div class="plate plate--lit">
+        <svg class="rivet" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><circle cx="6" cy="6" r="4.2" fill="none" stroke="currentColor" stroke-width="1"/><circle cx="6" cy="6" r="1.4" fill="currentColor"/></svg>
+        <span class="plate__lbl lbl">What we are looking for</span>
+        <span class="plate__foot">A faint pink that has gone by the second day means the setting
+        was right. Pink that is still there, or pigment that darkened instead of lifting, means we
+        come down and try again. It is not a formality: roughly one consult in six leaves here with
+        a different plan than the one they walked in expecting, and two or three a month leave with
+        none at all because laser is not the answer to what they have.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════ 8 · PRICING ═══════════════════════════════════════════════════════════════════ -->
+<section class="band-lit" id="pricing">
+  <div class="wrap">
+    <div class="head" data-reveal>
+      <span class="lbl">Pricing</span>
+      <h2>Printed once, in full, with the unit attached.</h2>
+      <p>No packages you have to buy before anyone has looked at your skin, no countdown, no
+      &ldquo;from.&rdquo; If a plan needs more than one session we will say how many at the
+      consult, before you pay for the first.</p>
+    </div>
+
+    <ul class="price" data-reveal>
+      <li class="plate plate--lit">
+        <svg class="rivet" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><circle cx="6" cy="6" r="4.2" fill="none" stroke="currentColor" stroke-width="1"/><circle cx="6" cy="6" r="1.4" fill="currentColor"/></svg>
+        <span class="lbl">Consult + test spot</span><span class="n">$75</span>
+        <p class="d">Credited in full to your first session.</p>
+      </li>
+      <li class="plate plate--lit">
+        <svg class="rivet" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><circle cx="6" cy="6" r="4.2" fill="none" stroke="currentColor" stroke-width="1"/><circle cx="6" cy="6" r="1.4" fill="currentColor"/></svg>
+        <span class="lbl">Laser hair removal &middot; small area</span><span class="n">$120</span>
+        <p class="d">Upper lip, chin, underarm. About 22 minutes in the chair.</p>
+      </li>
+      <li class="plate plate--lit">
+        <svg class="rivet" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><circle cx="6" cy="6" r="4.2" fill="none" stroke="currentColor" stroke-width="1"/><circle cx="6" cy="6" r="1.4" fill="currentColor"/></svg>
+        <span class="lbl">Laser hair removal &middot; large area</span><span class="n">$340</span>
+        <p class="d">Full legs or back. Around 90 minutes.</p>
+      </li>
+      <li class="plate plate--lit">
+        <svg class="rivet" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><circle cx="6" cy="6" r="4.2" fill="none" stroke="currentColor" stroke-width="1"/><circle cx="6" cy="6" r="1.4" fill="currentColor"/></svg>
+        <span class="lbl">Facial veins and redness</span><span class="n">$275</span>
+        <p class="d">Nose and cheeks. Usually one session, sometimes two.</p>
+      </li>
+      <li class="plate plate--lit">
+        <svg class="rivet" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><circle cx="6" cy="6" r="4.2" fill="none" stroke="currentColor" stroke-width="1"/><circle cx="6" cy="6" r="1.4" fill="currentColor"/></svg>
+        <span class="lbl">Melasma and pigment</span><span class="n">$310</span>
+        <p class="d">Q-switched, conservative settings, reviewed between sessions.</p>
+      </li>
+      <li class="plate plate--lit">
+        <svg class="rivet" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><circle cx="6" cy="6" r="4.2" fill="none" stroke="currentColor" stroke-width="1"/><circle cx="6" cy="6" r="1.4" fill="currentColor"/></svg>
+        <span class="lbl">IPL photofacial &middot; sun damage</span><span class="n">$395</span>
+        <p class="d">Full face. Most Fitzpatrick I&ndash;III sun damage takes three sessions, spaced
+        a month apart.</p>
+      </li>
+      <li class="plate plate--lit">
+        <svg class="rivet" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><circle cx="6" cy="6" r="4.2" fill="none" stroke="currentColor" stroke-width="1"/><circle cx="6" cy="6" r="1.4" fill="currentColor"/></svg>
+        <span class="lbl">Fractional CO<sub>2</sub> resurfacing &middot; full face</span><span class="n">$2,400</span>
+        <p class="d">Ablative. Five to seven days of recovery, and you will want to clear the
+        calendar for them.</p>
+      </li>
+    </ul>
+
+    <div class="acts" style="margin-top:clamp(1.5rem,2.6vw,2.25rem)" data-reveal>
+      <a class="cta" href="tel:+18015550147">
+        Call (801) 555-0147
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M4 12h15M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a class="cta cta--ghost" href="#visit">Hours and address</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════ 9 · QUESTIONS ═════════════════════════════════════════════════════════════════ -->
+<section class="band-dark" id="faq">
+  <div class="wrap">
+    <div class="head" data-reveal>
+      <span class="lbl">Questions</span>
+      <h2>The six we are asked most.</h2>
+    </div>
+
+    <div data-reveal>
+      <details class="faq">
+        <summary><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M4 2l4 4-4 4" stroke-linecap="round" stroke-linejoin="round"/></svg>Do I really have to come in twice?<span class="faq__i mono">Q1</span></summary>
+        <div class="faq__a"><p>For anything with a laser, yes. The consult and the test spot happen
+        on the first visit; treatment starts on the second, at least 48 hours later. It is the
+        difference between treating your skin and treating an average.</p></div>
+      </details>
+
+      <details class="faq">
+        <summary><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M4 2l4 4-4 4" stroke-linecap="round" stroke-linejoin="round"/></svg>Who is actually in the room?<span class="faq__i mono">Q2</span></summary>
+        <div class="faq__a"><p>Dr. Marit Halvorsen, MD, our medical director, is present for every
+        laser session. Tessa Nakamura, a licensed master esthetician, runs non-ablative devices
+        under her supervision. Utah requires a physician on site for medical aesthetic
+        procedures, and we don't treat without one.</p></div>
+      </details>
+
+      <details class="faq">
+        <summary><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M4 2l4 4-4 4" stroke-linecap="round" stroke-linejoin="round"/></svg>Does this work on darker skin?<span class="faq__i mono">Q3</span></summary>
+        <div class="faq__a"><p>Yes, with the right wavelength. Fitzpatrick IV&ndash;VI is treated at
+        1064 nm with a long pulse &mdash; 30 to 60 ms &mdash; at 24&ndash;32 J/cm&sup2; and more
+        aggressive cooling. What is unsafe is running an alexandrite at type-II settings on type-V
+        skin, which is why the test spot exists.</p></div>
+      </details>
+
+      <details class="faq">
+        <summary><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M4 2l4 4-4 4" stroke-linecap="round" stroke-linejoin="round"/></svg>How much downtime?<span class="faq__i mono">Q4</span></summary>
+        <div class="faq__a"><p>Non-ablative treatments &mdash; hair removal, IPL, vascular work
+        &mdash; have none worth the name: an hour or two of warmth and color. Fractional
+        CO<sub>2</sub> is a genuine five to seven days, and we will not pretend otherwise to get it
+        booked.</p></div>
+      </details>
+
+      <details class="faq">
+        <summary><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M4 2l4 4-4 4" stroke-linecap="round" stroke-linejoin="round"/></svg>What if you find something that isn't cosmetic?<span class="faq__i mono">Q5</span></summary>
+        <div class="faq__a"><p>We tell you, and we refer you to a dermatologist. We do not diagnose
+        and we do not sell you a screening. Cosmetic damage is our work; anything else belongs to
+        someone with a different license.</p></div>
+      </details>
+
+      <details class="faq">
+        <summary><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M4 2l4 4-4 4" stroke-linecap="round" stroke-linejoin="round"/></svg>Why are you closed on Mondays?<span class="faq__i mono">Q6</span></summary>
+        <div class="faq__a"><p>Calibration. A Class 4 laser is checked and its output measured
+        before the week starts, and that is not something you do between appointments with the
+        room half booked.</p></div>
+      </details>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════ 10 · VISIT ════════════════════════════════════════════════════════════════════ -->
+<section class="band-well" id="visit">
+  <div class="wrap">
+    <div class="head" data-reveal>
+      <span class="lbl">Visit</span>
+      <h2>Sugar House, on the east side of 1300 East.</h2>
+      <p>Street parking on 2100 South; the entrance is on the east side of the building, past the
+      planters, and Suite 210 is one floor up with the lift straight ahead of you. An address in
+      this city is a coordinate pair &mdash; 2180 South 1300 East is 21.8 blocks south and 13 east
+      of a single zero point downtown &mdash; so if you can count blocks you cannot miss us.</p>
+    </div>
+
+    <div class="cols cols--sidefig" data-reveal>
+      <div class="stack">
+        <div class="plate">
+          <svg class="rivet" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><circle cx="6" cy="6" r="4.2" fill="none" stroke="currentColor" stroke-width="1"/><circle cx="6" cy="6" r="1.4" fill="currentColor"/></svg>
+          <span class="plate__lbl lbl">Address</span>
+          <span class="plate__val">2180 S 1300 E</span>
+          <span class="plate__foot">Suite 210, Salt Lake City, UT 84106 &mdash; Sugar House.</span>
+          <p style="margin:.75rem 0 0">
+            <a class="link" href="tel:+18015550147">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true" focusable="false"><path d="M5 3h4l2 5-2.5 1.5a12 12 0 0 0 5 5L15 12l5 2v4a2 2 0 0 1-2.2 2A16.5 16.5 0 0 1 3 5.2 2 2 0 0 1 5 3z" stroke-linejoin="round"/></svg>
+              (801) 555-0147
+            </a>
+          </p>
+        </div>
+
+        <div class="plate">
+          <svg class="rivet" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><circle cx="6" cy="6" r="4.2" fill="none" stroke="currentColor" stroke-width="1"/><circle cx="6" cy="6" r="1.4" fill="currentColor"/></svg>
+          <span class="plate__lbl lbl">Hours</span>
+          <ul class="hours">
+            <li><b>Tue&ndash;Fri</b> 9:00 &ndash; 18:00</li>
+            <li><b>Sat</b> 9:00 &ndash; 14:00</li>
+            <li><b>Sun</b> Closed</li>
+            <li><b>Mon</b> Closed &mdash; equipment calibration</li>
+          </ul>
+        </div>
+
+        <div class="acts">
+          <a class="cta" href="tel:+18015550147">
+            Book a consult
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M4 12h15M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <figure class="door shot shot--fill">
+        <img loading="lazy" src="img-med-spa/entrada-consultorio-ladrillo.jpg" width="1600" height="1082"
+             alt="The glazed entrance of a low brick building with a shallow canopy, a concrete path and young trees on either side.">
+        <figcaption class="chip mono">EAST ENTRANCE &middot; SUITE 210</figcaption>
+      </figure>
+    </div>
+
+    <p class="coord">
+      <span>40.7250&deg; N &middot; 111.8570&deg; W</span>
+      <span>ELEV 4,226 FT</span>
+      <span>2180 SOUTH &middot; 1300 EAST</span>
+    </p>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot__grid">
+      <div>
+        <div class="foot__mark">
+          <svg viewBox="0 0 40 40" fill="none" aria-hidden="true" focusable="false">
+            <circle cx="20" cy="20" r="18" stroke="currentColor" stroke-width="1.2"></circle>
+            <circle cx="20" cy="20" r="9" stroke="currentColor" stroke-width="1.2"></circle>
+            <path d="M20 2v8M20 30v8M2 20h8M30 20h8" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"></path>
+            <circle class="core" cx="20" cy="20" r="2.6"></circle>
+          </svg>
+          <span>FLUENCE</span>
+        </div>
+        <p>Laser medicine in Sugar House. Medical director on site for every laser session.
+        Test spot read at 48 hours, every time.</p>
+      </div>
+
+      <div>
+        <span class="lbl">Find us</span>
+        <p>2180 South 1300 East, Suite 210<br>Salt Lake City, UT 84106</p>
+        <p><a class="link" href="tel:+18015550147">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true" focusable="false"><path d="M5 3h4l2 5-2.5 1.5a12 12 0 0 0 5 5L15 12l5 2v4a2 2 0 0 1-2.2 2A16.5 16.5 0 0 1 3 5.2 2 2 0 0 1 5 3z" stroke-linejoin="round"/></svg>
+          (801) 555-0147</a></p>
+      </div>
+
+      <div>
+        <span class="lbl">Hours</span>
+        <ul class="hours">
+          <li><b>Tue&ndash;Fri</b> 9:00 &ndash; 18:00</li>
+          <li><b>Sat</b> 9:00 &ndash; 14:00</li>
+          <li><b>Mon</b> Calibration</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="foot__coord">
+      40.7250&deg; N &middot; 111.8570&deg; W &mdash; ELEV 4,226 FT &mdash; 2180 SOUTH &middot; 1300 EAST &mdash; &copy; 2026 FLUENCE
+    </p>
+  </div>
+</footer>
+
+<script>
+/* One mechanism, two jobs: the `js` class turns on both the reveals and the collapsing menu.
+   Until this line runs, the menu is a plain visible list and every section is opaque. */
+document.documentElement.classList.remove('no-js');
+document.documentElement.classList.add('js');
+
+(function () {
+  var burger = document.getElementById('burger');
+  var panel  = document.getElementById('menu');
+  var scrim  = document.getElementById('scrim');
+  if (!burger || !panel || !scrim) return;
+
+  var movil = window.matchMedia('(max-width: 768px)');
+
+  function abierto() { return panel.classList.contains('open'); }
+
+  /* A closed panel keeps answering to Tab for the 200 ms its `visibility` transition is delayed —
+     long enough to park the focus on a link nobody can see. `inert` shuts that window, and only at
+     the width where the panel is a collapsed overlay: above 768px it IS the visible nav bar.
+     Browsers without `inert` simply ignore the attribute and behave as before. */
+  function sellar() {
+    if (movil.matches && !abierto()) panel.setAttribute('inert', '');
+    else panel.removeAttribute('inert');
+  }
+
+  function abrir() {
+    panel.classList.add('open');
+    scrim.classList.add('on');
+    burger.setAttribute('aria-expanded', 'true');
+    burger.setAttribute('aria-label', 'Close the navigation menu');
+    sellar();                       /* before focus(): an inert ancestor refuses focus */
+    var primero = panel.querySelector('a');
+    if (primero) primero.focus();
+  }
+
+  function cerrar(devolverFoco) {
+    panel.classList.remove('open');
+    scrim.classList.remove('on');
+    burger.setAttribute('aria-expanded', 'false');
+    burger.setAttribute('aria-label', 'Open the navigation menu');
+    if (devolverFoco) burger.focus();
+    sellar();                       /* after focus(): sealing first would strand it on <body> */
+  }
+
+  sellar();
+
+  burger.addEventListener('click', function () { abierto() ? cerrar(true) : abrir(); });
+  scrim.addEventListener('click', function () { cerrar(true); });
+
+  /* closes on Escape, and on choosing a link */
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && abierto()) cerrar(true);
+  });
+  panel.addEventListener('click', function (e) {
+    if (e.target.closest('a') && abierto()) cerrar(false);
+  });
+
+  /* click outside — the scrim covers it, but a stray tap on the header should close too */
+  document.addEventListener('click', function (e) {
+    if (!abierto()) return;
+    if (panel.contains(e.target) || burger.contains(e.target)) return;
+    cerrar(false);
+  });
+
+  /* The open panel is an overlay and the scrim covers the page behind it, so the focus must never
+     be allowed to walk out into something the user cannot see. Tabbing off EITHER end closes the
+     panel and parks the focus on the burger, from which Tab continues into the page. Not a trap:
+     both ends let you out, and so does Escape. preventDefault matters — without it the browser's
+     own Tab still fires after focus() and drags the focus one stop past where we put it. */
+  panel.addEventListener('keydown', function (e) {
+    if (e.key !== 'Tab' || !abierto()) return;
+    var foco = panel.querySelectorAll('a[href], button');
+    if (!foco.length) return;
+    var borde = e.shiftKey ? foco[0] : foco[foco.length - 1];
+    if (document.activeElement !== borde) return;
+    e.preventDefault();
+    cerrar(true);
+  });
+
+  /* back to the desktop bar: never leave a hidden panel latched open — and never leave the
+     desktop nav sealed shut by a seal that only makes sense while it is an overlay */
+  var alCambiar = function () { if (!movil.matches && abierto()) cerrar(false); else sellar(); };
+  movil.addEventListener ? movil.addEventListener('change', alCambiar) : movil.addListener(alCambiar);
+})();
+
+/* reveals */
+(function () {
+  var piezas = document.querySelectorAll('[data-reveal]');
+  if (!('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    piezas.forEach(function (e) { e.classList.add('in'); });
+    return;
+  }
+  var obs = new IntersectionObserver(function (entradas) {
+    entradas.forEach(function (en) {
+      if (en.isIntersecting) { en.target.classList.add('in'); obs.unobserve(en.target); }
+    });
+  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.06 });
+  piezas.forEach(function (e) { obs.observe(e); });
+})();
+</script>
+
+<div style="background:#16181C;color:#F3F4F3;padding:0.7rem 1rem;text-align:center;font:500 12px/1.5 system-ui,sans-serif;letter-spacing:0.02em">Speculative concept by Reasoned Web — FLUENCE is a fictional business.</div>
+</body>
+</html>

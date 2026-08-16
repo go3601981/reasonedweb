@@ -1,0 +1,68 @@
+[
+  {
+    "archivo": "sala-baliza-encendida.jpg",
+    "fuente": "Nano Banana (gemini-2.5-flash-image)",
+    "licencia": "generada para este proyecto",
+    "rol": "EL MOMENTO IRREPETIBLE — franja a pantalla completa en el corte entre el fold y la sección 'The room'",
+    "prompt": "Interior of a Class 4 medical laser treatment room photographed with the overhead lights switched off. Deep desaturated petrol-teal shadow fills the frame; the darkest shadow value must read as a dark teal-green, approximately #1F5D5E — never neutral black, never blue. At the far end, above a closed door, a single small amber-orange interlock warning lamp is lit, throwing a narrow warm wash across the ceiling tile and the top edge of a stainless equipment cart. A folded surgical drape in the same green lies on a treatment chair in the mid-ground, with one pair of amber laser goggles resting on it catching two tiny specular highlights. Shot on 35mm at f/2, long exposure on available light, camera at standing eye level looking straight down the room. No people. No text, no signage lettering, no brand marks on any equipment. Cinematic, restrained, clinical, quiet. Palette strictly limited to petrol-green shadow, one amber light source, and cool desaturated highlights."
+  },
+  {
+    "archivo": "manos-consola-parametros.jpg",
+    "fuente": "Nano Banana (gemini-2.5-flash-image)",
+    "licencia": "generada para este proyecto",
+    "rol": "La mano que marca la fluencia — sección de parámetros, dentro de una placa",
+    "prompt": "Close three-quarter view of two hands in dark blue nitrile gloves adjusting a knurled rotary dial on the control panel of an aesthetic laser console. The panel is brushed dark metal; illuminated readouts glow faint amber. The room is lit only by the panel itself and one amber lamp off-frame, so the gloves and forearms are modelled entirely in deep petrol-green shadow. Bare forearm skin visible above the glove cuff. 50mm at f/2.8, shallow depth of field, focus on the fingertips and the knurling of the dial. No faces, no readable numbers or letters on the display, no manufacturer logos anywhere. Documentary, precise, unglamorous."
+  },
+  {
+    "archivo": "gafas-ambar-sobre-campo.jpg",
+    "fuente": "Nano Banana (gemini-2.5-flash-image)",
+    "licencia": "generada para este proyecto",
+    "rol": "Bodegón de instrumental — las gafas OD sobre el campo, sección de seguridad",
+    "prompt": "Overhead flat-lay still life: a pair of amber-lensed laser safety goggles with a thick adjustable strap resting on a precisely folded surgical drape of petrol-green woven cotton. Beside them a small stainless tray holding a sapphire-tipped handpiece. A single soft raking light from the left at a low angle so the fabric creases cast long shadows and the weave texture is fully visible. Deep petrol-green background; no white surface anywhere in the frame. 60mm macro at f/8, everything sharp front to back. Museum-object clarity. No text, no printed markings, no logos, no hands."
+  },
+  {
+    "archivo": "pieza-de-mano-zafiro-escarcha.jpg",
+    "fuente": "Nano Banana (gemini-2.5-flash-image)",
+    "licencia": "generada para este proyecto",
+    "rol": "Macro del enfriamiento criogénico — la prueba de que la piel se enfría ANTES que llegue la luz",
+    "prompt": "Extreme macro of the business end of a laser handpiece: a circular sapphire cooling window set into a machined metal collar, with a thin rime of cryogen frost condensing on the metal around it and a faint plume of cold vapour drifting off the edge. The sapphire catches one cold specular ring. Background falls off immediately to near-black petrol green. Lit by a single small hard source from camera right. 100mm macro at f/5.6, focus stacked across the window rim. No text, no engraved brand names, no hands. Cold, technical and beautiful — a photograph of a scientific instrument, not of a beauty product."
+  },
+  {
+    "archivo": "test-spot-antebrazo.jpg",
+    "fuente": "Nano Banana (gemini-2.5-flash-image)",
+    "licencia": "generada para este proyecto",
+    "rol": "El protocolo de 48 h hecho carne — lo que sustituye a la prueba social falsa",
+    "prompt": "Close, respectful documentary shot of the inside of a forearm resting on a petrol-green drape. On the skin, a small square area roughly 2cm across has been outlined with a surgical skin marker in fine dark ink, marking a laser test spot; the skin inside shows very faint transient pinkness. Natural light, soft, even, slightly cool. The arm is fair-skinned with visible freckling and weathered sun texture consistent with years of high-altitude outdoor exposure. Framed so that no face, no shoulder and no identifying feature is visible — forearm and drape only. 85mm at f/4. Honest, medical, unretouched. No text, no numbers written on the skin, no logos."
+  },
+  {
+    "archivo": "luces-arriba-consulta.jpg",
+    "fuente": "Nano Banana (gemini-2.5-flash-image)",
+    "licencia": "generada para este proyecto",
+    "rol": "El PAR de la imagen 1 — mismo cuarto con las luces arriba; abre la banda clara #E7F3F3",
+    "prompt": "The same medical treatment room previously photographed in darkness, now with the overhead lights fully on: flat, even, bright clinical illumination, pale ice-mint walls, the treatment chair upright and empty, the equipment cart pushed back against the wall, and the interlock lamp above the door now dark and unlit. Daylight enters through a window at the left. Everything legible and ordinary — a working room, not a set. 24mm wide at f/5.6, camera at seated eye level, same viewpoint down the room as the dark version. No people, no text, no signage, no logos. Bright, plain, honest."
+  },
+  {
+    "archivo": "wasatch-sol-invierno.jpg",
+    "rol": "El argumento UV/altitud — franja panorámica antes de la sección de daño solar",
+    "fuente": "Pexels",
+    "licencia": "Pexels License (uso comercial)",
+    "fotografo": "Mark Stebnicki",
+    "url": "https://www.pexels.com/photo/mountains-on-a-coast-and-sea-in-winter-19937672/",
+    "alt_original": "A breathtaking winter landscape capturing snowy mountains near Salt Lake City."
+  },
+  {
+    "archivo": "entrada-consultorio-ladrillo.jpg",
+    "rol": "La dirección, sin épica — pequeña, junto a la placa de LOCATION en la banda clara",
+    "fuente": "Pexels",
+    "licencia": "Pexels License (uso comercial)",
+    "fotografo": "Grace Fu",
+    "url": "https://www.pexels.com/photo/closed-door-brown-and-white-concrete-building-859220/",
+    "alt_original": "A contemporary brick building exterior with a glass door, garden, and pathway in daylight."
+  },
+  {
+    "archivo": "og-medspa.jpg",
+    "fuente": "recorte 1200×630 de sala-baliza-encendida.jpg",
+    "licencia": "generada para este proyecto",
+    "rol": "og:image"
+  }
+]

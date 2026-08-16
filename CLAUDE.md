@@ -95,6 +95,12 @@ La identidad no ilustra el razonamiento — lo EJECUTA.
   el nombre.
 - **Lockup horizontal** (nav, firmas, junto al logo de LG): glifo + «Reasoned Web» en caja de
   título, Switzer, tracking −0.015em aprox (se afina óptico).
+- **Sello de notas (gráfico secundario, 2026-08-16):** la marca B del specimen 01 («footnote
+  apparatus»: regla horizontal + asterisco de 3 ejes a 60° debajo) — Carlos la recordaba como
+  «comilla» y pidió usarla; el specimen 03 ya la conservaba «as apparatus». Se coloca como
+  CIERRE del cuerpo: en la home antes de Contact, en cada caso al final del wrap (en LG antes
+  del bloque legal). Clase `.sello-notas`, color --muted, decorativa (aria-hidden). Coordenadas
+  exactas del specimen: línea y30 x22–78 sw3.2; ejes sw5.4 a 60°.
 - **Paleta de trabajo de los especímenes** (provisional, NO canon del sitio): tinta `#16181C`,
   papel `#F3F4F3`, azul de anotación `#2C6ECB` (solo apparatus, jamás marca).
 - ⛔ **Vetos tipográficos:** Newsreader y JetBrains Mono (caras de TuWeb.pe), Inter, Poppins,
@@ -281,8 +287,12 @@ leen como senior. La curaduría es parte del trabajo de diseño.
    ~~¿Variante A o B?~~ **RESUELTA 2026-08-14: Variante B por el papel** (§ Kit LG).
 2. ~~¿UdV commerce antes de lanzar?~~ **RESUELTA 2026-08-13: opción C — desacoplado**.
 3. ~~¿Entran las demos de Perú?~~ **RESUELTA 2026-08-13: como CORPUS** — jamás tiles.
-4. **Curaduría de Carlos pendiente**: las ~12 piezas de la galería de rango (tier 2) y el
-   armado del caso-corpus (tier 3). Las secciones existen como comentario en la home.
+4. Curaduría tier 2: **galería EN PIE (2026-08-16)** con 12 exhibits vivos en `site/range/`
+   (animal-hospital, auto-body, coffee, dental, gym, hvac, jewelry, law-firm, med-spa,
+   oyster-house, parfum, tree-care) — curaduría PROVISIONAL mía por amplitud de verticales,
+   aprobada en formato por Carlos («12 curated exhibits»); él cambia cualquier pieza con una
+   palabra (las 17 restantes se generan con `tools/exhibir.py` en minutos). Etiqueta clase (c)
+   al pie de cada exhibit + nota [4] de la sección. **El corpus tier 3 sigue pendiente.**
 5. Upgrade a fuente licenciada — después, si el sitio lo gana.
 6. Google Workspace para `hello@reasonedweb.com` — MANUAL de Carlos; sin MX verificado el
    correo no se imprime y el formulario sigue en estado honesto (no envía y lo dice).

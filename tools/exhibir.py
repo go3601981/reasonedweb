@@ -115,6 +115,11 @@ def main() -> None:
     html = re.sub(r"[ \t]*<(?:meta|link)\b[^>]*>\s*?\n?",
                   lambda m: "" if marca.search(m.group(0)) else m.group(0),
                   html)
+    # JSON-LD apuntando a dominios ajenos: el bloque entero se va
+    html = re.sub(r"[ \t]*<script type=\"application/ld\+json\"[^>]*>"
+                  r"(?:(?!</script>).)*?</script>\s*?\n?",
+                  lambda m: "" if marca.search(m.group(0)) else m.group(0),
+                  html, flags=re.DOTALL)
 
     # 3 · etiqueta honesta al pie
     etiqueta = ('<div style="background:#16181C;color:#F3F4F3;padding:0.7rem 1rem;'

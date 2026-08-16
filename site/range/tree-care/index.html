@@ -1,0 +1,1385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sound &amp; Hollow — Tree Risk &amp; Dormant Pruning · Portland, Oregon</title>
+<meta name="description" content="Tree risk assessment and dormant-season pruning on Portland's east side. Sounding, resistograph, written report — and a straight answer, including leave it alone.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#112910">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Sound &amp; Hollow">
+<meta property="og:title" content="Sound &amp; Hollow — Tree Risk &amp; Dormant Pruning · Portland, Oregon">
+<meta property="og:description" content="We tell you whether the tree stays, before anybody starts a saw. Assessment, written report and winter pruning on Portland's east side.">
+<!-- La tarjeta que se comparte es la MISMA foto del hero: árbol de vereda, cables, casa y camión.
+     La anterior era dosel de bosque primario y prometía otro negocio del que se vende. -->
+<meta property="og:image:width" content="1344">
+<meta property="og:image:height" content="768">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23112910'/%3E%3Cpath d='M16 3v26' stroke='%23C1E939' stroke-width='2' stroke-dasharray='3 2'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,400&family=Marcellus&display=swap" rel="stylesheet">
+<script>document.documentElement.className += ' js';</script>
+<style>
+/* ══════════════════════════════════════════════════════════════════════════════════════════
+   SOUND & HOLLOW — Portland, Oregon
+
+   ⛔ DE DÓNDE SALE CADA COLOR (regla de Carlos, 2026-07-26). Ningún valor de esta paleta se
+   deriva de una hora ni de un clima ni de cómo le da la luz a algo: el material no cambia, la
+   luz sí, y una justificación que admite cualquier respuesta no justifica nada.
+
+   ⛔ Y EL COROLARIO, que es lo que de verdad manda aquí: EL MATERIAL DEL OFICIO ANCLA MEJOR QUE
+   EL MATERIAL DEL LUGAR. La versión anterior anclaba el sustrato en «la sombra bajo un abeto
+   Douglas a las 3 de la tarde de diciembre, con lluvia» — hora + clima + iluminación + una
+   especie que es de ESTE valle. Corteza mojada con algas en las grietas la tiene un árbol de
+   calle de cualquier ciudad, y un chaleco ANSI clase 2 es el mismo en las cincuenta. El color
+   sobrevive al cambio de cliente, que es la prueba de intercambio aplicada a la paleta.
+
+   El sustrato NO cambia de valor: se conserva el asignado y solo se re-ancla su procedencia.
+   Efecto medido de re-anclarlo: ninguno en el hex, todo en si se puede defender.
+   ══════════════════════════════════════════════════════════════════════════════════════════ */
+:root{
+  --bark:#112910;       /* SUSTRATO — corteza empapada de árbol de calle: negra con película de alga verde en las grietas. El material que este oficio agarra con las dos manos */
+  --bark-deep:#051605;  /* el interior de una cavidad: duramen podrido, fibroso y compacto */
+  --bark-raise:#223920; /* cojín de musgo epífito cargado sobre una rama — el peso que pesamos */
+  --bark-panel:#314731; /* brozas trituradas en la caja del camión: hoja, cámbium y corteza molidos juntos */
+  --hivis:#C1E939;      /* ACENTO — tejido de chaleco ANSI/ISEA 107 clase 2, el mismo en cualquier cuadrilla del país */
+  --hivis-deep:#93BA27; /* el mismo tejido gastado y lavado — estado :hover */
+  --cut:#E4D7C0;        /* BANDA — la cara del corte: albura de arce recién aserrada, minutos de vida */
+  --cut-dust:#CAB99F;   /* el serrín amontonado en el reborde del corte. Solo gráfico, nunca texto */
+  --ink:#1A2312;        /* lápiz de carpintero sobre la hoja del informe */
+  --heart:#D07940;      /* duramen recién abierto por la sierra */
+  --heart-dark:#A14E20; /* el mismo duramen oxidado — la marca de pudrición sobre la crema */
+  --bone:#E3E0D2;       /* líquen folioso seco sobre rama muerta — cuerpo de texto */
+  --bone-dim:#B1AFA1;   /* el mismo líquen empapado — texto subordinado */
+  --hair:#425642;       /* grieta de corteza a 1 px. Solo gráfico, jamás texto */
+  --serif:'Marcellus',Georgia,'Times New Roman',serif;
+  --sans:'Alegreya Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --mono:'DM Mono',ui-monospace,'SFMono-Regular',Consolas,monospace;
+  --hdr:56px;
+  --pad:clamp(1.15rem,4.6vw,4.5rem);
+  --rule:1px solid var(--hair);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--bark); color:var(--bone);
+  font:400 17px/1.62 var(--sans);
+  overflow-x:hidden; -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%; display:block}
+h1,h2,h3{margin:0; font-weight:400; letter-spacing:.005em}
+p{margin:0 0 1rem}
+p:last-child{margin-bottom:0}
+a{color:inherit}
+::selection{background:var(--hivis); color:var(--bark-deep)}
+
+/* ── tipografía de servicio ─────────────────────────────────────────────────────────────── */
+.mono{font:400 11px/1.5 var(--mono); text-transform:uppercase; letter-spacing:.11em; color:var(--bone-dim)}
+.mono--hi{color:var(--hivis)}
+.mono--rot{color:var(--heart)}
+.mono--ink{color:var(--ink)}
+.season{font:italic 400 1.02rem/1.5 var(--sans); color:var(--bone)}
+.serif{font-family:var(--serif)}
+.amp{color:var(--hivis); font-size:1.16em; line-height:0}
+
+/* ── salto al contenido ─────────────────────────────────────────────────────────────────── */
+.skip{
+  position:fixed; top:.55rem; left:.55rem; z-index:300;
+  padding:1.05rem 1.1rem; background:var(--hivis); color:var(--bark-deep);
+  font:500 12px/1 var(--mono); text-transform:uppercase; letter-spacing:.1em;
+  text-decoration:none; opacity:0; pointer-events:none; transform:translateY(-180%);
+  transition:transform .18s ease, opacity .18s ease;
+}
+.skip:focus{opacity:1; transform:none; pointer-events:auto; outline:2px solid var(--bone); outline-offset:2px}
+:focus-visible{outline:2px solid var(--hivis); outline-offset:3px}
+.cream :focus-visible{outline-color:var(--heart-dark)}
+
+/* ── cabecera ───────────────────────────────────────────────────────────────────────────── */
+/* Sin JS la cabecera NO es sticky: el panel abierto vive en absolute y, pegado, taparia el
+   hero para siempre. Un solo mecanismo (.js) para el menu, los reveals y esto. */
+.hdr{
+  position:static; z-index:100;
+  display:flex; align-items:center; justify-content:space-between; gap:1rem;
+  min-height:var(--hdr); padding:0 var(--pad);
+  background:var(--bark-deep); border-bottom:var(--rule);
+  box-shadow:0 10px 26px -18px rgba(0,0,0,.95);
+}
+.brand{
+  font:400 clamp(15px,3.4vw,19px)/1 var(--serif);
+  letter-spacing:.09em; text-transform:uppercase; text-decoration:none; color:var(--bone);
+  white-space:nowrap; padding:.95rem 0;
+}
+.brand:hover{color:var(--hivis)}
+/* ⛔ EL TELÉFONO NO PUEDE VIVIR DENTRO DE LA HAMBURGUESA. «Cabecera reconocible» significa que en
+   medio segundo se sepa dónde está uno y CÓMO LLAMAR; un número escondido tras un botón que hay
+   que descubrir no cumple eso en el aparato desde el que llama la mitad de la gente. Así que el
+   número sale del panel y se pone al lado del menú por debajo de 961 px, y desaparece del panel
+   para no decir lo mismo dos veces. Por encima, el panel ya lo lleva a la vista. */
+.hdr__right{display:flex; align-items:center; gap:.5rem}
+.hdr__tel{
+  display:inline-flex; align-items:center; gap:.5rem;
+  min-height:46px; padding:.6rem .75rem; text-decoration:none; white-space:nowrap;
+  color:var(--hivis); font:500 13px/1 var(--mono); letter-spacing:.05em;
+  box-shadow:inset 0 0 0 1px var(--hair);
+}
+.hdr__tel:hover{background:var(--hivis); color:var(--bark-deep); box-shadow:inset 0 0 0 1px var(--hivis)}
+.hdr__tel svg{width:16px; height:16px; flex:0 0 auto}
+@media (min-width:961px){ .hdr__tel{display:none} }
+@media (max-width:960px){ .nav__panel .is-cta{display:none} }
+/* Bajo 400 px el número no cabe junto a la marca y la hamburguesa: queda el icono, y el nombre
+   accesible lo pone el aria-label del enlace, no una caja de 1 px escondida por CSS. */
+@media (max-width:400px){ .hdr__tel span{display:none} .hdr__tel{padding:.6rem; min-width:46px; justify-content:center} }
+.nav{display:flex; align-items:center}
+.burger{
+  display:inline-flex; align-items:center; justify-content:center; gap:.5rem;
+  width:46px; height:46px; padding:0; margin-right:-6px;
+  background:transparent; border:1px solid var(--hair); color:var(--bone); cursor:pointer;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.03);
+}
+.burger:hover{border-color:var(--hivis); color:var(--hivis)}
+.burger__b{transition:transform .22s ease, opacity .16s ease; transform-origin:center}
+.nav.is-open .burger__b--1{transform:translateY(5px) rotate(45deg)}
+.nav.is-open .burger__b--2{opacity:0}
+.nav.is-open .burger__b--3{transform:translateY(-5px) rotate(-45deg)}
+.nav__panel{display:flex; align-items:center; gap:clamp(.6rem,1.5vw,1.5rem); list-style:none; margin:0; padding:0}
+.nav__panel a{
+  display:block; padding:.85rem .55rem; text-decoration:none;
+  font:400 13px/1.2 var(--mono); text-transform:uppercase; letter-spacing:.1em; color:var(--bone-dim);
+}
+.nav__panel a:hover{color:var(--hivis)}
+.nav__panel .is-cta{color:var(--hivis); outline:1px solid var(--hivis); outline-offset:0; padding:.7rem .8rem}
+.nav__panel .is-cta:hover{background:var(--hivis); color:var(--bark-deep)}
+@media (max-width:960px){
+  .burger{display:inline-flex}
+  .nav__panel{
+    position:absolute; top:100%; left:0; right:0;
+    flex-direction:column; align-items:stretch; gap:0;
+    padding:.5rem var(--pad) 1.1rem;
+    background:var(--bark-deep); border-bottom:var(--rule);
+    box-shadow:0 24px 40px -22px rgba(0,0,0,.96);
+  }
+  .nav__panel a{padding:1.05rem .1rem; border-bottom:1px solid rgba(66,86,66,.5)}
+  .nav__panel li:last-child a{border-bottom:0}
+  .nav__panel .is-cta{margin-top:.9rem; text-align:center; padding:1.05rem .8rem}
+  /* Degrada con dignidad: sin JS el menú queda VISIBLE. Un solo mecanismo (.js), no dos. */
+  .js .nav__panel{visibility:hidden; opacity:0; transform:translateY(-6px); transition:opacity .2s ease, transform .2s ease, visibility 0s linear .2s}
+  .js .nav.is-open .nav__panel{visibility:visible; opacity:1; transform:none; transition-delay:0s}
+}
+@media (min-width:961px){ .burger{display:none} }
+.js .hdr{position:sticky; top:0}
+
+/* ── reveals ────────────────────────────────────────────────────────────────────────────── */
+.js [data-reveal]{opacity:0; transform:translateY(14px); transition:opacity .7s ease, transform .7s cubic-bezier(.16,.8,.3,1)}
+.js [data-reveal].in{opacity:1; transform:none}
+
+/* ══════════════ FOLD — bloque que vende + banda de foto a sangre ════════════════════════
+   ⛔ QUÉ CAMBIÓ Y POR QUÉ (corrección de Carlos, 2026-07-26). Aquí había un TRÍPTICO de altura
+   completa —foto vertical | texto | foto vertical— cuyo armazón era el trazo del resistógrafo
+   bajando por el centro. Salió de una regla mía, «el concepto tiene que verse en el fold», que
+   aplicada así convierte la primera pantalla en un ESTUDIO: abre presentando un instrumento en
+   lugar de decir qué se vende, a quién y dónde. La variedad va DENTRO de la gramática, no
+   rompiéndola: un dispositivo conceptual es ACENTO, jamás ARMAZÓN.
+   El concepto NO se elimina, se REUBICA: el trazo baja a §2 —la sección de diagnóstico— como el
+   gráfico que siempre fue (.chart). Las marcas de esquina se quedan aquí, que es lo que un
+   acento sí puede hacer en un fold.
+
+   ⛔ REPARTO DE LA FOTO — foto a sangre porque la imagen es FUERTE, que es el criterio de
+   Carlos. La toma trae por sí sola el árbol de vereda, los cables pasando por la copa, la casa
+   detrás, el camión con la cesta arriba, los conos y las brozas en el suelo: partir la pantalla
+   para meterla en media columna sería tirar el único plano que cuenta el trabajo entero.
+   Y va DEBAJO del bloque de texto, no detrás: sobre una foto con un cielo pálido de invierno no
+   hay titular blanco que aguante AA sin una capa negra encima, y esa capa se come la foto. */
+.fold{position:relative; background:var(--bark)}
+/* ⛔ LA MEDIDA DEL BLOQUE LA DECIDIÓ LA CÁMARA, NO EL GUSTO. Con 64ch la columna salía de 510 px
+   en un viewport de 1440: el titular caía en tres líneas, el bloque medía 690 px de alto y la
+   banda de foto quedaba PARTIDA por el borde inferior del fold — se veía una franja de cielo
+   pálido y nada más, o sea lo único de la fotografía que no cuenta el trabajo. A 820 px el
+   titular entra en dos líneas y la banda cabe entera encima de los 900. */
+.fold__mid{position:relative; padding:clamp(1.5rem,4vw,2.6rem) var(--pad) clamp(1.6rem,4vw,2.4rem)}
+.fold__block{position:relative; z-index:2; max-width:820px; margin:0 auto; text-align:center}
+.eyebrow{margin:0 0 1rem}
+h1{margin:0 0 .9rem}
+.h1__a{display:block; font:400 clamp(1.95rem,5.2vw,3.15rem)/1.13 var(--serif); color:var(--bone)}
+.lede{margin:0 auto 1.35rem; max-width:60ch; color:var(--bone-dim); font-size:clamp(1rem,2.2vw,1.13rem)}
+.lede em{font-style:italic; color:var(--bone)}
+.fold__facts{
+  display:flex; flex-wrap:wrap; justify-content:center; gap:.5rem 1.6rem;
+  margin:1.9rem auto 0; padding-top:1.05rem; max-width:62ch; border-top:var(--rule);
+}
+.fold__facts span{font:400 10.5px/1.6 var(--mono); text-transform:uppercase; letter-spacing:.1em; color:var(--bone-dim)}
+.fold__facts b{font-weight:400; color:var(--hivis)}
+
+/* la banda a sangre, y el pie que la explica */
+.shot{position:relative; overflow:hidden; background:var(--bark-deep)}
+.shot img{width:100%; height:100%; object-fit:cover}
+/* ⛔ LA ALTURA LA DECIDIÓ LA CÁMARA, OTRA VEZ, Y CONTRA DOS EXIGENCIAS A LA VEZ: que la foto pese
+   en el primer pantallazo y que los CTAs no se caigan por debajo del pliegue — porque un hero que
+   vende con el botón fuera de la pantalla no vende. `46svh` es el punto donde en 1440×900 la
+   fotografía toma casi la mitad de la entrada y el bloque de texto entra completo debajo, y donde
+   en 390×780 sube del 12 % al que Carlos no veía a una banda que manda.
+
+   ⛔ Y LA PRIMERA CIFRA QUE PROBÉ (46svh) ROMPIÓ LA SEGUNDA EXIGENCIA: la foto quedaba preciosa y
+   el CTA se caía por debajo del pliegue en 1366×768, 390×780 y 360×640 — tres de los cuatro
+   tamaños medidos. Se ve solo midiendo el borde inferior del botón contra la altura del viewport;
+   a ojo, y sobre todo en el portátil del que escribe, la página parece perfecta. 38svh es donde
+   entran las dos cosas. */
+.shot--hero{height:clamp(180px,38svh,440px)}
+/* Pantallas BAJAS (portátiles viejos, teléfonos pequeños en 640): aquí no caben la fotografía
+   grande y el botón, y de las dos manda el botón. La foto cede a 26svh — que en 360×640 siguen
+   siendo 166 px, más del doble del 12 % que motivó todo esto. */
+@media (max-height:700px){ .shot--hero{height:clamp(150px,26svh,440px)} }
+/* 75% en vertical: el recorte se queda con el fuste, el porche, la cesta del camión y las brozas.
+   Centrado se llevaba media banda de cielo, que es la parte de la foto que no dice nada. */
+/* ⛔ El `brightness(.9)` se fue con su motivo. Existía cuando la foto era una banda de apoyo bajo
+   el bloque de texto y había que bajarla para que no compitiera. Ahora ABRE la página: es lo
+   primero que se ve y lo único que cuenta el trabajo, así que se la deja respirar. El pie sigue
+   legible porque su gradiente llega a rgba(5,22,5,.97) en el borde inferior — no dependía del
+   filtro. Un tratamiento heredado que ya no sirve a nada es decoración, y aquí estorbaba. */
+.shot--hero img{object-position:44% 75%; filter:saturate(.94) contrast(1.06)}
+.shot__cap{
+  position:absolute; left:0; right:0; bottom:0; padding:1.4rem var(--pad) .95rem;
+  background:linear-gradient(to top,rgba(5,22,5,.97) 0%,rgba(5,22,5,.86) 62%,rgba(5,22,5,0) 100%);
+}
+.shot__cap p{
+  max-width:1180px; margin:0 auto;
+  font:400 10.5px/1.65 var(--mono); text-transform:uppercase; letter-spacing:.09em; color:var(--bone);
+}
+.shot__cap b{font-weight:400; color:var(--hivis)}
+
+/* CTAs */
+.ctas{display:flex; flex-wrap:wrap; gap:.75rem}
+.fold .ctas{justify-content:center}
+.fold .cta{min-width:min(280px,100%)}
+.cta{
+  position:relative; display:inline-flex; align-items:center; justify-content:center;
+  min-height:56px; padding:1.15rem 1.3rem; overflow:hidden;
+  background:var(--hivis); color:var(--bark-deep); text-decoration:none;
+  font:500 13px/1.2 var(--mono); text-transform:uppercase; letter-spacing:.1em;
+  box-shadow:0 14px 30px -20px rgba(0,0,0,.95), inset 0 0 0 1px rgba(5,22,5,.18);
+}
+/* la banda retrorreflectante del chaleco, arriba y abajo */
+.cta::before,.cta::after{
+  content:''; position:absolute; left:0; right:0; height:9px; pointer-events:none;
+  background:repeating-linear-gradient(45deg,rgba(226,232,236,.62) 0 5px,rgba(226,232,236,0) 5px 10px);
+  background-size:14.2px 14.2px; background-position:0 0;
+  transition:background-position .45s cubic-bezier(.4,0,.2,1);
+}
+.cta:hover::before,.cta:hover::after{background-position:14.2px 0}
+.cta::before{top:0} .cta::after{bottom:0}
+.cta:hover{background:var(--hivis-deep); box-shadow:0 16px 32px -18px rgba(0,0,0,.95), inset 0 0 0 1px rgba(5,22,5,.25)}
+.cta--ghost{
+  background:transparent; color:var(--hivis); border:0;
+  outline:1px solid var(--hivis); outline-offset:0; box-shadow:none;
+}
+.cta--ghost:focus-visible{outline:3px solid var(--bone); outline-offset:3px}
+.cta--ghost::before,.cta--ghost::after{display:none}
+.cta--ghost:hover{background:rgba(193,233,57,.1); color:var(--hivis)}
+
+/* marcas de esquina — el registro de una placa atornillada */
+.mk{position:absolute; width:14px; height:14px; pointer-events:none}
+.mk--tl{top:10px; left:10px; border-top:1px solid var(--hair); border-left:1px solid var(--hair)}
+.mk--tr{top:10px; right:10px; border-top:1px solid var(--hair); border-right:1px solid var(--hair)}
+.mk--bl{bottom:10px; left:10px; border-bottom:1px solid var(--hair); border-left:1px solid var(--hair)}
+.mk--br{bottom:10px; right:10px; border-bottom:1px solid var(--hair); border-right:1px solid var(--hair)}
+
+/* ── la traza de resistógrafo ─────────────────────────────────────────────────────────────
+   Vive en dos sitios y en los dos es ACENTO, no armazón: el gráfico grande de §2 (.chart) y el
+   filete de 1 px que separa secciones (.band). Sobre fondo oscuro la línea es hi-vis; sobre la
+   banda crema el hi-vis está PROHIBIDO (1.59 contra #E4D7C0) y la línea pasa a tinta — que es,
+   además, como sale de verdad del instrumento: aguja sobre papel. */
+.trace__grid{stroke:var(--hair); stroke-width:1}
+.trace__line{fill:none; stroke:var(--hivis); stroke-width:1.4; stroke-linejoin:round; stroke-linecap:round}
+.trace__decay{fill:none; stroke:var(--heart); stroke-width:1.3}
+.js .trace__line{stroke-dasharray:var(--len,2400); stroke-dashoffset:var(--len,2400); animation:trazar 1.6s cubic-bezier(.35,0,.15,1) .35s forwards}
+@keyframes trazar{to{stroke-dashoffset:0}}
+
+/* ⭐ EL CONCEPTO, REUBICADO — el gráfico del resistógrafo dentro de la sección de diagnóstico */
+.chart{
+  margin:2.2rem 0 2.4rem; padding:1.1rem 0 .7rem;
+  border-top:1px solid rgba(26,35,18,.42); border-bottom:1px solid rgba(26,35,18,.42);
+}
+.chart__head{display:flex; flex-wrap:wrap; justify-content:space-between; gap:.3rem 1.4rem; margin-bottom:.8rem}
+.chart svg{display:block; width:100%; height:clamp(92px,15vw,142px)}
+.chart__scale{display:flex; justify-content:space-between; margin:.45rem 0 0}
+.chart__scale span{font:400 10px/1.4 var(--mono); color:var(--ink)}
+.cream .trace__line{stroke:var(--ink); stroke-width:1.15}
+.cream .trace__decay{stroke:var(--heart-dark); stroke-width:1.8}
+.cream .trace__grid{stroke:rgba(26,35,18,.3)}
+
+/* ══════════════ tejido común de secciones ══════════════════════════════════════════════ */
+.sec{position:relative; padding:clamp(3.2rem,8vw,6rem) var(--pad)}
+.sec--deep{background:var(--bark-deep)}
+.sec--raise{background:var(--bark-raise)}
+.wrap{max-width:1180px; margin:0 auto}
+.kicker{margin:0 0 1rem}
+h2{font:400 clamp(1.62rem,4.4vw,2.5rem)/1.16 var(--serif); color:var(--bone); max-width:20ch; margin:0 0 1.2rem}
+.cream h2{color:var(--ink)}
+.body{max-width:60ch; color:var(--bone)}
+.body em{font-style:italic}
+.body--dim{color:var(--bone-dim)}
+
+/* frontera de sección: otro sondeo, otro árbol, otra dirección */
+.band{padding:0 var(--pad) .2rem}
+.band--foot{padding:0 0 1.8rem}
+.band--foot .band__in{border-top:0}
+.band__in{max-width:1180px; margin:0 auto; border-top:var(--rule); padding-top:.6rem}
+.band svg{display:block; width:100%; height:22px}
+.band .mono{margin-top:.35rem; font-size:10px}
+
+/* ══════════════ §1 — la ventana ════════════════════════════════════════════════════════ */
+.win{display:grid; gap:clamp(2rem,4vw,3.2rem); grid-template-columns:1fr}
+@media (min-width:900px){ .win{grid-template-columns:1.1fr .9fr; align-items:start} }
+.card{
+  background:var(--bark-raise); padding:clamp(1.4rem,3vw,2rem);
+  box-shadow:0 24px 46px -32px rgba(0,0,0,.95), inset 0 0 0 1px rgba(227,224,210,.06);
+}
+.card .season{display:block; margin-top:1.2rem}
+.card .season b{font-style:normal; font-weight:400; color:var(--hivis)}
+.card__foot{margin:.7rem 0 0; border-top:1px solid rgba(66,86,66,.7); padding-top:.75rem; font-size:10px; color:var(--bone)}
+.wincol{display:grid; gap:1.6rem; align-content:start}
+.cutfig{margin:0}
+.months{margin:1.4rem 0 0; border-top:1px solid rgba(66,86,66,.7); padding-top:1rem}
+.months svg{display:block; width:100%; height:34px}
+.months__row{display:grid; grid-template-columns:repeat(12,1fr); margin-top:.4rem; text-align:center}
+.months__row span{font:400 10px/1.3 var(--mono); color:var(--bone-dim)}
+.months__row .on{color:var(--hivis)}
+.notes{margin:1.8rem 0 0; padding:0; list-style:none; display:grid; gap:1rem}
+.notes li{display:grid; grid-template-columns:auto 1fr; gap:.85rem; align-items:start}
+.notes b{font:400 11px/1.7 var(--mono); letter-spacing:.1em; color:var(--hivis); white-space:nowrap}
+.notes span{color:var(--bone-dim); font-size:16px}
+figure{margin:0}
+figcaption{margin-top:.6rem}
+/* ⛔ UN PIE DE FOTO LARGO NO PUEDE IR EN VERSALITAS DE MÁQUINA DE ESCRIBIR. La pieza tenía nueve
+   pies de dos y tres líneas en mono a 10 px y en MAYÚSCULAS: eso se lee como una etiqueta de
+   inventario, no como una frase, y aquí las frases son el argumento de venta. El mono en
+   versalitas se queda donde es un DATO —chips, escalas, encabezados de sondeo—, y la prosa vuelve
+   a la humanista, en minúscula y subordinada. Es lo mismo que ya hace cualquier periódico. */
+.cap{margin-top:.75rem; font:400 14.5px/1.55 var(--sans); color:var(--bone-dim); max-width:66ch}
+.cream .cap{color:var(--ink)}
+.pic{position:relative; overflow:hidden; background:var(--bark-deep); box-shadow:0 22px 44px -30px rgba(0,0,0,.95)}
+.pic img{width:100%; height:100%; object-fit:cover}
+/* ⛔ CADA MARCO LLEVA EL ASPECTO NATIVO DE SU FOTO — recorte cero. El marco se adapta a la foto,
+   no al revés, y aquí se puede cumplir al pie de la letra porque las imágenes se pidieron con el
+   encuadre que la maqueta necesita. Un `4/5` universal habría partido en dos el informe sobre el
+   capó, que es apaisado, y con él la mitad de las herramientas que lo hacen legible como oficio.
+   ⛔ Y LA CORRECCIÓN ES DE PERTENENCIA, NO DE ESTILO: el riesgo real de estas seis tomas es el
+   cielo pálido de invierno, que si se deja a su valor se convierte en el punto más claro de la
+   página y le roba el trabajo al chaleco — que es el único acento que esta paleta tiene. */
+.pic--mallet{aspect-ratio:4/5}
+.pic--mallet img{filter:saturate(.82) contrast(1.1) brightness(.92)}
+.pic--report{aspect-ratio:3/2}
+.pic--report img{filter:saturate(.86) contrast(1.08) brightness(.94)}
+.pic--street{aspect-ratio:16/9}
+.pic--street img{filter:saturate(.84) contrast(1.1) brightness(.9)}
+/* El hormigón mojado es lo más claro de la mitad baja de la página y competía con la banda
+   crema, que es la única interrupción pálida que esta página tiene autorizada. Se baja. */
+.pic--walk{aspect-ratio:3/2}
+.pic--walk img{filter:saturate(.78) contrast(1.14) brightness(.82)}
+.pic--moss img{filter:saturate(.5) hue-rotate(-24deg) brightness(.86) contrast(1.06)}
+.pic--climb img{filter:saturate(.8) contrast(1.14) brightness(.86)}
+/* A 1180 px de ancho la foto del informe se convertía en una valla, y la manga hi-vis del borde
+   derecho en una mancha del tamaño de un titular. 920 px la devuelve a lo que es: una lámina. */
+.figwide{margin-top:clamp(2rem,4vw,3rem); max-width:920px}
+.chip{
+  display:inline-block; padding:.42rem .6rem; background:var(--bark-deep); color:var(--bone);
+  font:400 10px/1.35 var(--mono); text-transform:uppercase; letter-spacing:.11em;
+  box-shadow:inset 0 0 0 1px rgba(66,86,66,.5);
+}
+.chip--over{position:absolute; left:0; bottom:0; max-width:100%}
+
+/* ══════════════ §2 — LA BANDA CREMA · el momento irrepetible ═══════════════════════════ */
+.cream{background:var(--cut); color:var(--ink)}
+.cream .body{color:var(--ink)}
+.cream .mono{color:var(--ink)}
+.cream .chip{background:var(--ink); color:var(--cut); box-shadow:inset 0 0 0 1px rgba(228,215,192,.35)}
+.sheet{display:grid; gap:clamp(1.6rem,3.4vw,2.8rem); grid-template-columns:1fr}
+@media (min-width:900px){ .sheet{grid-template-columns:.95fr 1.05fr; align-items:start} }
+.sheet__head{border-bottom:1px solid rgba(26,35,18,.35); padding-bottom:.7rem; margin-bottom:1.4rem}
+/* ⭐ El único momento oscuro de la sección es la cavidad de ESTA foto, y la anotación la señala.
+   Decisión deliberada: esta imagen NO lleva filter. Su trabajo es ser lo más limpio del sitio. */
+.plate{position:relative; box-shadow:0 26px 50px -34px rgba(26,35,18,.8), inset 0 0 0 1px rgba(26,35,18,.9)}
+.plate img{width:100%; height:auto}
+/* Solo el ASPECTO vive aquí; el DÓNDE va inline, porque el dónde es un dato de la fotografía.
+   El anillo es `--heart-dark` y no `--heart`: sobre la crema el duramen claro da 1.9 y un gráfico
+   necesita 3. Es la misma regla que prohíbe el hi-vis en esta banda, aplicada a una circunferencia. */
+.lead__ring{
+  position:absolute; width:19px; height:19px; margin:-10px 0 0 -10px;
+  border:2px solid var(--heart-dark); border-radius:50%;
+  box-shadow:0 0 0 1px rgba(26,35,18,.55);
+}
+.lead__h{position:absolute; height:1.5px; background:var(--ink)}
+.lead__v{position:absolute; width:1.5px; background:var(--ink)}
+.lead__tag{
+  position:absolute; max-width:70%;
+  padding:.52rem .66rem; background:var(--ink); color:var(--cut);
+  font:500 10.5px/1.45 var(--mono); text-transform:uppercase; letter-spacing:.1em;
+}
+.spec{margin:1.5rem 0 0; padding:0; list-style:none; border-top:1px solid rgba(26,35,18,.3)}
+.spec li{display:flex; flex-wrap:wrap; gap:.4rem 1rem; justify-content:space-between;
+  padding:.72rem 0; border-bottom:1px solid rgba(26,35,18,.18)}
+.spec dt,.spec b{font:400 11px/1.6 var(--mono); text-transform:uppercase; letter-spacing:.1em; color:var(--ink)}
+.spec span{font-size:16px; color:var(--ink)}
+.price-big{font:400 clamp(2rem,6vw,2.8rem)/1 var(--serif); color:var(--heart-dark); display:block; margin:.2rem 0 .3rem}
+.cta--ink{
+  background:var(--ink); color:var(--cut);
+  box-shadow:0 14px 28px -20px rgba(26,35,18,.9), inset 0 0 0 1px rgba(228,215,192,.2);
+}
+.cta--ink::before,.cta--ink::after{display:none}
+.cta--ink:hover{background:#2b3a22; color:var(--cut)}
+
+/* ══════════════ §3 — servicios ═════════════════════════════════════════════════════════ */
+/* ⛔ ESTA REJILLA LA ARREGLÓ LA PRUEBA DE INTERCAMBIO, y es justo para lo que sirve. Estaba hecha
+   con el truco clásico —`gap:1px` sobre un fondo `--hair`, que dibuja la retícula sin bordes—, y
+   con seis tarjetas es impecable. Al meter los datos de un negocio de CUATRO servicios apareció
+   media fila vacía pintada del color de la retícula: una losa gris-verde del tamaño de dos
+   tarjetas. La maqueta no se rompía en el sentido del test —cero CSS tocado, ningún tipo de
+   bloque perdido— pero el resultado era feo, y una rejilla que solo se ve bien con exactamente
+   seis filas es una pieza única disfrazada de plantilla.
+   La línea se muda del HUECO a la TARJETA: cada una lleva su filete por dentro y las contiguas
+   comparten frontera. Un hueco sin tarjeta ya no pinta nada. Vale para 4, para 6 y para 7. */
+.svcs{display:grid; gap:0; margin-top:2.4rem; grid-template-columns:1fr}
+@media (min-width:640px){ .svcs{grid-template-columns:1fr 1fr} }
+@media (min-width:1000px){ .svcs{grid-template-columns:1fr 1fr 1fr} }
+.svc{
+  background:var(--bark-raise); padding:clamp(1.4rem,2.6vw,1.9rem);
+  box-shadow:inset 0 0 0 1px var(--hair);
+}
+.svc:hover{background:var(--bark-panel); box-shadow:inset 0 0 0 1px var(--hivis)}
+.svc svg{display:block; width:40px; height:40px; margin-bottom:1rem; color:var(--hivis)}
+.svc h3{font:400 1.22rem/1.3 var(--serif); color:var(--bone); margin-bottom:.5rem}
+.svc p{font-size:15.5px; color:var(--bone-dim); margin-bottom:.9rem}
+.svc .mono{color:var(--hivis); font-size:11px}
+.work{display:grid; gap:clamp(2rem,4vw,3rem); grid-template-columns:1fr; margin-top:clamp(2.4rem,5vw,3.4rem)}
+@media (min-width:900px){ .work{grid-template-columns:.66fr 1fr; align-items:center} }
+.pic--climb{aspect-ratio:3/4}
+.work__h{font:400 clamp(1.3rem,3vw,1.7rem)/1.25 var(--serif); color:var(--bone); margin:0}
+.steps{margin:1.4rem 0 0; padding:0; list-style:none; display:grid; gap:.9rem; counter-reset:s}
+.steps li{display:grid; grid-template-columns:auto 1fr; gap:.9rem; align-items:baseline;
+  border-top:1px solid rgba(66,86,66,.6); padding-top:.8rem}
+.steps b{font:400 12px/1.5 var(--mono); letter-spacing:.1em; color:var(--hivis)}
+.steps span{font-size:16px; color:var(--bone-dim)}
+
+/* ══════════════ §4 — el viento del este ════════════════════════════════════════════════ */
+.wind{display:grid; gap:clamp(1.6rem,3.5vw,2.6rem); grid-template-columns:1fr}
+@media (min-width:900px){ .wind{grid-template-columns:1fr 1fr; align-items:start} }
+.pic--ice{aspect-ratio:16/9}
+.pic--night{aspect-ratio:16/9}
+.storm{
+  margin-top:2.2rem; padding:clamp(1.4rem,3vw,2rem); background:var(--bark-raise);
+  border-left:3px solid var(--hivis);
+  box-shadow:0 20px 40px -30px rgba(0,0,0,.9), inset 0 0 0 1px rgba(227,224,210,.05);
+  display:grid; gap:1.2rem; grid-template-columns:1fr;
+}
+@media (min-width:760px){ .storm{grid-template-columns:1.3fr .9fr; align-items:center} }
+.storm h3{font:400 1.35rem/1.28 var(--serif); color:var(--bone); margin-bottom:.5rem}
+.storm p{font-size:16px; color:var(--bone-dim); margin:0}
+
+/* ══════════════ §5 — lo que no hacemos ═════════════════════════════════════════════════ */
+/* `center` dejaba 200 px de agujero bajo el H2: la columna de texto es corta y la foto alta, así
+   que centrarla verticalmente la empujaba al medio de la nada. Se alinean por arriba. */
+.wontlead{display:grid; gap:clamp(1.8rem,3.6vw,2.8rem); grid-template-columns:1fr; align-items:start}
+@media (min-width:900px){ .wontlead{grid-template-columns:1fr .62fr} }
+.wonts{display:grid; gap:1.2rem; grid-template-columns:1fr; margin-top:2.6rem}
+@media (min-width:820px){ .wonts{grid-template-columns:repeat(3,1fr)} }
+.wont{
+  background:var(--bark-deep); padding:clamp(1.4rem,2.6vw,1.8rem);
+  box-shadow:0 18px 36px -28px rgba(0,0,0,.95), inset 0 0 0 1px rgba(227,224,210,.05);
+}
+.wont svg{display:block; width:46px; height:46px; margin-bottom:1.1rem; color:var(--heart)}
+.wont h3{font:400 1.16rem/1.3 var(--serif); color:var(--bone); margin-bottom:.55rem}
+.wont p{font-size:15.5px; color:var(--bone-dim); margin:0}
+
+/* ══════════════ §6 — las calles ════════════════════════════════════════════════════════ */
+/* Mismo arreglo que en .svcs, y por el mismo motivo: con tres barrios en dos columnas quedaba una
+   celda vacía pintada de retícula. La línea vive en la tarjeta. */
+.streets{display:grid; gap:0; margin-top:2.4rem; grid-template-columns:1fr}
+@media (min-width:760px){ .streets{grid-template-columns:1fr 1fr} }
+.street{background:var(--bark); padding:clamp(1.4rem,2.6vw,1.9rem); box-shadow:inset 0 0 0 1px var(--hair)}
+.street h3{font:400 1.2rem/1.3 var(--serif); color:var(--bone); margin-bottom:.5rem}
+.street p{font-size:15.5px; color:var(--bone-dim); margin:0}
+.street .mono{margin:0 0 .85rem; color:var(--hivis); font-size:10px}
+.street .mono span{color:var(--bone-dim)}
+.zones{margin:2rem 0 0; font-size:16px; color:var(--bone-dim)}
+.zones b{font:400 11px/1.7 var(--mono); letter-spacing:.1em; color:var(--hivis); display:block; margin-bottom:.4rem}
+
+/* ══════════════ §7 — cuadrilla, FAQ, reserva ═══════════════════════════════════════════ */
+.crew{display:grid; gap:1.4rem; grid-template-columns:1fr; margin-top:2.2rem}
+@media (min-width:760px){ .crew{grid-template-columns:repeat(3,1fr)} }
+.person{
+  padding:clamp(1.3rem,2.4vw,1.7rem); background:var(--bark-raise);
+  box-shadow:0 18px 34px -28px rgba(0,0,0,.95), inset 0 0 0 1px rgba(227,224,210,.05);
+}
+.person h3{font:400 1.2rem/1.3 var(--serif); color:var(--bone); margin-bottom:.25rem}
+.person .mono{color:var(--hivis); margin-bottom:.6rem}
+.person p{font-size:15.5px; color:var(--bone-dim); margin:0}
+.book{display:grid; gap:clamp(1.8rem,4vw,3rem); grid-template-columns:1fr; margin-top:clamp(2.4rem,5vw,3.6rem)}
+@media (min-width:900px){ .book{grid-template-columns:1fr 1fr; align-items:start} }
+.facts{margin:0; padding:0; list-style:none; border-top:var(--rule)}
+.facts li{display:flex; flex-wrap:wrap; gap:.3rem 1.2rem; justify-content:space-between;
+  padding:.85rem 0; border-bottom:1px solid rgba(66,86,66,.55)}
+.facts b{font:400 11px/1.7 var(--mono); letter-spacing:.1em; color:var(--bone-dim); text-transform:uppercase}
+.facts span,.facts a{font-size:16px; color:var(--bone); text-decoration:none}
+.facts a{position:relative; display:inline-block; padding:.62rem 0}
+.facts a::after{content:''; position:absolute; left:0; right:0; bottom:-2px; height:1px; background:var(--hivis)}
+.facts a:hover{color:var(--hivis)}
+.faqs{margin-top:1.4rem; border-top:var(--rule)}
+details.faq{border-bottom:1px solid rgba(66,86,66,.55)}
+details.faq summary{
+  display:flex; align-items:center; justify-content:space-between; gap:1rem;
+  padding:1.1rem 0; cursor:pointer; list-style:none;
+  font:400 1.06rem/1.4 var(--serif); color:var(--bone);
+}
+details.faq summary::-webkit-details-marker{display:none}
+details.faq summary:hover{color:var(--hivis)}
+details.faq summary svg{flex:0 0 auto; width:16px; height:16px; color:var(--hivis); transition:transform .22s ease}
+details.faq[open] summary svg{transform:rotate(45deg)}
+details.faq .ans{padding:0 0 1.2rem; max-width:62ch; font-size:16px; color:var(--bone-dim)}
+.pic--moss{aspect-ratio:2/1; margin-top:1.6rem}
+
+.foot{background:var(--bark-deep); border-top:var(--rule); padding:clamp(2.2rem,5vw,3.2rem) var(--pad)}
+.foot__in{max-width:1180px; margin:0 auto; display:grid; gap:1.4rem}
+@media (min-width:760px){ .foot__in{grid-template-columns:1.2fr 1fr; align-items:end} }
+.foot .brand{color:var(--bone); font-size:clamp(16px,3vw,20px)}
+.foot p{font-size:15px; color:var(--bone-dim); margin:.6rem 0 0}
+.foot .mono{font-size:10px}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important}
+  .js [data-reveal]{opacity:1; transform:none}
+  .js .trace__line{stroke-dasharray:none; stroke-dashoffset:0}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="hdr">
+  <a class="brand" href="#top">Sound <span class="amp">&amp;</span> Hollow</a>
+  <div class="hdr__right">
+  <a class="hdr__tel" href="tel:+15035550184" aria-label="Call Sound and Hollow at (503) 555-0184">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+      <path d="M6.2 3.5h3.1l1.5 3.8-2 1.4a11.5 11.5 0 0 0 5.5 5.5l1.4-2 3.8 1.5v3.1a1.7 1.7 0 0 1-1.9 1.7A16.8 16.8 0 0 1 4.5 5.4a1.7 1.7 0 0 1 1.7-1.9z"/>
+    </svg>
+    <span>(503) 555-0184</span>
+  </a>
+  <nav class="nav" id="nav" aria-label="Main">
+    <button class="burger" id="burger" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Open menu">
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" focusable="false">
+        <path class="burger__b burger__b--1" d="M4 7h16"/>
+        <path class="burger__b burger__b--2" d="M4 12h16"/>
+        <path class="burger__b burger__b--3" d="M4 17h16"/>
+      </svg>
+    </button>
+    <ul class="nav__panel" id="nav-menu">
+      <li><a href="#work">What we do</a></li>
+      <li><a href="#inside">The sounding</a></li>
+      <li><a href="#window">Winter work</a></li>
+      <li><a href="#wind">Storm</a></li>
+      <li><a href="#streets">Streets</a></li>
+      <li><a href="#book">The crew</a></li>
+      <li><a class="is-cta" href="tel:+15035550184">(503) 555-0184</a></li>
+    </ul>
+  </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ══════════════════════════ FOLD — el tríptico ══════════════════════════ -->
+<section class="fold" id="top">
+  <!-- ⛔ LA FOTO ABRE EL FOLD (Carlos, 2026-07-27: «the image can barely be seen, the image needs
+       more protagonism»). Medido antes de mover nada: la fotografía ocupaba el 34 % del primer
+       pantallazo en escritorio y el 12 % en móvil — la peor de las seis piezas, y en un teléfono
+       la banda quedaba entera por debajo del pliegue. La razón que el autor dejó escrita seguía
+       siendo buena, pero solo contra UNA de las dos opciones: un titular claro sobre un cielo
+       pálido de invierno no aguanta AA sin una capa negra que se come la foto, así que DETRÁS no
+       va. De ahí no se sigue que no pueda ir ENCIMA. La foto abre, el pie la explica, y el
+       titular entra después sobre el sustrato sólido, donde el contraste es un hecho y no una
+       negociación con el cielo. También es el único reparto de hero que no estaba ocupado: tres
+       hermanas usan la foto a sangre de fondo y una la parte en dos columnas. -->
+  <div class="shot shot--hero">
+    <img src="img-tree-care/calle-camion-cesta.jpg" width="1344" height="768" fetchpriority="high" decoding="async"
+         alt="A residential Portland street in winter: a large bare street tree growing out of the strip between curb and sidewalk, power lines running through its crown, a craftsman house behind it, and a bucket truck at the right with its boom raised into the canopy.">
+    <div class="shot__cap">
+      <p>SE 34th &amp; Salmon &middot; American elm, 31 in DBH &middot; <b>end-weight reduction over the porch roof</b></p>
+    </div>
+  </div>
+
+  <div class="fold__mid">
+    <span class="mk mk--tl" aria-hidden="true"></span>
+    <span class="mk mk--tr" aria-hidden="true"></span>
+    <span class="mk mk--bl" aria-hidden="true"></span>
+    <span class="mk mk--br" aria-hidden="true"></span>
+
+    <div class="fold__block">
+      <p class="mono eyebrow">Portland, Oregon &middot; Tree risk assessment &amp; dormant pruning</p>
+
+      <h1><span class="h1__a">We tell you whether the tree stays, before anybody starts a saw.</span></h1>
+
+      <p class="lede">A certified assessment, a written report in three working days, and the winter
+        pruning that actually lowers the risk. Houses, back yards and street trees across Portland's
+        east side &mdash; and often enough the answer is <em>leave it alone.</em></p>
+
+      <div class="ctas">
+        <a class="cta" href="#inside">Book a sounding &mdash; $385</a>
+        <a class="cta cta--ghost" href="tel:+15035550184">Call (503) 555-0184</a>
+      </div>
+
+      <p class="fold__facts">
+        <span>Mon&ndash;Sat 7:00 AM &ndash; 5:30 PM</span>
+        <span>Written report in <b>3 working days</b></span>
+        <span>Storm dispatch <b>24 h, Nov&ndash;Mar</b></span>
+        <span>Title 11 permits filed for you</span>
+      </p>
+    </div>
+  </div>
+
+  <!-- El pie se quedó en UNA línea: en 390 px la versión larga eran cuatro renglones en
+       versalitas encima de la fotografía, que es un cartel, no un pie. La observación que se
+       cayó de aquí —las cicatrices redondas del fuste son cortes de topping viejos— no se
+       perdió: vive en §5, que es la sección que habla justamente de eso. -->
+</section>
+
+<!-- ══════ frontera: otro sondeo, otro árbol ══════ -->
+<div class="band" aria-hidden="true">
+  <div class="band__in">
+    <svg viewBox="0 0 600 22" preserveAspectRatio="none" focusable="false">
+      <path class="trace__line" d="M0,10.1L3,10.6L6,11L9,10.4L12,10.2L15,9L18,11.9L21,14L24,12.4L27,10.8L30,10.2L33,3.7L36,11.1L39,12.9L42,18L45,6.2L48,15.5L51,7.2L54,15.6L57,8L60,12.2L63,6.6L66,11.8L69,8.5L72,13.9L75,10.8L78,15.5L81,10.2L84,10.7L87,4.6L90,14.3L93,10.1L96,14.3L99,6.8L102,8.2L105,5.5L108,12.1L111,12.9L114,14.5L117,12.5L120,8.6L123,13.1L126,8.7L129,15L132,12.3L135,10L138,5.9L141,8.5L144,9.2L147,19.5L150,6.9L153,11.2L156,9.3L159,15.6L162,10L165,14.3L168,10.7L171,11.9L174,5.7L177,8.9L180,11.1L183,16.2L186,7.2L189,13.9L192,5.4L195,8.3L198,10.9L201,15.1L204,11.1L207,8.5L210,12.1L213,11.4L216,13.9L219,10.8L222,9.3L225,11.3L228,11.9L231,6.5L234,10.5L237,9.6L240,17.2L243,4.8L246,8.1L249,8.3L252,12.8L255,9.3L258,12.3L261,3.4L264,15.2L267,9.2L270,14.4L273,12.5L276,17.9L279,5.6L282,11.3L285,11L288,12.9L291,10.6L294,13L297,11.2L300,9.7L303,9.7L306,11.4L309,8.4L312,16.2L315,8.3L318,11L321,7.5L324,13.7L327,13.3L330,9.2L333,11.8L336,7.7L339,9.9L342,7.3L345,12.3L348,9.1L351,13.1L354,4.3L357,11.5L360,9.9L363,19L366,5.9L369,11.5L372,3.2L375,14.9L378,7.9L381,18L384,6.8L387,11.2L390,5.2L393,10.1L396,12.3L399,16.2L402,8L405,9.2L408,5.5L411,12L414,10L417,13L420,7L423,9.8L426,9L429,11.4L432,15.4L435,13.5L438,13.6L441,10.3L444,10.9L447,10.2L450,11.4L453,11L456,11.1L459,10.8L462,10.8L465,11L468,11.4L471,10.7L474,11L477,10.1L480,10.8L483,10.8L486,11.8L489,10.8L492,11.1L495,10.3L498,10.9L501,10.9L504,11.5L507,10.7L510,11.5L513,10.6L516,11L519,11.1L522,11.4L525,11.4L528,10.9L531,10.7L534,10.3L537,12.2L540,10.2L543,11.2L546,10.9L549,8.6L552,5.3L555,10.9L558,7L561,12.8L564,11.2L567,12.1L570,3.6L573,17.4L576,12.5L579,18.2L582,7.4L585,15L588,5.2L591,13.1L594,6.6L597,12L600,7.3"/>
+    </svg>
+    <p class="mono">Sounding № 5 · SE 21st &amp; Tibbetts · Douglas-fir · 44 in DBH · Dec 14</p>
+  </div>
+</div>
+
+<!-- ══════════════════════════ §1 — WHAT WE DO ══════════════════════════
+     Subió del tercer puesto al primero. En la versión anterior el visitante tenía que pasar por
+     una sección de estacionalidad y otra de diagnóstico antes de enterarse de qué se puede
+     contratar y por cuánto: eso es orden de estudio, no de negocio. Lo primero después del hero
+     es la lista de lo que se compra, con precio. -->
+<section class="sec" id="work">
+  <div class="wrap">
+    <p class="mono kicker mono--hi">01 · What we do</p>
+    <h2 data-reveal>Six things, done in the order the tree needs them.</h2>
+    <div class="body body--dim" data-reveal style="max-width:58ch">
+      <p>Everything here starts from the assessment, not from a truck already parked in your
+        driveway. If the answer is that the tree needs nothing this year, that is what the report
+        will say, and we will not have sold you anything.</p>
+    </div>
+
+    <div class="svcs">
+      <article class="svc" data-reveal>
+        <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" aria-hidden="true" focusable="false">
+          <path d="M16 30V6"/><path d="M16 14 8 6"/><path d="M16 18l8-8"/><path d="M16 10 11 4"/>
+          <path d="M22.6 11.4 27 7" stroke-dasharray="2 2.5"/>
+          <circle cx="24" cy="10" r="3.1"/>
+        </svg>
+        <h3>Dormant structural pruning</h3>
+        <p>Codominant stems reduced, included bark addressed, crossing limbs removed. Cuts outside
+          the collar, ANSI A300.</p>
+        <p class="mono">From $640 · single tree under 40 ft</p>
+      </article>
+
+      <article class="svc" data-reveal>
+        <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" aria-hidden="true" focusable="false">
+          <path d="M16 30V13"/><path d="M16 17l-6-5M16 20l6-5"/>
+          <path d="M4 12a12 9 0 0 1 24 0" stroke-dasharray="2.5 3"/>
+          <path d="M7 15a9 7 0 0 1 18 0"/>
+        </svg>
+        <h3>Crown reduction &amp; end weight</h3>
+        <p>Weight taken off the outer third, where the lever is longest. Lowers wind sail and the
+          load on a saturated root plate.</p>
+        <p class="mono">From $1,450 · mature conifer</p>
+      </article>
+
+      <article class="svc" data-reveal>
+        <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" aria-hidden="true" focusable="false">
+          <path d="M9 30V9l3-6"/><path d="M23 30V9l-3-6"/>
+          <path d="M9 13c4.6 3.4 9.4 3.4 14 0"/>
+          <circle cx="9" cy="13" r="1.7"/><circle cx="23" cy="13" r="1.7"/>
+        </svg>
+        <h3>Cabling &amp; bracing</h3>
+        <p>A dynamic cable between codominant stems buys years for a tree that is otherwise sound.
+          Inspected annually, in writing.</p>
+        <p class="mono">From $890 · per cable</p>
+      </article>
+
+      <article class="svc" data-reveal>
+        <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" aria-hidden="true" focusable="false">
+          <path d="M16 30V8"/><path d="M16 16l-7-5M16 21l6-4"/>
+          <path d="M9 11 4 8" stroke-dasharray="2 2.5"/><path d="M4 8 2.5 5.4"/>
+          <path d="M25 6l3.5-2.6"/><path d="M22 17l6-4" stroke-dasharray="2 2.5"/>
+        </svg>
+        <h3>Deadwooding</h3>
+        <p>Dead limbs over the driveway, the roof, the sidewalk. The ones that fall on a still day
+          in August with no warning at all.</p>
+        <p class="mono">From $480 · per tree</p>
+      </article>
+
+      <article class="svc" data-reveal>
+        <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" aria-hidden="true" focusable="false">
+          <path d="M6 27h11"/><path d="M8.5 27v-6M14.5 27v-6"/><ellipse cx="11.5" cy="21" rx="3" ry="1.4"/>
+          <path d="M19 5h10v18H19z"/><path d="M22 10h4M22 14h4"/><circle cx="24" cy="18.5" r="2.2"/>
+        </svg>
+        <h3>Removal &amp; permit filing</h3>
+        <p>We file with Urban Forestry under Title 11 and we tell you before you pay whether we
+          think it will be granted.</p>
+        <p class="mono">Filing included · quoted after assessment</p>
+      </article>
+
+      <article class="svc" data-reveal>
+        <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" aria-hidden="true" focusable="false">
+          <path d="M4 27h11"/><path d="M6.5 27v-6M12.5 27v-6"/><ellipse cx="9.5" cy="21" rx="3" ry="1.4"/>
+          <circle cx="22.5" cy="18" r="6"/>
+          <path d="M22.5 12v-2.4M28.5 18h2.4M22.5 24v2.4M16.5 18h-2.4M26.7 13.8l1.7-1.7M26.7 22.2l1.7 1.7M18.3 13.8l-1.7-1.7M18.3 22.2l-1.7 1.7"/>
+        </svg>
+        <h3>Stump grinding</h3>
+        <p>Ground below grade, chips left or hauled, the hole backfilled so grass takes instead of
+          sinking two years later.</p>
+        <p class="mono">From $210 · plus haul-off</p>
+      </article>
+    </div>
+
+    <div class="work">
+      <figure data-reveal>
+        <div class="pic pic--mallet">
+          <img src="img-tree-care/mazo-fuste.jpg" width="896" height="1152" loading="lazy" decoding="async"
+               alt="A gloved hand holds a white rubber sounding mallet against the wet fissured bark of a street tree; the arm wears a hi-vis sleeve, and a house porch and a parked car sit out of focus behind the trunk.">
+          <span class="chip chip--over">Step one · mallet on the stem</span>
+        </div>
+        <figcaption class="cap">Ten minutes, on the strip between the curb and your sidewalk. The
+          vest is the only saturated colour in the picture, and that is the entire reason it
+          exists.</figcaption>
+      </figure>
+      <div data-reveal>
+        <h3 class="work__h">How a job actually goes.</h3>
+        <ol class="steps">
+          <li><b>01</b><span>Sounding on site. Mallet on the stem and the buttress roots, root
+            collar excavated by hand, resistograph where the mallet leaves a question.</span></li>
+          <li><b>02</b><span>Written report within three working days — photographs, findings, a
+            recommendation, and the permit position if the tree is regulated.</span></li>
+          <li><b>03</b><span>The work. Or nothing, if nothing is what the tree needs this
+            winter.</span></li>
+        </ol>
+        <p class="ctas" style="margin-top:1.8rem">
+          <a class="cta" href="#inside">Book a sounding — $385</a>
+        </p>
+      </div>
+    </div>
+
+    <figure class="figwide" data-reveal>
+      <div class="pic pic--report">
+        <img src="img-tree-care/informe-capo.jpg" width="1248" height="832" loading="lazy" decoding="async"
+             alt="A written tree assessment on an aluminium clipboard lying on the wet hood of a pickup truck, with a rubber sounding mallet, a diameter tape, a folding rule and a pair of leather work gloves beside it.">
+        <span class="chip chip--over">The report is the product</span>
+      </div>
+      <figcaption class="cap">Findings, photographs, a recommendation and the permit position, on
+        paper, in your hand. You can give it to a neighbour, an insurer or the next company you
+        call — it is yours whether or not you hire us.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ══════════════════════════ §2 — ⭐ WHAT'S INSIDE DECIDES (banda crema) ══════════════════ -->
+<section class="sec cream" id="inside">
+  <div class="wrap">
+    <p class="mono kicker">02 · The sounding</p>
+    <h2 data-reveal>What's inside decides.</h2>
+    <div class="body" data-reveal>
+      <p>Sounding is exactly what it sounds like. A rubber mallet against the stem: sound wood
+        rings full and long, a cavity answers dull and short. It is the first thing anyone
+        competent does, it takes ten minutes, and it is right most of the time.</p>
+      <p>When the mallet leaves a question we drill a resistograph trace and read the density the
+        whole way through. Where the needle goes flat, there is nothing left to hold on to — and
+        how much flat, and where, is the whole decision.</p>
+    </div>
+
+    <!-- ⭐ EL CONCEPTO, REUBICADO. Este trazo bajaba por el centro del fold y era su armazón; ahora
+         es lo que siempre fue, el gráfico del instrumento, dentro de la sección donde se
+         diagnostica. Llega DESPUÉS de la explicación, no antes: un aparato presentado sin la
+         frase que lo justifica es exactamente el error que tenía el fold, una escala más abajo. -->
+    <div class="chart" data-reveal>
+      <div class="chart__head">
+        <span class="mono">Resistograph &#8470;&nbsp;4 &middot; SE 34th &amp; Salmon &middot; American elm &middot; 31 in DBH</span>
+        <span class="mono">Drill depth 0&ndash;320 mm &middot; relative density</span>
+      </div>
+      <svg viewBox="0 0 320 76" preserveAspectRatio="none" role="img"
+           aria-label="Resistograph density trace across 320 millimetres of trunk: dense sound wood at both ends and a flat run between 212 and 268 millimetres, where the wood is decayed.">
+        <g class="trace__grid" aria-hidden="true">
+          <path d="M0 4v58M80 4v58M160 4v58M240 4v58M319 4v58" stroke-dasharray="2 5"/>
+        </g>
+        <path class="trace__decay" d="M212 67v7h56v-7"/>
+        <path class="trace__line" d="M0,30.3L1.6,36.4L3.2,33.8L4.8,35.8L6.4,26.8L8,33.9L9.6,29L11.2,31.8L12.8,25.5L14.4,45.4L16,31.9L17.6,33.8L19.2,23.4L20.8,39.6L22.4,31.5L24,44.7L25.6,29.5L27.2,33L28.8,22.7L30.4,42.5L32,28.1L33.6,40.3L35.2,22.2L36.8,36.9L38.4,29.2L40,32L41.6,27L43.2,45L44.8,26.7L46.4,30.6L48,26.9L49.6,23.9L51.2,28.4L52.8,36.3L54.4,40.6L56,23.1L57.6,32.8L59.2,31.4L60.8,32.5L62.4,32.3L64,38.1L65.6,25L67.2,34.6L68.8,25.7L70.4,33.7L72,23.7L73.6,47.1L75.2,29.8L76.8,34.2L78.4,29.6L80,34.8L81.6,23.4L83.2,37.2L84.8,36.3L86.4,36.8L88,24.6L89.6,27.4L91.2,28.3L92.8,32.9L94.4,26.8L96,36.5L97.6,32.4L99.2,23L100.8,32L102.4,36.6L104,43.2L105.6,29.6L107.2,31.8L108.8,26.7L110.4,38.2L112,29L113.6,40.2L115.2,34L116.8,43.2L118.4,20.4L120,39.9L121.6,22L123.2,37.9L124.8,36.2L126.4,41.5L128,19.4L129.6,27.3L131.2,22.6L132.8,43.9L134.4,35.1L136,33.9L137.6,26.6L139.2,35L140.8,25.7L142.4,33L144,32L145.6,31.7L147.2,36.2L148.8,24.1L150.4,32L152,33.5L153.6,36.3L155.2,29.8L156.8,36L158.4,23.4L160,26.4L161.6,24.7L163.2,38.6L164.8,34.4L166.4,44.4L168,28.6L169.6,30L171.2,26.4L172.8,40.3L174.4,23.9L176,44.1L177.6,30.4L179.2,34.8L180.8,28.6L182.4,30.5L184,34.3L185.6,38.8L187.2,36.1L188.8,38.2L190.4,21.2L192,29.7L193.6,37.8L195.2,41.4L196.8,40.4L198.4,36.4L200,23.4L201.6,33.3L203.2,31.6L204.8,36.8L206.4,33.1L208,32.8L209.6,33.5L211.2,31L212.8,32.6L214.4,31.6L216,32.4L217.6,30.8L219.2,31.6L220.8,30.5L222.4,32.8L224,31.1L225.6,32.8L227.2,31.6L228.8,33.1L230.4,30.7L232,32.3L233.6,31.7L235.2,32.7L236.8,32L238.4,31.6L240,31.6L241.6,31.5L243.2,31.8L244.8,32L246.4,32.7L248,32.4L249.6,31.7L251.2,30.9L252.8,32.7L254.4,31.4L256,32.8L257.6,31.3L259.2,32.7L260.8,31L262.4,32.4L264,31.6L265.6,32.6L267.2,31.5L268.8,33.5L270.4,28.3L272,30.2L273.6,31.1L275.2,38.1L276.8,31.6L278.4,40.2L280,24.9L281.6,30L283.2,22L284.8,44.9L286.4,36.5L288,30.3L289.6,25.1L291.2,30.4L292.8,21.8L294.4,34.5L296,41.3L297.6,33.6L299.2,38.3L300.8,20L302.4,37.7L304,25.7L305.6,37.3L307.2,38.3L308.8,33.1L310.4,19.5L312,39.4L313.6,20.4L315.2,37.3L316.8,23.6L318.4,40.2"/>
+      </svg>
+      <p class="chart__scale" aria-hidden="true">
+        <span>0 mm</span><span>80</span><span>160</span><span>240</span><span>320 mm</span>
+      </p>
+      <p class="mono" style="margin-top:.6rem">Decay column &middot; 212&ndash;268 mm &middot; 26% of the section &middot;
+        sound wood continuous around the load path &middot; <b>tree stays</b></p>
+    </div>
+
+    <div class="sheet">
+      <div data-reveal>
+        <h3 class="work__h" style="color:var(--ink)">The limb that came off that elm.</h3>
+        <ul class="spec">
+          <li><b>Specimen</b><span>American elm limb, 19 in across</span></li>
+          <li><b>Address</b><span>SE 34th &amp; Salmon · sounding № 4</span></li>
+          <li><b>Decay</b><span>Wet, black, stringy — off-centre, toward the top</span></li>
+          <li><b>Finding</b><span>Sound wood continuous around the load path</span></li>
+        </ul>
+        <p class="body" style="margin-top:1.4rem">A quarter of this limb was gone. The tree stayed.
+          Sound wood in the right place holds a tree up, and nobody can tell you which quarter you
+          have from the sidewalk.</p>
+
+        <p class="mono" style="margin-top:2rem">Sounding + written assessment</p>
+        <span class="price-big">$385</span>
+        <p class="body">Flat. Photographs, the resistograph trace where we take one, a written
+          recommendation, and the permit position if the tree is regulated. Credited against any
+          work you book with us within 90 days.</p>
+        <p class="ctas" style="margin-top:1.4rem">
+          <a class="cta cta--ink" href="#book">Book a sounding</a>
+        </p>
+      </div>
+
+      <figure data-reveal>
+        <!-- ⛔ LA ANOTACIÓN VA EN EL MARCADO, NO EN EL CSS. Antes vivía en la hoja de estilos
+             (`left:63%; top:34%`), es decir: la posición de la cavidad de ESTA fotografía estaba
+             cableada en la maqueta. Con otra foto —otro negocio, otro corte— la flecha señalaría
+             el vacío y habría que tocar el CSS para arreglarlo, que es la definición exacta de
+             estudio y no de molde. Ahora es un dato del contenido, como el precio o el teléfono. -->
+        <div class="plate">
+          <img src="img-tree-care/cara-del-corte.jpg" width="896" height="1152" loading="lazy" decoding="async"
+               alt="The freshly sawn end of a large elm limb: pale cream sapwood with growth rings and chainsaw kerf marks, and a black fibrous decay column taking about a quarter of the face, off-centre toward the upper right.">
+          <span class="lead__h" style="left:15%; top:34%; width:47%" aria-hidden="true"></span>
+          <span class="lead__v" style="left:15%; top:34%; height:54%" aria-hidden="true"></span>
+          <span class="lead__ring" style="left:63%; top:34%" aria-hidden="true"></span>
+          <span class="lead__tag" style="left:15%; bottom:4.5%">Cavity · 26% of section · tree stays.</span>
+        </div>
+        <figcaption class="cap" style="margin-top:.8rem">Sounding № 4 · the face is the report.
+          Sawdust still on the rim; lichen still on the bark.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ frontera ══════ -->
+<div class="band" aria-hidden="true">
+  <div class="band__in">
+    <svg viewBox="0 0 600 22" preserveAspectRatio="none" focusable="false">
+      <path class="trace__line" d="M0,10.1L3,10.9L6,11.8L9,12L12,10.2L15,8.9L18,13.2L21,13.9L24,13.2L27,8.4L30,13.6L33,5.4L36,16.6L39,8.5L42,16L45,10.8L48,14.2L51,8.6L54,12.4L57,13L60,14.4L63,4.7L66,12.1L69,7.4L72,17L75,13.1L78,17L81,11.7L84,8.5L87,7.7L90,14.7L93,9L96,10.9L99,9L102,6.4L105,6.1L108,14.3L111,11.9L114,12.8L117,10.6L120,7L123,10.6L126,6.5L129,12.5L132,6.5L135,9.9L138,4.1L141,15.5L144,6L147,13.7L150,9.2L153,13.6L156,6.3L159,10.8L162,6.3L165,13.7L168,7.5L171,10.2L174,3.1L177,14.6L180,9.3L183,13.9L186,7.1L189,12.8L192,4.6L195,15.2L198,8.7L201,13.2L204,13.2L207,8.8L210,5.1L213,12.8L216,15.7L219,10.7L222,10.7L225,9.8L228,9.2L231,9.2L234,11.1L237,10.1L240,10.8L243,9.2L246,11.2L249,10.4L252,11.7L255,11.1L258,11.2L261,10.9L264,10.9L267,10.9L270,11.3L273,10.8L276,11.6L279,10.9L282,10.8L285,10.5L288,11.6L291,11L294,11.3L297,10.8L300,11.3L303,11L306,11L309,11.4L312,11.1L315,11L318,10.9L321,10.6L324,11L327,10.7L330,11.9L333,8.8L336,8.5L339,14.7L342,8.6L345,11.5L348,8.3L351,9.6L354,8.7L357,15.3L360,12.7L363,14.8L366,11.7L369,14L372,2.3L375,12.3L378,12.9L381,13.7L384,5.5L387,15.3L390,4.7L393,16.1L396,6.6L399,14.3L402,6.8L405,8.4L408,5.8L411,15.1L414,14.4L417,14.9L420,8.9L423,10.9L426,12.2L429,10L432,10.7L435,13.5L438,15.4L441,7.2L444,13.9L447,7.5L450,16.9L453,7.5L456,15.1L459,7.1L462,8.4L465,7.7L468,17.5L471,12.5L474,14L477,2.2L480,14.6L483,8.5L486,16.5L489,7.5L492,15.6L495,3L498,11.2L501,5.8L504,13.1L507,10.3L510,14.7L513,4.4L516,9.2L519,9.9L522,16.1L525,10.5L528,8.9L531,10.8L534,11.7L537,13.8L540,10.2L543,11.7L546,6.4L549,11.6L552,4.2L555,14.9L558,13L561,18.1L564,8.4L567,8.2L570,10.4L573,13.7L576,6.3L579,15.6L582,4.5L585,15.7L588,5.4L591,17.3L594,13.4L597,15.5L600,10.4"/>
+    </svg>
+    <p class="mono">Sounding № 6 · SE Insley &amp; 26th · Western redcedar · 26 in DBH · Dec 15</p>
+  </div>
+</div>
+
+<!-- ══════════════════════════ §1 — THE WINDOW IS OPEN ══════════════════════════ -->
+<section class="sec sec--deep" id="window">
+  <div class="wrap">
+    <p class="mono kicker mono--hi">03 · The dormant window</p>
+    <div class="win">
+      <div data-reveal>
+        <h2>The dark half of the year is when the work is honest.</h2>
+        <div class="body">
+          <p>With the leaves off we can see the whole structure — every codominant stem, every bark
+            inclusion, every dead limb that hides inside summer foliage. The tree isn't spending
+            anything to heal a wound it made in October. Cuts close cleanly in spring, on the tree's
+            own schedule instead of ours.</p>
+          <p>Birches and some maples bleed sap if we wait too long, so <em>late dormancy</em> has an
+            end, and the end is the buds. Anything that flowers in spring gets pruned after it
+            flowers, not before. That is the whole calendar, and it is why we are busiest when
+            everyone else has gone quiet.</p>
+        </div>
+        <ul class="notes">
+          <li><b>Leaf-off</b><span>Structure visible end to end. Deadwood stops hiding.</span></li>
+          <li><b>Bleeders</b><span>Birch, and maple past late dormancy. We move those to summer.</span></li>
+          <li><b>Spring bloom</b><span>Dogwood, cherry, magnolia — pruned after they flower.</span></li>
+          <li><b>ANSI A300</b><span>Every cut outside the branch collar. No flush cuts, ever.</span></li>
+        </ul>
+      </div>
+
+      <div class="wincol" data-reveal>
+       <div class="card">
+        <p class="mono mono--hi">The dormant window</p>
+        <div class="months">
+          <svg viewBox="0 0 240 20" preserveAspectRatio="none" role="img" aria-label="Twelve month rail: December, January and February are the dormant pruning window.">
+            <g fill="#425642">
+              <rect x="40" y="6" width="18" height="8"/><rect x="60" y="6" width="18" height="8"/>
+              <rect x="80" y="6" width="18" height="8"/><rect x="100" y="6" width="18" height="8"/>
+              <rect x="120" y="6" width="18" height="8"/><rect x="140" y="6" width="18" height="8"/>
+              <rect x="160" y="6" width="18" height="8"/><rect x="180" y="6" width="18" height="8"/>
+              <rect x="200" y="6" width="18" height="8"/>
+            </g>
+            <g fill="#C1E939">
+              <rect x="0" y="6" width="18" height="8"/><rect x="20" y="6" width="18" height="8"/>
+              <rect x="220" y="6" width="18" height="8"/>
+            </g>
+            <rect x="228" y="0" width="2" height="20" fill="#E3E0D2"/>
+          </svg>
+          <div class="months__row" aria-hidden="true">
+            <span class="on">J</span><span class="on">F</span><span>M</span><span>A</span>
+            <span>M</span><span>J</span><span>J</span><span>A</span>
+            <span>S</span><span>O</span><span>N</span><span class="on">D</span>
+          </div>
+        </div>
+        <span class="season">Right now, <b>the window is open.</b></span>
+        <p class="mono card__foot">Today is Dec 14 · 63 days left in leaf-off</p>
+       </div>
+       <figure class="cutfig">
+          <div class="pic pic--street">
+            <img src="img-tree-care/franja-plantacion.jpg" width="1344" height="768" loading="lazy" decoding="async"
+                 alt="A residential street seen straight down the middle of the road: two rows of big bare street trees in the strip between curb and sidewalk, their crowns meeting overhead, wooden porches and parked cars along both sides.">
+            <span class="chip chip--over">Leaf-off · every stem visible</span>
+          </div>
+          <figcaption class="cap">One block, forty trees, nothing hidden. From December to February
+            we can read a whole street from the road — which is why the survey work happens now and
+            not in July.</figcaption>
+       </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════ frontera ══════ -->
+<div class="band" aria-hidden="true">
+  <div class="band__in">
+    <svg viewBox="0 0 600 22" preserveAspectRatio="none" focusable="false">
+      <path class="trace__line" d="M0,10.1L3,10.9L6,13.6L9,9.9L12,11.4L15,9.7L18,11.2L21,14.5L24,17.8L27,5.6L30,13.6L33,9.5L36,14.7L39,12.1L42,12.2L45,4.1L48,11.8L51,9.9L54,14.6L57,11.1L60,19.1L63,6.2L66,15L69,5.8L72,11.5L75,12L78,13.8L81,7.8L84,8.5L87,7.7L90,10.8L93,12.6L96,12.6L99,9.8L102,10.7L105,10.6L108,10.9L111,11.1L114,11.1L117,10.7L120,10.6L123,10.8L126,10.7L129,11.2L132,11L135,10.9L138,10.6L141,10.8L144,10.7L147,11.2L150,10.9L153,11.6L156,10.2L159,11.4L162,11.1L165,11.7L168,11.1L171,11.1L174,10.5L177,11.4L180,10.9L183,11.4L186,10.1L189,10.9L192,10.1L195,10.1L198,9.4L201,16L204,9.6L207,11.8L210,8.4L213,10.2L216,14.7L219,13.1L222,10.1L225,11.4L228,9.6L231,11.6L234,11.9L237,9.9L240,13.5L243,11.1L246,14.9L249,4.2L252,12.5L255,6.6L258,16.1L261,3L264,14.9L267,5.7L270,15.9L273,12.6L276,15.5L279,7.9L282,9.3L285,9.2L288,12.8L291,14.4L294,16.7L297,6.4L300,7.1L303,8.9L306,14.8L309,11.2L312,15.7L315,9.5L318,6.6L321,12.4L324,14.7L327,15.9L330,12.4L333,12.8L336,7.3L339,15L342,10.2L345,12.7L348,10.8L351,13.5L354,10.1L357,16.9L360,8.2L363,16.1L366,11.1L369,16.2L372,4L375,13.9L378,11L381,13L384,10.1L387,9.4L390,10.1L393,12.7L396,12.9L399,11.4L402,12.7L405,10.9L408,9.3L411,14.1L414,12.7L417,15.4L420,8L423,11.8L426,9.4L429,13.2L432,10.3L435,14.2L438,9.4L441,6.2L444,7.1L447,9.8L450,13L453,8.8L456,13L459,8.9L462,9.7L465,6.9L468,14.2L471,6.9L474,17L477,9.7L480,10.5L483,6.3L486,15.9L489,12.3L492,15.3L495,2.9L498,12.8L501,10.8L504,13.1L507,14.4L510,12.6L513,8.7L516,13.6L519,9.9L522,10.9L525,13.1L528,10.2L531,7.6L534,6.8L537,9.8L540,10.8L543,12.8L546,6.9L549,12.1L552,7.6L555,12.2L558,8.3L561,13.4L564,8.4L567,15.5L570,9.5L573,14.3L576,8.9L579,17L582,6.2L585,9.2L588,5L591,15.9L594,8.1L597,14.8L600,6.2"/>
+    </svg>
+    <p class="mono">Sounding № 7 · SE Woodstock &amp; 44th · American elm · 38 in DBH · Dec 15</p>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════ §4 — THE EAST WIND ══════════════════════════ -->
+<section class="sec sec--deep" id="wind">
+  <div class="wrap">
+    <p class="mono kicker mono--hi">04 · Storm dispatch</p>
+    <h2 data-reveal>The east wind is the one that takes the big ones.</h2>
+    <div class="wind">
+      <div data-reveal>
+        <div class="body">
+          <p>Arctic air pools in the Columbia Basin. When a low comes up the coast, that cold air
+            drains west through the Gorge — a sea-level gap straight through the mountains — and
+            spills over the east side of the city at fifty to seventy miles an hour. Warm Pacific
+            rain falls into that cold layer and freezes on contact. This is not weather in general.
+            It is a specific piece of geography, and it points at your neighbourhood.</p>
+          <p>Add a winter of saturated soil and the root plate rotates in the mud instead of the
+            trunk breaking. That is how Portland loses a hundred-year Douglas-fir in one night.
+            Taking end weight off the top third in December is how it doesn't.</p>
+        </div>
+        <figure style="margin-top:1.6rem">
+          <div class="pic pic--ice">
+            <img src="img-tree-care/hielo-en-rama.jpg" width="1344" height="768" loading="lazy" decoding="async"
+                 alt="A bare branch fully sheathed in clear ice, icicles hanging from every twig, the branch visibly bending under the load.">
+          </div>
+          <figcaption class="cap">Freezing rain, sheathed a quarter inch thick. The branch is already
+            bending. Ice is not cold — ice is weight.</figcaption>
+        </figure>
+      </div>
+
+      <div data-reveal>
+        <figure>
+          <div class="pic pic--night">
+            <img src="img-tree-care/despacho-nocturno.jpg" width="1344" height="768" loading="lazy" decoding="async"
+                 alt="Night, heavy rain: a fallen limb across a fence and the back of a parked car, two crew in hi-vis rain jackets seen from behind, an amber beacon burning at the edge of frame.">
+          </div>
+          <figcaption class="cap">Two in the morning, on a residential street, with a limb across a
+            fence and the back of somebody's car. Nobody enjoys this part.</figcaption>
+        </figure>
+        <div class="body body--dim" style="margin-top:1.4rem">
+          <p>We keep one crew on call from November through March. Amber beacon, chip truck, and a
+            saw that is already sharp. We clear what is dangerous first and come back in daylight
+            for the rest — cutting a loaded limb in the dark is how people get hurt.</p>
+        </div>
+        <ul class="notes" style="margin-top:1.5rem">
+          <li><b>Before we arrive</b><span>Park on the street, not under the tree, and keep everyone
+            out from under the canopy.</span></li>
+          <li><b>If a wire is involved</b><span>Assume it is live, stay thirty feet back, and call
+            the utility first — not us.</span></li>
+          <li><b>Daylight</b><span>Anything that isn't dangerous waits until morning. It is safer and
+            it costs you less.</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="storm" data-reveal>
+      <div>
+        <h3>Storm dispatch, 24 hours, November through March.</h3>
+        <p>First two hours on site, including make-safe cutting and haul-off of what we drop.
+          Anything beyond that is quoted in daylight, before we start.</p>
+      </div>
+      <div>
+        <p class="mono mono--hi">Storm callout · first two hours</p>
+        <span class="price-big" style="color:var(--hivis)">$720</span>
+        <p class="ctas"><a class="cta cta--ghost" href="tel:+15035550184">Storm line · (503) 555-0184</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════ §5 — WHAT WE WON'T DO ══════════════════════════ -->
+<section class="sec sec--raise" id="wont">
+  <div class="wrap">
+    <p class="mono kicker mono--hi">05 · The short list</p>
+    <h2 data-reveal>What we won't do.</h2>
+    <div class="wontlead">
+      <div class="body body--dim" data-reveal style="max-width:52ch">
+        <p>A company that lists what it turns down is a company that has turned work down. Here is
+          ours, in the order we get asked.</p>
+        <p>The photograph is the second item, and it is the expensive one: rope, a friction saver
+          over the limb, and nobody's spikes in a tree that is staying. Gaffs are faster. They are
+          also a wound in the cambium every eighteen inches, all the way up.</p>
+      </div>
+      <figure data-reveal>
+        <div class="pic pic--climb">
+          <img src="img-tree-care/trepador-calle.jpg" width="864" height="1184" loading="lazy" decoding="async"
+               alt="Seen from the sidewalk, a climber in a hi-vis jacket works on a rope thirty feet up a bare street tree, with the roof, chimney and windows of a two-storey house and a run of power lines behind him.">
+          <span class="chip chip--over">Rope and friction saver · no spikes</span>
+        </div>
+        <figcaption class="cap">Laurelhurst, December. Rope over a friction saver, house twelve feet
+          away, wires on the far side. This one is staying, so nothing goes into the bark.</figcaption>
+      </figure>
+    </div>
+    <div class="wonts">
+      <article class="wont" data-reveal>
+        <svg viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true" focusable="false">
+          <!-- El corte era una barra de 18u, más ancha que el fuste: leía como cruz de antena.
+               Ahora el corte apenas excede el fuste (lo que es un corte) y el rebrote es una
+               ESCOBA de cinco varas finas — que es exactamente lo que deja el topping. -->
+          <path d="M18 33V17" stroke-width="3"/>
+          <path d="M13.6 17h8.8" stroke-width="2.4"/>
+          <path d="M15 17c-1.4-2.8-2.8-4.2-4.2-5.2M16.6 17c-.7-3.2-1.3-5-1.9-6.4M18 17c0-3.4 0-5.2-.2-6.9M19.4 17c.7-3.2 1.3-5 1.9-6.4M21 17c1.4-2.8 2.8-4.2 4.2-5.2" stroke-width="1.15"/>
+          <path d="M4.5 5.5 31.5 32.5" stroke-width="2.4"/>
+        </svg>
+        <h3>We don't top trees.</h3>
+        <p>Topping doesn't make a tree safer. It makes a tree full of weak regrowth attached to
+          nothing, and it fails in about five years — usually onto the thing you were worried about
+          in the first place. Those flat round scars on old street trees are topping cuts, and the
+          elm at the top of this page is still carrying somebody's from thirty years ago.</p>
+      </article>
+      <article class="wont" data-reveal>
+        <svg viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true" focusable="false">
+          <path d="M13 3v30M23 3v30"/>
+          <path d="M13 13l-6-3.5v7z"/><path d="M13 24l-6-3.5v7z"/>
+          <path d="M5 6l26 26" stroke-width="2"/>
+        </svg>
+        <h3>We don't spike a tree we aren't removing.</h3>
+        <p>Every gaff is a wound in the cambium, all the way up. If the tree is staying, we climb it
+          on rope and a friction saver, and it takes longer.</p>
+      </article>
+      <article class="wont" data-reveal>
+        <svg viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true" focusable="false">
+          <path d="M7 3h18v24H7z"/><path d="M11 10h10M11 15h10M11 20h6"/>
+          <circle cx="24" cy="24" r="8"/><path d="M18.5 29.5 29.5 18.5" stroke-width="2"/>
+        </svg>
+        <h3>If the permit says no, the answer is no.</h3>
+        <p>Urban Forestry decides, not us. We'll tell you our read before you pay for anything, and
+          if the tree is a Heritage Tree we'll tell you that too — including that the hearing is
+          public.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ frontera ══════ -->
+<div class="band" aria-hidden="true">
+  <div class="band__in">
+    <svg viewBox="0 0 600 22" preserveAspectRatio="none" focusable="false">
+      <path class="trace__line" d="M0,10.2L3,11.8L6,12.2L9,11.7L12,9.1L15,11.3L18,11.5L21,13.2L24,11.1L27,11.8L30,8.6L33,6.3L36,12.2L39,6.9L42,13.8L45,8.1L48,12.9L51,3.8L54,16L57,6.6L60,16.6L63,5.3L66,10.2L69,5.8L72,16.5L75,13.4L78,16.8L81,5.4L84,10.4L87,11.1L90,12.3L93,8.1L96,11.5L99,10.2L102,5.9L105,6.6L108,9.8L111,16.1L114,8.6L117,8L120,9.4L123,12.4L126,6.4L129,11.9L132,7.3L135,9.7L138,3.5L141,12L144,9.4L147,12.6L150,7.8L153,9.7L156,8.3L159,15L162,4.9L165,15.9L168,8.5L171,11.1L174,8L177,15.6L180,10.7L183,13.6L186,7.1L189,11.9L192,5.5L195,11.1L198,10L201,11.1L204,8.1L207,7.1L210,11.8L213,11.8L216,14.2L219,15.6L222,15.6L225,10.9L228,13.6L231,11.4L234,12.8L237,14.5L240,11L243,4.2L246,13.1L249,10.4L252,16.1L255,7.9L258,13.4L261,5.4L264,11L267,9.3L270,16.1L273,9.6L276,15.7L279,8.9L282,15.2L285,11.1L288,11.4L291,8.3L294,15.7L297,11.2L300,9.2L303,10.8L306,12.9L309,13.2L312,9.1L315,6.6L318,10.6L321,8L324,15.7L327,11.1L330,9.1L333,11.4L336,7L339,10.1L342,10.3L345,15.7L348,11.1L351,10.8L354,4.9L357,9.7L360,10.1L363,16.4L366,6.3L369,11.4L372,5.6L375,10.9L378,6.5L381,16.9L384,4.8L387,10.3L390,5.7L393,14.4L396,13.5L399,11.6L402,12L405,11.1L408,11L411,10.7L414,11.7L417,11.2L420,10.7L423,11.2L426,10.8L429,10.9L432,11.5L435,10.8L438,11.2L441,10.8L444,10.6L447,11.1L450,11.1L453,11L456,11.1L459,10.5L462,11.2L465,10.6L468,11.3L471,10.7L474,11L477,10.8L480,11.3L483,10.7L486,13L489,11.9L492,11.7L495,9.2L498,12.4L501,5.6L504,12.3L507,13.3L510,12.1L513,6.5L516,13.6L519,11.2L522,17.5L525,8.6L528,11L531,10.5L534,10.3L537,9.7L540,11.6L543,11.9L546,8.1L549,13.4L552,4.9L555,14.3L558,12.7L561,15.8L564,7.7L567,12.2L570,8.4L573,17.7L576,8L579,14L582,9.2L585,8.7L588,6.6L591,15.6L594,8.3L597,18.8L600,8.6"/>
+    </svg>
+    <p class="mono">Sounding № 8 · SE Ladd Ave &amp; Elliott · American elm · 41 in DBH · Dec 16</p>
+  </div>
+</div>
+
+<!-- ══════════════════════════ §6 — THE STREETS WE KNOW ══════════════════════════ -->
+<section class="sec" id="streets">
+  <div class="wrap">
+    <p class="mono kicker mono--hi">06 · The streets we know</p>
+    <h2 data-reveal>Same city, four completely different problems.</h2>
+    <div class="streets">
+      <article class="street" data-reveal>
+        <h3>Ladd&#39;s Addition</h3>
+        <p class="mono">Dominant species <span>American elm</span> · Planted <span>1907–1910</span></p>
+        <p>About thirteen hundred street trees, most of them American elms planted between 1907 and
+          1910, and the neighbourhood has been inoculating them against Dutch elm disease since the
+          mid-nineties. The city still loses roughly thirty-five elms a year. On these blocks we
+          work slowly and we report anything that flags, whether or not it is your tree.</p>
+      </article>
+      <article class="street" data-reveal>
+        <h3>Eastmoreland &amp; Sellwood</h3>
+        <p class="mono">Watch <span>Western redcedar, top dieback</span> · Cause <span>drought</span></p>
+        <p>Big conifers on small lots, planted when the lots were bigger. Western redcedar is the
+          one to watch: the tops brown out after a dry summer and people assume it's a disease. It
+          usually isn't — it's drought, and the fix is water, not a saw.</p>
+      </article>
+      <article class="street" data-reveal>
+        <h3>Mt. Tabor &amp; Laurelhurst</h3>
+        <p class="mono">Watch <span>Bigleaf maple, epiphyte load</span> · Factor <span>slope + wind</span></p>
+        <p>Slope, wind exposure and enormous old bigleaf maples with more moss on them than leaves.
+          Epiphyte load matters here in a way it doesn't on the flat. Two trees on the same street
+          can be in completely different trouble.</p>
+      </article>
+      <article class="street" data-reveal>
+        <h3>Woodstock, Foster-Powell, Brentwood-Darlington</h3>
+        <p class="mono">Watch <span>Street sweetgum, Norway maple</span> · Issue <span>sidewalk lift</span></p>
+        <p>Street sweetgums and Norway maples lifting sidewalks, and homeowners getting told the
+          tree has to come out. Sometimes it does. More often it's a root-pruning and paving
+          question, and that conversation is cheaper than the removal.</p>
+      </article>
+    </div>
+    <figure class="figwide" data-reveal>
+      <div class="pic pic--walk">
+        <img src="img-tree-care/vereda-levantada.jpg" width="1248" height="832" loading="lazy" decoding="async"
+             alt="A concrete sidewalk slab lifted and cracked by a buttress root that has broken through the seam, with a folding rule laid across the raised edge for scale and a house and picket fence behind.">
+        <span class="chip chip--over">Three inches of lift · SE Woodstock</span>
+      </div>
+      <figcaption class="cap">This is the conversation we have most often. Three inches of lift, a
+        letter from the city, and somebody has already told the owner the tree has to come out. It
+        usually doesn't: root pruning on the far side and a new panel cost a fraction of a removal,
+        and the tree keeps the shade on the house.</figcaption>
+    </figure>
+
+    <p class="zones"><b>Service area</b>Ladd's Addition · Sellwood-Moreland · Eastmoreland · Mt. Tabor ·
+      Laurelhurst · Woodstock · Brentwood-Darlington · Foster-Powell · the West Hills.</p>
+  </div>
+</section>
+
+<!-- ══════════════════════════ §7 — THE CREW + BOOK ══════════════════════════ -->
+<section class="sec" id="book" style="background:var(--bark-deep)">
+  <div class="wrap">
+    <p class="mono kicker mono--hi">07 · The crew</p>
+    <h2 data-reveal>Three people. You will meet all of them.</h2>
+    <div class="crew">
+      <article class="person" data-reveal>
+        <h3>Hollis Vance</h3>
+        <p class="mono">Owner · ISA Certified Arborist</p>
+        <p>Does the soundings and signs the reports. If there is a resistograph trace in your file,
+          Hollis drilled it and Hollis will explain it to you standing under the tree.</p>
+      </article>
+      <article class="person" data-reveal>
+        <h3>Junie Okafor</h3>
+        <p class="mono">Lead climber</p>
+        <p>Fourteen winters in the canopy. Rope and friction saver on anything that's staying, and
+          the person who decides where a limb is actually going to go.</p>
+      </article>
+      <article class="person" data-reveal>
+        <h3>Ray Salcedo</h3>
+        <p class="mono">Dispatch &amp; permits</p>
+        <p>Answers the storm line at two in the morning and files the Title 11 paperwork the next
+          week. Ray will tell you honestly how long the permit is going to take.</p>
+      </article>
+    </div>
+
+    <div class="book">
+      <div data-reveal>
+        <h2 style="font-size:clamp(1.4rem,3.4vw,1.9rem)">Book a sounding.</h2>
+        <div class="body body--dim">
+          <p>Call, or send an email with your cross streets and a photograph of the whole tree from
+            across the street. We'll tell you on the phone whether it sounds like something that
+            needs looking at this month or something that can wait until next winter.</p>
+        </div>
+        <ul class="facts">
+          <li><b>Phone</b><a href="tel:+15035550184">(503) 555-0184</a></li>
+          <li><b>Email</b><a href="mailto:crew@soundandhollow.com">crew@soundandhollow.com</a></li>
+          <li><b>Yard</b><span>4823 SE 17th Avenue, Portland, OR 97202</span></li>
+          <li><b>Hours</b><span>Mon–Sat, 7:00 AM – 5:30 PM</span></li>
+          <li><b>Storm dispatch</b><span>24 hours, November through March</span></li>
+          <li><b>Assessment</b><span>$385, credited against booked work</span></li>
+        </ul>
+        <p class="ctas" style="margin-top:1.6rem">
+          <a class="cta" href="tel:+15035550184">Call (503) 555-0184</a>
+          <a class="cta cta--ghost" href="mailto:crew@soundandhollow.com">Email the crew</a>
+        </p>
+        <p class="body body--dim" style="margin-top:1.5rem">We answer the phone ourselves. If we're
+          up a tree, leave your cross streets and we'll call back the same evening — and in storm
+          season the line is answered whatever the hour.</p>
+      </div>
+
+      <div data-reveal>
+        <p class="mono mono--hi">Questions we get every December</p>
+        <div class="faqs">
+          <details class="faq">
+            <summary>Is the moss killing my tree?
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M8 2v12M2 8h12"/></svg>
+            </summary>
+            <div class="ans">No. Moss and licorice fern are epiphytes — they hold onto the bark, not
+              into it, and they take nothing from the tree. What they do is hold water, and water is
+              weight. We only start caring about the moss when there's ice coming.</div>
+          </details>
+          <details class="faq">
+            <summary>What does the $385 sounding include?
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M8 2v12M2 8h12"/></svg>
+            </summary>
+            <div class="ans">A mallet sounding of the stem and buttress roots, a root collar
+              inspection, photographs, a resistograph trace where the mallet leaves a question, and a
+              written recommendation you can hand to anybody. It is credited against work you book
+              with us within 90 days.</div>
+          </details>
+          <details class="faq">
+            <summary>Do I need a permit to take a tree out?
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M8 2v12M2 8h12"/></svg>
+            </summary>
+            <div class="ans">In Portland, any street tree needs one, and on private property it
+              generally starts at twelve inches of diameter at breast height. Heritage Trees need the
+              Urban Forestry Commission's consent at a public hearing. Urban Forestry grants it, not
+              us — we file it and we tell you our honest read first.</div>
+          </details>
+          <details class="faq">
+            <summary>Can you prune in July?
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M8 2v12M2 8h12"/></svg>
+            </summary>
+            <div class="ans">For deadwood and clearance, yes, any month. For structural work, we'd
+              rather wait for leaf-off — we can see more and the tree spends less. Birch and some
+              maples are the exception and are better in summer, because they bleed if you cut them
+              at the end of dormancy.</div>
+          </details>
+          <details class="faq">
+            <summary>My neighbour's tree is leaning at my house.
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M8 2v12M2 8h12"/></svg>
+            </summary>
+            <div class="ans">Lean by itself is not a defect — plenty of trees have leaned for eighty
+              years. What matters is whether the lean is new, whether the soil on the high side is
+              cracked or heaved, and what the root plate is sitting in. That's a sounding, and the
+              written report is the thing you can actually give your neighbour.</div>
+          </details>
+          <details class="faq">
+            <summary>How fast can you get here in a storm?
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M8 2v12M2 8h12"/></svg>
+            </summary>
+            <div class="ans">On a normal night, inside two hours. On the night of an ice storm,
+              honestly, we can't promise that and neither can anybody else — we go to what is on a
+              house or across a road first. If a line is down we don't touch it and neither should
+              you.</div>
+          </details>
+        </div>
+
+        <figure class="pic pic--moss">
+          <img src="img-tree-care/musgo-liquen-corteza.jpg" width="1600" height="1066" loading="lazy" decoding="async"
+               alt="Close-up of wet bark covered in pale grey-green foliose lichen with a patch of darker moss.">
+        </figure>
+        <figcaption class="cap" style="margin-top:.6rem">Foliose lichen and moss on bark. Both are
+          holding onto the tree, neither is holding into it.</figcaption>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="band band--foot">
+    <div class="band__in">
+      <svg viewBox="0 0 600 22" preserveAspectRatio="none" role="img"
+           aria-label="Last resistograph trace of the day: dense sound wood the whole way through, no flat run anywhere.">
+        <path class="trace__line" d="M0,10.2L3,10.9L6,12.2L9,10.7L12,11.4L15,8.5L18,12.9L21,8.6L24,16.2L27,4.8L30,13.3L33,6.4L36,16.5L39,7.5L42,16.4L45,7L48,12.2L51,6L54,13.4L57,13.1L60,17.6L63,10.6L66,8.2L69,8.6L72,10.6L75,8.8L78,12.1L81,9.8L84,13.4L87,9L90,13.6L93,15.4L96,13.9L99,6.5L102,10.1L105,10.7L108,11.9L111,13.2L114,9.2L117,14.1L120,8.7L123,11.7L126,11.3L129,16.3L132,10.9L135,9.6L138,7.7L141,12.8L144,6.8L147,18.2L150,12.8L153,12.3L156,8L159,13.9L162,5.4L165,14.4L168,11.1L171,16.7L174,6.5L177,9.9L180,12.9L183,18.4L186,7L189,11.5L192,6.8L195,15L198,8.5L201,13.9L204,13.5L207,12.8L210,10.4L213,10.2L216,11.9L219,12.8L222,15.8L225,9L228,12.3L231,5.6L234,13.9L237,12.4L240,14.7L243,8.1L246,8.4L249,10L252,11.5L255,7L258,16.9L261,5.4L264,15L267,8.1L270,15.3L273,8.4L276,18.7L279,9.8L282,11.6L285,11L288,14.9L291,9.4L294,16.4L297,7.2L300,10.4L303,9.5L306,11.4L309,8.8L312,12.7L315,11.9L318,11.6L321,13.1L324,9.9L327,17.2L330,11.1L333,13.9L336,6.6L339,13.3L342,7.7L345,16.3L348,10.5L351,9.8L354,6.7L357,13.8L360,10L363,12.4L366,9.6L369,15.3L372,9.3L375,10.8L378,13.1L381,18.5L384,8.6L387,14.9L390,3L393,10L396,8.7L399,17.9L402,7.4L405,10.7L408,4.4L411,11.1L414,15.1L417,17L420,13.2L423,7L426,8.7L429,7.4L432,16.8L435,8.6L438,14.4L441,11.2L444,9.9L447,8.8L450,16.8L453,12.8L456,14.4L459,6.7L462,13.6L465,4.8L468,12.3L471,13.3L474,10.8L477,8.9L480,13.6L483,7.3L486,14.2L489,11.4L492,14.5L495,2.7L498,9.9L501,10.2L504,13L507,11.2L510,14.2L513,6.3L516,11.5L519,9.7L522,10.5L525,13L528,13.9L531,5.6L534,7.5L537,13.4L540,12.6L543,15.8L546,8.2L549,13.4L552,10.2L555,11.7L558,9.3L561,14.7L564,8.4L567,14.3L570,6.8L573,15.8L576,9.1L579,13.6L582,3.8L585,13L588,3.8L591,11.9L594,7.5L597,12.7L600,9"/>
+      </svg>
+      <p class="mono">Sounding № 9 · SE 32nd &amp; Lincoln · Douglas-fir · 52 in DBH ·
+        <span class="mono--hi">sound the whole way through — no work recommended</span></p>
+    </div>
+  </div>
+  <div class="foot__in">
+    <div>
+      <span class="brand">Sound <span class="amp">&amp;</span> Hollow</span>
+      <p>Tree risk assessment and dormant-season pruning · 4823 SE 17th Avenue, Portland, Oregon 97202 ·
+        (503) 555-0184 · Mon–Sat 7:00 AM – 5:30 PM · storm dispatch 24 hours, November through March.</p>
+    </div>
+    <div>
+      <p class="mono">Work performed to ANSI A300 · crew safety to ANSI Z133 · permits filed under
+        Portland City Code Title 11</p>
+      <p class="mono" style="margin-top:.6rem">© 2026 Sound &amp; Hollow</p>
+    </div>
+  </div>
+</footer>
+
+
+<script>
+(function () {
+  'use strict';
+
+  /* ── el trazo del resistógrafo: se dibuja como sale del instrumento ──────────────────── */
+  document.querySelectorAll('.trace__line').forEach(function (p) {
+    try { p.style.setProperty('--len', p.getTotalLength()); } catch (e) { /* sin layout, sin animación */ }
+  });
+
+  /* ── nav móvil ───────────────────────────────────────────────────────────────────────── */
+  var nav = document.getElementById('nav');
+  var btn = document.getElementById('burger');
+  var panel = document.getElementById('nav-menu');
+
+  function abierto() { return nav.classList.contains('is-open'); }
+
+  function abrir() {
+    nav.classList.add('is-open');
+    btn.setAttribute('aria-expanded', 'true');
+    btn.setAttribute('aria-label', 'Close menu');
+    var primero = panel.querySelector('a');
+    if (primero) { try { primero.focus({ preventScroll: true }); } catch (e) { primero.focus(); } }
+  }
+
+  function cerrar(devolverFoco) {
+    if (!abierto()) return;
+    nav.classList.remove('is-open');
+    btn.setAttribute('aria-expanded', 'false');
+    btn.setAttribute('aria-label', 'Open menu');
+    if (devolverFoco) { try { btn.focus({ preventScroll: true }); } catch (e) { btn.focus(); } }
+  }
+
+  btn.addEventListener('click', function (e) {
+    e.stopPropagation();
+    if (abierto()) cerrar(true); else abrir();
+  });
+
+  /* cierra al tocar fuera */
+  document.addEventListener('click', function (e) {
+    if (!abierto()) return;
+    if (panel.contains(e.target) || btn.contains(e.target)) return;
+    cerrar(false);
+  });
+
+  /* cierra con Escape, y el foco vuelve al botón: nunca una trampa de teclado */
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' || e.key === 'Esc') cerrar(true);
+  });
+
+  /* cierra al elegir un enlace */
+  panel.addEventListener('click', function (e) {
+    if (e.target.closest('a')) cerrar(false);
+  });
+
+  /* ⛔ Cierra cuando el FOCO abandona el nav. Sin esto, tabular hasta salir del panel abierto
+     dejaba el foco en el primer CTA de la página con el 93.2% de su caja tapada por el propio
+     menú (medido a 390×844): el anillo existía en el DOM y era invisible en pantalla.
+     Escape y el clic-afuera ya cerraban; el teclado que sigue avanzando, no.
+     Se cierra SIN devolver el foco: el usuario tabuló hacia adelante a propósito, y devolverlo
+     al botón sería la trampa de teclado en el otro sentido. */
+  nav.addEventListener('focusout', function (e) {
+    if (!abierto()) return;
+    var destino = e.relatedTarget;
+    if (!destino) return;              /* el foco salió del documento: no hay nada tapado */
+    if (nav.contains(destino)) return; /* sigue dentro (p. ej. shift+Tab al botón) */
+    cerrar(false);
+  });
+
+  /* si la pantalla se ensancha, el estado plegado deja de tener sentido */
+  window.addEventListener('resize', function () {
+    if (window.innerWidth > 960) cerrar(false);
+  });
+
+  /* ── reveals ─────────────────────────────────────────────────────────────────────────── */
+  var objetivos = document.querySelectorAll('[data-reveal]');
+  if (!('IntersectionObserver' in window)) {
+    objetivos.forEach(function (el) { el.classList.add('in'); });
+    return;
+  }
+  var obs = new IntersectionObserver(function (entradas) {
+    entradas.forEach(function (en) {
+      if (en.isIntersecting) { en.target.classList.add('in'); obs.unobserve(en.target); }
+    });
+  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.06 });
+  objetivos.forEach(function (el) { obs.observe(el); });
+})();
+</script>
+<div style="background:#16181C;color:#F3F4F3;padding:0.7rem 1rem;text-align:center;font:500 12px/1.5 system-ui,sans-serif;letter-spacing:0.02em">Speculative concept by Reasoned Web — Sound &amp; Hollow is a fictional business.</div>
+</body>
+</html>

@@ -1,0 +1,52 @@
+[
+  {
+    "archivo": "hero-sala.jpg",
+    "rol": "⭐ EL HERO, a sangre, y también la og:image. Sala de barra: racks, discos, plataforma. Oscura arriba para que el titular no dependa de una capa negra que se coma la foto.",
+    "fuente": "Pexels",
+    "licencia": "Pexels License (uso comercial)",
+    "fotografo": "Jason Morrison",
+    "url": "https://www.pexels.com/photo/a-row-of-dumbbells-in-a-gym-19025674/",
+    "alt_original": "Close-up view of dumbbells in a modern gym setting, emphasizing fitness and training.",
+    "elegida": "1 de 15"
+  },
+  {
+    "archivo": "discos.jpg",
+    "rol": "§02 — los discos, que son la escala de medida de todo el argumento: el código de color IWF estructura los niveles y los precios.",
+    "fuente": "Pexels",
+    "licencia": "Pexels License (uso comercial)",
+    "fotografo": "Juho Alonen",
+    "url": "https://www.pexels.com/photo/gym-weight-plates-on-rack-in-fitness-center-28636776/",
+    "alt_original": "Close-up of stacked weight plates in a modern gym setting.",
+    "elegida": "1 de 15"
+  },
+  {
+    "archivo": "magnesia.jpg",
+    "rol": "§03 — magnesia y agarre. El detalle que dice barra y no máquina.",
+    "fuente": "Pexels",
+    "licencia": "Pexels License (uso comercial)",
+    "fotografo": "cottonbro studio",
+    "url": "https://www.pexels.com/photo/high-angle-shot-of-a-woman-putting-talc-in-her-hands-7674490/",
+    "alt_original": "Close-up of athlete's hands using chalk before lifting a barbell in a gym.",
+    "elegida": "1 de 15"
+  },
+  {
+    "archivo": "entreno.jpg",
+    "rol": "§04 — el entreno con entrenador al lado. Es lo que se compra: alguien mirando la barra, no una app.",
+    "fuente": "Pexels",
+    "licencia": "Pexels License (uso comercial)",
+    "fotografo": "Ardit Mbrati",
+    "url": "https://www.pexels.com/photo/men-on-training-at-gym-18187616/",
+    "alt_original": "Man lifting weights under coach supervision in a gym setting, focusing on strength training.",
+    "elegida": "1 de 15"
+  },
+  {
+    "archivo": "plataforma.jpg",
+    "rol": "§06 — la plataforma vacía. El plano de sitio que deja ver el suelo, el rack y la escala real de la sala.",
+    "fuente": "Pexels",
+    "licencia": "Pexels License (uso comercial)",
+    "fotografo": "Juho Alonen",
+    "url": "https://www.pexels.com/photo/man-adjusting-barbell-weights-in-gym-28636774/",
+    "alt_original": "A person preparing a barbell for weightlifting in an indoor gym setting.",
+    "elegida": "1 de 15"
+  }
+]

@@ -124,6 +124,15 @@ iframe.exhibit { display: block; width: 100%; aspect-ratio: 16 / 10; border: 1px
 .card p { font-size: 0.95rem; }
 .card a.leer { font-weight: 600; font-size: 0.92rem; white-space: nowrap; }
 .card a.leer::after { content: " →"; }
+/* galería de rango: rejilla más densa, la pieza abre en vivo */
+@media (min-width: 62rem) { .cards--range { grid-template-columns: 1fr 1fr 1fr; gap: 1.6rem 2rem; } }
+.card--range h3 { margin-top: 0.8rem; font-size: 1.02rem; }
+.card--range .vert { font-size: 0.85rem; color: var(--muted); margin-top: 0.15rem; }
+.card--range a { display: block; }
+.card--range a:hover .shot, .card--range a:focus-visible .shot { outline: 2px solid var(--ink); outline-offset: 2px; }
+/* el sello de notas — la marca B (regla + asterisco), aparato de nota al pie */
+.sello-notas { width: 2.4rem; margin: 4rem auto 0; color: var(--muted); }
+.sello-notas svg { display: block; width: 100%; height: auto; }
 
 /* ── Aparato de notas al pie — la interacción-firma ──────────────── */
 button.fn-ref {

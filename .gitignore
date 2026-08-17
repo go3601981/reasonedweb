@@ -13,3 +13,7 @@ __pycache__/
 # Scratch / local-only
 *.local.*
 .scratch/
+.vercel
+
+.vercel
+.env*

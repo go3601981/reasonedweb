@@ -290,11 +290,17 @@ Lighthouse es ese y es intencional). Los CUATRO tiers de la carta están en pie:
 
 ## Pendientes (cortos)
 
-0. **Resend (MANUAL de Carlos — hasta entonces el form cae a mailto y lo dice)**: cuenta en
-   resend.com → Domains → añadir `reasonedweb.com` y poner los registros DNS que Resend dé
-   en GoDaddy → verificar → API Keys → crear clave → Vercel → proyecto `reasonedweb` →
-   Settings → Environment Variables → `RESEND_API_KEY` (Production) → redeploy (o siguiente
-   push). Probar con un envío real y confirmar que llega a hello@ con reply-to correcto.
+0. **Resend — FUNCIONANDO EN INTERINO (2026-08-16)**: `RESEND_API_KEY` puesta en Vercel por
+   CLI (la sesión quedó logueada como `hello-40633109`, team `reasoned-web` — el CLI de esta
+   máquina PUEDE tocar Vercel: env vars, redeploy, logs). Envío real probado: 200 {"ok":true},
+   entregado a hello@. **Interino**: `CONTACT_FROM=onboarding@resend.dev` porque el dominio
+   NO está verificado en Resend (403 comprobado). **FALTA de Carlos**: resend.com/domains →
+   añadir `reasonedweb.com` → poner los registros DNS en GoDaddy → verificar; entonces
+   ELIMINAR `CONTACT_FROM` (`npx vercel env rm CONTACT_FROM production` + redeploy) y el
+   correo sale como «Reasoned Web <hello@reasonedweb.com>». ⚠️ La API key quedó pegada en la
+   conversación del 16 — rotarla en Resend cuando todo esté verificado es un clic. Nota:
+   `trailingSlash` redirige /api/contact con 308 — los navegadores lo siguen conservando el
+   POST (probado); curl necesita -L.
 1. **LinkedIn**: ESPERA — perfil desactualizado, no enlazar hasta que Carlos lo renueve.
 2. **Cita de Next Latam** (testimonio): pedir permiso ESCRITO antes de publicar nada.
 3. **Fix upstream del PiP LG** en el fuente de LG-Demo (proyecto aparte; una línea, toggle d5).

@@ -266,8 +266,11 @@ Lighthouse es ese y es intencional). Los CUATRO tiers de la carta están en pie:
 - **Tier 2**: 8 exhibits en `site/range/` (orden de Carlos; Maison Corbiere/parfum retirado
   el 2026-08-17): oyster-house, gym, auto-body, hvac, jewelry, law-firm, med-spa, tree-care.
 - **Tier 3**: corpus `work/one-system/` — muro de 46 capturas limpias, jamás tiles enlazados.
-- **Home completa**: hero con derivación · LG · redesigns + catálogo · Range + banda corpus ·
-  How I work («One partner at a time» + recibos medidos [6]) · **The principal** (retrato
+- **Home completa**: hero con derivación y tesis con las capacidades que Carlos fijó el 17
+  («sites, immersive products, and software end to end; brand systems, and the decks and
+  presentations that win the room» — su «WOW» dicho en el registro del sitio) · LG ·
+  redesigns + catálogo · Range + banda corpus ·
+  How I work («Embedded, end to end» + recibos medidos [6]) · **The principal** (retrato
   monocromo de `CRM Web/cv_photos/`, bio del CV maestro en `AI Job Search/` — SIN mencionar
   AI, regla 7) · Contact («Check availability», hello@ impreso con MX verificado, formulario
   que ENVÍA en producción vía `/api/contact` + Resend — probado real, campos: nombre, work

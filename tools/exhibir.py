@@ -29,7 +29,7 @@ from pathlib import Path
 
 PROHIBIDOS = [
     r"wemadeyoursite", r"WeMadeYourSite", r"WMYS",
-    r"[Tt]u[Ww]eb\.pe", r"eureka\.pe",
+    r"[Tt]u[Ww]eb\.pe", r"eureka\.pe", r"[Nn]ext ?[Ll]atam", r"nextlatam",
     r"wa\.me",
     r"\$995", r"\$96\b", r"\$29\b", r"S/500", r"S/50\b",
 ]

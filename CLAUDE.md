@@ -131,7 +131,13 @@ La identidad no ilustra el razonamiento — lo EJECUTA.
    **(c)** *"Speculative concept — fictional business"*. Si un director creativo caza UNA pieza
    especulativa sin etiquetar, asume que todo el portafolio es inventado — y razona bien.
 2. ⛔ **JAMÁS SE PUBLICA LO FACTURADO.** La cifra del encargo LG está en sus archivos; no sale.
-3. ⛔ **ATRIBUCIÓN EXACTA:** *"For LG Electronics Canada, with Next Latam"*.
+3. ⛔ **ATRIBUCIÓN — SUPERSEDIDA (orden Carlos 2026-08-17: «It was developed by me alone.
+   I don't want no mentions of NextLatam anywhere»)**: el sitio NO menciona Next Latam en
+   NINGUNA parte — ni casos, ni gate, ni bio, ni metas, ni el crédito final DENTRO del build
+   LG (parchado en chunks `-p2`). Atribución vigente en todo el kit: *"developed for a
+   presentation to LG Electronics Canada"*; el bloque legal cierra *"…are the work of
+   Reasoned Web."* El patrón nextlatam está en los PROHIBIDOS de `tools/exhibir.py`. Las
+   variantes A/B de abajo quedan como historia del papel, no como copy.
 4. ⛔ **LG ES PÚBLICO CON DISCLAIMER — decisión de Carlos, 2026-08-13** (advertido el riesgo:
    V2 se construyó at-risk antes del sign-off; decisión suya — no volver a vetarlo). Condiciones
    que la acompañan, no negociables:

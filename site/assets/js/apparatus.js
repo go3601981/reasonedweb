@@ -39,6 +39,21 @@
     }
   }
 
+  /* Anclas internas: el click SIEMPRE aterriza, aunque el hash ya sea el
+     mismo (el navegador ignora ese caso y el botón se siente muerto). */
+  document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    a.addEventListener("click", function (e) {
+      var destino = document.getElementById(a.getAttribute("href").slice(1));
+      if (!destino) return;
+      e.preventDefault();
+      history.pushState(null, "", a.getAttribute("href"));
+      destino.scrollIntoView({
+        behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches
+          ? "auto" : "smooth"
+      });
+    });
+  });
+
   /* Formulario: envía por /api/contact (Resend, clave en el servidor).
      Si el endpoint no está o falla, cae al compositor mailto y LO DICE —
      el visitante nunca pierde su mensaje ni recibe un "enviado" falso. */

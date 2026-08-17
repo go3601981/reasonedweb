@@ -166,7 +166,7 @@ button.enviar[disabled] { opacity: 0.6; cursor: wait; }
 
 /* ── Usabilidad ─────────────────────────────────────────────────── */
 @media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
-section[id] { scroll-margin-top: 1.5rem; }
+section[id] { scroll-margin-top: 2rem; }
 button.fn-ref { min-width: 26px; min-height: 24px; }
 /* en móvil el marco 16:10 queda enano: la exhibición gana altura */
 @media (max-width: 40rem) { iframe.exhibit { aspect-ratio: 3 / 4; } }

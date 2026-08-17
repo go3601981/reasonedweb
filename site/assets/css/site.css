@@ -25,6 +25,8 @@
   --note-on-ink: #7FA9E0;
   --muted-on-ink: #A6ABB3;
   --measure: 62ch;
+  --carton-borde: #6F746F;   /* 3.06:1 sobre papel: el borde es lo que hace
+                                 legible un chip claro (WCAG 1.4.11) */
   /* Derivados congelados de la identidad (brand/derivation.json) */
   --track-line1: 0.02em;
   --wordmark-gap: 1.583em;
@@ -67,9 +69,12 @@ p { max-width: var(--measure); }
 .nav .lockup { display: block; color: var(--ink); }
 /* el lockup cede antes que forzar desborde: a 320px la nav debe caber entera */
 .nav .lockup svg { height: clamp(0.95rem, 4.2vw, 1.35rem); width: auto; display: block; }
+/* 0.6rem arriba y abajo, no 0.55: con 0.55 el botón medía 43.91px y la diana
+   táctil recomendada son 44 (WCAG 2.5.5). Nadie lo habría notado a ojo; se vio
+   midiendo. El botón «Menu» lleva el mismo padding — son hermanos en la barra. */
 .nav a.cta {
   font-weight: 600; font-size: 0.95rem; text-decoration: none;
-  border: 1.5px solid var(--ink); padding: 0.55rem 1.1rem; white-space: nowrap;
+  border: 1.5px solid var(--ink); padding: 0.6rem 1.1rem; white-space: nowrap;
 }
 .nav a.cta:hover, .nav a.cta:focus-visible { background: var(--ink); color: var(--paper); }
 .crumb { font-size: 0.85rem; color: var(--muted); }
@@ -245,3 +250,235 @@ footer.pie a { color: var(--paper); }
 .legal p { max-width: none; }
 .facts { margin: 1.4rem 0 0; padding-left: 1.2rem; max-width: 56ch; }
 .facts li { padding-block: 0.3rem; }
+
+/* 2026-08-17: hire line in Contact + index disclaimer in footer */
+#contact .contrato { font-weight: 500; max-width: 38em; }
+footer.pie .aviso-indexado { font-size: 0.78rem; margin-top: 0.9rem; max-width: 46em; }
+footer.pie .aviso-indexado code { font: inherit; }
+
+
+/* ═══════════════════════════════════════════════════════════════════
+   2026-08-17 · Pase de diseño (los ocho puntos aprobados por Carlos)
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* Tipografía: el rag no se deja al azar. `balance` reparte los títulos
+   («The bottle leads, the face does / not» dejaba una huérfana), `pretty`
+   impide la última línea de una palabra en los párrafos. */
+h1, h2, h3, .hero .thesis { text-wrap: balance; }
+p, li, figcaption { text-wrap: pretty; }
+
+/* Nav: anclas de sección. Bajo 62rem viven detrás de un botón — antes
+   sencillamente no existían en móvil, que es donde más falta hace saltar
+   de sección. TRES estados, como el aparato de notas, y en ninguno se
+   pierde la navegación:
+     sin JS  → las anclas se muestran apiladas y el botón no existe;
+     angosto → plegadas tras «Menu»;
+     ≥62rem  → en línea dentro de la barra y el botón desaparece.
+   ⛔ El panel es UNA FILA MÁS de la propia barra (flex-basis 100%), no una
+   capa flotante: empuja el contenido en vez de taparlo, así no hay que
+   bloquear el scroll del documento ni existe manera de dejar al visitante
+   atrapado bajo una capa que no se cierra. */
+.nav-links {
+  display: flex; flex-direction: column; flex-basis: 100%;
+  list-style: none; padding: 0; margin: 0;
+  border-top: 1px solid var(--line);
+}
+.nav-links li + li { border-top: 1px solid var(--line); }
+/* 0.85rem arriba y abajo dejan la fila en ~53px: por encima de los 44 de
+   diana táctil recomendada, y el enlace ocupa el ancho entero de la barra. */
+.nav-links a { display: block; padding: 0.85rem 0.1rem; text-decoration: none; font-weight: 500; }
+
+/* El botón solo aparece si hay JS que pueda accionarlo: un control muerto
+   es peor que ninguno. Mismo padding que el CTA — son hermanos en la barra. */
+.nav-toggle { display: none; }
+.js .nav-toggle {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  font: inherit; font-size: 0.95rem; font-weight: 600; color: inherit;
+  background: none; border: 1.5px solid var(--line);
+  padding: 0.6rem 0.9rem; cursor: pointer;
+}
+.js .nav-toggle:hover, .js .nav-toggle:focus-visible { border-color: var(--ink); }
+/* El icono está dibujado sobre la MISMA retícula que el glifo de la marca:
+   módulo m = 12 en un lienzo de 100, barras de 5m × m separadas por m. No se
+   elige una forma cuando se puede derivar de la identidad. Al abrir, las
+   barras 1 y 3 recorren exactamente los 24u (2m) que las separan del centro
+   y se cruzan; la del medio se apaga. */
+.nav-toggle .icono-menu rect {
+  fill: currentColor; transform-box: fill-box; transform-origin: center;
+  transition: transform 0.18s ease, opacity 0.18s ease;
+}
+.nav-toggle[aria-expanded="true"] .b1 { transform: translateY(24px) rotate(45deg); }
+.nav-toggle[aria-expanded="true"] .b2 { opacity: 0; }
+.nav-toggle[aria-expanded="true"] .b3 { transform: translateY(-24px) rotate(-45deg); }
+@media (prefers-reduced-motion: reduce) { .nav-toggle .icono-menu rect { transition: none; } }
+
+.js .nav-links { display: none; }
+.js .nav.menu-abierto .nav-links { display: flex; }
+
+@media (min-width: 62rem) {
+  .js .nav-toggle { display: none; }
+  .nav-links, .js .nav-links, .js .nav.menu-abierto .nav-links {
+    display: flex; flex-direction: row; flex-basis: auto;
+    gap: 1.7rem; margin: 0 auto 0 2.6rem; font-size: 0.92rem;
+    border-top: 0;
+  }
+  .nav-links li + li { border-top: 0; }
+  .nav-links a { padding: 0.15rem 0; border-bottom: 1.5px solid transparent; }
+  .nav-links a:hover, .nav-links a:focus-visible { border-bottom-color: var(--ink); }
+}
+
+/* Rango: ocho verticales en tres columnas dejaban una fila huérfana de dos.
+   En cuatro son dos filas limpias, y la banda del corpus (card--wide, que ya
+   ocupa toda la fila) cierra la sección. */
+@media (min-width: 72rem) { .cards--range { grid-template-columns: repeat(4, 1fr); } }
+
+/* Hero: la marca ocupa su medida. El máster está construido para leerse
+   grande — es un objeto de display, no un logotipo de barra. */
+@media (min-width: 72rem) { .hero .wordmark { width: min(46rem, 100%); } }
+
+/* ── El aparato AL MARGEN (≥72rem) ─────────────────────────────────────
+   La nota flota a la derecha, a la altura del bloque que la afirma, con
+   `clear: right` para que dos notas nunca se pisen. El texto conserva su
+   medida (62ch ≈ 35rem) y las rejillas de imágenes conservan el ancho
+   completo porque LIMPIAN el flotante en vez de estrecharse. */
+@media (min-width: 72rem) {
+  .fn-note.al-margen {
+    float: right; clear: right; width: 19rem; max-width: none;
+    margin: 0.3rem 0 1.6rem 3rem;
+    background: transparent; border-left: 2px solid var(--note);
+    padding: 0.1rem 0 0.2rem 1rem;
+    font-size: 0.87rem; line-height: 1.5;
+  }
+  .fn-note.al-margen p { max-width: none; }
+  .fn-note.al-margen p + p { margin-top: 0.5rem; }
+  /* Un contenedor de rejilla o de bloque junto a un flotante se ESTRECHA;
+     estos tienen que empezar debajo, con su ancho intacto. */
+  .cards, .mosaico, .case-lead, .persona, .receipts,
+  .gate, .legal, .facts, form, figure, iframe.exhibit { clear: right; }
+  /* La sección contiene sus flotantes: jamás invaden la siguiente. */
+  section::after, .hero::after { content: ""; display: block; clear: both; }
+  /* El marcador sigue vivo aunque la nota ya esté abierta: la destaca. */
+  .fn-flash { animation: fn-destella 1.2s ease; }
+  @keyframes fn-destella {
+    0%, 55% { background: var(--note-chip); }
+    100% { background: transparent; }
+  }
+}
+@media (prefers-reduced-motion: reduce) { .fn-flash { animation: none; } }
+
+label .opt { font-weight: 400; color: var(--muted); }
+
+/* El filete de la derivación pertenece al máster, no al párrafo: con la
+   marca a 46rem un subrayado de 46ch quedaba corto y suelto. */
+@media (min-width: 72rem) {
+  .hero .wordmark { border-bottom: 1px solid var(--line); padding-bottom: 0.9rem; }
+  .hero .derivation { border-top: none; padding-top: 0; margin-top: 1rem; }
+}
+
+/* La nota al margen se INTERCALA entre dos párrafos, así que `p + p` deja de
+   coincidir y el segundo párrafo perdía su aire. Los 30 marcadores del sitio
+   viven dentro de un <p> (verificado), de modo que lo que sigue a una nota es
+   siempre un párrafo. */
+@media (min-width: 72rem) {
+  .fn-note.al-margen + p { margin-top: 0.9rem; }
+}
+
+/* ── Figuras de evidencia (2026-08-17) ──────────────────────────────────
+   Un caso que MIDE tiene que enseñar la medida. Dibujadas a mano en HTML y
+   SVG, no capturadas: nítidas a cualquier resolución, cero KB de imagen,
+   legibles por lector de pantalla y — lo que importa aquí — imposibles de
+   maquillar, porque cada valor sale del CSS de la pieza. */
+.evidencia { margin-top: 2.2rem; }
+.evidencia > svg { width: 100%; max-width: 34rem; height: auto; display: block; }
+.evidencia figcaption { margin-top: 0.9rem; max-width: 52ch; }
+.evidencia figcaption strong { color: var(--ink); font-weight: 700; }
+
+.paleta { display: grid; gap: 0.5rem; max-width: 40rem; }
+.muestra {
+  display: grid; grid-template-columns: 1.6rem auto auto; gap: 0 0.6rem;
+  align-items: center; font-size: 0.9rem;
+  border-bottom: 1px solid var(--line); padding-bottom: 0.5rem;
+}
+.muestra .chip {
+  width: 1.6rem; height: 1.6rem; display: block;
+  border: 1px solid var(--carton-borde);
+}
+.muestra b { font-weight: 600; }
+.muestra code { font: inherit; font-size: 0.85rem; color: var(--muted); letter-spacing: 0.02em; }
+.muestra .de { grid-column: 2 / -1; color: var(--muted); font-size: 0.85rem; }
+@media (min-width: 46rem) {
+  .muestra { grid-template-columns: 1.6rem 5.5rem 5rem 1fr; }
+  .muestra .de { grid-column: auto; }
+}
+.vidrios { display: flex; gap: 0.4rem; margin-top: 1.1rem; }
+.vidrios .vaso {
+  width: 2.6rem; height: 2.6rem; display: block;
+  border: 1px solid var(--carton-borde);
+}
+
+/* La figura de evidencia NO limpia el flotante: cabe al lado (40rem contra el
+   margen que empieza en 47rem), así que se sienta junto a las notas en vez de
+   empujarse debajo — que era un hueco de 250 px por sección. */
+@media (min-width: 72rem) {
+  figure.evidencia { clear: none; max-width: 40rem; }
+}
+
+/* Par de muestras: la superficie y el peso al que ese mismo matiz puede llevar
+   texto encima. La primera columna se adapta porque a veces hay uno y a veces
+   dos chips, y dentro de una misma figura tienen que alinearse. */
+.muestra .chips { display: flex; gap: 2px; }
+.muestra .mas { color: var(--muted); padding-inline: 0.15em; }
+@media (min-width: 46rem) {
+  .muestra { grid-template-columns: auto 5.5rem 10rem 1fr; }
+}
+
+/* ── El libro mayor: lo mirado → lo que salió de mirarlo ───────────────── */
+.libro { max-width: 44rem; border-top: 1px solid var(--line); }
+.asiento {
+  display: grid; gap: 0.2rem 1.4rem; padding: 0.7rem 0;
+  border-bottom: 1px solid var(--line); font-size: 0.9rem; align-items: baseline;
+}
+@media (min-width: 46rem) { .asiento { grid-template-columns: 13rem 1fr; } }
+.asiento .que { font-weight: 600; }
+.asiento .prueba { color: var(--muted); }
+.asiento .prueba strong, .asiento .prueba code { color: var(--ink); }
+.asiento .prueba code { font: inherit; font-size: 0.94em; }
+.asiento--cab {
+  font-size: 0.72rem; font-weight: 600; letter-spacing: 0.09em;
+  text-transform: uppercase; color: var(--note); padding-top: 0.9rem;
+}
+
+/* ── La tubería: una cadena de proceso medida en sus extremos ──────────── */
+.tuberia { list-style: none; padding: 0; margin: 0; max-width: 44rem; counter-reset: etapa; }
+.tuberia li {
+  display: grid; gap: 0.15rem 1.2rem; padding: 0.85rem 0 0.85rem 2.2rem;
+  border-bottom: 1px solid var(--line); position: relative; font-size: 0.9rem;
+}
+.tuberia li::before {
+  counter-increment: etapa; content: counter(etapa);
+  position: absolute; left: 0; top: 0.95rem;
+  color: var(--note); font-weight: 700; font-size: 0.8rem;
+}
+/* el hilo que ata las etapas: el proceso ES continuo */
+.tuberia li:not(:last-child)::after {
+  content: ""; position: absolute; left: 0.34rem; top: 2rem; bottom: -0.2rem;
+  border-left: 1px solid var(--line);
+}
+.tuberia .etapa { font-weight: 600; }
+.tuberia .hace { color: var(--muted); }
+.tuberia .hace em { font-style: italic; color: var(--ink); }
+.tuberia .mide { color: var(--ink); font-size: 0.85rem; font-weight: 500; }
+.tuberia .mide:empty { display: none; }
+@media (min-width: 46rem) {
+  .tuberia li { grid-template-columns: 10rem 1fr; }
+  .tuberia .hace { grid-column: 2; }
+  .tuberia .mide { grid-column: 2; margin-top: 0.25rem; }
+}
+
+/* Cada .muestra es su propia rejilla, así que una columna `auto` mide distinto
+   en una fila de dos chips que en una de uno y las filas dejan de alinearse.
+   Ancho fijo, y el ancho doble SOLO en las paletas que llevan pares. */
+@media (min-width: 46rem) {
+  .muestra { grid-template-columns: 1.6rem 5.5rem 10rem 1fr; }
+  .paleta--par .muestra { grid-template-columns: 3.45rem 5.5rem 10rem 1fr; }
+}

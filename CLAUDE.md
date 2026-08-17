@@ -261,7 +261,9 @@ Lighthouse es ese y es intencional). Los CUATRO tiers de la carta están en pie:
   How I work («One partner at a time» + recibos medidos [6]) · **The principal** (retrato
   monocromo de `CRM Web/cv_photos/`, bio del CV maestro en `AI Job Search/` — SIN mencionar
   AI, regla 7) · Contact («Check availability», hello@ impreso con MX verificado, formulario
-  = compositor mailto sin backend). Sello de notas (marca B) cierra home y casos.
+  que ENVÍA en producción vía `/api/contact` + Resend — probado real, campos: nombre, work
+  email, agencia, ROL, TELÉFONO; detalles e interino en § Arquitectura y Pendientes 0).
+  Sello de notas (marca B) cierra home y casos.
 - **Calidad medida en vivo**: Lighthouse desktop 100/100/100, móvil 97/100/100, CLS 0;
   auditoría propia 272 elementos × 3 anchos, cero violaciones AA, cero desbordes.
 - Identidad computada en `brand/`; herramientas en `tools/` (capture, inline_brand, exhibir,

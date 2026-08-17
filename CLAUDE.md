@@ -10,10 +10,13 @@
 Portafolio personal de Carlos Marruffo en **www.reasonedweb.com**. Único trabajo: que UNA
 agencia de diseño web, **Shopify Partner** o **Klaviyo Partner de EE. UU.** lo tome como socio
 de producción remoto **dedicado, con vocación de full-time**.
-⛔ **Aclaración de Carlos (2026-08-16): el copy JAMÁS lo pinta trabajando para varias agencias
-a la vez.** Nada de «retainer» (suena a capacidad fraccionada entre clientes). La exclusividad
-se dice como rasgo: **«One partner at a time»** — o no se dice nada. La postura de estudio se
-mantiene (sigue vetado «Hire me» / «Open to work»).
+⛔ **Aclaración de Carlos (2026-08-16, refinada el 17): el copy JAMÁS lo pinta trabajando para
+varias agencias a la vez — Y TAMPOCO lo dice explícito.** «One partner at a time» se probó y
+Carlos la retiró: contar clientes en voz alta huele a necesidad. **La exclusividad es
+IMPLÍCITA o no existe**: se carga en «Dedicated» (title), «Embedded, end to end» (§04),
+«Check availability» (CTA — la disponibilidad insinúa el cupo), y la línea de la bio «the
+shape of work I do best: one product, one team» (preferencia, no pitch). Vetados: «retainer»,
+vocabulario freelance/consultor, contar clientes, «Hire me» / «Open to work».
 
 ⛔ **No se pide trabajo explícitamente.** Postura de **estudio de un solo integrante**, no de
 candidato: las agencias subcontratan a estudios, no contratan freelancers desde un portafolio.
@@ -254,8 +257,8 @@ Lighthouse es ese y es intencional). Los CUATRO tiers de la carta están en pie:
   sanitizados** en iframes (`piece/`), generados SOLO con `tools/exhibir.py`.
 - **Catálogo UdV 2026** (33 láminas): exhibit en `work/ulric-de-varens/deck/`, fuente
   canónica `Desktop/Claude/UDV-deck/` — se REGENERA, jamás se edita. Tarjeta propia en home.
-- **Tier 2**: 9 exhibits en `site/range/` (orden de Carlos: oyster-house, gym, auto-body,
-  hvac, jewelry, law-firm, med-spa, parfum, tree-care).
+- **Tier 2**: 8 exhibits en `site/range/` (orden de Carlos; Maison Corbiere/parfum retirado
+  el 2026-08-17): oyster-house, gym, auto-body, hvac, jewelry, law-firm, med-spa, tree-care.
 - **Tier 3**: corpus `work/one-system/` — muro de 46 capturas limpias, jamás tiles enlazados.
 - **Home completa**: hero con derivación · LG · redesigns + catálogo · Range + banda corpus ·
   How I work («One partner at a time» + recibos medidos [6]) · **The principal** (retrato
@@ -275,9 +278,12 @@ Lighthouse es ese y es intencional). Los CUATRO tiers de la carta están en pie:
    `$env:ARRASTRE_OK="1"; git push` (la puerta de arrastre nombra los commits claude:* —
    adopción deliberada). El push no-interactivo de las sesiones sigue fallando («Cannot
    prompt»); el fetch sí funciona. Vercel auto-deploya cada push en <1 min.
-2. ⛔ **Posicionamiento (regla dura de Carlos)**: JAMÁS pintarlo trabajando para varias
-   agencias a la vez; «retainer» vetado; la exclusividad se dice «One partner at a time» o
-   no se dice. Sigue vetado «Hire me» / «Open to work». CTA canónico: «Check availability».
+2. ⛔ **Posicionamiento (regla dura de Carlos, refinada 2026-08-17)**: JAMÁS pintarlo
+   trabajando para varias agencias a la vez, y la exclusividad JAMÁS se dice explícita
+   («One partner at a time» se retiró — contar clientes suena a necesidad). Implícita en:
+   «Dedicated», «Embedded, end to end», «Check availability», «one product, one team».
+   Vetados: «retainer», vocabulario freelance/consultor, «Hire me» / «Open to work».
+   CTA canónico: «Check availability».
 3. ⛔ **Pestañas**: enlaces a exhibits (live/, piece/, deck/, range/*) y externos SIEMPRE
    `target="_blank" rel="noopener"`; navegación interna en la misma pestaña.
 4. **Exhibits**: solo vía `tools/exhibir.py` (puerta de residuo cero, 11 patrones, etiqueta

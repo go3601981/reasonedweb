@@ -162,8 +162,11 @@
   });
 
   /* Formulario: envía por /api/contact (Resend, clave en el servidor).
-     Si el endpoint no está o falla, cae al compositor mailto y LO DICE —
-     el visitante nunca pierde su mensaje ni recibe un "enviado" falso.
+     Si el endpoint no está o falla, LO DICE y deja el mensaje escrito
+     donde está. ⛔ Ya NO abre un compositor de correo (orden de Carlos,
+     2026-08-17: nadie manda correos así, y la dirección dejó de ser
+     enlace en todo el sitio). El visitante nunca pierde su mensaje ni
+     recibe un "enviado" falso: esa parte no se negocia.
      OBLIGATORIOS (2026-08-17): nombre, correo, agencia y mensaje. Rol y
      teléfono pasaron a opcionales — seis campos obligatorios para un primer
      hola cuestan respuestas, y el teléfono se pide solo a quien prefiere
@@ -174,18 +177,16 @@
       var el = form.querySelector('[name="' + n + '"]');
       return el ? el.value.trim() : "";
     };
-    var mailtoFallback = function (st) {
-      var subject = "Availability inquiry — " + (v("company") || v("name"));
-      var body =
-        "Name: " + v("name") + "\nEmail: " + v("email") +
-        "\nAgency/studio: " + v("company") + "\nRole: " + v("role") +
-        "\nPhone: " + v("phone") + "\nThey ship: " + v("ships") +
-        "\n\n" + v("message");
-      st.textContent =
-        "Direct send is unavailable right now — your email app should open with everything filled in for hello@reasonedweb.com.";
-      window.location.href =
-        "mailto:hello@reasonedweb.com?subject=" + encodeURIComponent(subject) +
-        "&body=" + encodeURIComponent(body);
+    /* La caída honesta: dice que falló, NO borra lo escrito y da la
+       dirección para copiarla (un toque largo la selecciona entera). */
+    var caidaHonesta = function (st) {
+      st.textContent = "The direct send didn't go through — nothing you wrote was " +
+        "lost, it's still in the form. Try again in a moment, or write to ";
+      var dir = document.createElement("span");
+      dir.className = "correo";
+      dir.textContent = "hello@reasonedweb.com";
+      st.appendChild(dir);
+      st.appendChild(document.createTextNode("."));
     };
     form.addEventListener("submit", function (e) {
       e.preventDefault();
@@ -220,7 +221,7 @@
         boton.disabled = false;
       }).catch(function () {
         boton.disabled = false;
-        mailtoFallback(st);
+        caidaHonesta(st);
       });
     });
   }

@@ -1,7 +1,7 @@
 // /api/contact — el endpoint del formulario, propio de ESTE proyecto.
 // Envía por Resend (https://resend.com) con la clave en variables de entorno
 // de Vercel — la clave jamás toca el cliente. Si RESEND_API_KEY no está
-// configurada, responde 503 y el frontend cae al compositor mailto (honesto:
+// configurada, responde 503 y el frontend lo DICE sin borrar lo escrito (honesto:
 // nada se pierde, nada se finge).
 //
 // Variables de entorno (Vercel → Settings → Environment Variables):
@@ -36,7 +36,10 @@ module.exports = async (req, res) => {
   const d = {};
   for (const k of Object.keys(LIMITES)) d[k] = limpio(b[k], LIMITES[k]);
 
-  const faltan = ["name", "email", "company", "role", "phone", "message"].filter(k => !d[k]);
+  // Obligatorios (2026-08-17): rol y teléfono pasaron a opcionales en el
+  // formulario; el servidor tiene que exigir la MISMA lista o el envío
+  // devolvería 400 y el frontend anunciaría un fallo sin motivo.
+  const faltan = ["name", "email", "company", "message"].filter(k => !d[k]);
   if (faltan.length) return res.status(400).json({ ok: false, error: "missing", fields: faltan });
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(d.email))
     return res.status(400).json({ ok: false, error: "email" });

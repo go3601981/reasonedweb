@@ -66,7 +66,7 @@ p { max-width: var(--measure); }
 
 /* ── Nav ─────────────────────────────────────────────────────────── */
 .nav { padding-block: 1.4rem; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.9rem 1rem; }
-.nav .lockup { display: block; color: var(--ink); }
+.nav .lockup { display: flex; align-items: center; min-height: 44px; color: var(--ink); }
 /* el lockup cede antes que forzar desborde: a 320px la nav debe caber entera */
 .nav .lockup svg { height: clamp(0.95rem, 4.2vw, 1.35rem); width: auto; display: block; }
 /* 0.6rem arriba y abajo, no 0.55: con 0.55 el botón medía 43.91px y la diana
@@ -108,7 +108,7 @@ h3 { font-size: 1.15rem; font-weight: 600; letter-spacing: -0.005em; margin-bott
 section p + p { margin-top: 0.9rem; }
 
 /* Etiquetado honesto — clases de encargo, siempre visibles */
-.label { display: inline-block; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.02em; color: var(--muted); border: 1px solid var(--line); padding: 0.25rem 0.6rem; margin-top: 0.9rem; }
+.label { display: inline-block; font-size: 0.85rem; font-weight: 600; letter-spacing: 0.02em; color: var(--muted); border: 1px solid var(--line); padding: 0.25rem 0.6rem; margin-top: 0.9rem; }
 
 /* ── Caso LG en home ─────────────────────────────────────────────── */
 .case-lead { display: grid; gap: 2rem; margin-top: 1.5rem; }
@@ -157,7 +157,7 @@ iframe.exhibit { display: block; width: 100%; aspect-ratio: 16 / 10; border: 1px
 .receipts strong { font-weight: 700; }
 
 /* el muro del corpus: 46 héroes, la repetición es el argumento */
-.mosaico { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 0.45rem; margin-top: 2rem; }
+.mosaico { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 0.45rem; margin-top: 2rem; }
 .mosaico img { display: block; width: 100%; height: auto; border: 1px solid var(--line); background: var(--ink); }
 
 /* el formulario de disponibilidad: los campos cortos en dos columnas */
@@ -173,6 +173,10 @@ button.enviar[disabled] { opacity: 0.6; cursor: wait; }
 @media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
 section[id] { scroll-margin-top: 2rem; }
 button.fn-ref { min-width: 26px; min-height: 24px; }
+@media (max-width: 61.99rem) {
+  button.fn-ref { position: relative; }
+  button.fn-ref::after { content: ""; position: absolute; inset: -10px -9px; }
+}
 /* en móvil el marco 16:10 queda enano: la exhibición gana altura */
 @media (max-width: 40rem) { iframe.exhibit { aspect-ratio: 3 / 4; } }
 
@@ -227,6 +231,25 @@ footer.pie .lockup { color: var(--paper); display: inline-block; }
 footer.pie .lockup svg { height: 1.15rem; width: auto; }
 footer.pie p { color: var(--muted-on-ink); font-size: 0.88rem; margin-top: 1.1rem; }
 footer.pie a { color: var(--paper); }
+/* ── El correo impreso, no enlazado ──────────────────────────────────────
+   Sigue a la vista en los 7 pies y en Contact, pero ya no es un enlace:
+   un mailto abre un cliente que casi nadie tiene configurado. Toda ruta de
+   contacto lleva al formulario. `user-select: all` = un toque largo copia
+   la direccion entera, que es como se copia en un movil. */
+.correo { color: var(--paper); font-weight: 500; user-select: all; -webkit-user-select: all; }
+#contact .correo { color: var(--ink); }
+
+/* Acciones del pie: el pie TAMBIEN es una puerta al formulario. En fila con
+   gap de 1.4rem/0.9rem — las dianas nunca quedan a menos de 8px, que era el
+   defecto medido entre el correo y LinkedIn (4.52px). */
+.pie-acciones { display: flex; flex-wrap: wrap; align-items: center; gap: 0.9rem 1.4rem; margin-top: 1.2rem; max-width: none; }
+.cta-pie {
+  display: inline-flex; align-items: center; font-size: 0.95rem; font-weight: 600;
+  text-decoration: none; color: var(--paper); border: 1.5px solid var(--paper);
+  padding: 0.6rem 1.1rem;
+}
+.cta-pie:hover, .cta-pie:focus-visible { background: var(--paper); color: var(--ink); }
+.enlace-pie { display: inline-flex; align-items: center; min-height: 44px; padding-inline: 0.1rem; }
 
 /* ── Página de caso ──────────────────────────────────────────────── */
 .case-head { padding-block: clamp(2.5rem, 6vw, 4.5rem) 0; }
@@ -444,7 +467,7 @@ label .opt { font-weight: 400; color: var(--muted); }
 .asiento .prueba strong, .asiento .prueba code { color: var(--ink); }
 .asiento .prueba code { font: inherit; font-size: 0.94em; }
 .asiento--cab {
-  font-size: 0.72rem; font-weight: 600; letter-spacing: 0.09em;
+  font-size: 0.82rem; font-weight: 600; letter-spacing: 0.09em;
   text-transform: uppercase; color: var(--note); padding-top: 0.9rem;
 }
 

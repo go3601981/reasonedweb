@@ -78,6 +78,34 @@ p { max-width: var(--measure); }
 }
 .nav a.cta:hover, .nav a.cta:focus-visible { background: var(--ink); color: var(--paper); }
 .crumb { font-size: 0.85rem; color: var(--muted); }
+
+/* ── Capacidades escaneables (2026-08-18) ────────────────────────────────
+   Un productor de agencia experiencial mira diez segundos: la prosa no
+   sobrevive a eso, una fila de fichas si. Cada ficha nombra algo que existe
+   en una pieza del sitio — salvo VR, que Carlos lleva anos haciendo y que se
+   nombra sin ocupar sitio porque «ya no es WOW». No son enlaces: no llevan
+   diana tactil ni pretenden llevar a ningun lado. */
+.capacidades {
+  list-style: none; padding: 0; margin: 1.4rem 0 0;
+  display: flex; flex-wrap: wrap; gap: 0.5rem;
+  max-width: 46rem;
+}
+.capacidades li {
+  font-size: 0.82rem; font-weight: 600; letter-spacing: 0.02em;
+  color: var(--muted); border: 1px solid var(--carton-borde);
+  padding: 0.3rem 0.7rem; white-space: nowrap;
+}
+
+/* ── La oferta de 48 horas ───────────────────────────────────────────────
+   Bloque propio y pegado al formulario: es el cierre mas fuerte y estaba
+   viviendo solo en el correo. Recuadro, no color de fondo — el sitio no
+   pinta cajas de aviso. */
+.oferta {
+  border: 1.5px solid var(--ink); padding: 1rem 1.2rem;
+  margin: 1.2rem 0 1.3rem; max-width: 46rem;
+}
+.oferta h3 { margin: 0 0 0.35rem; font-size: 1.08rem; }
+.oferta p { margin: 0; max-width: none; }
 /* Material que ACOMPANA a una pieza (el one-pager de UDV Blue): renglon
    aparte y mas tenue, para que no compita con el enlace a la pieza misma. */
 .tambien { font-size: 0.92rem; color: var(--muted); margin-top: 0.7rem; }
@@ -165,9 +193,9 @@ iframe.exhibit { display: block; width: 100%; aspect-ratio: 16 / 10; border: 1px
 .mosaico img { display: block; width: 100%; height: auto; border: 1px solid var(--line); background: var(--ink); }
 
 /* el formulario de disponibilidad: los campos cortos en dos columnas */
-form.contacto { display: grid; gap: 1.1rem; margin-top: 2rem; max-width: 44rem; }
+form.contacto { display: grid; gap: 0.75rem; margin-top: 1.2rem; max-width: 44rem; }
 @media (min-width: 46rem) {
-  form.contacto { grid-template-columns: 1fr 1fr; gap: 1.1rem 1.4rem; }
+  form.contacto { grid-template-columns: 1fr 1fr; gap: 0.75rem 1.4rem; }
   form.contacto .ancho, form.contacto button.enviar, form.contacto .form-status { grid-column: 1 / -1; }
 }
 form.contacto .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
@@ -176,6 +204,17 @@ button.enviar[disabled] { opacity: 0.6; cursor: wait; }
 /* ── Usabilidad ─────────────────────────────────────────────────── */
 @media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
 section[id] { scroll-margin-top: 2rem; }
+/* Contact respira menos por arriba: el CTA tiene que aterrizar en un sitio
+   donde el formulario ENTERO quepa en pantalla, y cada rem de aire de mas
+   empuja el boton de enviar fuera. Medido: 1.076px antes de este bloque. */
+#contact { padding-top: clamp(2.2rem, 4vw, 3.2rem); }
+#contact { scroll-margin-top: 1rem; }
+#contact h2 { margin-bottom: 0.2rem; }
+/* Estas dos lineas se ensanchan en vez de acortarse: cambiar la MEDIDA
+   cuesta menos que cambiar el mensaje, y las dos dicen algo que se queria
+   decir entero. La de contrato baja de 3 renglones a 2, la de contacto a 1. */
+.contrato { max-width: 74ch; }
+.reach { margin-top: 0.6rem; max-width: 80ch; }
 button.fn-ref { min-width: 26px; min-height: 24px; }
 @media (max-width: 61.99rem) {
   button.fn-ref { position: relative; }
@@ -211,10 +250,11 @@ button.fn-ref:focus-visible { outline: 2px solid var(--note); outline-offset: 2p
 
 /* ── Contacto ────────────────────────────────────────────────────── */
 form { display: grid; gap: 1.1rem; max-width: 34rem; margin-top: 1.8rem; }
-label { font-weight: 600; font-size: 0.92rem; display: grid; gap: 0.4rem; }
+label { font-weight: 600; font-size: 0.92rem; display: block; }
+label > input, label > textarea, label > select { margin-top: 0.4rem; }
 input, textarea {
   font: inherit; color: var(--ink); background: #fff;
-  border: 1.5px solid var(--muted); padding: 0.7rem 0.85rem; width: 100%;
+  border: 1.5px solid var(--muted); padding: 0.62rem 0.85rem; width: 100%;
 }
 input:focus-visible, textarea:focus-visible { outline: 2px solid var(--note); outline-offset: 1px; }
 button.enviar {
@@ -393,7 +433,7 @@ p, li, figcaption { text-wrap: pretty; }
 }
 @media (prefers-reduced-motion: reduce) { .fn-flash { animation: none; } }
 
-label .opt { font-weight: 400; color: var(--muted); }
+label .opt { font-weight: 400; font-size: 0.9em; color: var(--muted); }
 
 /* El filete de la derivación pertenece al máster, no al párrafo: con la
    marca a 46rem un subrayado de 46ch quedaba corto y suelto. */

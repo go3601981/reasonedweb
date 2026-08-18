@@ -79,6 +79,15 @@ p { max-width: var(--measure); }
 .nav a.cta:hover, .nav a.cta:focus-visible { background: var(--ink); color: var(--paper); }
 .crumb { font-size: 0.85rem; color: var(--muted); }
 
+/* Range colapsado a una linea (2026-08-18). Antes eran ocho fichas con foto
+   mas una banda de corpus: catorce piezas de web estatica entre las dos
+   pruebas interactivas y el metodo. Para un comprador experiencial eso
+   diluye, y el encuadre de volumen —«one system, forty-six verticals»— es
+   justo el argumento que hace un proveedor de commodity. Las piezas siguen
+   ahi, alcanzables, ocupando un parrafo. */
+.rango-lista { max-width: 62ch; margin-top: 0.7rem; }
+.rango-lista a { text-underline-offset: 0.2em; }
+
 /* ── Capacidades escaneables (2026-08-18) ────────────────────────────────
    Un productor de agencia experiencial mira diez segundos: la prosa no
    sobrevive a eso, una fila de fichas si. Cada ficha nombra algo que existe
@@ -106,6 +115,9 @@ p { max-width: var(--measure); }
 }
 .oferta h3 { margin: 0 0 0.35rem; font-size: 1.08rem; }
 .oferta p { margin: 0; max-width: none; }
+/* La prueba que sostiene la promesa: sin ella el bloque de 48 horas es una
+   afirmacion sin respaldo, que es exactamente lo que este sitio no hace. */
+.oferta .prueba { margin-top: 0.7rem; padding-top: 0.7rem; border-top: 1px solid var(--line); }
 /* Material que ACOMPANA a una pieza (el one-pager de UDV Blue): renglon
    aparte y mas tenue, para que no compita con el enlace a la pieza misma. */
 .tambien { font-size: 0.92rem; color: var(--muted); margin-top: 0.7rem; }

@@ -35,7 +35,7 @@ import sys
 from pathlib import Path
 
 RAIZ = Path("site")
-INDEXABLES = {"/"}          # decisión de Carlos, 2026-08-18
+INDEXABLES = {"/", "/work/lg-sound-suite/"}   # decisión de Carlos, 2026-08-18
 
 
 def die(msg: str) -> None:

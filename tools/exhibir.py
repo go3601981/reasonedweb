@@ -17,9 +17,27 @@ VERDE EN VACÍO — puerta de residuo: tras sanitizar, el HTML de salida se
 escanea contra la lista de patrones prohibidos; si queda UNO, FALLA nombrando
 cada residuo con su contexto. Una copia sin escanear tendría cara de limpia.
 
+⚠️ ENMIENDA 2026-08-17 — LA PUERTA ESCANEA TAMBIÉN LOS ASSETS COPIADOS.
+Escaneaba solo el HTML, y por ese hueco entró al sitio un `qr-target.json`
+que nombraba un dominio prohibido — y, peor, el `qr.png` de al lado era un
+CÓDIGO QR que mandaba a cualquier teléfono que lo escaneara a ese dominio.
+Un residuo puede viajar en un asset, y dentro de un QR ni siquiera es legible.
+  · ficheros de TEXTO (por extensión): se escanean enteros contra TODOS los
+    patrones;
+  · BINARIOS: solo contra los patrones de MARCA, y sobre las cadenas
+    imprimibles largas, como haría `strings`. Escanear un .glb comprimido
+    como si fuera texto da falsos positivos garantizados — `$96` y `$29`
+    aparecen en el ruido de cualquier binario grande. Medido, no supuesto.
+
+--sub  reescribe una cadena en el HTML y en los assets de texto, contando las
+       sustituciones y fallando si no tocó ninguna.
+--qr   REGENERA un PNG como código QR de la URL dada: la única manera de
+       arreglar un residuo que vive dentro de una imagen.
+
 Uso:
   python tools/exhibir.py --src PIEZA.html --dest DIR --label "TEXTO"
       [--drop CLASE ...] [--min-dropped N] [--assets CARPETA ...]
+      [--sub "VIEJA=NUEVA" ...] [--qr "ruta/rel.png=https://…"]
 """
 import argparse
 import re
@@ -27,12 +45,44 @@ import shutil
 import sys
 from pathlib import Path
 
+from PIL import Image
+
 PROHIBIDOS = [
     r"wemadeyoursite", r"WeMadeYourSite", r"WMYS",
     r"[Tt]u[Ww]eb\.pe", r"eureka\.pe", r"[Nn]ext ?[Ll]atam", r"nextlatam",
     r"wa\.me",
     r"\$995", r"\$96\b", r"\$29\b", r"S/500", r"S/50\b",
 ]
+
+
+TEXTO_EXT = {".html", ".htm", ".css", ".js", ".mjs", ".json", ".svg", ".txt",
+             ".md", ".xml", ".csv", ".webmanifest", ".map"}
+MARCAS = [p for p in PROHIBIDOS if not p.startswith("\\$") and not p.startswith("S/")]
+CADENA_IMPRIMIBLE = re.compile(rb"[ -~]{6,}")
+
+
+def escanear_arbol(raiz: Path):
+    """(n_ficheros, residuos). Texto entero contra TODOS los patrones; binario
+    solo contra MARCAS y sobre cadenas imprimibles — ver docstring."""
+    residuos = []
+    n = 0
+    for f in sorted(raiz.rglob("*")):
+        if not f.is_file():
+            continue
+        n += 1
+        datos = f.read_bytes()
+        if f.suffix.lower() in TEXTO_EXT:
+            texto = datos.decode("utf-8", errors="replace")
+            patrones = PROHIBIDOS
+        else:
+            texto = "\n".join(x.decode("ascii")
+                              for x in CADENA_IMPRIMIBLE.findall(datos))
+            patrones = MARCAS
+        for pat in patrones:
+            for m in re.finditer(pat, texto, re.IGNORECASE):
+                ctx = texto[max(0, m.start() - 45):m.end() + 45].replace("\n", " ")
+                residuos.append(f"  · {f.relative_to(raiz)} → «…{ctx}…»")
+    return n, residuos
 
 
 def die(msg: str) -> None:
@@ -85,6 +135,19 @@ def main() -> None:
                     help="mínimo de bloques que la limpieza debe eliminar")
     ap.add_argument("--assets", action="append", default=[],
                     help="carpeta de assets a copiar junto a la pieza (repetible)")
+    ap.add_argument("--label-after", default=None, metavar="CADENA",
+                    help="ancla la etiqueta honesta JUSTO DESPUÉS de esa cadena "
+                         "en vez de antes de </body>. Necesario en piezas de "
+                         "IMPRESIÓN: añadir un bloque al final del cuerpo crea "
+                         "una página en blanco de más. Falla si no encuentra el "
+                         "ancla — la etiqueta nunca se queda sin poner")
+    ap.add_argument("--sub", action="append", default=[], metavar="VIEJA=NUEVA",
+                    help="reescribe una cadena en el HTML y en los assets de "
+                         "texto; falla si no sustituyó nada (repetible)")
+    ap.add_argument("--qr", action="append", default=[], metavar="RUTA=URL",
+                    help="regenera ese PNG del exhibit como código QR de la URL "
+                         "dada — un residuo dentro de una imagen no se puede "
+                         "sanitizar de otra forma (repetible)")
     ap.add_argument("--fonts-from", default=None,
                     help="carpeta compartida de fuentes: cada ../fonts/X se "
                          "reescribe a fonts/X y el archivo se copia al exhibit")
@@ -125,9 +188,14 @@ def main() -> None:
     etiqueta = ('<div style="background:#16181C;color:#F3F4F3;padding:0.7rem 1rem;'
                 'text-align:center;font:500 12px/1.5 system-ui,sans-serif;'
                 'letter-spacing:0.02em">' + a.label + "</div>")
-    if "</body>" not in html:
-        die("la pieza no tiene </body> donde anclar la etiqueta")
-    html = html.replace("</body>", etiqueta + "\n</body>", 1)
+    if a.label_after:
+        if a.label_after not in html:
+            die(f"--label-after: el ancla no aparece en la pieza: {a.label_after!r}")
+        html = html.replace(a.label_after, a.label_after + "\n" + etiqueta, 1)
+    else:
+        if "</body>" not in html:
+            die("la pieza no tiene </body> donde anclar la etiqueta")
+        html = html.replace("</body>", etiqueta + "\n</body>", 1)
 
     # 4 · puerta de residuo: cero menciones prohibidas en la salida
     residuos = []
@@ -157,19 +225,93 @@ def main() -> None:
         if "../fonts/" in html:
             die("quedaron referencias ../fonts/ sin reescribir")
 
+    subs = []
+    for regla in a.sub:
+        if "=" not in regla:
+            die(f"--sub mal formado (falta '='): {regla!r}")
+        viejo, nuevo = regla.split("=", 1)
+        subs.append((viejo, nuevo))
+    tocados = {viejo: 0 for viejo, _ in subs}
+    for viejo, nuevo in subs:
+        tocados[viejo] += html.count(viejo)
+        html = html.replace(viejo, nuevo)
+
     (dest / "index.html").write_text(html, encoding="utf-8", newline="")
 
+    # --assets acepta CARPETA o FICHERO suelto: hay piezas (un one-pager de
+    # impresión, por ejemplo) cuyos assets viven al lado del HTML, no en una
+    # carpeta. Un fichero suelto se copia manteniendo su nombre, que es lo que
+    # el HTML referencia.
     copiadas = 0
-    for carpeta in a.assets:
-        origen = src.parent / carpeta
-        if not origen.is_dir():
-            die(f"carpeta de assets no existe: {origen}")
-        shutil.copytree(origen, dest / carpeta, dirs_exist_ok=True)
+    for ruta in a.assets:
+        origen = src.parent / ruta
+        if origen.is_dir():
+            shutil.copytree(origen, dest / ruta, dirs_exist_ok=True)
+        elif origen.is_file():
+            (dest / ruta).parent.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(origen, dest / ruta)
+        else:
+            die(f"asset no existe (ni carpeta ni fichero): {origen}")
         copiadas += 1
 
+    # 6 · --sub también en los assets de TEXTO (ahí se escondía el residuo)
+    for f in dest.rglob("*"):
+        if (not f.is_file() or f.suffix.lower() not in TEXTO_EXT
+                or f.name == "index.html"):
+            continue
+        t = f.read_text(encoding="utf-8", errors="replace")
+        original = t
+        for viejo, nuevo in subs:
+            tocados[viejo] += t.count(viejo)
+            t = t.replace(viejo, nuevo)
+        if t != original:
+            f.write_text(t, encoding="utf-8", newline="")
+    for viejo, veces in tocados.items():
+        if veces == 0:
+            die(f"--sub no sustituyó NADA para {viejo!r} — o la cadena cambió "
+                f"en la fuente o la regla sobra; en ambos casos hay que mirarla")
+
+    # 7 · QR: el residuo que vive dentro de una imagen
+    qrs = []
+    for regla in a.qr:
+        if "=" not in regla:
+            die(f"--qr mal formado (falta '='): {regla!r}")
+        rel, url = regla.split("=", 1)
+        destino = dest / rel
+        if not destino.is_file():
+            die(f"--qr: el PNG a regenerar no existe: {destino}")
+        try:
+            import segno
+        except ImportError:
+            die("--qr necesita `segno` (pip install segno)")
+        antes = destino.stat().st_size
+        with Image.open(destino) as im:
+            lado = im.width
+        # La escala se DERIVA del tamaño original, no se elige: un QR
+        # reescalado a un tamaño que no es múltiplo exacto de su matriz deja
+        # módulos de anchos distintos, y eso lo vuelve difícil de leer.
+        simbolo = segno.make(url, error="m")
+        modulos = simbolo.symbol_size(border=2)[0]
+        escala = max(1, round(lado / modulos))
+        simbolo.save(str(destino), scale=escala, border=2, kind="png")
+        with Image.open(destino) as im:
+            final = im.width
+        qrs.append(f"{rel} → {url} ({antes}B → {destino.stat().st_size}B, "
+                   f"{lado}px → {final}px = {modulos} módulos × {escala})")
+
+    # 8 · LA PUERTA, ahora sobre TODO el exhibit y no solo sobre el HTML
+    n_ficheros, residuos = escanear_arbol(dest)
+    if n_ficheros == 0:
+        die("VERDE EN VACÍO: el exhibit no tiene ni un fichero que escanear")
+    if residuos:
+        die(f"RESIDUO PROHIBIDO en el exhibit ({len(residuos)}) — "
+            f"{n_ficheros} fichero(s) escaneados:\n" + "\n".join(residuos[:10]))
+
     print(f"exhibir.py: {dest} · {dropped} bloque(s) eliminados · "
-          f"residuo 0/{len(PROHIBIDOS)} patrones · {copiadas} carpeta(s) de assets · "
-          f"{len(fuentes)} fuente(s) compartida(s)")
+          f"{n_ficheros} fichero(s) escaneados, residuo 0/{len(PROHIBIDOS)} patrones · "
+          f"{copiadas} carpeta(s) de assets · {len(fuentes)} fuente(s) compartida(s)"
+          + (f" · subs: {sum(tocados.values())} ocurrencia(s)" if subs else "")
+          + (f" · QR: " + "; ".join(qrs) if qrs else ""))
 
 
 if __name__ == "__main__":

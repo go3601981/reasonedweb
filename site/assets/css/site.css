@@ -78,6 +78,10 @@ p { max-width: var(--measure); }
 }
 .nav a.cta:hover, .nav a.cta:focus-visible { background: var(--ink); color: var(--paper); }
 .crumb { font-size: 0.85rem; color: var(--muted); }
+/* Material que ACOMPANA a una pieza (el one-pager de UDV Blue): renglon
+   aparte y mas tenue, para que no compita con el enlace a la pieza misma. */
+.tambien { font-size: 0.92rem; color: var(--muted); margin-top: 0.7rem; }
+.tambien .leer { color: var(--ink); }
 .crumb a { color: inherit; }
 
 /* ── Hero ────────────────────────────────────────────────────────── */

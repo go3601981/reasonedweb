@@ -95,7 +95,7 @@ def main():
     anchos = [int(x) for x in a.widths.split(",")]
 
     # 1 · estructura, sin navegador: el hijo directo de cada section
-    fallos_estruct, n_sec = [], 0
+    fallos_estruct, n_sec, n_notas = [], 0, 0
     for f in sorted(Path("site").rglob("index.html")):
         if any(p in f.parts for p in ("live", "piece", "deck", "range", "molecules", "one-pager")):
             continue
@@ -107,6 +107,21 @@ def main():
             if hijos != ["div"]:
                 fallos_estruct.append(f"{f.relative_to('site')} · <section id=\"{m.group(1)}\"> "
                                       f"tiene hijos directos {hijos}, se espera solo div.wrap")
+        # ⛔ Las notas al pie CUELGAN DEL .wrap, nunca de una caja interior.
+        # `apparatus.js` las flota al margen en pantallas anchas: metida dentro
+        # de un bloque con borde —la oferta de 48h— la nota flotaba DENTRO del
+        # recuadro, estrujada a la derecha, con medio bloque vacio al lado.
+        # Se ve mal y ninguna otra puerta lo notaba: el texto seguia dentro de
+        # su columna, que es lo unico que se estaba midiendo.
+        for m in re.finditer(r'<aside class="fn-note" id="([^"]+)"', t):
+            ini = t.rfind(chr(10), 0, m.start()) + 1
+            sangria = m.start() - ini
+            n_notas += 1
+            if sangria != 6:
+                fallos_estruct.append(
+                    f"{f.relative_to('site')} · la nota #{m.group(1)} esta anidada "
+                    f"({sangria} espacios de sangria, se esperan 6): no cuelga del "
+                    f".wrap y flotara dentro de su caja en vez de al margen")
     if n_sec == 0:
         die("VERDE EN VACÍO: cero secciones inspeccionadas")
 
@@ -168,7 +183,7 @@ def main():
     finally:
         proc.terminate()
 
-    print(f"verificar_maqueta.py: {n_sec} sección(es) por estructura · "
+    print(f"verificar_maqueta.py: {n_sec} sección(es) y {n_notas} nota(s) por estructura · "
           f"{vistas} vista(s), {medidos} elemento(s) con texto medidos, "
           f"{exentos} exento(s) (absolutos, aria-hidden, notas al margen)")
     if medidos == 0:

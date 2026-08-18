@@ -59,6 +59,9 @@ TEXTO_EXT = {".html", ".htm", ".css", ".js", ".mjs", ".json", ".svg", ".txt",
              ".md", ".xml", ".csv", ".webmanifest", ".map"}
 MARCAS = [p for p in PROHIBIDOS if not p.startswith("\\$") and not p.startswith("S/")]
 CADENA_IMPRIMIBLE = re.compile(rb"[ -~]{6,}")
+# el meta de robots, tolerando comilla simple o doble en el atributo
+PATRON_ROBOTS = r"<meta[^>]+name=['\"]robots['\"][^>]+noindex"
+META_ROBOTS = '<meta name="robots" content="noindex, nofollow">'
 
 
 def escanear_arbol(raiz: Path):
@@ -183,6 +186,19 @@ def main() -> None:
                   r"(?:(?!</script>).)*?</script>\s*?\n?",
                   lambda m: "" if marca.search(m.group(0)) else m.group(0),
                   html, flags=re.DOTALL)
+
+    # 2-bis · noindex propio. La cabecera global de Vercel ya protege estas
+    # rutas, pero desde que la home SI se indexa (2026-08-18) la redundancia
+    # deja de ser adorno: si la config de cabeceras se tocara, el meta es lo
+    # unico que queda en pie.
+    meta_puesto = 0
+    if not re.search(PATRON_ROBOTS, html, re.IGNORECASE):
+        if "</head>" not in html:
+            die("la pieza no tiene </head> donde poner el noindex")
+        html = html.replace(
+            "</head>",
+            META_ROBOTS + "\n</head>", 1)
+        meta_puesto = 1
 
     # 3 · etiqueta honesta al pie
     etiqueta = ('<div style="background:#16181C;color:#F3F4F3;padding:0.7rem 1rem;'
@@ -310,6 +326,7 @@ def main() -> None:
     print(f"exhibir.py: {dest} · {dropped} bloque(s) eliminados · "
           f"{n_ficheros} fichero(s) escaneados, residuo 0/{len(PROHIBIDOS)} patrones · "
           f"{copiadas} carpeta(s) de assets · {len(fuentes)} fuente(s) compartida(s)"
+          + (" · noindex inyectado" if meta_puesto else " · noindex ya venia")
           + (f" · subs: {sum(tocados.values())} ocurrencia(s)" if subs else "")
           + (f" · QR: " + "; ".join(qrs) if qrs else ""))
 

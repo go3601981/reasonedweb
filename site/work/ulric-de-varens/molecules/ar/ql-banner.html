@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Six molecules</title>
+<style>
+/* The one strip of our own inside AR Quick Look (customHeight=large, 161pt). Apple shows it
+   at the bottom of the AR view; a tap anywhere on it closes Quick Look and tells the page. */
+@font-face{font-family:Assistant;src:url(../assets/fonts/assistant-latin.woff2) format('woff2');font-weight:200 800;font-display:swap}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%;background:#0b0b0d}
+body{font-family:Assistant,system-ui,-apple-system,'Segoe UI',sans-serif;color:#f6f2ef;-webkit-font-smoothing:antialiased;display:flex;flex-direction:column;justify-content:center;padding:14px 20px}
+.bar{height:5px;background:#ff006e;margin:-14px -20px 12px}
+.eyebrow{font-weight:600;font-size:10px;letter-spacing:1.3px;text-transform:uppercase;color:#ff006e}
+h1{font-weight:800;font-size:22px;line-height:1.1;margin-top:5px}
+p{margin-top:6px;font-size:13px;line-height:1.45;color:rgba(255,255,255,.72)}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin-top:9px}
+.chips span{border:1px solid #ff006e;border-radius:999px;padding:4px 10px;font-weight:700;font-size:10px;letter-spacing:1.2px;text-transform:uppercase}
+.cta{position:absolute;right:20px;top:50%;transform:translateY(-50%);background:#ff006e;color:#fff;font-weight:700;font-size:11px;letter-spacing:1.3px;text-transform:uppercase;padding:12px 14px}
+</style>
+</head>
+<body>
+<div class="bar"></div>
+<span class="eyebrow">Le petit Paris d'Ulric</span>
+<h1>Six molecules on the card.</h1>
+<p>The pink-edged pieces carry them. Tap here to meet each one.</p>
+<div class="chips"><span>Linalool</span><span>Limonene</span><span>Geraniol</span><span>Hedione</span><span>Cedrol</span><span>Galaxolide</span></div>
+<div class="cta">Meet them ›</div>
+</body>
+</html>

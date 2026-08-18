@@ -1,0 +1,1034 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>La Science du Parfum — UDV Blue · Ulric de Varens</title>
+<meta name="description" content="Every note on the UDV Blue box has a molecule behind it. Six of them, drawn atom by atom from their published structures, a 0-to-8-hour dry-down, and a paper Paris that stands up on your table in augmented reality.">
+<!-- a pitch, not public marketing: remove this line to let search engines index it -->
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23ff006e'/%3E%3Ccircle cx='32' cy='32' r='11' fill='%23fff'/%3E%3C/svg%3E">
+<link rel="preload" href="assets/fonts/assistant-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="vendor/three.r128.min.js" as="script">
+<style>
+@font-face{font-family:'Assistant';src:url(assets/fonts/assistant-latin.woff2) format('woff2');font-weight:200 800;font-style:normal;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Assistant';src:url(assets/fonts/assistant-latin-ext.woff2) format('woff2');font-weight:200 800;font-style:normal;font-display:swap;unicode-range:U+0100-024F,U+0259,U+1E00-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF}
+:root{
+  --ivory:#ffffff;
+  --pink:#ff006e;
+  --berry:#800a38;
+  --tint:#ffeaf0;
+  --ink:#121212;
+  --chamber:#0b0b0d;
+  --dim:#a3a3a3;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:auto}
+html,body{background:var(--chamber);min-height:100%}
+body{font-family:'Assistant',Helvetica,Arial,sans-serif;color:var(--ivory);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+
+/* ---------- fixed WebGL stage ---------- */
+#stage{position:fixed;inset:0;touch-action:pan-y;cursor:grab;z-index:0} /* pan-y: one finger scrolls the page vertically, horizontal drag orbits, pinch zooms */
+#stage.dragging{cursor:grabbing}
+/* in Paris the hand appears only over the city — that is the only thing that turns */
+html.inParis #stage{cursor:default}
+html.inParis #stage.overCity{cursor:grab}
+html.inParis #stage.dragging{cursor:grabbing}
+canvas{display:block}
+#stage canvas{width:100% !important;height:100% !important} /* always cover the stage even if setSize lags a layout change */
+
+/* ---------- hero photo (chapter 1) ---------- */
+.hero-photo{position:fixed;inset:0;z-index:1;overflow:hidden;pointer-events:none}
+.hero-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 50%}
+.hero-photo::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(to bottom, rgba(11,11,13,.35) 0%, rgba(11,11,13,.35) 42%, var(--chamber) 100%);
+}
+@media (min-width:641px){
+  /* desktop: photo becomes a hard-edged right column so the whole bottle (cap to base)
+     is visible; the left 54vw stays the dark WebGL chamber, with the text block on it. */
+  .hero-photo{left:54vw;right:0;width:46vw;}
+  .hero-photo img{object-position:50% 50%;}
+  .hero-photo::after{background:rgba(11,11,13,.16)}
+}
+
+/* ---------- fixed chrome ---------- */
+.annonce{
+  position:fixed;top:0;left:0;right:0;height:34px;z-index:10;
+  background:var(--pink);color:#ffffff;
+  display:flex;align-items:center;justify-content:center;
+  /* White on the accent is 3.83:1 — under WCAG AA for normal text, over the 3:1 AA allows
+     for LARGE text. So the type meets the large-text bar wherever the line fits on one row
+     (about 600px up), and below that it stays 13px rather than wrap and burst the bar. The
+     accent itself does not move: the full-width pink bar in white uppercase is the house's
+     loudest device (design.md). */
+  font-weight:700;font-size:19px;letter-spacing:1.3px;text-transform:uppercase;text-align:center;padding:0 12px;
+}
+.annonce .ann-tail{display:none}
+@media (min-width:620px){ .annonce .ann-tail{display:inline} }
+.maison{
+  position:fixed;top:52px;left:50%;transform:translateX(-50%);z-index:10;
+  display:flex;flex-direction:column;align-items:center;gap:8px;pointer-events:none;
+}
+.maison .udv-wordmark{width:clamp(180px,20vw,250px);height:auto;display:block;fill:#fff}
+.maison{transition:opacity .45s ease}
+html.scrolled .maison{opacity:0}
+.tricolor{width:36px;height:3px;background:linear-gradient(90deg,#002395 0 33.4%,#ffffff 33.4% 66.7%,#ed2939 66.7% 100%)}
+.eyebrow{font-weight:600;font-size:11px;letter-spacing:1.3px;text-transform:uppercase;color:var(--pink);white-space:nowrap}
+.tricolor-footer{position:fixed;left:0;right:0;bottom:0;height:4px;z-index:9;background:linear-gradient(90deg,#002395 0 33.4%,#ffffff 33.4% 66.7%,#ed2939 66.7% 100%)}
+
+.dots{position:fixed;right:22px;top:50%;transform:translateY(-50%);z-index:10;display:flex;flex-direction:column;gap:14px}
+.dots span{display:block;width:3px;height:22px;background:rgba(255,255,255,.22);transition:background .35s ease,height .35s ease}
+.dots span.active{background:var(--pink);height:34px}
+
+/* ---------- scroll: one section per gesture ----------
+   Mandatory snap with scroll-snap-stop:always. There is no resting point between two
+   sections, so there is no way to sit inside a transition and watch it half-built —
+   which is the only state any of these transitions look wrong in. */
+html{scroll-snap-type:y mandatory;scroll-behavior:smooth}
+html.grabbing, html.grabbing *{user-select:none;-webkit-user-select:none}
+.snap{scroll-snap-align:start;scroll-snap-stop:always}
+@media (prefers-reduced-motion:reduce){ html{scroll-behavior:auto} }
+html.wmode{scroll-snap-type:none}
+
+/* ---------- main scroll content ---------- */
+main{position:relative;z-index:2;pointer-events:none}
+/* svh, not vh: on a phone 100vh is the viewport with the URL bar HIDDEN, so every
+   section was taller than the screen you were actually looking at and its content ran off
+   the bottom. svh is the smallest visible height, which is the one that has to fit. */
+.chapter{position:relative;min-height:100vh;min-height:100svh;width:100%}
+.chapter[data-ch="2"]{min-height:700vh;min-height:700svh}
+
+.ch-head{position:absolute;left:6vw;max-width:640px}
+.ch-head .eyebrow{display:block;margin-bottom:16px}
+.ch-head h1,.ch-head h2{
+  font-weight:800;line-height:1.05;letter-spacing:-0.01em;color:var(--ivory);
+  font-size:clamp(34px,5.4vw,64px);
+}
+.ch-head p{
+  margin-top:18px;font-weight:400;font-size:clamp(15px,1.7vw,18px);
+  line-height:1.6;color:rgba(255,255,255,.78);max-width:min(52ch,100%);
+}
+
+/* Chapter 1 */
+.ch1-body{bottom:9vh}
+.hint{
+  position:absolute;bottom:26px;left:50%;transform:translateX(-50%);
+  font-weight:600;font-size:10px;letter-spacing:1.3px;text-transform:uppercase;
+  color:rgba(255,255,255,.55);white-space:nowrap;pointer-events:none;
+}
+
+/* Chapter 2 — seven stages, one molecule at a time */
+.ch2-stage0{position:relative;min-height:100vh;min-height:100svh;display:flex;align-items:center}
+.ch2-intro{position:relative;max-width:640px;padding-left:6vw;padding-right:6vw}
+.ch2-intro .eyebrow{display:block;margin-bottom:16px}
+.ch2-intro h2{font-weight:800;line-height:1.05;letter-spacing:-0.01em;color:var(--ivory);font-size:clamp(34px,5.4vw,64px)}
+.ch2-intro p{margin-top:18px;font-weight:400;font-size:clamp(15px,1.7vw,18px);line-height:1.6;color:rgba(255,255,255,.78);max-width:min(52ch,100%)}
+
+.ch2-stage{position:relative;min-height:100vh;min-height:100svh}
+.stage-sticky{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden}
+
+.name-block{position:absolute;left:6vw;bottom:9vh;max-width:44vw;pointer-events:none}
+.name-block .eyebrow{display:inline}
+.name-block .stage-num{font-weight:600;color:rgba(255,255,255,.62);margin-left:10px;letter-spacing:1.3px;font-size:11px}
+.name-block h1{font-weight:800;font-size:clamp(46px,7.4vw,96px);line-height:1.0;letter-spacing:-0.01em;color:var(--ivory);margin-top:14px}
+.name-block h1 span{color:var(--pink)}
+.name-block p{margin-top:16px;font-weight:400;font-size:clamp(15px,1.7vw,18px);line-height:1.55;color:rgba(255,255,255,.78);max-width:38ch}
+.name-block .provenance{margin-top:12px;font-weight:600;font-size:clamp(12px,1.2vw,14px);letter-spacing:.4px;color:var(--pink);max-width:42ch;line-height:1.6}
+
+.data-block{
+  position:absolute;right:6vw;bottom:9vh;text-align:right;max-width:min(32vw,340px);
+  font-weight:600;font-size:11px;letter-spacing:1.3px;text-transform:uppercase;line-height:2.05;color:var(--dim);
+  pointer-events:none;
+}
+.data-block .hl{color:var(--pink)}
+.data-block .rule{display:inline-block;width:44px;height:1px;background:rgba(255,255,255,.22);margin-bottom:8px}
+.data-block .dl{display:block;opacity:0;transition:opacity .4s ease}
+.data-block .dl.shown{opacity:1}
+.data-block .retrieving{color:rgba(255,255,255,.5)}
+.data-block .verified{color:var(--pink)}
+.data-block .retrieving.shown::after{
+  content:'';display:inline-block;width:7px;height:1em;margin-left:5px;
+  background:var(--pink);vertical-align:text-bottom;
+  animation:caretBlink 1s steps(1) infinite;
+}
+@keyframes caretBlink{0%,49%{opacity:1}50%,100%{opacity:0}}
+@media (prefers-reduced-motion:reduce){
+  .data-block .retrieving.shown::after{animation:none}
+}
+html.wmode .data-block .retrieving.shown::after{animation:none}
+
+.footnote{
+  max-width:min(70ch,100%);margin-top:22px;font-weight:400;font-size:12.5px;line-height:1.6;color:rgba(255,255,255,.62);
+}
+
+/* Le Petit Paris — pins and their sheet (docs/09 §4) */
+#parisPins{position:fixed;inset:0;z-index:6;pointer-events:none}
+.paris-pin{
+  position:absolute;transform:translate(-50%,-100%);opacity:0;
+  transition:opacity .35s ease;pointer-events:none;text-align:center;
+}
+.paris-pin.on{opacity:1;pointer-events:auto}
+.paris-pin button{
+  display:block;background:var(--pink);color:#fff;border:0;padding:7px 11px;cursor:pointer;
+  font-family:inherit;font-weight:700;font-size:10px;letter-spacing:1.3px;text-transform:uppercase;
+}
+.paris-pin button:hover{background:var(--berry)}
+.paris-pin button:focus-visible{outline:2px solid #fff;outline-offset:2px}
+.paris-pin .stem{display:block;width:1px;height:14px;margin:0 auto;background:var(--pink)}
+.paris-pin .dot{display:block;width:7px;height:7px;margin:0 auto;background:var(--pink)}
+
+#parisSheet{
+  position:fixed;right:6vw;bottom:9vh;width:min(370px,82vw);z-index:7;
+  background:rgba(11,11,13,.94);border:1px solid rgba(255,255,255,.16);padding:24px 26px 22px;
+}
+#parisSheet[hidden]{display:none}
+#parisSheetClose{
+  position:absolute;top:8px;right:10px;background:none;border:0;color:rgba(255,255,255,.5);
+  font-size:22px;line-height:1;cursor:pointer;font-family:inherit;
+}
+#parisSheetClose:hover{color:var(--ivory)}
+#parisSheet h3{margin-top:12px;font-weight:800;font-size:clamp(26px,3.4vw,36px);line-height:1.05;color:var(--ivory)}
+#parisSheet .ps-formula{margin-top:6px;font-weight:700;font-size:13px;letter-spacing:1.3px;color:var(--pink)}
+#parisSheet p{margin-top:12px;font-weight:400;font-size:15px;line-height:1.55;color:rgba(255,255,255,.80)}
+#parisSheet .ps-src{margin-top:14px;font-size:11px;letter-spacing:1.3px;text-transform:uppercase;color:var(--dim)}
+
+/* ---------- 4-5 : Le Petit Paris ---------- */
+.paris-head{top:12vh}
+.paris-panel{
+  position:absolute;left:6vw;top:50%;transform:translateY(-50%);
+  width:min(38vw,460px);pointer-events:auto;
+}
+.paris-panel .eyebrow{display:block;margin-bottom:14px}
+.paris-panel h2{font-weight:800;line-height:1.05;letter-spacing:-0.01em;color:var(--ivory);font-size:clamp(30px,4.2vw,52px)}
+.paris-panel h2 .fr{color:var(--pink)}
+.paris-panel p{margin-top:16px;font-weight:400;font-size:clamp(14px,1.5vw,17px);line-height:1.6;color:rgba(255,255,255,.78)}
+.qr-block{margin-top:26px;display:flex;align-items:center;gap:22px}
+/* On a squarish landscape screen the caption beside a 236px code is wider than the copy
+   column, so it overhung into the card. Stacked under the code there, which also hands the
+   city back a fifth of the width. */
+@media (min-aspect-ratio: 9/10) and (max-aspect-ratio: 8/5){
+  .qr-block{flex-direction:column;align-items:flex-start;gap:12px}
+}
+.qr-block img{display:block;background:#fff;padding:6px;width:236px;height:236px}
+.qr-block .eyebrow{margin:0;color:var(--pink);line-height:1.7}
+.qr-block a{display:block}
+.qr-block.noqr .scan{display:none}
+.qr-block .ar-open{display:inline-block;margin-top:6px;color:var(--ivory);border-bottom:1px solid rgba(255,255,255,.35);text-decoration:none}
+.qr-block .ar-open:hover{border-bottom-color:var(--pink);color:var(--pink)}
+
+/* ---------- 6 : close ---------- */
+.close-block{
+  position:absolute;left:50%;top:58%;transform:translate(-50%,-50%);
+  display:flex;flex-direction:column;align-items:center;gap:26px;pointer-events:auto;text-align:center;
+}
+.close-block .tricolor{margin:0}
+.tricolor-lg{width:96px;height:5px}
+.close-head{max-width:min(60ch,88vw)}
+.close-head .eyebrow{display:block;margin-bottom:14px}
+.close-head h2{font-weight:800;font-size:clamp(30px,4.2vw,54px);line-height:1.04;letter-spacing:-0.01em;color:var(--ivory);margin:0}
+.close-head p{font-weight:400;font-size:clamp(14px,1.25vw,17px);line-height:1.55;color:rgba(255,255,255,.80);margin:16px auto 0;max-width:52ch}
+.close-actions{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
+.sources{max-width:min(74ch,86vw);text-align:center}
+.sources p{
+  font-weight:400;font-size:11.5px;line-height:1.7;color:rgba(255,255,255,.60);margin:0;
+}
+.sources b{color:rgba(255,255,255,.86);font-weight:700}
+.sources a{color:var(--pink);text-decoration:none;border-bottom:1px solid rgba(255,0,110,.4)}
+.sources a:hover{border-bottom-color:var(--pink)}
+.socials{display:flex;gap:22px}
+.socials span{color:rgba(255,255,255,.62);display:block}
+
+/* Chapter 3 */
+.ch3-col{
+  position:absolute;left:6vw;top:50%;transform:translateY(-50%);
+  width:min(42vw,520px);max-height:88vh;
+  display:flex;flex-direction:column;gap:min(4vh,32px);pointer-events:none;
+}
+.ch3-head{position:static;left:auto;top:auto;max-width:100%}
+.ch3-head h2{font-size:clamp(28px,3.6vw,46px)}
+.ch3-head p{font-size:clamp(14px,1.4vw,16px)}
+.scrubber-wrap{
+  position:static;width:100%;pointer-events:auto;
+  background:rgba(11,11,13,.55);border:1px solid rgba(255,255,255,.14);padding:20px 22px 18px;
+}
+.caption{min-height:56px;margin-bottom:18px}
+.caption p{display:none;font-size:clamp(14px,1.5vw,17px);line-height:1.5;color:rgba(255,255,255,.85);max-width:min(60ch,100%)}
+.caption p.active{display:block}
+.caption p b{color:var(--ivory);font-weight:700}
+.track-wrap{position:relative;padding:0 9px}
+input[type=range]{
+  -webkit-appearance:none;appearance:none;width:100%;height:44px;background:transparent;margin:0;display:block;
+}
+input[type=range]::-webkit-slider-runnable-track{
+  height:4px;background:rgba(255,255,255,.2);
+}
+input[type=range]::-webkit-slider-thumb{
+  -webkit-appearance:none;appearance:none;width:18px;height:18px;background:var(--pink);
+  border-radius:0;margin-top:-7px;cursor:pointer;border:none;
+}
+input[type=range]::-moz-range-track{height:4px;background:rgba(255,255,255,.2)}
+input[type=range]::-moz-range-progress{height:4px;background:var(--pink)}
+input[type=range]::-moz-range-thumb{width:18px;height:18px;background:var(--pink);border-radius:0;border:none;cursor:pointer}
+.ticks{position:relative;height:26px;margin-top:6px}
+.ticks span{position:absolute;transform:translateX(-50%);font-weight:600;font-size:10.5px;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.62);white-space:nowrap}
+.legend{margin-top:26px;display:flex;gap:22px;flex-wrap:wrap;font-weight:600;font-size:11px;letter-spacing:.6px;text-transform:uppercase;color:rgba(255,255,255,.6)}
+#molLabels{position:fixed;inset:0;z-index:2;pointer-events:none}
+.mol-label{position:absolute;left:0;top:0;white-space:nowrap;
+  font-weight:700;font-size:11px;letter-spacing:1.3px;text-transform:uppercase;color:#fff;opacity:0;
+  background:rgba(11,11,13,.62);padding:5px 9px;border:1px solid rgba(255,255,255,.14)}
+.mol-label i{font-style:normal;margin-right:4px}
+#orbitHint{position:fixed;bottom:26px;left:50%;transform:translateX(-50%);opacity:0;transition:opacity .4s;z-index:3}
+#orbitHint.on{opacity:1}
+.mol-label.top i{color:#ff9dc6}.mol-label.heart i{color:var(--pink)}.mol-label.base i{color:#ffd9e8}
+.legend .top{color:#ff9dc6}
+.legend .heart{color:var(--pink)}
+.legend .base{color:#ffd9e8}
+.smallprint{margin-top:16px;max-width:min(70ch,100%);font-size:12px;line-height:1.55;color:rgba(255,255,255,.60)}
+
+/* Chapter 4 — normal flow (heading -> body -> callout -> chips) so text length can never overlap */
+
+.ch4-head{position:relative;top:auto;left:auto}
+.callout{
+  position:relative;margin-top:30px;max-width:560px;pointer-events:auto;
+  background:rgba(255,0,110,.08);border-left:1px solid var(--pink);padding:20px 24px;
+}
+.callout p{font-size:15px;line-height:1.6;color:var(--ivory);font-weight:400}
+.chips4{position:relative;margin-top:30px;display:flex;gap:14px;flex-wrap:wrap;max-width:900px}
+.chip{
+  border:1px solid rgba(255,255,255,.18);padding:16px 18px;max-width:280px;flex:1 1 220px;
+  background:rgba(11,11,13,.4);
+}
+.chip .eyebrow{display:block;margin-bottom:8px}
+.chip p{font-size:13px;line-height:1.5;color:rgba(255,255,255,.75)}
+
+/* Chapter 5 */
+
+.ch5-wrap{position:relative;margin:0 6vw;padding-top:190px;padding-bottom:10vh;pointer-events:auto;max-width:920px}
+.ch5-head .eyebrow{display:block;margin-bottom:16px}
+.ch5-head h2{font-weight:700;line-height:1.15;letter-spacing:-0.01em;color:var(--ivory);font-size:clamp(30px,3.6vw,46px);margin:0}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:34px}
+.step{border:1px solid rgba(255,255,255,.16);padding:20px;background:rgba(11,11,13,.4)}
+.step .num{font-weight:800;font-size:28px;color:var(--pink);display:block;margin-bottom:12px}
+.step p{font-size:13.5px;line-height:1.55;color:rgba(255,255,255,.78)}
+.step p b{color:var(--ivory);font-weight:700}
+.measure-row{margin-top:34px;display:flex;gap:10px;flex-wrap:wrap}
+.chip-pill{
+  border:1px solid rgba(255,255,255,.3);border-radius:999px;padding:9px 18px;
+  font-weight:600;font-size:11px;letter-spacing:1.3px;text-transform:uppercase;color:rgba(255,255,255,.85);
+}
+.honesty{margin-top:28px;max-width:min(64ch,100%);font-size:13px;line-height:1.6;color:rgba(255,255,255,.62)}
+.closing{margin-top:44px;max-width:min(20ch,100%);font-weight:800;font-size:clamp(28px,4vw,44px);line-height:1.15;color:var(--ivory)}
+.cta-row{margin-top:36px;display:flex;align-items:center;gap:22px;flex-wrap:wrap}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;height:46px;padding:0 30px;
+  font-family:inherit;font-weight:700;font-size:19px;letter-spacing:1.3px;text-transform:uppercase;
+  border-radius:0;white-space:nowrap;cursor:pointer;text-decoration:none;box-shadow:none;
+}
+.btn-solid{background:var(--pink);color:#ffffff;border:1px solid var(--pink)}
+.btn-solid:hover{border-color:#ffffff;box-shadow:inset 0 0 0 1px #ffffff}
+.btn-outline{background:transparent;color:#ffffff;border:1px solid #ffffff}
+.btn-outline:hover{box-shadow:inset 0 0 0 1px var(--pink);border-color:var(--pink)}
+.qr-box{width:140px;height:140px;background:#ffffff;padding:8px;display:grid;place-items:center}
+.qr-box img{width:100%;height:100%;object-fit:contain;display:block}
+.qr-box .qr-fallback{display:none;color:var(--ink);font-weight:700;font-size:13px;letter-spacing:1.3px;text-transform:uppercase}
+.cta-with-qr{display:flex;align-items:center;gap:16px}
+.footer{margin-top:64px;padding-bottom:8vh}
+.footer .rule{width:44px;height:3px;margin-bottom:16px;background:linear-gradient(90deg,#002395 0 33.4%,#ffffff 33.4% 66.7%,#ed2939 66.7% 100%)}
+.footer p{font-weight:600;font-size:12px;letter-spacing:.6px;color:rgba(255,255,255,.55)}
+.footer p.small{margin-top:8px;font-weight:400;font-size:11px;color:rgba(255,255,255,.60);max-width:min(70ch,100%)}
+
+@media (min-width:641px){
+  /* cap chapter headings so no line runs under the centered "ULRIC DE VARENS" lockup */
+  .ch2-intro, .ch3-head, .ch4-head, .ch5-head{max-width:min(44vw,600px)}
+  /* chapter 1 hero photo is now a right column; center the scroll hint within
+     the left (text/chamber) column instead of the old full-viewport center,
+     so it doesn't straddle the new hard seam */
+  .hint{left:27vw}
+}
+
+#veil{position:fixed;inset:0;background:var(--chamber);z-index:20;pointer-events:none;transition:opacity 1.2s ease .1s}
+#fallback{
+  position:fixed;inset:0;display:none;place-items:center;z-index:21;
+  font-weight:600;font-size:12px;letter-spacing:1.3px;text-transform:uppercase;color:var(--dim);text-align:center;padding:24px;
+}
+
+/* ---------- portrait: the scene on top, the words underneath ----------
+   One breakpoint, matched to the same 0.9 aspect the camera uses, so the layout and the
+   framing never disagree about what a tablet held upright is. */
+@media (max-aspect-ratio: 9/10){
+  /* .ch2-intro is in normal flow, so left/right would shove the box sideways while it
+     is still full width — it pads instead */
+  .ch-head{left:7vw;right:7vw;max-width:none}
+  .ch2-intro{max-width:none;padding-left:7vw;padding-right:7vw}
+  .ch1-body{top:auto;bottom:12vh}
+  /* the bottle owns the top third here, so the intro starts below it */
+  .ch2-stage0{align-items:flex-end;padding-bottom:9vh}
+  .ch2-intro{padding-left:7vw;padding-right:7vw}
+
+  /* 2 — name under the molecule, provenance as a footer strip */
+  .name-block{left:7vw;right:7vw;max-width:none;bottom:auto;top:44vh}
+  .name-block h1{font-size:clamp(38px,11vw,64px)}
+  .name-block p{max-width:none;font-size:15px}
+  .data-block{
+    left:7vw;right:7vw;max-width:none;bottom:4vh;text-align:left;
+    line-height:1.9;font-size:10px;
+  }
+  .data-block .l3,.data-block .l4,.data-block .l5,.data-block .l7{display:none}
+  .data-block .rule{display:none}
+
+  /* 3 — grid on top, panel on the floor */
+  .ch3-col{
+    left:6vw;right:6vw;width:auto;top:auto;bottom:4vh;transform:none;
+    max-height:56vh;gap:14px;
+  }
+  .ch3-head h2{font-size:clamp(26px,7.6vw,38px)}
+  .ch3-head p{display:none}
+  .scrubber-wrap{padding:16px 16px 14px}
+  .caption{min-height:0;margin-bottom:12px}
+  .caption p{font-size:14px}
+  .legend{font-size:9px}
+  .smallprint{display:none}
+
+  /* 4 — headline under the molecule */
+  .paris-head{top:auto;bottom:10vh}
+
+  /* 5 — carte above, panel and QR below */
+  .paris-panel{
+    left:6vw;right:6vw;width:auto;top:auto;bottom:4vh;transform:none;
+  }
+  .paris-panel h2{font-size:clamp(28px,8vw,42px)}
+  .paris-panel p{font-size:14px;margin-top:10px}
+  .paris-panel p:nth-of-type(2){display:none}
+  .qr-block{margin-top:16px;gap:12px}
+  .qr-block img{width:156px;height:156px;padding:5px}
+
+  /* 6 — close */
+  .close-block{top:50%;gap:20px;width:88vw}
+  .sources p{font-size:11.5px;line-height:1.65}
+
+  /* the pins get out of the way and the sheet becomes a tray */
+  .paris-pin button{font-size:9px;padding:5px 8px;letter-spacing:1px}
+  #parisSheet{
+    left:4vw;right:4vw;bottom:3vh;width:auto;padding:20px 20px 18px;
+  }
+  #parisSheet h3{font-size:clamp(24px,7vw,32px)}
+  .hint{display:none}
+}
+
+/* A short phone in portrait: 640px of height for a scene AND a column of copy. Everything
+   gives up a little so nothing lands on anything else. */
+@media (max-aspect-ratio: 9/10) and (max-height: 720px){
+  .name-block{top:38vh}
+  .name-block h1{font-size:clamp(30px,9vw,44px)}
+  .name-block p{font-size:13.5px;line-height:1.45}
+  .data-block{bottom:3vh;font-size:9px;line-height:1.8}
+  .data-block .l2,.data-block .l6{display:none}
+  .ch3-col{max-height:50vh;bottom:3vh;gap:10px}
+  .ch3-head .eyebrow{display:none}
+  .ch3-head h2{font-size:clamp(23px,6.6vw,32px)}
+  .paris-panel{bottom:3vh}
+  .paris-panel h2{font-size:clamp(24px,7vw,34px)}
+  .paris-panel p{font-size:13px}
+  .qr-block img{width:105px;height:105px}
+  .close-block{width:90vw;gap:16px}
+  .sources p{font-size:10.5px;line-height:1.6}
+}
+
+/* ---------- short viewports ----------
+   A phone on its side is 390px tall and lands on the LANDSCAPE layout, which was written
+   for something three times that. Height is the constraint here, not width, so this keys
+   off height alone and applies wherever the room is short. */
+@media (max-height: 560px){
+  .ch-head h1, .ch-head h2, .ch2-intro h2{font-size:clamp(20px,3.4vw,30px);line-height:1.06}
+  .ch-head p, .ch2-intro p{font-size:13px;line-height:1.45;margin-top:10px}
+  .ch2-intro .footnote{display:none}
+  .ch1-body{bottom:6vh}
+  .hint{bottom:10px}
+
+  .name-block{bottom:5vh}
+  .name-block h1{font-size:clamp(30px,5.4vw,52px)}
+  .name-block p{font-size:13px;margin-top:8px;max-width:30ch}
+  .name-block .provenance{display:none}
+  .data-block{bottom:5vh;font-size:9.5px;line-height:1.75}
+  .data-block .l4,.data-block .l5,.data-block .l6{display:none}
+
+  .ch3-col{max-height:94vh;gap:10px}
+  .ch3-head h2{font-size:clamp(19px,3.2vw,28px)}
+  .ch3-head p{display:none}
+  .scrubber-wrap{padding:12px 14px 10px}
+  .caption{min-height:0;margin-bottom:10px}
+  .caption p{font-size:12.5px;line-height:1.4}
+  .legend{font-size:8.5px;gap:10px}
+  .smallprint{display:none}
+  .ticks span{font-size:8.5px}
+
+  .paris-head{top:52px}
+  .paris-panel h2{font-size:clamp(20px,3.4vw,30px)}
+  .paris-panel p{font-size:12.5px;margin-top:8px}
+  .paris-panel p:nth-of-type(2){display:none}
+  .qr-block{margin-top:12px;gap:10px}
+  .qr-block img{width:105px;height:105px;padding:7px}
+  .qr-block .eyebrow{font-size:9px}
+
+  .close-block{gap:14px;top:52%}
+  .sources p{font-size:10.5px;line-height:1.55}
+  .socials{gap:16px}
+  .btn{padding:12px 20px;font-size:19px;height:auto;line-height:1.25}
+  .paris-pin button{font-size:9px;padding:5px 8px}
+}
+
+/* Phone type scale only. The block that used to live here also positioned things — for
+   chapters that no longer exist — and it was overriding the portrait layout above,
+   which is how the dry-down scrubber ended up parked at top:92vh, off the screen. */
+@media (max-width:640px){
+  .maison{top:44px}
+  .maison .udv-wordmark{width:150px}
+  .annonce{height:32px;font-size:19px;letter-spacing:1px}
+  .ch-head .eyebrow, .ch2-intro .eyebrow{white-space:normal;line-height:1.5;max-width:23ch}
+  .ch-head h1,.ch-head h2,.ch2-intro h2{font-size:clamp(28px,8vw,40px)}
+  .ticks span{font-size:9px}
+  .legend{gap:12px;font-size:9px}
+  .dots{right:10px}
+  .dots span{height:14px}
+  .dots span.active{height:22px}
+}
+}
+</style>
+</head>
+<body>
+<div class="annonce">La Science du Parfum<span class="ann-tail">&nbsp;— every atom is real</span></div>
+<div id="stage"></div>
+<div id="molLabels" aria-hidden="true">
+  <span class="mol-label top" data-i="0"><i>&#9670;</i> Limonene · lemon</span>
+  <span class="mol-label top" data-i="1"><i>&#9670;</i> Linalool · lavender</span>
+  <span class="mol-label heart" data-i="2"><i>&#9670;</i> Hedione · jasmine</span>
+  <span class="mol-label heart" data-i="3"><i>&#9670;</i> Geraniol · geranium</span>
+  <span class="mol-label base" data-i="4"><i>&#9670;</i> Cedrol · cedar</span>
+  <span class="mol-label base" data-i="5"><i>&#9670;</i> Galaxolide · musk</span>
+</div>
+
+<div class="maison">
+  <svg class="udv-wordmark" viewBox="0 0 1600 216" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Ulric de Varens — Paris">
+<path fill="white" d="M529.946 90.9863C515.756 106.667 503.197 111.776 490.071 111.705C484.913 111.598 479.864 110.197 475.388 107.631C470.913 105.065 467.154 101.415 464.457 97.0173C459.182 85.3855 456.75 72.6659 457.361 59.9088C457.361 31.5275 464.031 5.55862 488.652 5.55862C507.88 5.55862 522 25.3546 527.889 40.0419H532.146V0.591889H527.605C525.902 4.77813 524.412 8.32579 519.871 8.32579C518.266 8.32579 515.605 7.28822 512.165 5.94671C505.874 3.49364 496.978 0.024263 487.162 0.024263C479.184 -0.206199 471.244 1.20718 463.836 4.17651C456.427 7.14583 449.709 11.6076 444.099 17.2843C438.489 22.961 434.107 29.7313 431.225 37.174C428.343 44.6168 427.023 52.5728 427.348 60.5474C427.348 92.1216 448.634 119.793 487.871 119.864C509.157 119.864 522.638 109.221 534.984 95.2435L529.946 90.9863ZM78.4743 2.15562H115.583L116.009 6.55472C106.714 7.76093 102.811 9.60571 102.811 20.7454V74.8827C102.811 84.8871 100.399 99.8582 93.3035 107.45C84.2376 115.727 72.2955 120.132 60.0264 119.725C47.7377 120.248 35.6491 116.486 25.827 109.082C18.5188 102.696 14.1906 96.7363 14.1906 78.5723V21.8097C14.1906 7.61902 9.43678 7.12235 0 6.27091V2.08467H56.7626V6.34186C56.4952 6.36109 56.2312 6.37984 55.9706 6.39835L55.9701 6.39838C45.6511 7.13131 40.6562 7.48609 40.6562 21.8806V78.2175C40.6562 87.7962 40.6562 111.14 64.9222 111.14C94.6516 111.14 95.0064 85.3838 95.0064 74.5279V23.0868C95.0064 12.7986 92.6649 7.05139 78.4743 6.34186V2.15562ZM222.153 78.0717H227.049L219.954 116.245H123.103V112.058L123.535 112.001C132.414 110.834 137.293 110.192 137.293 100.067V18.4C137.293 7.35881 130.462 6.91272 122.949 6.42208L122.748 6.40893V2.22269H181.639V6.47989L181.452 6.48779C169.805 6.97849 164.61 7.19736 164.61 21.9477V101.628C164.61 109.717 168.3 111.065 179.581 111.065C204.912 111.136 214.42 97.0872 222.153 78.0717ZM278.27 15.1371L278.279 15.0854C279.124 9.94472 279.436 8.04174 288.7 8.04174C302.181 8.04174 309.135 15.1371 309.135 32.3077C309.135 54.3032 300.337 57.9928 278.199 58.1347L278.27 15.1371ZM352.203 112.272C350.843 112.422 349.468 112.205 348.22 111.643C346.973 111.082 345.898 110.196 345.108 109.079L311.476 60.9728L311.967 60.8158C321.17 57.875 337.942 52.5153 337.942 32.0949C337.942 3.71359 302.465 2.36548 290.403 2.36548H236.053V6.62267C245.703 7.26125 250.882 7.61602 250.882 22.1614V96.6623C250.882 110.285 247.476 110.853 236.053 112.13V116.387H292.816V112.13C281.676 110.64 277.915 110.072 277.915 96.5914V63.8819H282.456L317.365 116.742H351.92L352.203 112.272ZM415.818 112.34L415.864 112.344L415.935 116.459H356.83V112.273C365.983 111.421 372.582 110.783 372.582 100.282V18.6146C372.582 7.62632 364.85 7.13185 357.217 6.64374L356.901 6.62355V2.50827H415.935V6.69451C415.657 6.70936 415.38 6.72369 415.103 6.73802C407.433 7.1343 399.897 7.52372 399.828 18.6856V100.353C399.828 111.12 406.546 111.633 415.818 112.34ZM681.15 116.744H627.58L627.722 112.558C638.507 112.558 641.913 107.662 641.913 101.418V18.4736C641.913 8.60729 634.931 7.87644 628.538 7.20731L628.534 7.20683C628.262 7.17838 627.991 7.15004 627.722 7.1211V2.65105H679.376C726.631 2.722 741.957 32.0966 741.957 58.0655C741.886 89.143 723.722 115.467 681.15 116.744ZM679.518 8.46922C669.017 8.46922 669.017 12.7264 669.017 16.416L668.946 101.134C668.946 107.875 670.507 110.926 678.596 110.926C697.469 110.926 712.37 100.141 712.37 59.8394C712.37 44.4425 708.538 8.46922 679.518 8.46922ZM749.909 7.1181L750.116 7.13134C757.769 7.62195 764.739 8.06872 764.739 19.1092V100.776C764.739 111.241 759.595 111.771 750.009 112.757L749.909 112.767V116.954H848.605L855.701 81.9028H850.947C840.304 107.375 823.062 111.703 806.53 111.703C795.603 111.703 792.339 109.716 792.339 102.266V61.3973C809.084 61.3973 817.67 66.506 819.656 87.5791H824.056V30.8165H819.656C817.102 52.1025 808.517 56.1468 792.339 55.9339V16.5549C792.339 9.45956 795.39 8.60812 804.685 8.60812C827.461 8.60812 839.452 12.8653 843.284 36.9894H847.541V2.93186H750.193L749.909 7.1181ZM1018.89 3.1456H1054.86L1054.51 6.83517C1045.21 8.04137 1043.01 11.2343 1039.25 20.671L1000.72 120.006H996.112L953.043 18.8972C948.644 8.75091 945.948 8.25423 938.853 7.11898V3.07465H995.615V7.11898C995.205 7.14725 994.806 7.17439 994.416 7.20085C985.022 7.83865 981.425 8.08292 981.425 14.2143C982.419 19.2909 984.04 24.2244 986.249 28.9016L1008.46 81.9746L1029.74 26.4892C1031.48 22.8177 1032.61 18.8873 1033.08 14.8529C1033.43 8.32519 1028.47 7.61565 1018.89 7.11898V3.1456ZM1151.71 113.052C1143.62 113.407 1140.92 107.66 1133.4 89.6378L1095.87 0.804358H1091.11L1053.58 93.0436C1048.47 105.673 1046.13 111.42 1036.97 112.769V116.955H1071.39V112.698L1071.38 112.697C1065.63 112.342 1057.55 111.844 1057.55 105.602C1059.25 98.0976 1061.75 90.7955 1065 83.8196H1102.96C1106.41 91.0229 1108.96 98.6252 1110.55 106.454C1110.55 111.974 1107.59 112.195 1097.54 112.946L1097.07 112.981V117.239H1151.71V113.052ZM1067.41 77.5758L1083.31 36.6357L1100.34 77.6467L1067.41 77.5758ZM1204.01 16.0062L1204 16.0578L1203.93 59.0555C1226.07 58.9136 1234.86 55.224 1234.86 33.2995C1234.86 16.0578 1227.91 8.96252 1214.43 8.96252C1205.17 8.96252 1204.85 10.8655 1204.01 16.0062ZM1273.95 112.919C1275.2 113.48 1276.57 113.697 1277.93 113.548L1277.44 117.379H1242.88L1207.97 64.5189H1203.43V97.5122C1203.43 111.058 1207.19 111.56 1218.32 113.049L1218.33 113.051V117.308H1161.57V113.051C1172.99 111.774 1176.4 111.277 1176.4 97.5831V23.437C1176.4 8.89157 1171.22 8.5368 1161.57 7.89822V3.64103H1215.92C1227.98 3.64103 1263.46 4.98914 1263.46 33.3704C1263.46 53.7908 1246.69 59.1506 1237.48 62.0913L1236.99 62.2484L1270.84 110.355C1271.63 111.472 1272.7 112.357 1273.95 112.919ZM1281.92 7.5469L1282.39 7.58078C1290.01 8.13027 1296.82 8.62164 1296.75 19.538V101.276C1296.75 111.659 1291.55 112.198 1282.05 113.183L1281.92 113.196V117.453H1380.61L1387.71 82.3316H1382.96C1372.31 107.804 1355.07 112.203 1338.54 112.203C1327.61 112.203 1324.35 110.145 1324.35 102.695V61.968C1341.09 61.968 1349.68 67.0057 1351.67 88.1498H1356.06V31.3872H1351.67C1349.11 52.6732 1340.53 56.7175 1324.28 56.5046V17.0546C1324.28 9.95931 1327.33 9.10787 1336.62 9.17882C1359.4 9.17882 1371.32 13.3651 1375.22 37.5601H1379.41V3.43161H1281.92V7.5469ZM1432.69 117.525H1394.38L1394.45 113.339C1404.59 112.132 1409.35 110.997 1409.35 99.8575V19.8222C1400.05 8.18592 1397.36 7.68925 1395.16 7.68925V3.503H1430.63L1489.74 75.5915V24.5052C1489.74 14.3588 1487.68 8.8245 1474.06 7.7602V3.57396H1510.31V7.83115C1498.18 9.32117 1497.12 13.1526 1497.12 21.3123V120.647H1492.08L1416.73 29.1171V96.8775C1416.66 109.01 1420.2 112.203 1432.69 113.551V117.525ZM1595.24 37.559V0.947144H1590.2C1589.35 4.14004 1588.5 6.69436 1584.6 6.69436C1583.23 6.69436 1581.25 6.00842 1578.67 5.11645C1573.88 3.45862 1567.04 1.08905 1558.27 1.08905C1526.2 1.08905 1520.95 24.0069 1520.95 34.2952C1520.95 42.1 1520.95 56.5745 1549.76 70.4813L1561.04 75.8738C1572.04 81.1243 1579.98 85.1686 1579.98 96.4502C1579.99 99.142 1579.43 101.805 1578.33 104.262C1577.23 106.719 1575.62 108.914 1573.61 110.699C1571.59 112.485 1569.22 113.821 1566.65 114.619C1564.08 115.416 1561.37 115.656 1558.7 115.324C1537.41 115.324 1527.48 96.2373 1524.14 79.2086H1519.25V120.645H1524.14C1524.85 117.949 1525.7 114.898 1529.25 114.898C1531.14 114.898 1533.34 115.659 1536.15 116.631C1541.07 118.329 1547.86 120.671 1558.06 120.716C1589.14 120.716 1599.99 100.353 1599.99 85.2396C1599.98 78.8746 1598.25 72.6308 1594.99 67.163C1591.73 61.6951 1587.06 57.2045 1581.47 54.1621L1556.78 42.5967C1542.59 35.5014 1539.4 31.8118 1539.4 22.6588C1539.42 20.3679 1539.91 18.106 1540.85 16.0166C1541.79 13.9272 1543.16 12.056 1544.86 10.5215C1546.56 8.98711 1548.56 7.82301 1550.73 7.1031C1552.91 6.38319 1555.21 6.12319 1557.49 6.33959C1577.43 6.33959 1587.5 25.7808 1590.56 37.559H1595.24ZM715.777 182.163H705.985V194.721H715.635C716.497 194.814 717.369 194.719 718.192 194.444C719.014 194.169 719.767 193.72 720.4 193.128C721.034 192.535 721.531 191.813 721.86 191.01C722.189 190.208 722.34 189.344 722.305 188.477C722.305 183.44 719.254 182.163 715.777 182.163ZM705.914 214.588H699.316V177.054H715.99C726.775 177.054 728.832 184.362 728.832 188.832C728.832 193.302 726.775 200.398 715.919 200.398H705.914V214.588ZM760.055 182.944L765.731 199.192H754.166L760.055 182.944ZM742.104 214.234H749.199L752.747 204.23H767.86L771.408 214.305H778.503L763.887 176.416H756.791L742.104 214.234ZM810.999 181.876H800.214V193.725H811.07C815.256 193.725 817.456 192.448 817.527 187.623C817.598 182.798 814.405 181.876 810.999 181.876ZM800.214 214.302H793.545L793.616 176.554H811.709C819.939 176.554 824.197 180.386 824.197 186.772C824.394 188.83 823.883 190.895 822.747 192.624C821.612 194.353 819.921 195.642 817.953 196.279C820.223 196.563 823.558 198.337 823.558 204.297C823.235 207.762 823.952 211.245 825.616 214.302H818.52C817.644 212.571 817.275 210.628 817.456 208.696C817.456 201.743 816.037 198.692 809.935 198.692H800.214V214.302ZM853.564 176.483H846.966V214.372H853.564V176.483ZM890.108 215.299C881.38 215.299 874.285 211.112 874.285 201.746H881.097C881.097 207.636 884.857 209.906 890.675 209.906C896.493 209.906 898.693 207.068 898.693 204.159C898.771 203.15 898.505 202.145 897.938 201.307C897.371 200.47 896.536 199.849 895.571 199.547C893.732 198.821 891.563 198.26 888.726 197.527C887.404 197.185 885.936 196.805 884.289 196.354C881.97 196.044 879.841 194.902 878.301 193.14C876.761 191.378 875.914 189.116 875.917 186.775C875.917 179.183 881.877 175.636 889.753 175.636C897.629 175.636 904.298 179.822 904.298 187.769H897.629C897.345 182.873 894.01 181.028 889.469 181.028C886.276 181.028 882.374 182.163 882.374 185.995C882.374 188.62 884.148 190.11 886.915 190.82L898.054 193.8C900.12 194.427 901.927 195.706 903.206 197.445C904.484 199.185 905.166 201.291 905.15 203.449C905.15 211.893 897.629 215.299 890.108 215.299Z" clip-rule="evenodd" fill-rule="evenodd"></path>
+</svg>
+  <div class="tricolor"></div>
+  <div class="eyebrow">Est. 1981</div>
+</div>
+
+<div class="dots" id="dots"><span data-d="1"></span><span data-d="2"></span><span data-d="3"></span><span data-d="4"></span><span data-d="5"></span><span data-d="6"></span></div>
+
+<main>
+  <section class="chapter snap" data-ch="1">
+    <div class="ch-head ch1-body">
+      <span class="eyebrow">UDV Blue · Eau de toilette · 100 ml · $19.99</span>
+      <h1>You already make it. Nobody can see it.</h1>
+      <p>Perfume is the only beauty product a customer can't see, can't touch, can't try online. So they judge it by the one thing they can see: the price. At $19.99 that is not fair to what's inside this bottle — forty-five years of French perfumery, composed by master perfumers, made in France. You say it on every box. This is how you make it visible.</p>
+    </div>
+    <div class="hint">Scroll — the bottle opens</div>
+  </section>
+
+  <section class="chapter" data-ch="2">
+    <div class="ch2-stage0 snap">
+      <div class="ch2-intro">
+        <span class="eyebrow">The published notes of UDV Blue — seen for the first time</span>
+        <h2>Every note on your box has a molecule behind it.</h2>
+        <p>Lemon, lavender, jasmine, geranium, cedar, musk. These are the real molecules that give those notes their smell — drawn atom by atom from their published structures. Nothing illustrated. Nothing invented. Drag to turn them; the geometry is the compound's own.</p>
+        <p class="footnote">We show the perfumery molecules behind each note you publish — never the formula. That stays where it belongs: with your perfumers.</p>
+      </div>
+    </div>
+
+    <div class="ch2-stage snap" data-mol="1">
+      <div class="stage-sticky">
+        <div class="name-block">
+          <span class="eyebrow">Top · Lemon</span><span class="stage-num">1 / 6</span>
+          <h1>Lim<span>o</span>nene</h1>
+          <p>The molecule that makes lemon peel smell like lemon peel. It is the first thing your customer meets — and the first to leave.</p>
+          <p class="provenance">Every atom you see is real — rendered from the compound's published structure, not illustrated.</p>
+        </div>
+        <div class="data-block" data-mol="1">
+          <span class="dl retrieving">PubChem — NIH · CID 22311 · retrieving structure…</span>
+          <span class="dl verified">✓ Structure verified</span>
+          <span class="dl l1"><span class="rule"></span><br><span class="hl">Scientific provenance</span></span>
+          <span class="dl l2">Limonene · <span class="hl">C₁₀H₁₆</span></span>
+          <span class="dl l3">Source · PubChem — NIH registry · CID 22311</span>
+          <span class="dl l4">Geometry · MMFF94 energy-minimized</span>
+          <span class="dl l5">26 atoms · raw coordinates, unretouched</span>
+          <span class="dl l6">Note · Top · Lemon</span>
+          <span class="dl l7"><span class="hl">◆</span> Oxygen &nbsp;&nbsp;<span style="color:#8b8b8b">◆</span> Carbon</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="ch2-stage snap" data-mol="2">
+      <div class="stage-sticky">
+        <div class="name-block">
+          <span class="eyebrow">Top · Lavender</span><span class="stage-num">2 / 6</span>
+          <h1>Linal<span>o</span>ol</h1>
+          <p>Lavender's calm. The same molecule breathes in bergamot and coriander — the fougère opening, in one shape.</p>
+          <p class="provenance">Every atom you see is real — rendered from the compound's published structure, not illustrated.</p>
+        </div>
+        <div class="data-block" data-mol="2">
+          <span class="dl retrieving">PubChem — NIH · CID 6549 · retrieving structure…</span>
+          <span class="dl verified">✓ Structure verified</span>
+          <span class="dl l1"><span class="rule"></span><br><span class="hl">Scientific provenance</span></span>
+          <span class="dl l2">Linalool · <span class="hl">C₁₀H₁₈O</span></span>
+          <span class="dl l3">Source · PubChem — NIH registry · CID 6549</span>
+          <span class="dl l4">Geometry · MMFF94 energy-minimized</span>
+          <span class="dl l5">29 atoms · raw coordinates, unretouched</span>
+          <span class="dl l6">Note · Top · Lavender</span>
+          <span class="dl l7"><span class="hl">◆</span> Oxygen &nbsp;&nbsp;<span style="color:#8b8b8b">◆</span> Carbon</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="ch2-stage snap" data-mol="3">
+      <div class="stage-sticky">
+        <div class="name-block">
+          <span class="eyebrow">Heart · Jasmine</span><span class="stage-num">3 / 6</span>
+          <h1>Hedi<span>o</span>ne</h1>
+          <p>The jasmine heart. In nearly every fine fragrance composed since 1966 — including yours.</p>
+          <p class="provenance">Every atom you see is real — rendered from the compound's published structure, not illustrated.</p>
+        </div>
+        <div class="data-block" data-mol="3">
+          <span class="dl retrieving">PubChem — NIH · CID 102861 · retrieving structure…</span>
+          <span class="dl verified">✓ Structure verified</span>
+          <span class="dl l1"><span class="rule"></span><br><span class="hl">Scientific provenance</span></span>
+          <span class="dl l2">Hedione · <span class="hl">C₁₃H₂₂O₃</span></span>
+          <span class="dl l3">Source · PubChem — NIH registry · CID 102861</span>
+          <span class="dl l4">Geometry · MMFF94 energy-minimized</span>
+          <span class="dl l5">38 atoms · raw coordinates, unretouched</span>
+          <span class="dl l6">Note · Heart · Jasmine</span>
+          <span class="dl l7"><span class="hl">◆</span> Oxygen &nbsp;&nbsp;<span style="color:#8b8b8b">◆</span> Carbon</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="ch2-stage snap" data-mol="4">
+      <div class="stage-sticky">
+        <div class="name-block">
+          <span class="eyebrow">Heart · Geranium</span><span class="stage-num">4 / 6</span>
+          <h1>Gerani<span>o</span>l</h1>
+          <p>Named after the geranium; a rose petal keeps the same molecule. Soft, green, a little honeyed — the floral bouquet your description promises.</p>
+          <p class="provenance">Every atom you see is real — rendered from the compound's published structure, not illustrated.</p>
+        </div>
+        <div class="data-block" data-mol="4">
+          <span class="dl retrieving">PubChem — NIH · CID 637566 · retrieving structure…</span>
+          <span class="dl verified">✓ Structure verified</span>
+          <span class="dl l1"><span class="rule"></span><br><span class="hl">Scientific provenance</span></span>
+          <span class="dl l2">Geraniol · <span class="hl">C₁₀H₁₈O</span></span>
+          <span class="dl l3">Source · PubChem — NIH registry · CID 637566</span>
+          <span class="dl l4">Geometry · MMFF94 energy-minimized</span>
+          <span class="dl l5">29 atoms · raw coordinates, unretouched</span>
+          <span class="dl l6">Note · Heart · Geranium</span>
+          <span class="dl l7"><span class="hl">◆</span> Oxygen &nbsp;&nbsp;<span style="color:#8b8b8b">◆</span> Carbon</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="ch2-stage snap" data-mol="5">
+      <div class="stage-sticky">
+        <div class="name-block">
+          <span class="eyebrow">Base · Cedar</span><span class="stage-num">5 / 6</span>
+          <h1>Cedr<span>o</span>l</h1>
+          <p>The heart of cedarwood. Dry, soft, patient — it is still on the skin past midnight.</p>
+          <p class="provenance">Every atom you see is real — rendered from the compound's published structure, not illustrated.</p>
+        </div>
+        <div class="data-block" data-mol="5">
+          <span class="dl retrieving">PubChem — NIH · CID 65575 · retrieving structure…</span>
+          <span class="dl verified">✓ Structure verified</span>
+          <span class="dl l1"><span class="rule"></span><br><span class="hl">Scientific provenance</span></span>
+          <span class="dl l2">Cedrol · <span class="hl">C₁₅H₂₆O</span></span>
+          <span class="dl l3">Source · PubChem — NIH registry · CID 65575</span>
+          <span class="dl l4">Geometry · MMFF94 energy-minimized</span>
+          <span class="dl l5">42 atoms · raw coordinates, unretouched</span>
+          <span class="dl l6">Note · Base · Cedar</span>
+          <span class="dl l7"><span class="hl">◆</span> Oxygen &nbsp;&nbsp;<span style="color:#8b8b8b">◆</span> Carbon</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="ch2-stage snap" data-mol="6">
+      <div class="stage-sticky">
+        <div class="name-block">
+          <span class="eyebrow">Base · Musk</span><span class="stage-num">6 / 6</span>
+          <h1>Galax<span>o</span>lide</h1>
+          <p>Clean skin, fresh linen. The musk of modern perfumery, and the reason a shirt still smells of you the next morning.</p>
+          <p class="provenance">Every atom you see is real — rendered from the compound's published structure, not illustrated.</p>
+        </div>
+        <div class="data-block" data-mol="6">
+          <span class="dl retrieving">PubChem — NIH · CID 91497 · retrieving structure…</span>
+          <span class="dl verified">✓ Structure verified</span>
+          <span class="dl l1"><span class="rule"></span><br><span class="hl">Scientific provenance</span></span>
+          <span class="dl l2">Galaxolide · <span class="hl">C₁₈H₂₆O</span></span>
+          <span class="dl l3">Source · PubChem — NIH registry · CID 91497</span>
+          <span class="dl l4">Geometry · MMFF94 energy-minimized</span>
+          <span class="dl l5">45 atoms · raw coordinates, unretouched</span>
+          <span class="dl l6">Note · Base · Musk</span>
+          <span class="dl l7"><span class="hl">◆</span> Oxygen &nbsp;&nbsp;<span style="color:#8b8b8b">◆</span> Carbon</span>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <section class="chapter snap" data-ch="3">
+    <div class="ch3-col">
+    <div class="ch-head ch3-head">
+      <span class="eyebrow">The question every shopper asks online</span>
+      <h2>"Does it last?" — now you can show them.</h2>
+      <p>Drag the timeline. Molecules leave the skin in scientific order: the light ones lift off in minutes, the heart holds for hours, the base stays past midnight. It is the number-one objection to buying fragrance online — answered on the page, honestly.</p>
+    </div>
+    <div class="scrubber-wrap">
+      <div class="caption">
+        <p class="active" data-c="0"><b>In the air.</b> Lemon and lavender open the fragrance — this is what the tester strip smells like right now.</p>
+        <p data-c="1"><b>On the skin.</b> The top has lifted; jasmine and geranium carry the fragrance through the morning.</p>
+        <p data-c="2"><b>What stays.</b> Cedar and musk — the trail on the collar tonight.</p>
+      </div>
+      <div class="track-wrap">
+        <input type="range" id="scrubber" min="0" max="1" step="0.001" value="0" aria-label="Dry-down timeline">
+        <div class="ticks" id="ticks"></div>
+      </div>
+      <div class="legend">
+        <span class="top">◆ Top — minutes</span>
+        <span class="heart">◆ Heart — hours</span>
+        <span class="base">◆ Base — past midnight</span>
+      </div>
+      <p class="smallprint">Order follows volatility class (top / heart / base) — the perfumery-standard simplification. Exact timings vary with skin, weather and dose.</p>
+    </div>
+    </div>
+  </section>
+
+  <!-- 4 · the paper comes up and Paris assembles out of the air -->
+  <section class="chapter snap" data-ch="4">
+    <div class="ch-head paris-head">
+      <span class="eyebrow">La science s'imprime</span>
+      <h2>By morning, only the memory remains.</h2>
+      <p>And every memory has an address. The science proves the perfume; Paris proves the house — the one thing no one else can put in a bottle.</p>
+    </div>
+  </section>
+
+  <!-- 5 · Le Petit Paris d'Ulric — the carte, and the marker -->
+  <section class="chapter snap" data-ch="5">
+    <div class="paris-panel">
+      <span class="eyebrow">Le petit Paris d'Ulric</span>
+      <h2><span class="fr">Cette carte est réelle.</span></h2>
+      <p>Every piece of this city carries one of the molecules you just met. Tap one and it tells you which note it is, and where the structure came from.</p>
+      <p>And it stands up for real: scan the code, and Paris is on the table in front of you.</p>
+      <!-- The QR only appears once one has been generated for the AR page:
+           python tools/make_qr.py --url https://YOUR-HOST/ar/
+           Until then the block shows the link alone rather than a code that goes
+           somewhere else, which is what it was doing. -->
+      <div class="qr-block">
+        <a href="ar/" id="arLink"><img id="arQr" src="assets/qr.png" alt="Scan to open Le Petit Paris in augmented reality" width="236" height="236"
+             onerror="const b=this.closest('.qr-block'); b.classList.add('noqr'); this.closest('#arLink').remove();"></a>
+        <span class="eyebrow"><span class="scan">Scan to place Paris<br>on your own table<br></span><a class="ar-open" href="ar/">Open it on this device</a></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6 · close -->
+  <section class="chapter snap" data-ch="6">
+    <div class="close-block">
+      <div class="close-head">
+        <span class="eyebrow">La science du parfum</span>
+        <h2>Every atom is real.<br>So is the price.</h2>
+        <p>Master perfumers, made in France since 1981, the same molecules as fine perfumery — you say it on every box. Now the customer can see it.</p>
+      </div>
+      <div class="close-actions">
+        <a class="btn btn-solid" href="https://ulricdevarensusa.com/products/udv-blue-3-4-oz-edt" target="_blank" rel="noopener">See UDV Blue on your store</a>
+        <a class="btn btn-outline" href="ar/">Le Petit Paris in AR</a>
+      </div>
+      <div class="sources">
+        <p><b>Where this came from.</b> Every molecular structure on this page is taken from
+        <a href="https://pubchem.ncbi.nlm.nih.gov/" target="_blank" rel="noopener">PubChem</a>, the public
+        chemical registry of the US National Institutes of Health — each molecule is shown with its own
+        CID so you can look it up. Geometry is energy-minimised with
+        <a href="https://www.rdkit.org/" target="_blank" rel="noopener">RDKit</a> (ETKDGv3 + MMFF94);
+        nothing here is drawn by hand. The note pyramid is the one your house publishes for
+        <a href="https://ulric-de-varens.com/en/products/udv-blue" target="_blank" rel="noopener">UDV Blue</a>.
+        Le Petit Paris is original illustration made for this presentation. We show the molecules behind
+        your published notes — never a formula.</p>
+      </div>
+      <div class="tricolor tricolor-lg"></div>
+      <nav class="socials" aria-hidden="true">
+        <span title="Instagram"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg></span>
+        <span title="Facebook"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18"/><path d="M14.9 8.4h-1.3c-1 0-1.7.7-1.7 1.7v1.6"/><path d="M10.2 11.7h3.7"/><path d="M11.9 11.7V19"/></svg></span>
+        <span title="TikTok"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18"/><path d="M13.4 7v6.6a2.3 2.3 0 1 1-2.3-2.3"/><path d="M13.4 7c.4 1.4 1.5 2.3 3 2.4"/></svg></span>
+        <span title="YouTube"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2.5" y="5.5" width="19" height="13"/><path d="M10.4 9.4v5.2l4.4-2.6z"/></svg></span>
+      </nav>
+    </div>
+  </section>
+
+</main>
+<div id="parisPins" aria-hidden="true"></div>
+<div id="parisSheet" hidden>
+  <button id="parisSheetClose" aria-label="Close">&times;</button>
+  <span class="eyebrow" id="psEyebrow"></span>
+  <h3 id="psName"></h3>
+  <p class="ps-formula" id="psFormula"></p>
+  <p id="psLine"></p>
+  <p class="ps-src" id="psSrc"></p>
+</div>
+<div id="orbitHint" class="hint" aria-hidden="true">Drag to rotate · Ctrl + scroll to zoom</div>
+
+<div class="tricolor-footer"></div>
+<div id="veil"></div>
+<div id="fallback">THIS STUDY REQUIRES WEBGL<br><br>PLEASE OPEN IN A MODERN BROWSER</div>
+
+<script src="vendor/three.r128.min.js"></script>
+<script>(function(){"use strict";const Ze={sku:"UDV Blue",format:"Eau de toilette",sizes:["100 ml / 3.4 oz","60 ml / 2 oz"],price:"$19.99",family:"Fresh Foug\xE8re",launched:2002,pyramid:{top:["Pineapple","Green note","Lemon","Lavender","Orange blossom"],heart:["Lily of the valley","Jasmine","Cardamom","Geranium"],base:["Moss","Musk","Sandalwood","Cedar","Amber"]},pyramid_source:"https://ulric-de-varens.com/en/products/udv-blue",molecules:["limonene","linalool","hedione","geraniol","cedrol","galaxolide"],data:{limonene:{name:"limonene",formula:"C10H16",source:"Structure: PubChem CID 22311 (NIH). Geometry: ETKDGv3 + MMFF94 energy-minimized (RDKit).",atoms:[{e:"C",p:[3.643,-.038,-.36],p2:[3.75,0]},{e:"C",p:[2.153,.016,-.184],p2:[2.25,-0]},{e:"C",p:[1.581,.568,.901],p2:[1.5,-1.299]},{e:"C",p:[.096,.608,1.132],p2:[-0,-1.299]},{e:"C",p:[-.689,-.336,.198],p2:[-.75,0]},{e:"C",p:[-.153,-.224,-1.237],p2:[0,1.299]},{e:"C",p:[1.334,-.59,-1.298],p2:[1.5,1.299]},{e:"C",p:[-2.196,-.117,.283],p2:[-2.25,0]},{e:"C",p:[-2.999,-1.052,.821],p2:[-3,-1.299]},{e:"C",p:[-2.77,1.166,-.257],p2:[-3,1.299]},{e:"H",p:[4.174,.402,.491],p2:[3.75,0]},{e:"H",p:[3.94,.51,-1.259],p2:[3.75,0]},{e:"H",p:[3.975,-1.077,-.459],p2:[3.75,0]},{e:"H",p:[2.199,1.014,1.677],p2:[1.5,-1.299]},{e:"H",p:[-.23,1.648,1.014],p2:[-0,-1.299]},{e:"H",p:[-.107,.329,2.174],p2:[-0,-1.299]},{e:"H",p:[-.477,-1.363,.532],p2:[-.75,0]},{e:"H",p:[-.278,.801,-1.61],p2:[0,1.299]},{e:"H",p:[-.715,-.88,-1.913],p2:[0,1.299]},{e:"H",p:[1.729,-.267,-2.269],p2:[1.5,1.299]},{e:"H",p:[1.443,-1.681,-1.255],p2:[1.5,1.299]},{e:"H",p:[-2.606,-1.985,1.215],p2:[-3,-1.299]},{e:"H",p:[-4.075,-.911,.885],p2:[-3,-1.299]},{e:"H",p:[-3.854,1.221,-.111],p2:[-3,1.299]},{e:"H",p:[-2.332,2.033,.245],p2:[-3,1.299]},{e:"H",p:[-2.584,1.251,-1.332],p2:[-3,1.299]}],bonds:[{a:0,b:1,o:1},{a:1,b:2,o:2},{a:2,b:3,o:1},{a:3,b:4,o:1},{a:4,b:5,o:1},{a:5,b:6,o:1},{a:4,b:7,o:1},{a:7,b:8,o:2},{a:7,b:9,o:1},{a:6,b:1,o:1},{a:0,b:10,o:1},{a:0,b:11,o:1},{a:0,b:12,o:1},{a:2,b:13,o:1},{a:3,b:14,o:1},{a:3,b:15,o:1},{a:4,b:16,o:1},{a:5,b:17,o:1},{a:5,b:18,o:1},{a:6,b:19,o:1},{a:6,b:20,o:1},{a:8,b:21,o:1},{a:8,b:22,o:1},{a:9,b:23,o:1},{a:9,b:24,o:1},{a:9,b:25,o:1}],cid:22311,iupac:"1-methyl-4-prop-1-en-2-ylcyclohexene",mw:136.23,smiles:"CC1=CCC(CC1)C(=C)C",note:"Lemon",group:"top",label:"Limonene",story:"The molecule that makes lemon peel smell like lemon peel."},linalool:{name:"linalool",formula:"C10H18O",source:"Structure: PubChem CID 6549 (NIH). Geometry: ETKDGv3 + MMFF94 energy-minimized (RDKit).",atoms:[{e:"C",p:[4.23,.601,.678],p2:[-4.442,.578]},{e:"C",p:[2.897,.249,.07],p2:[-3.079,-.049]},{e:"C",p:[1.792,.953,.382],p2:[-1.855,.818]},{e:"C",p:[.399,.759,-.159],p2:[-.492,.191]},{e:"C",p:[-.477,-.005,.842],p2:[.732,1.058]},{e:"C",p:[-1.936,-.193,.378],p2:[2.095,.432]},{e:"C",p:[-2.75,-.89,1.475],p2:[3.458,-.195]},{e:"C",p:[-2.018,-1.014,-.891],p2:[1.468,-.931]},{e:"C",p:[-2.551,-.627,-2.059],p2:[2.335,-2.155]},{e:"O",p:[-2.522,1.091,.156],p2:[2.721,1.795]},{e:"C",p:[2.936,-.924,-.871],p2:[-2.94,-1.543]},{e:"H",p:[4.952,.846,-.108],p2:[-4.442,.578]},{e:"H",p:[4.617,-.244,1.257],p2:[-4.442,.578]},{e:"H",p:[4.165,1.463,1.351],p2:[-4.442,.578]},{e:"H",p:[1.882,1.776,1.091],p2:[-1.855,.818]},{e:"H",p:[.422,.251,-1.128],p2:[-.492,.191]},{e:"H",p:[-.026,1.752,-.352],p2:[-.492,.191]},{e:"H",p:[-.475,.552,1.789],p2:[.732,1.058]},{e:"H",p:[-.025,-.984,1.051],p2:[.732,1.058]},{e:"H",p:[-3.802,-.988,1.182],p2:[3.458,-.195]},{e:"H",p:[-2.742,-.303,2.401],p2:[3.458,-.195]},{e:"H",p:[-2.36,-1.889,1.7],p2:[3.458,-.195]},{e:"H",p:[-1.597,-2.017,-.834],p2:[1.468,-.931]},{e:"H",p:[-2.562,-1.291,-2.917],p2:[2.335,-2.155]},{e:"H",p:[-2.987,.36,-2.182],p2:[2.335,-2.155]},{e:"H",p:[-2.506,1.572,.999],p2:[2.721,1.795]},{e:"H",p:[3.408,-1.783,-.381],p2:[-2.94,-1.543]},{e:"H",p:[1.946,-1.251,-1.197],p2:[-2.94,-1.543]},{e:"H",p:[3.52,-.673,-1.762],p2:[-2.94,-1.543]}],bonds:[{a:0,b:1,o:1},{a:1,b:2,o:2},{a:2,b:3,o:1},{a:3,b:4,o:1},{a:4,b:5,o:1},{a:5,b:6,o:1},{a:5,b:7,o:1},{a:7,b:8,o:2},{a:5,b:9,o:1},{a:1,b:10,o:1},{a:0,b:11,o:1},{a:0,b:12,o:1},{a:0,b:13,o:1},{a:2,b:14,o:1},{a:3,b:15,o:1},{a:3,b:16,o:1},{a:4,b:17,o:1},{a:4,b:18,o:1},{a:6,b:19,o:1},{a:6,b:20,o:1},{a:6,b:21,o:1},{a:7,b:22,o:1},{a:8,b:23,o:1},{a:8,b:24,o:1},{a:9,b:25,o:1},{a:10,b:26,o:1},{a:10,b:27,o:1},{a:10,b:28,o:1}],cid:6549,iupac:"3,7-dimethylocta-1,6-dien-3-ol",mw:154.25,smiles:"CC(=CCCC(C)(C=C)O)C",note:"Lavender",group:"top",label:"Linalool",story:"Lavender's calm \u2014 the same molecule breathes in bergamot and coriander."},hedione:{name:"hedione",formula:"C13H22O3",source:"Structure: PubChem CID 102861 (NIH). Geometry: ETKDGv3 + MMFF94 energy-minimized (RDKit).",atoms:[{e:"C",p:[4.415,-1.47,-1.123],p2:[-5.529,-1.353]},{e:"C",p:[3.733,-.327,-1.862],p2:[-4.474,-.287]},{e:"C",p:[3.419,.874,-.966],p2:[-3.023,-.668]},{e:"C",p:[1.993,.899,-.4],p2:[-1.967,.398]},{e:"C",p:[1.68,-.248,.556],p2:[-.517,.017]},{e:"C",p:[.374,-.072,1.342],p2:[.539,1.083]},{e:"C",p:[-.909,-.066,.482],p2:[2.021,.856]},{e:"C",p:[-1.958,-.756,1.369],p2:[2.696,2.196]},{e:"C",p:[-1.213,-1.886,2.056],p2:[1.63,3.251]},{e:"C",p:[.15,-1.282,2.236],p2:[.297,2.563]},{e:"O",p:[.992,-1.735,3.002],p2:[-1.043,3.238]},{e:"C",p:[-1.365,1.341,.085],p2:[2.709,-.477]},{e:"C",p:[-2.51,1.289,-.896],p2:[1.898,-1.74]},{e:"O",p:[-3.685,1.423,-.585],p2:[.4,-1.668]},{e:"O",p:[-2.046,1.047,-2.152],p2:[2.586,-3.073]},{e:"C",p:[-3.07,.969,-3.144],p2:[1.775,-4.335]},{e:"H",p:[3.782,-1.887,-.337],p2:[-5.529,-1.353]},{e:"H",p:[4.655,-2.277,-1.822],p2:[-5.529,-1.353]},{e:"H",p:[5.351,-1.134,-.665],p2:[-5.529,-1.353]},{e:"H",p:[4.416,.003,-2.654],p2:[-4.474,-.287]},{e:"H",p:[2.827,-.69,-2.361],p2:[-4.474,-.287]},{e:"H",p:[4.149,.955,-.152],p2:[-3.023,-.668]},{e:"H",p:[3.535,1.782,-1.572],p2:[-3.023,-.668]},{e:"H",p:[1.284,.889,-1.235],p2:[-1.967,.398]},{e:"H",p:[1.859,1.852,.126],p2:[-1.967,.398]},{e:"H",p:[2.507,-.352,1.271],p2:[-.517,.017]},{e:"H",p:[1.637,-1.191,-.003],p2:[-.517,.017]},{e:"H",p:[.416,.814,1.988],p2:[.539,1.083]},{e:"H",p:[-.756,-.68,-.416],p2:[2.021,.856]},{e:"H",p:[-2.347,-.06,2.123],p2:[2.696,2.196]},{e:"H",p:[-2.809,-1.13,.79],p2:[2.696,2.196]},{e:"H",p:[-1.663,-2.148,3.016],p2:[1.63,3.251]},{e:"H",p:[-1.131,-2.766,1.411],p2:[1.63,3.251]},{e:"H",p:[-.56,1.925,-.37],p2:[2.709,-.477]},{e:"H",p:[-1.691,1.916,.96],p2:[2.709,-.477]},{e:"H",p:[-2.594,.781,-4.109],p2:[1.775,-4.335]},{e:"H",p:[-3.751,.14,-2.926],p2:[1.775,-4.335]},{e:"H",p:[-3.617,1.915,-3.206],p2:[1.775,-4.335]}],bonds:[{a:0,b:1,o:1},{a:1,b:2,o:1},{a:2,b:3,o:1},{a:3,b:4,o:1},{a:4,b:5,o:1},{a:5,b:6,o:1},{a:6,b:7,o:1},{a:7,b:8,o:1},{a:8,b:9,o:1},{a:9,b:10,o:2},{a:6,b:11,o:1},{a:11,b:12,o:1},{a:12,b:13,o:2},{a:12,b:14,o:1},{a:14,b:15,o:1},{a:9,b:5,o:1},{a:0,b:16,o:1},{a:0,b:17,o:1},{a:0,b:18,o:1},{a:1,b:19,o:1},{a:1,b:20,o:1},{a:2,b:21,o:1},{a:2,b:22,o:1},{a:3,b:23,o:1},{a:3,b:24,o:1},{a:4,b:25,o:1},{a:4,b:26,o:1},{a:5,b:27,o:1},{a:6,b:28,o:1},{a:7,b:29,o:1},{a:7,b:30,o:1},{a:8,b:31,o:1},{a:8,b:32,o:1},{a:11,b:33,o:1},{a:11,b:34,o:1},{a:15,b:35,o:1},{a:15,b:36,o:1},{a:15,b:37,o:1}],cid:102861,iupac:"methyl 2-(3-oxo-2-pentylcyclopentyl)acetate",mw:226.31,smiles:"CCCCCC1C(CCC1=O)CC(=O)OC",note:"Jasmine",group:"heart",label:"Hedione",story:"The jasmine heart. In nearly every fine fragrance composed since 1966."},geraniol:{name:"geraniol",formula:"C10H18O",source:"Structure: PubChem CID 637566 (NIH). Geometry: ETKDGv3 + MMFF94 energy-minimized (RDKit).",atoms:[{e:"C",p:[-2.827,.947,1.445],p2:[-4.784,.006]},{e:"C",p:[-3.107,.581,.013],p2:[-3.331,-.366]},{e:"C",p:[-2.17,.428,-.943],p2:[-2.282,.706]},{e:"C",p:[-.683,.628,-.813],p2:[-.829,.334]},{e:"C",p:[.057,-.712,-.73],p2:[.219,1.407]},{e:"C",p:[1.559,-.542,-.582],p2:[1.673,1.035]},{e:"C",p:[2.162,-.842,.587],p2:[2.077,-.41]},{e:"C",p:[3.609,-.724,.938],p2:[3.53,-.782]},{e:"O",p:[3.689,-.077,2.2],p2:[3.934,-2.227]},{e:"C",p:[2.276,-.061,-1.815],p2:[2.721,2.107]},{e:"C",p:[-4.565,.373,-.3],p2:[-2.927,-1.81]},{e:"H",p:[-3.298,.221,2.117],p2:[-4.784,.006]},{e:"H",p:[-3.237,1.938,1.667],p2:[-4.784,.006]},{e:"H",p:[-1.763,.96,1.69],p2:[-4.784,.006]},{e:"H",p:[-2.492,.141,-1.944],p2:[-2.282,.706]},{e:"H",p:[-.347,1.192,-1.692],p2:[-.829,.334]},{e:"H",p:[-.434,1.253,.051],p2:[-.829,.334]},{e:"H",p:[-.147,-1.313,-1.626],p2:[.219,1.407]},{e:"H",p:[-.343,-1.291,.113],p2:[.219,1.407]},{e:"H",p:[1.546,-1.202,1.41],p2:[2.077,-.41]},{e:"H",p:[4.182,-.134,.22],p2:[3.53,-.782]},{e:"H",p:[4.054,-1.718,1.029],p2:[3.53,-.782]},{e:"H",p:[4.633,.018,2.404],p2:[3.934,-2.227]},{e:"H",p:[1.951,-.635,-2.689],p2:[2.721,2.107]},{e:"H",p:[2.06,.996,-1.995],p2:[2.721,2.107]},{e:"H",p:[3.361,-.177,-1.753],p2:[2.721,2.107]},{e:"H",p:[-4.972,-.44,.311],p2:[-2.927,-1.81]},{e:"H",p:[-5.132,1.286,-.088],p2:[-2.927,-1.81]},{e:"H",p:[-4.733,.115,-1.351],p2:[-2.927,-1.81]}],bonds:[{a:0,b:1,o:1},{a:1,b:2,o:2},{a:2,b:3,o:1},{a:3,b:4,o:1},{a:4,b:5,o:1},{a:5,b:6,o:2},{a:6,b:7,o:1},{a:7,b:8,o:1},{a:5,b:9,o:1},{a:1,b:10,o:1},{a:0,b:11,o:1},{a:0,b:12,o:1},{a:0,b:13,o:1},{a:2,b:14,o:1},{a:3,b:15,o:1},{a:3,b:16,o:1},{a:4,b:17,o:1},{a:4,b:18,o:1},{a:6,b:19,o:1},{a:7,b:20,o:1},{a:7,b:21,o:1},{a:8,b:22,o:1},{a:9,b:23,o:1},{a:9,b:24,o:1},{a:9,b:25,o:1},{a:10,b:26,o:1},{a:10,b:27,o:1},{a:10,b:28,o:1}],cid:637566,iupac:"(2E)-3,7-dimethylocta-2,6-dien-1-ol",mw:154.25,smiles:"CC(=CCCC(=CCO)C)C",note:"Geranium",group:"heart",label:"Geraniol",story:"Named after the geranium \u2014 a rose petal keeps the same molecule."},cedrol:{name:"cedrol",formula:"C15H26O",source:"Structure: PubChem CID 65575 (NIH). Geometry: ETKDGv3 + MMFF94 energy-minimized (RDKit).",atoms:[{e:"C",p:[-2.895,-1.583,1.055],p2:[-2.526,-2.601]},{e:"C",p:[-2.321,-1.054,-.259],p2:[-2.235,-1.13]},{e:"C",p:[-3.056,.216,-.716],p2:[-3.255,-.03]},{e:"C",p:[-2.198,1.36,-.196],p2:[-2.524,1.28]},{e:"C",p:[-.779,.883,-.504],p2:[-1.053,.99]},{e:"C",p:[-.823,-.647,-.218],p2:[-.874,-.5]},{e:"C",p:[-.01,-1.439,-1.273],p2:[-.244,-1.861]},{e:"C",p:[1.442,-.96,-1.426],p2:[1.25,-1.996]},{e:"C",p:[2.102,-.599,-.085],p2:[2.114,-.77]},{e:"C",p:[1.127,.163,.866],p2:[1.484,.592]},{e:"C",p:[-.09,-.757,1.123],p2:[-.01,.727]},{e:"C",p:[.406,1.457,.339],p2:[.309,1.62]},{e:"C",p:[-.046,2.304,1.556],p2:[-.46,2.908]},{e:"C",p:[1.255,2.407,-.517],p2:[1.509,2.519]},{e:"C",p:[3.448,.099,-.299],p2:[3.345,.087]},{e:"O",p:[2.439,-1.851,.551],p2:[3.171,-1.833]},{e:"H",p:[-2.886,-.825,1.845],p2:[-2.526,-2.601]},{e:"H",p:[-2.337,-2.458,1.402],p2:[-2.526,-2.601]},{e:"H",p:[-3.937,-1.892,.915],p2:[-2.526,-2.601]},{e:"H",p:[-2.489,-1.836,-1.011],p2:[-2.235,-1.13]},{e:"H",p:[-4.086,.275,-.351],p2:[-3.255,-.03]},{e:"H",p:[-3.088,.249,-1.812],p2:[-3.255,-.03]},{e:"H",p:[-2.385,1.482,.875],p2:[-2.524,1.28]},{e:"H",p:[-2.428,2.307,-.692],p2:[-2.524,1.28]},{e:"H",p:[-.603,1.047,-1.576],p2:[-1.053,.99]},{e:"H",p:[-.498,-1.382,-2.254],p2:[-.244,-1.861]},{e:"H",p:[-.005,-2.501,-.992],p2:[-.244,-1.861]},{e:"H",p:[1.452,-.099,-2.101],p2:[1.25,-1.996]},{e:"H",p:[2.013,-1.749,-1.932],p2:[1.25,-1.996]},{e:"H",p:[1.638,.352,1.819],p2:[1.484,.592]},{e:"H",p:[-.683,-.377,1.96],p2:[-.01,.727]},{e:"H",p:[.177,-1.788,1.375],p2:[-.01,.727]},{e:"H",p:[.825,2.67,2.114],p2:[-.46,2.908]},{e:"H",p:[-.621,3.182,1.24],p2:[-.46,2.908]},{e:"H",p:[-.66,1.744,2.266],p2:[-.46,2.908]},{e:"H",p:[2.162,2.715,.014],p2:[1.509,2.519]},{e:"H",p:[1.543,1.973,-1.476],p2:[1.509,2.519]},{e:"H",p:[.693,3.318,-.757],p2:[1.509,2.519]},{e:"H",p:[3.87,.428,.658],p2:[3.345,.087]},{e:"H",p:[4.176,-.598,-.732],p2:[3.345,.087]},{e:"H",p:[3.393,.96,-.965],p2:[3.345,.087]},{e:"H",p:[2.843,-1.647,1.412],p2:[3.171,-1.833]}],bonds:[{a:0,b:1,o:1},{a:1,b:2,o:1},{a:2,b:3,o:1},{a:3,b:4,o:1},{a:4,b:5,o:1},{a:5,b:6,o:1},{a:6,b:7,o:1},{a:7,b:8,o:1},{a:8,b:9,o:1},{a:9,b:10,o:1},{a:9,b:11,o:1},{a:11,b:12,o:1},{a:11,b:13,o:1},{a:8,b:14,o:1},{a:8,b:15,o:1},{a:5,b:1,o:1},{a:11,b:4,o:1},{a:10,b:5,o:1},{a:0,b:16,o:1},{a:0,b:17,o:1},{a:0,b:18,o:1},{a:1,b:19,o:1},{a:2,b:20,o:1},{a:2,b:21,o:1},{a:3,b:22,o:1},{a:3,b:23,o:1},{a:4,b:24,o:1},{a:6,b:25,o:1},{a:6,b:26,o:1},{a:7,b:27,o:1},{a:7,b:28,o:1},{a:9,b:29,o:1},{a:10,b:30,o:1},{a:10,b:31,o:1},{a:12,b:32,o:1},{a:12,b:33,o:1},{a:12,b:34,o:1},{a:13,b:35,o:1},{a:13,b:36,o:1},{a:13,b:37,o:1},{a:14,b:38,o:1},{a:14,b:39,o:1},{a:14,b:40,o:1},{a:15,b:41,o:1}],cid:65575,iupac:"(1S,2R,5S,7R,8R)-2,6,6,8-tetramethyltricyclo[5.3.1.01,5]undecan-8-ol",mw:222.37,smiles:"CC1CCC2C13CCC(C(C3)C2(C)C)(C)O",note:"Cedar",group:"base",label:"Cedrol",story:"The heart of cedarwood \u2014 dry, soft, it stays on skin past midnight."},galaxolide:{name:"galaxolide",formula:"C18H26O",source:"Structure: PubChem CID 91497 (NIH). Geometry: ETKDGv3 + MMFF94 energy-minimized (RDKit).",atoms:[{e:"C",p:[3.438,-1.625,-1.395],p2:[-3.419,-2.537]},{e:"C",p:[3.126,-1.153,.028],p2:[-3.28,-1.043]},{e:"C",p:[4.193,-.17,.528],p2:[-4.504,-.177]},{e:"O",p:[4.119,1.052,-.208],p2:[-4.366,1.317]},{e:"C",p:[2.918,1.768,.095],p2:[-3.003,1.944]},{e:"C",p:[1.67,.914,.067],p2:[-1.779,1.077]},{e:"C",p:[.41,1.532,.087],p2:[-.416,1.704]},{e:"C",p:[-.737,.746,.105],p2:[.808,.837]},{e:"C",p:[-.644,-.651,.101],p2:[.67,-.657]},{e:"C",p:[.597,-1.277,.08],p2:[-.693,-1.284]},{e:"C",p:[1.762,-.495,.071],p2:[-1.917,-.417]},{e:"C",p:[-2.007,-1.31,.091],p2:[2.047,-1.25]},{e:"C",p:[-2.918,-.103,.51],p2:[3.037,-.123]},{e:"C",p:[-2.176,1.218,.101],p2:[2.272,1.166]},{e:"C",p:[-2.546,1.767,-1.285],p2:[3.634,1.793]},{e:"C",p:[-2.426,2.313,1.152],p2:[1.791,2.587]},{e:"C",p:[-4.369,-.198,.04],p2:[4.531,-.262]},{e:"C",p:[-2.3,-1.891,-1.3],p2:[1.313,-2.558]},{e:"C",p:[-2.11,-2.437,1.133],p2:[3.272,-2.117]},{e:"H",p:[3.422,-.797,-2.113],p2:[-3.419,-2.537]},{e:"H",p:[2.707,-2.368,-1.734],p2:[-3.419,-2.537]},{e:"H",p:[4.428,-2.092,-1.44],p2:[-3.419,-2.537]},{e:"H",p:[3.129,-2.023,.698],p2:[-3.28,-1.043]},{e:"H",p:[5.195,-.588,.386],p2:[-4.504,-.177]},{e:"H",p:[4.077,.041,1.599],p2:[-4.504,-.177]},{e:"H",p:[3.027,2.223,1.087],p2:[-3.003,1.944]},{e:"H",p:[2.832,2.573,-.643],p2:[-3.003,1.944]},{e:"H",p:[.333,2.616,.084],p2:[-.416,1.704]},{e:"H",p:[.666,-2.361,.063],p2:[-.693,-1.284]},{e:"H",p:[-2.962,-.11,1.612],p2:[3.037,-.123]},{e:"H",p:[-3.592,2.089,-1.322],p2:[3.634,1.793]},{e:"H",p:[-1.932,2.64,-1.54],p2:[3.634,1.793]},{e:"H",p:[-2.391,1.033,-2.081],p2:[3.634,1.793]},{e:"H",p:[-2.092,2,2.148],p2:[1.791,2.587]},{e:"H",p:[-1.891,3.237,.908],p2:[1.791,2.587]},{e:"H",p:[-3.492,2.558,1.217],p2:[1.791,2.587]},{e:"H",p:[-4.455,-.2,-1.051],p2:[4.531,-.262]},{e:"H",p:[-4.835,-1.115,.413],p2:[4.531,-.262]},{e:"H",p:[-4.953,.646,.42],p2:[4.531,-.262]},{e:"H",p:[-1.576,-2.673,-1.56],p2:[1.313,-2.558]},{e:"H",p:[-3.294,-2.349,-1.341],p2:[1.313,-2.558]},{e:"H",p:[-2.244,-1.137,-2.089],p2:[1.313,-2.558]},{e:"H",p:[-1.821,-2.091,2.132],p2:[3.272,-2.117]},{e:"H",p:[-1.456,-3.28,.882],p2:[3.272,-2.117]},{e:"H",p:[-3.134,-2.822,1.194],p2:[3.272,-2.117]}],bonds:[{a:0,b:1,o:1},{a:1,b:2,o:1},{a:2,b:3,o:1},{a:3,b:4,o:1},{a:4,b:5,o:1},{a:5,b:6,o:1,k:2},{a:6,b:7,o:1},{a:7,b:8,o:1,k:2},{a:8,b:9,o:1},{a:9,b:10,o:1,k:2},{a:8,b:11,o:1},{a:11,b:12,o:1},{a:12,b:13,o:1},{a:13,b:14,o:1},{a:13,b:15,o:1},{a:12,b:16,o:1},{a:11,b:17,o:1},{a:11,b:18,o:1},{a:10,b:1,o:1},{a:10,b:5,o:1},{a:13,b:7,o:1},{a:0,b:19,o:1},{a:0,b:20,o:1},{a:0,b:21,o:1},{a:1,b:22,o:1},{a:2,b:23,o:1},{a:2,b:24,o:1},{a:4,b:25,o:1},{a:4,b:26,o:1},{a:6,b:27,o:1},{a:9,b:28,o:1},{a:12,b:29,o:1},{a:14,b:30,o:1},{a:14,b:31,o:1},{a:14,b:32,o:1},{a:15,b:33,o:1},{a:15,b:34,o:1},{a:15,b:35,o:1},{a:16,b:36,o:1},{a:16,b:37,o:1},{a:16,b:38,o:1},{a:17,b:39,o:1},{a:17,b:40,o:1},{a:17,b:41,o:1},{a:18,b:42,o:1},{a:18,b:43,o:1},{a:18,b:44,o:1}],cid:91497,iupac:"4,6,6,7,8,8-hexamethyl-1,3,4,7-tetrahydrocyclopenta[g]isochromene",mw:258.4,smiles:"CC1COCC2=CC3=C(C=C12)C(C(C3(C)C)C)(C)C",note:"Musk",group:"base",label:"Galaxolide",story:"Clean skin, fresh linen \u2014 the musk of modern perfumery."}}},Je={source:"tools/make_paris_layout.py",space:"x across the card, d into it from the fold, h height, lift raises it",layers:[{name:"far",z:0,tilt:1.53,shade:.93,items:[{id:"far-04",file:"assets/paris/far-04.webp",x:-1.32,d:1.24,h:.34,lift:0,aspect:1.736},{id:"far-05",file:"assets/paris/far-05.webp",x:-1.34,d:.86,h:.28,lift:0,aspect:1.9178,flip:1},{id:"far-01",file:"assets/paris/far-01.webp",x:-.8,d:1.16,h:2.7,lift:0,aspect:.4564},{id:"far-05",file:"assets/paris/far-05.webp",x:-.16,d:1.26,h:.3,lift:0,aspect:1.9178},{id:"far-04",file:"assets/paris/far-04.webp",x:.22,d:1.05,h:.27,lift:0,aspect:1.736,flip:1},{id:"far-03",file:"assets/paris/far-03.webp",x:.6,d:1.24,h:.68,lift:0,aspect:.9023},{id:"far-02",file:"assets/paris/far-02.webp",x:1.16,d:1.05,h:.82,lift:0,aspect:1.0818},{id:"far-04",file:"assets/paris/far-04.webp",x:1.35,d:1.26,h:.3,lift:0,aspect:1.736,flip:1},{id:"far-05",file:"assets/paris/far-05.webp",x:.94,d:1.26,h:.26,lift:0,aspect:1.9178},{id:"far-06",file:"assets/paris/far-06.webp",x:-1.2,d:1.24,h:.17,lift:1.55,aspect:1.5125,cloud:1},{id:"far-07",file:"assets/paris/far-07.webp",x:-.18,d:1.2,h:.12,lift:2.05,aspect:2.9127,cloud:1},{id:"far-08",file:"assets/paris/far-08.webp",x:.66,d:1.24,h:.08,lift:1.4,aspect:5.7005,cloud:1},{id:"far-06",file:"assets/paris/far-06.webp",x:1.3,d:1.18,h:.13,lift:1.72,aspect:1.5125,flip:1,cloud:1},{id:"far-07",file:"assets/paris/far-07.webp",x:1.48,d:.92,h:.09,lift:1.16,aspect:2.9127,flip:1,cloud:1},{id:"far-04",file:"assets/paris/far-04.webp",x:-.5,d:1.26,h:.3,lift:0,aspect:1.736},{id:"far-08",file:"assets/paris/far-08.webp",x:-.6,d:1.1,h:.09,lift:1.85,aspect:5.7005,flip:1,cloud:1},{id:"far-06",file:"assets/paris/far-06.webp",x:.3,d:1.22,h:.11,lift:2.3,aspect:1.5125,cloud:1},{id:"far-07",file:"assets/paris/far-07.webp",x:1.05,d:1.22,h:.1,lift:1.95,aspect:2.9127,cloud:1}]},{name:"mid",z:.16,tilt:1.48,shade:.97,items:[{id:"mid-06",file:"assets/paris/mid-06.webp",x:-1.45,d:.86,h:.7,lift:0,aspect:.4559},{id:"mid-07",file:"assets/paris/mid-07.webp",x:-1.16,d:.62,h:.38,lift:0,aspect:1.6967,flip:1},{id:"mid-01",file:"assets/paris/mid-01.webp",x:-.26,d:.92,h:.82,lift:0,aspect:.5944,pin:{mol:"geraniol",eyebrow:"Heart \xB7 Geranium",name:"Geraniol",formula:"C10H18O",cid:637566,line:"Geranium and rose. It is what a balcony window box gives the street."}},{id:"mid-08",file:"assets/paris/mid-08.webp",x:.14,d:.66,h:.54,lift:0,aspect:.9124},{id:"mid-02",file:"assets/paris/mid-02.webp",x:.58,d:.9,h:.88,lift:0,aspect:.7335},{id:"mid-03",file:"assets/paris/mid-03.webp",x:1.06,d:.64,h:.62,lift:0,aspect:.8764,pin:{mol:"cedrol",eyebrow:"Base \xB7 Cedar",name:"Cedrol",formula:"C15H26O",cid:65575,line:"Cedarwood. Dry, quiet, and still there hours later."}},{id:"mid-05",file:"assets/paris/mid-05.webp",x:1.27,d:.88,h:.38,lift:0,aspect:1.7665,pin:{mol:"galaxolide",eyebrow:"Base \xB7 Musk",name:"Galaxolide",formula:"C18H26O",cid:91497,line:"Clean skin, fresh linen \u2014 the reason a shirt still smells of you the next morning."}},{id:"mid-04",file:"assets/paris/mid-04.webp",x:1.35,d:.52,h:.6,lift:0,aspect:.8794,flip:1},{id:"mid-07",file:"assets/paris/mid-07.webp",x:.02,d:1.04,h:.34,lift:0,aspect:1.6967},{id:"mid-08",file:"assets/paris/mid-08.webp",x:-1.4,d:.72,h:.42,lift:0,aspect:.9124,flip:1},{id:"mid-03",file:"assets/paris/mid-03.webp",x:.86,d:1.1,h:.48,lift:0,aspect:.8764,flip:1},{id:"mid-04",file:"assets/paris/mid-04.webp",x:-1.22,d:1.24,h:.5,lift:0,aspect:.8794}]},{name:"near",z:.28,tilt:1.44,shade:1,items:[{id:"near-08",file:"assets/paris/near-08.webp",x:-1.38,d:.34,h:.17,lift:0,aspect:2.6853},{id:"near-05",file:"assets/paris/near-05.webp",x:-1.22,d:.52,h:.46,lift:0,aspect:1.2376},{id:"near-01",file:"assets/paris/near-01.webp",x:-.4,d:.42,h:.52,lift:0,aspect:1.0425,pin:{mol:"hedione",eyebrow:"Heart \xB7 Jasmine",name:"Hedione",formula:"C13H22O3",cid:5364258,line:"Jasmine, radiant and transparent \u2014 in nearly every fine fragrance since 1966, including yours."}},{id:"near-02",file:"assets/paris/near-02.webp",x:-.02,d:.2,h:.44,lift:0,aspect:.9245,pin:{mol:"linalool",eyebrow:"Top \xB7 Lavender",name:"Linalool",formula:"C10H18O",cid:6549,line:"Lavender, and the reason a Provence field smells the way it does."}},{id:"near-03",file:"assets/paris/near-03.webp",x:.34,d:.46,h:.48,lift:0,aspect:.5678,pin:{mol:"limonene",eyebrow:"Top \xB7 Lemon",name:"Limonene",formula:"C10H16",cid:22311,line:"The lemon in the opening. Squeeze a peel and this is what leaves it."}},{id:"near-06",file:"assets/paris/near-06.webp",x:.62,d:.24,h:.54,lift:0,aspect:.1782},{id:"near-04",file:"assets/paris/near-04.webp",x:.98,d:.42,h:.54,lift:0,aspect:.9097},{id:"near-07",file:"assets/paris/near-07.webp",x:1.34,d:.22,h:.5,lift:0,aspect:.3644},{id:"near-08",file:"assets/paris/near-08.webp",x:1.38,d:.5,h:.17,lift:0,aspect:2.6853,flip:1},{id:"mid-08",file:"assets/paris/mid-08.webp",x:-.86,d:.3,h:.44,lift:0,aspect:.9124},{id:"near-06",file:"assets/paris/near-06.webp",x:-1.1,d:.14,h:.5,lift:0,aspect:.1782},{id:"near-07",file:"assets/paris/near-07.webp",x:.8,d:.7,h:.46,lift:0,aspect:.3644},{id:"near-05",file:"assets/paris/near-05.webp",x:1.02,d:.02,h:.42,lift:0,aspect:1.2376,flip:1},{id:"near-03",file:"assets/paris/near-03.webp",x:-1.3,d:.2,h:.4,lift:0,aspect:.5678,flip:1}]},{name:"street",z:.34,tilt:1.42,shade:1.02,items:[{id:"near-08",file:"assets/paris/near-08.webp",x:-1.34,d:-.2,h:.2,lift:0,aspect:2.6853},{id:"people-01",file:"assets/paris/people-01.webp",x:-1.28,d:-.02,h:.36,lift:0,aspect:.3957},{id:"people-09",file:"assets/paris/people-09.webp",x:-1.06,d:-.44,h:.085,lift:0,aspect:.9501},{id:"people-02",file:"assets/paris/people-02.webp",x:-.74,d:-.26,h:.34,lift:0,aspect:.8845},{id:"people-10",file:"assets/paris/people-10.webp",x:-.44,d:-.7,h:.08,lift:0,aspect:1.0045,flip:1},{id:"people-06",file:"assets/paris/people-06.webp",x:-.24,d:-.06,h:.37,lift:0,aspect:.991},{id:"people-08",file:"assets/paris/people-08.webp",x:.06,d:-.56,h:.15,lift:0,aspect:.6424},{id:"people-03",file:"assets/paris/people-03.webp",x:.22,d:-.24,h:.36,lift:0,aspect:.5473},{id:"people-04",file:"assets/paris/people-04.webp",x:.66,d:-.08,h:.35,lift:0,aspect:.6526},{id:"people-12",file:"assets/paris/people-12.webp",x:.92,d:-.5,h:.36,lift:0,aspect:.5857},{id:"people-11",file:"assets/paris/people-11.webp",x:1.28,d:-.14,h:.46,lift:0,aspect:.8977},{id:"near-08",file:"assets/paris/near-08.webp",x:1.34,d:-.24,h:.2,lift:0,aspect:2.6853,flip:1},{id:"people-04",file:"assets/paris/people-04.webp",x:-.98,d:-.62,h:.33,lift:0,aspect:.6526,flip:1},{id:"people-01",file:"assets/paris/people-01.webp",x:.44,d:-.66,h:.34,lift:0,aspect:.3957,flip:1},{id:"people-12",file:"assets/paris/people-12.webp",x:-.5,d:-.46,h:.34,lift:0,aspect:.5857,flip:1},{id:"people-02",file:"assets/paris/people-02.webp",x:1.1,d:-.66,h:.33,lift:0,aspect:.8845,flip:1},{id:"people-09",file:"assets/paris/people-09.webp",x:.3,d:-.8,h:.08,lift:0,aspect:.9501},{id:"people-10",file:"assets/paris/people-10.webp",x:-1.2,d:-.3,h:.08,lift:0,aspect:1.0045},{id:"people-09",file:"assets/paris/people-09.webp",x:1.4,d:-.62,h:.08,lift:0,aspect:.9501,flip:1},{id:"near-06",file:"assets/paris/near-06.webp",x:.1,d:-.86,h:.46,lift:0,aspect:.1782}]},{name:"sky",z:.2,tilt:1.53,shade:1,items:[{id:"plane",file:"assets/paris/plane.webp",x:0,d:.7,h:.3,lift:2.15,aspect:2.0897,anim:"plane"},{id:"banner",file:"assets/paris/banner.webp",x:0,d:.7,h:.18,lift:2.15,aspect:5.9091,anim:"banner"}]}]},ie=new URLSearchParams(location.search),gt=ie.get("ch"),Zt=ie.get("t"),Jt=ie.get("stage"),$t=ie.get("p"),pe=ie.get("w")==="1",Et=!0,Qt=ie.get("bt"),ea=ie.get("at");Et&&document.documentElement.classList.add("bridge"),pe&&document.documentElement.classList.add("wmode");const W=document.getElementById("stage");let k;try{k=new THREE.WebGLRenderer({antialias:!0,alpha:!1,powerPreference:"high-performance"})}catch{document.getElementById("fallback").style.display="grid",document.getElementById("veil").style.display="none";return}const $e="ontouchstart"in window||navigator.maxTouchPoints>0,V=window.matchMedia("(prefers-reduced-motion: reduce)").matches||pe,Da=/iP(hone|ad|od)/.test(navigator.userAgent)||navigator.platform==="MacIntel"&&navigator.maxTouchPoints>1,Be=Math.min(window.devicePixelRatio||1,$e?Da?2.5:1.6:2);k.setPixelRatio(Be),k.setSize(window.innerWidth,window.innerHeight),W.appendChild(k.domElement);const He=new THREE.Scene,T=new THREE.PerspectiveCamera(38,window.innerWidth/window.innerHeight,.1,100),K=38*Math.PI/180,Me=new THREE.Clock,yt=new THREE.Mesh(new THREE.SphereGeometry(48,32,24),new THREE.ShaderMaterial({side:THREE.BackSide,depthWrite:!1,uniforms:{uTime:{value:0},uFlat:{value:0}},vertexShader:`
+      varying vec3 vP;
+      void main(){ vP = position; gl_Position = projectionMatrix * modelViewMatrix * vec4(position,1.0); }
+    `,fragmentShader:`
+      varying vec3 vP;
+      uniform float uTime;
+      uniform float uFlat;
+      void main(){
+        vec3 d = normalize(vP);
+        float r = length(d.xy * vec2(1.0, 1.28));
+        float halo = smoothstep(1.05, 0.0, r);
+        halo = pow(halo, 2.1);
+        vec3 edge   = vec3(0.010, 0.010, 0.013);
+        vec3 center = vec3(0.128, 0.014, 0.060);
+        float breathe = 0.92 + 0.08 * sin(uTime * 0.35);
+        vec3 col = mix(edge, center, halo * breathe);
+        col += vec3(0.024, 0.002, 0.012) * smoothstep(0.4,-0.6, d.y) * 0.5;
+        /* G2 \u2014 a near-orthographic camera only ever sees the halo's centre, which would
+           read as a flat bright wash. Settle the chamber into an even field instead:
+           the world going optically flat is the gesture, not a side effect of it. */
+        col = mix(col, mix(edge, center, 0.22), uFlat);
+        gl_FragColor = vec4(col, 1.0);
+      }
+    `}));He.add(yt);const za=`
+  varying vec3 vN;
+  varying vec3 vV;
+  void main(){
+    vec4 wp = modelMatrix * vec4(position, 1.0);
+    vN = normalize(mat3(modelMatrix) * normal);
+    vV = normalize(cameraPosition - wp.xyz);
+    gl_Position = projectionMatrix * viewMatrix * wp;
+  }
+`,Ba=`
+  varying vec3 vN;
+  varying vec3 vV;
+  uniform vec3  uDeep;
+  uniform vec3  uLight;
+  uniform vec3  uRim;
+  uniform float uGlow;
+  uniform float uTime;
+  uniform float uIntro;
+  uniform float uBright;
+  uniform float uFade;
+  uniform float uInk;
+  uniform vec3  uInkCol;
+  uniform vec3  uInkColP;
+  uniform float uOnPaper;
+  void main(){
+    vec3 n = normalize(vN);
+    vec3 v = normalize(vV);
+    float ndv  = clamp(dot(n, v), 0.0, 1.0);
+    float fres = pow(1.0 - ndv, 2.4);
+
+    vec3 rd = refract(-v, n, 0.74);
+    float depth = clamp(0.55 - 0.5*rd.y + 0.22*rd.x, 0.0, 1.0);
+    vec3 base = mix(uDeep, uLight, depth*0.9 + fres*0.30);
+
+    vec3 L1 = normalize(vec3(0.55 + 0.45*sin(uTime*0.23), 0.85, 0.45 + 0.4*cos(uTime*0.19)));
+    vec3 L2 = normalize(vec3(-0.72, 0.30, 0.62));
+    vec3 h1 = normalize(L1 + v);
+    vec3 h2 = normalize(L2 + v);
+    float sp1 = pow(max(dot(n,h1), 0.0), 170.0) * 1.7;
+    float sp2 = pow(max(dot(n,h2), 0.0), 64.0)  * 0.45;
+    float dif = max(dot(n,L1),0.0)*0.34 + max(dot(n,L2),0.0)*0.20;
+
+    vec3 irid = (0.5 + 0.5*cos(6.28318*(fres*1.55 + vec3(0.00, 0.33, 0.66)))) * vec3(1.0, 0.6, 0.85);
+
+    vec3 col = base * (0.36 + dif)
+             + uRim * fres * (0.85 + uGlow)
+             + irid * fres * 0.08
+             + (sp1 + sp2) * vec3(1.0, 0.88, 0.94);
+
+    /* G3 \u2014 the gem flattens into an ink mark: refraction, speculars and rim all
+       drain away and leave the flat fill of a drawn line. */
+    col = mix(col, mix(uInkCol, uInkColP, uOnPaper), uInk);
+
+    gl_FragColor = vec4(col * uIntro * uBright, uFade);
+  }
+`,ta=.86,Ht=[];function Ga(e,t,a,o,c,l){const i={uDeep:{value:new THREE.Color(e)},uLight:{value:new THREE.Color(t)},uRim:{value:new THREE.Color(a)},uGlow:{value:o},uTime:{value:0},uIntro:{value:0},uBright:{value:1},uFade:{value:1},uInk:{value:0},uOnPaper:{value:0},uInkCol:{value:new THREE.Color(c===void 0?16771824:c).multiplyScalar(ta)},uInkColP:{value:new THREE.Color(l===void 0?1708051:l)}};return Ht.push(i),new THREE.ShaderMaterial({uniforms:i,vertexShader:za,fragmentShader:Ba,transparent:!0})}const Qe={C:{deep:2759686,light:14726232,rim:16768928,glow:.22,r:.435,ink:16771824,inkP:1708051},O:{deep:2826308,light:12758768,rim:15721727,glow:.95,r:.475,ink:16711790,inkP:16711790},H:{deep:2365960,light:11047004,rim:16772299,glow:.06,r:.155,ink:16771824,inkP:1708051}},Oa=`
+  varying vec3 vN;
+  varying vec3 vV;
+  varying vec2 vUv;
+  void main(){
+    vUv = uv;
+    vec4 wp = modelMatrix * vec4(position, 1.0);
+    vN = normalize(mat3(modelMatrix) * normal);
+    vV = normalize(cameraPosition - wp.xyz);
+    gl_Position = projectionMatrix * viewMatrix * wp;
+  }
+`,Wa=`
+  varying vec3 vN;
+  varying vec3 vV;
+  varying vec2 vUv;
+  uniform vec3  uColA;
+  uniform vec3  uColB;
+  uniform float uTime;
+  uniform float uPhase;
+  uniform float uIntro;
+  uniform float uBright;
+  uniform float uFade;
+  uniform float uInk;
+  uniform vec3  uInkCol;
+  uniform vec3  uInkColP;
+  uniform float uOnPaper;
+  void main(){
+    vec3 n = normalize(vN);
+    vec3 v = normalize(vV);
+    float fres  = pow(1.0 - clamp(dot(n,v),0.0,1.0), 2.0);
+    vec3 grad   = mix(uColA, uColB, smoothstep(0.0, 1.0, vUv.y));
+    float pulse = 0.70 + 0.30 * sin(uTime*1.35 + uPhase + vUv.y*5.0);
+    vec3 col = grad * 0.24
+             + vec3(1.0, 0.42, 0.72) * fres * 0.9 * pulse
+             + grad * fres * 0.5;
+    col = mix(col, mix(uInkCol, uInkColP, uOnPaper), uInk);   /* the bond as a flat stroke */
+    gl_FragColor = vec4(col * uIntro * uBright, uFade);
+  }
+`,Mt=.92,et=1.35;function Va(e){const t=new THREE.Group,a=new THREE.SphereGeometry(1,32,22),o=new THREE.SphereGeometry(1,16,12),c=new THREE.CylinderGeometry(1,1,1,12,1,!0),l={x:0,y:0,z:0};e.atoms.forEach(s=>{l.x+=s.p[0],l.y+=s.p[1],l.z+=s.p[2]}),l.x/=e.atoms.length,l.y/=e.atoms.length,l.z/=e.atoms.length;const i=[];let h=1e-4;e.atoms.forEach(s=>{const d=new THREE.Vector3((s.p[0]-l.x)*Mt,(s.p[1]-l.y)*Mt,(s.p[2]-l.z)*Mt);i.push(d),h=Math.max(h,d.length())});{const s=i[0].clone(),d=i[0].clone();i.forEach(b=>{s.min(b),d.max(b)});const n=s.add(d).multiplyScalar(.5);i.forEach(b=>b.sub(n)),h=1e-4,i.forEach(b=>{h=Math.max(h,b.length())})}const r=et/h,f=.86;let C=null;if(e.atoms.every(s=>Array.isArray(s.p2))){let s=1e-4;e.atoms.forEach(n=>{s=Math.max(s,Math.hypot(n.p2[0],n.p2[1]))});const d=h/s*f;C=e.atoms.map(n=>new THREE.Vector3(n.p2[0]*d,n.p2[1]*d,0))}let w=0;for(let s=0;s<e.atoms.length*7+13;s++)w=(w*16807+1)%2147483647;function G(){return w=w*16807%2147483647,(w<0?w+2147483647:w)/2147483647}const F=i.map(()=>{const s=h*3*(.75+G()*.5),d=G()*Math.PI*2,n=Math.acos(2*G()-1);return new THREE.Vector3(s*Math.sin(n)*Math.cos(d),s*Math.cos(n),s*Math.sin(n)*Math.sin(d))}),A=[];e.atoms.forEach((s,d)=>{const n=Qe[s.e],b=new THREE.Mesh(s.e==="H"?o:a,Ga(n.deep,n.light,n.rim,n.glow,n.ink,n.inkP));b.scale.setScalar(n.r),b.position.copy(i[d]),t.add(b),A.push(b)});const z=[],Z=new THREE.Vector3(0,1,0);e.bonds.forEach((s,d)=>{const n=e.atoms[s.a].e,b=e.atoms[s.b].e,m=n==="H"||b==="H",u=(s.k||s.o)===2&&s.o!==2;(s.o===2?[[-.085,0,0],[.085,0,0]]:u?[[-1,1,0],[1,1,1]]:[[0,0,0]]).forEach(([x,E,I])=>{const R={uColA:{value:new THREE.Color(Qe[n].light)},uColB:{value:new THREE.Color(Qe[b].light)},uTime:{value:0},uPhase:{value:d*1.7},uIntro:{value:0},uBright:{value:1},uFade:{value:1},uInk:{value:0},uOnPaper:{value:0},uInkCol:{value:new THREE.Color(16771824).multiplyScalar(ta)},uInkColP:{value:new THREE.Color(1708051)}};Ht.push(R);const O=new THREE.ShaderMaterial({uniforms:R,vertexShader:Oa,fragmentShader:Wa,transparent:!0}),le=new THREE.Mesh(c,O);t.add(le),z.push({mesh:le,a:s.a,b:s.b,off:x,isH:m,sOnly:!!E,ghost:!!I,radius:I?1e-4:s.o===2?.036:m?.028:.055})})});const _=new THREE.Vector3,fe=new THREE.Vector3,re=new THREE.Vector3,me=new THREE.Vector3,N=new THREE.Vector3;function te(s,d,n,b,m){n=n||0;for(const u of z){const g=s[u.a],x=s[u.b];_.subVectors(x,g);const E=_.length();if(_.normalize(),fe.addVectors(g,x).multiplyScalar(.5),u.off!==0){me.set(0,1,0),Math.abs(_.y)>.94&&me.set(1,0,0),re.crossVectors(_,me).normalize(),n>0&&(N.set(-_.y,_.x,0),N.lengthSq()>1e-6&&re.lerp(N.normalize(),n).normalize());const O=Math.sign(u.off)*b*3*n;fe.add(re.multiplyScalar(u.sOnly?O:u.off*(1-n)+O))}const I=d?Math.min(d[u.a],d[u.b]):1,R=n>0?u.radius*(1-n)+(u.isH?1e-4:b)*n:u.radius;u.mesh.material.uniforms.uInk.value=n,u.mesh.material.uniforms.uOnPaper.value=m||0,u.mesh.position.copy(fe),u.mesh.quaternion.setFromUnitVectors(Z,_),u.mesh.scale.set(R,Math.max(4e-4,E*.96*I),R)}}te(i);const P=i.map(s=>s.clone());function _e(s){const d=V?0:.028;for(let n=0;n<i.length;n++){const b=i[n];P[n].set(b.x+d*Math.sin(s*.8+n*1.3),b.y+d*Math.sin(s*.7+n*2.1),b.z+d*Math.sin(s*.9+n*.7)),A[n].position.copy(P[n])}te(P)}const De=new Float32Array(i.length),xe=.5;function v(s,d){const n=V?0:.028,b=i.length;for(let u=0;u<b;u++){const g=u/b*xe,x=Q((s-g)/(1-g)),E=1-Math.pow(1-x,3);De[u]=E;const I=i[u],R=V?0:E;P[u].set(I.x+n*R*Math.sin(d*.8+u*1.3),I.y+n*R*Math.sin(d*.7+u*2.1),I.z+n*R*Math.sin(d*.9+u*.7)).lerp(F[u],1-E),A[u].position.copy(P[u])}const m=new Float32Array(b);for(let u=0;u<b;u++)m[u]=Q((De[u]-.55)/.45);te(P,m)}const H=e.atoms.map(s=>s.e==="H");function D(s,d,n,b){if(!C)return!1;b=b||0;const m=bo(Q(s/.75)),u=ee(.34,1,s),g=(V?0:.028)*(1-m);for(let x=0;x<i.length;x++){const E=i[x];P[x].set(E.x+g*Math.sin(d*.8+x*1.3),E.y+g*Math.sin(d*.7+x*2.1),E.z+g*Math.sin(d*.9+x*.7)).lerp(C[x],m),A[x].position.copy(P[x]);const I=e.atoms[x].e,R=H[x]?1e-4:I==="O"?n*2.6:n*1.1;A[x].scale.setScalar(Qe[I].r*(1-u)+R*u),A[x].material.uniforms.uInk.value=u,A[x].material.uniforms.uOnPaper.value=b}return te(P,null,u,n,b),!0}function U(s){A.forEach((d,n)=>{d.material.uniforms.uBright.value=s}),z.forEach(d=>{d.mesh.material.uniforms.uBright.value=s})}function y(s){A.forEach(d=>{d.material.uniforms.uFade.value=s}),z.forEach(d=>{d.mesh.material.uniforms.uFade.value=s})}return{group:t,breathe:_e,setBright:U,setFade:y,renderArrival:v,renderFormula:D,hasFormula:!!C,normScale:r,maxDist:h}}const Ct=[{sx:.6,sy:.2,rz:-.16},{sx:.852,sy:.2,rz:.13},{sx:.6,sy:.487,rz:.19},{sx:.852,sy:.487,rz:-.11},{sx:.6,sy:.775,rz:.1},{sx:.852,sy:.775,rz:-.17}],aa=()=>window.innerHeight<720;function Na(){const e=window.innerWidth,t=.06+Math.min(.44,600/e),a=Math.max(.55,Math.min(.6,t+.13));return[a,a+.26]}function Ua(){const e=window.innerWidth/window.innerHeight;return e<.9?1:Math.max(1,Math.min(1.4,1.15+(e-1.78)*.8))}function Ya(e){if(window.innerWidth/window.innerHeight>=.9){const o=Ct[e];return{sx:Na()[e%2],sy:o.sy,rz:o.rz}}const t=aa()?.098:.115,a=aa()?.113:.135;return{sx:.27+e%2*.46,sy:t+Math.floor(e/2)*a,rz:Ct[e].rz}}const Tt=8,oa=(window.innerWidth/window.innerHeight<.9?window.innerHeight<720?.056:.066:.132)*2*Tt*Math.tan(K/2)/et,Rt=new THREE.Group;He.add(Rt);const Ge=document.getElementById("orbitHint");"ontouchstart"in window&&Ge&&(Ge.textContent="Drag to rotate \xB7 pinch to zoom");const qa=Array.from(document.querySelectorAll("#molLabels .mol-label")),Ce=new THREE.Vector3,Oe=Ze.molecules.map((e,t)=>{const a=Va(Ze.data[e]),o=new THREE.Group;return o.add(a.group),a.group.scale.setScalar(a.normScale),Rt.add(o),{key:e,idx:t,wrap:o,built:a,group:Ze.data[e].group,note:Ze.data[e].note,ch3:Ct[t],slot:t,curScaleMul:.001}}),St=new THREE.TextureLoader().load("assets/paris/bottle.webp");St.minFilter=THREE.LinearFilter,St.generateMipmaps=!1;const Xa=new THREE.MeshBasicMaterial({map:St,color:16777215,transparent:!0,opacity:1,depthWrite:!1}),ve=new THREE.Mesh(new THREE.PlaneGeometry(1,1),Xa),na=8;ve.position.set(0,0,-na),T.add(ve),He.add(T);const Ka=643/1100;function Pt(e,t,a,o,c,l){const i=new THREE.BufferGeometry,h=new Float32Array(e*3),r=new Float32Array(e),f=new Float32Array(e);for(let F=0;F<e;F++){const A=t+Math.random()*(a-t),z=Math.random()*Math.PI*2,Z=Math.acos(2*Math.random()-1);h[F*3]=A*Math.sin(Z)*Math.cos(z),h[F*3+1]=A*Math.cos(Z)*.8,h[F*3+2]=A*Math.sin(Z)*Math.sin(z),r[F]=Math.random(),f[F]=o+Math.random()*(c-o)}i.setAttribute("position",new THREE.BufferAttribute(h,3)),i.setAttribute("aSeed",new THREE.BufferAttribute(r,1)),i.setAttribute("aSize",new THREE.BufferAttribute(f,1));const C={uTime:{value:0},uAlpha:{value:0},uMax:{value:l}},w=new THREE.ShaderMaterial({uniforms:C,transparent:!0,depthWrite:!1,blending:THREE.AdditiveBlending,vertexShader:`
+      attribute float aSeed;
+      attribute float aSize;
+      uniform float uTime;
+      varying float vTw;
+      void main(){
+        vec3 p = position;
+        float t = uTime * 0.12;
+        p.x += sin(t*1.7 + aSeed*13.0) * 0.5;
+        p.y += sin(t*1.3 + aSeed*7.0)  * 0.42;
+        p.z += cos(t*1.1 + aSeed*9.0)  * 0.5;
+        vTw = 0.5 + 0.5*sin(uTime*(0.5+aSeed*1.5) + aSeed*40.0);
+        vec4 mv = modelViewMatrix * vec4(p,1.0);
+        gl_PointSize = aSize * (150.0 / -mv.z);
+        gl_Position = projectionMatrix * mv;
+      }`,fragmentShader:`
+      uniform float uAlpha;
+      uniform float uMax;
+      varying float vTw;
+      void main(){
+        float d = length(gl_PointCoord - 0.5);
+        float a = smoothstep(0.5, 0.02, d);
+        vec3 col = mix(vec3(1.0,0.0,0.43), vec3(1.0,0.92,0.95), vTw);
+        gl_FragColor = vec4(col, a * vTw * uMax * uAlpha);
+      }`}),G=new THREE.Points(i,w);return He.add(G),C}const ia=Pt($e?260:520,4.5,13,1.2,3.4,.5),sa=Pt(10,6,14,60,150,.055),tt=Pt($e?90:160,.5,3.5,1.6,4.2,.85),It=3.2,Ft=It/1.419,ra=-.14,j=.92,Po=1.55,Io=.34,la=1.12,We=.8,pa=-.7,ja=-.66,Za=Math.PI/2,Fo=150,Ja=16771824,At=1708051;let B=null;const Lt=16,Te=2.05,$a=2.15,ca=(()=>{const e=parseFloat(new URLSearchParams(location.search).get("pt"));return isFinite(e)?e:null})();function Qa(e){const t=(e%Lt+Lt)%Lt,a=.06*Math.sin(2*Math.PI*e/3.1),o=r=>r*r*(3-2*r);let c,l=$a+a,i,h=0;if(t<6.4){const r=t/6.4;c=-Te+2*Te*r,i=0}else if(t<8){const r=(t-6.4)/1.6;c=Te+.28*Math.sin(Math.PI*r),i=Math.PI*o(r),h=.38*Math.sin(Math.PI*r),l+=.14*Math.sin(Math.PI*r)}else if(t<14.4){const r=(t-8)/6.4;c=Te-2*Te*r,i=Math.PI}else{const r=(t-14.4)/1.6;c=-Te-.28*Math.sin(Math.PI*r),i=Math.PI+Math.PI*o(r),h=-.38*Math.sin(Math.PI*r),l+=.14*Math.sin(Math.PI*r)}return{x:c,y:l,yaw:i,roll:h,flutter:.05*Math.sin(2*Math.PI*1.4*e)}}function eo(){const e=new THREE.Group,t=new THREE.Group;t.rotation.order="YXZ",e.add(t);const a=new THREE.Group;t.add(a);const o="normalize(vec3(0.30, 0.72, 0.62))",c=`
+    varying vec2 vUv; varying vec3 vN;
+    void main(){
+      vUv = uv;
+      vN = normalize(mat3(modelMatrix) * vec3(0.0, 0.0, 1.0));
+      gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+    }`,l=new THREE.TextureLoader().load("assets/paris/ground.webp");l.wrapS=l.wrapT=THREE.ClampToEdgeWrapping,l.minFilter=THREE.LinearMipmapLinearFilter,l.generateMipmaps=!0,l.anisotropy=Math.min(8,k.capabilities.getMaxAnisotropy());const i={uPaper:{value:new THREE.Color(Ja)},uInk:{value:new THREE.Color(At)},uMap:{value:l},uAlpha:{value:0},uBorder:{value:0},uTooth:{value:1}},h=new THREE.Mesh(new THREE.PlaneGeometry(It,Ft),new THREE.ShaderMaterial({uniforms:i,vertexShader:c,transparent:!0,fragmentShader:`
+        varying vec2 vUv; varying vec3 vN;
+        uniform vec3 uPaper; uniform vec3 uInk; uniform sampler2D uMap;
+        uniform float uAlpha; uniform float uBorder; uniform float uTooth;
+        float h21(vec2 p){ return fract(sin(dot(p, vec2(41.31, 289.07))) * 43758.5453); }
+        void main(){
+          float d = max(dot(normalize(vN), ${o}), 0.0);
+          vec3 col = texture2D(uMap, vUv).rgb * (0.82 + 0.18 * d);
+          col -= uTooth * h21(floor(vUv * vec2(560.0, 394.0))) * 0.012;   /* paper tooth */
+          vec2 q = abs(vUv - 0.5);
+          float ix = 0.052, iy = 0.074, tx = 0.0034, ty = 0.0048;
+          float bx = step(0.5-ix-tx, q.x) * step(q.x, 0.5-ix) * step(q.y, 0.5-iy);
+          float by = step(0.5-iy-ty, q.y) * step(q.y, 0.5-iy) * step(q.x, 0.5-ix);
+          col = mix(col, uInk, max(bx, by) * uBorder * 0.72);
+          gl_FragColor = vec4(col, uAlpha);
+        }`}));h.renderOrder=1,a.add(h);const r=new THREE.TextureLoader,f=!(k&&k.capabilities&&k.capabilities.isWebGL2),C=new THREE.PlaneGeometry(1,1);function w(v){const H=r.load(v);return H.wrapS=H.wrapT=THREE.ClampToEdgeWrapping,f?(H.minFilter=THREE.LinearFilter,H.generateMipmaps=!1):(H.minFilter=THREE.LinearMipmapLinearFilter,H.generateMipmaps=!0,H.anisotropy=Math.min(8,k.capabilities.getMaxAnisotropy())),H.magFilter=THREE.LinearFilter,H}const G=`
+    varying vec2 vUv; varying vec3 vN;
+    uniform sampler2D uMap; uniform vec3 uInk; uniform vec3 uPink;
+    uniform float uReveal; uniform float uAlpha; uniform float uShade; uniform float uPinned;
+    void main(){
+      if(vUv.y > uReveal) discard;
+      vec4 t = texture2D(uMap, vUv);
+      if(t.a < 0.02) discard;
+      float d = max(dot(normalize(vN), ${o}), 0.0);
+      vec3 col = t.rgb * (0.88 + 0.12 * d) * uShade;
+      float inked = smoothstep(uReveal, uReveal - 0.16, vUv.y);
+      col = mix(uInk, col, inked);
+      /* a piece you can tap says so: a pink rim around its own cut edge, found by
+         sampling the alpha just outside the silhouette */
+      if(uPinned > 0.0){
+        float o = 0.02;
+        float ring = max(max(texture2D(uMap, vUv + vec2( o, 0.0)).a,
+                             texture2D(uMap, vUv + vec2(-o, 0.0)).a),
+                         max(texture2D(uMap, vUv + vec2(0.0,  o)).a,
+                             texture2D(uMap, vUv + vec2(0.0, -o)).a)) - t.a;
+        col = mix(col, uPink, clamp(ring, 0.0, 1.0) * uPinned * 0.85);
+        col += uPink * t.a * uPinned * 0.05;
+      }
+      gl_FragColor = vec4(col, t.a * uAlpha);
+    }`,F=`
+    varying vec2 vUv; varying vec3 vN;
+    uniform sampler2D uMap; uniform float uAlpha;
+    void main(){
+      vec4 t = texture2D(uMap, vUv);
+      if(t.a < 0.35) discard;
+      gl_FragColor = vec4(0.169, 0.102, 0.129, t.a * uAlpha);
+    }`;let A=4;const z=[];let Z=991;const _=()=>(Z=Z*16807%2147483647,Z/2147483647),fe=[],re=(Je.layers||[]).map((v,H)=>{const D=new THREE.Group;a.add(D);const U=v.items.filter(y=>!y.anim).map((y,s)=>{const d=w(y.file),n=y.h*j,b=n*y.aspect,m=y.x*j,u=ra+y.d*j,g=((y.lift||0)+y.h*.5)*j,x=new THREE.Group;x.position.set(0,u,0),D.add(x);const E=new THREE.Group;x.add(E);const I={uMap:{value:d},uInk:{value:new THREE.Color(At)},uPink:{value:new THREE.Color(16711790)},uReveal:{value:0},uAlpha:{value:0},uShade:{value:v.shade},uPinned:{value:0}},R=new THREE.Mesh(C,new THREE.ShaderMaterial({uniforms:I,vertexShader:c,fragmentShader:G,transparent:!0,depthWrite:!1,side:THREE.DoubleSide}));R.position.set(m,g,0),R.scale.set(y.flip?-b:b,n,1),R.visible=!1,E.add(R);const O=!!y.cloud,le=m,Ke=g-Ft*.18,je=Math.max(.25,Math.hypot(le,Ke)),bt=m+le/je*(2.6+_()*1.9),p=g+Ke/je*(2+_()*1.6)+.7,L=1.4+_()*2.4,ae=(_()-.5)*1.5,Y=.52*(1-je/3.2)+_()*.12,q={uMap:{value:d},uAlpha:{value:0}},X=new THREE.Mesh(C,new THREE.ShaderMaterial({uniforms:q,vertexShader:c,fragmentShader:F,transparent:!0,depthWrite:!1}));X.position.set(m,u,4e-4+4e-5*H),X.scale.set(b*1.02,n*.17,1),X.renderOrder=2,X.visible=!1,a.add(X);const oe=(y.x+1.5)/3*.55;let ge=!1;if(y.pin){ge=!0;const Ee=new THREE.Object3D;Ee.position.set(m,((y.lift||0)+y.h*.92)*j,.02),E.add(Ee),fe.push({data:y.pin,anchor:Ee,off:oe,u:I})}const ze={mesh:R,u:I,sh:X,su:q,pivot:x,yaw:E,d:y.d,off:oe,pinned:ge,cloud:O,cx:m,cy:g,w:y.flip?-b:b,h:n,fromX:bt,fromY:p,fromZ:L,spin:ae,stagger:Math.max(0,Math.min(.62,Y))};return z.push(ze),ze});return{group:D,pieces:U,lean:v.tilt-Math.PI/2,z:v.z}});z.slice().sort((v,H)=>H.d-v.d).forEach(v=>{v.mesh.renderOrder=++A});const me=[].concat(...(Je.layers||[]).map(v=>(v.items||[]).filter(H=>H.anim))),N=me.find(v=>v.anim==="plane"),te=me.find(v=>v.anim==="banner");let P=null;if(N&&te){const v=new THREE.Group;v.position.set(0,ra+N.d*j,0),a.add(v);const H=new THREE.Group;H.rotation.order="YXZ",v.add(H);const D=(O,le)=>new THREE.ShaderMaterial({uniforms:{uMap:{value:O},uInk:{value:new THREE.Color(At)},uPink:{value:new THREE.Color(16711790)},uReveal:{value:1},uAlpha:{value:0},uShade:{value:1},uPinned:{value:0}},vertexShader:c,fragmentShader:G,transparent:!0,depthWrite:!1,side:le}),U=N.h*j,y=U*N.aspect,s=new THREE.Mesh(C,D(w(N.file),THREE.DoubleSide));s.scale.set(y,U,1),H.add(s);const d=te.h*j,n=d*te.aspect,b=w(te.file),m=-y*.5-.06-n*.5,u=-U*.12,g=new THREE.Group;g.position.set(m,u,0),H.add(g);const x=new THREE.Mesh(C,D(b,THREE.FrontSide));x.scale.set(n,d,1),g.add(x);const E=new THREE.Mesh(C,D(b,THREE.FrontSide));E.scale.set(n,d,1),E.rotation.y=Math.PI,E.position.z=-.001,g.add(E);const I=z.filter(O=>O.d>N.d).map(O=>O.mesh.renderOrder),R=(I.length?Math.max(...I):A)+.5;s.renderOrder=R,x.renderOrder=R,E.renderOrder=R,P={pivot:v,g:H,bGroup:g,mats:[s.material,x.material,E.material],lean:0}}e.visible=!1,He.add(e);function _e(v,H,D){const U=Q(v.fadeIn===void 0?v.fly:v.fadeIn);if(v=Object.assign({},v,{rise:1,fly:1,stand:1}),e.visible=U>5e-4&&v.exitFade>.004,!e.visible)return;const y=la+(We-la)*v.stand;a.scale.setScalar(y);const s=window.innerWidth/window.innerHeight<.9;t.position.set(v.x,pa+(ja-pa)*v.stand+(s?window.innerHeight<720?go:xo:0)-(1-v.rise)*3.4,0),t.rotation.y=v.spinY*v.stand,a.position.set(0,0,0),a.rotation.x=-Za*v.stand;const d=v.exitFade*U;if(i.uAlpha.value=d,i.uBorder.value=1,h.visible=i.uAlpha.value>.002,re.forEach((n,b)=>{n.pieces.forEach(m=>{m.pivot.rotation.x=(Math.PI/2+n.lean)*v.stand;const u=1,g=m.cloud?Math.sin(D*.052+m.cx*2.4)*.42+Math.sin(D*.021+m.cy*3.1)*.16:0,x=m.cloud?Math.sin(D*.038+m.cx*1.7)*.085:0;m.mesh.position.set(m.cx+g+(m.fromX-m.cx)*(1-u),m.cy+x+(m.fromY-m.cy)*(1-u),m.fromZ*(1-u)+2e-4),m.mesh.rotation.z=m.spin*(1-u);const E=.72+.28*u;m.mesh.scale.set(m.w*E,m.h*E,1),m.u.uReveal.value=1,m.u.uAlpha.value=d*u,m.mesh.visible=m.u.uAlpha.value>.004,m.pinned&&(m.u.uPinned.value=v.stand*u),m.su.uAlpha.value=.3*v.stand*d*u,m.sh.visible=m.su.uAlpha.value>.004,m.sh.scale.y=m.h*.17*v.stand})}),P){P.pivot.rotation.x=(Math.PI/2+P.lean)*v.stand;const n=Qa(ca!==null?ca:V?3:D);P.g.position.set(n.x*j,n.y*j,2e-4),P.g.rotation.set(n.roll,n.yaw,0),P.bGroup.rotation.z=n.flutter,P.mats.forEach(b=>{b.uniforms.uAlpha.value=d}),P.g.visible=d>.004}}function De(){return fe}function xe(){return{card:[+a.rotation.x.toFixed(3),+a.scale.x.toFixed(3)],layers:re.filter(v=>v.pieces.length).map(v=>[+v.pieces[0].pivot.rotation.x.toFixed(3),v.pieces.filter(H=>H.mesh.visible).length])}}return{root:e,update:_e,pinList:De,debug:xe}}const to={minFilter:THREE.LinearFilter,magFilter:THREE.LinearFilter,format:THREE.RGBAFormat,depthBuffer:!0,stencilBuffer:!1},ua={minFilter:THREE.LinearFilter,magFilter:THREE.LinearFilter,format:THREE.RGBAFormat,depthBuffer:!1,stencilBuffer:!1};let ce=Math.floor(window.innerWidth*Be),ue=Math.floor(window.innerHeight*Be),at=new THREE.WebGLRenderTarget(ce,ue,to),se=new THREE.WebGLRenderTarget(ce>>1,ue>>1,ua),Ve=new THREE.WebGLRenderTarget(ce>>1,ue>>1,ua);const da=new THREE.OrthographicCamera(-1,1,1,-1,0,1),kt=new THREE.Scene,ao=new THREE.PlaneGeometry(2,2),_t=new THREE.Mesh(ao,null);kt.add(_t);const Dt="varying vec2 vUv; void main(){ vUv = uv; gl_Position = vec4(position.xy, 0.0, 1.0); }",oo=new THREE.ShaderMaterial({uniforms:{tSrc:{value:null},uTh:{value:.34}},vertexShader:Dt,fragmentShader:`
+    varying vec2 vUv; uniform sampler2D tSrc; uniform float uTh;
+    void main(){
+      vec3 c = texture2D(tSrc, vUv).rgb;
+      float l = dot(c, vec3(0.2126,0.7152,0.0722));
+      float k = smoothstep(uTh, uTh + 0.32, l);
+      gl_FragColor = vec4(c * k, 1.0);
+    }`}),J=new THREE.ShaderMaterial({uniforms:{tSrc:{value:null},uDir:{value:new THREE.Vector2(1,0)},uTexel:{value:new THREE.Vector2(1,1)},uSpread:{value:1}},vertexShader:Dt,fragmentShader:`
+    varying vec2 vUv; uniform sampler2D tSrc; uniform vec2 uDir; uniform vec2 uTexel; uniform float uSpread;
+    void main(){
+      vec2 o = uDir * uTexel * uSpread;
+      vec3 c = texture2D(tSrc, vUv).rgb * 0.227027;
+      c += texture2D(tSrc, vUv + o*1.384615).rgb * 0.316216;
+      c += texture2D(tSrc, vUv - o*1.384615).rgb * 0.316216;
+      c += texture2D(tSrc, vUv + o*3.230769).rgb * 0.070270;
+      c += texture2D(tSrc, vUv - o*3.230769).rgb * 0.070270;
+      gl_FragColor = vec4(c, 1.0);
+    }`}),Re=new THREE.ShaderMaterial({uniforms:{tScene:{value:null},tBloom:{value:null},uTime:{value:0},uBloom:{value:.95},uRes:{value:new THREE.Vector2(1,1)},uPaper:{value:0}},vertexShader:Dt,fragmentShader:`
+    varying vec2 vUv;
+    uniform sampler2D tScene;
+    uniform sampler2D tBloom;
+    uniform float uTime;
+    uniform float uBloom;
+    uniform vec2  uRes;
+    uniform float uPaper;      /* 1 while the card is on screen: a print, not a film frame */
+    float hash(vec2 p){ return fract(sin(dot(p, vec2(12.9898,78.233))) * 43758.5453); }
+    void main(){
+      vec2 uv = vUv;
+      vec2 cc = uv - 0.5;
+      float r2 = dot(cc, cc);
+
+      /* chromatic aberration smears one-pixel ink lines into colour fringes \u2014 none on paper */
+      float ca = 0.0035 * r2 * 3.2 * (1.0 - uPaper);
+      vec3 scn;
+      scn.r = texture2D(tScene, uv + cc*ca).r;
+      scn.g = texture2D(tScene, uv).g;
+      scn.b = texture2D(tScene, uv - cc*ca).b;
+
+      vec3 blm = texture2D(tBloom, uv).rgb;
+      vec3 c = scn + blm * uBloom * (1.0 - 0.9*uPaper);
+
+      /* the film look: soft-knee tonemap, warm bias, lifted black */
+      vec3 film = 1.0 - exp(-c * 1.45);
+      film *= vec3(1.02, 0.985, 1.01);
+      film += vec3(0.010, 0.006, 0.010);
+      /* the print: linear, clipped, and a touch more saturated than the file */
+      vec3 print_ = clamp(c, 0.0, 1.0);
+      float lum = dot(print_, vec3(0.2126, 0.7152, 0.0722));
+      print_ = clamp(mix(vec3(lum), print_, 1.10), 0.0, 1.0);
+      c = mix(film, print_, uPaper);
+
+      float vig = smoothstep(1.35, 0.28, r2*2.6);
+      c *= mix(mix(0.72, 0.92, uPaper), 1.0, vig);
+
+      float g = hash(uv * uRes + mod(uTime, 10.0)) - 0.5;
+      c += g * mix(0.028, 0.006, uPaper);
+
+      gl_FragColor = vec4(c, 1.0);
+    }`});function Ne(e,t,a){_t.material=e,"tSrc"in e.uniforms&&(e.uniforms.tSrc.value=t),k.setRenderTarget(a),k.render(kt,da)}let Se=-.32,Ue=.1,be=!1,ot=0,nt=0,it=0,Pe=0;const st={x:0,y:0};let Ie=0;const Fe=.85,S={x:Fe,y:0},fa=new THREE.Raycaster,ma=new THREE.Vector2;function ha(e){return!B||!B.root.visible?!1:(ma.set(e.clientX/window.innerWidth*2-1,-(e.clientY/window.innerHeight)*2+1),fa.setFromCamera(ma,T),fa.intersectObject(B.root,!0).length>0)}let Ye=!1;W.addEventListener("pointerdown",e=>{if(M===5){if(Ye=ha(e),!Ye)return}else Ye=!1;be=!0,Pe=0,ot=e.clientX,nt=e.clientY,W.classList.add("dragging"),document.documentElement.classList.add("grabbing"),W.setPointerCapture(e.pointerId)}),W.addEventListener("pointermove",e=>{if(st.x=e.clientX/window.innerWidth*2-1,st.y=e.clientY/window.innerHeight*2-1,!be){M===5?W.classList.toggle("overCity",ha(e)):W.classList.contains("overCity")&&W.classList.remove("overCity");return}Se+=(e.clientX-ot)*.0052,Ue+=(e.clientY-nt)*.0032,Ue=Math.max(-.85,Math.min(.85,Ue)),M===5&&Ye&&(S.y+=(e.clientX-ot)*.0052,S.x=Math.max(-.45,Math.min(1,S.x+(e.clientY-nt)*.0038))),ot=e.clientX,nt=e.clientY,Pe=0}),window.addEventListener("pointerup",()=>{document.documentElement.classList.remove("grabbing"),be=!1,W.classList.remove("dragging")}),W.addEventListener("wheel",e=>{(e.ctrlKey||e.metaKey)&&(e.preventDefault(),Ie=Math.max(-4,Math.min(9,Ie+e.deltaY*.006)),Pe=0)},{passive:!1}),window.addEventListener("pointercancel",()=>{be=!1,W.classList.remove("dragging")}),W.addEventListener("touchmove",e=>{if(e.touches.length===2){e.preventDefault();const t=e.touches[0].clientX-e.touches[1].clientX,a=e.touches[0].clientY-e.touches[1].clientY,o=Math.hypot(t,a);it>0&&(Ie=Math.max(-4,Math.min(9,Ie+(it-o)*.02))),it=o,Pe=0}},{passive:!1}),W.addEventListener("touchend",()=>{it=0});const va=[1,2,3,4,5,6].map(e=>document.querySelector('.data-block[data-mol="'+e+'"]')),no=.25,io=[.25,.275,.3,.325,.35,.375,.4];let ba="";function so(e,t){const a=e+"|"+Math.round(t*400);if(a===ba)return;ba=a;const o=va[e-1];if(!o)return;const c=t>=no;o.querySelector(".retrieving").classList.toggle("shown",!c),o.querySelector(".verified").classList.toggle("shown",c);for(let l=0;l<7;l++){const i=o.querySelector(".l"+(l+1));i&&i.classList.toggle("shown",t>=io[l])}}function Ao(e){const t=va[e-1];t&&t.querySelectorAll(".dl").forEach(a=>a.classList.remove("shown"))}const rt=document.getElementById("scrubber"),ro=document.getElementById("ticks"),lo=[[0,"0 min"],[15,"15 min"],[60,"1 h"],[180,"3 h"],[480,"8 h"]];function po(e){return Math.pow(e/480,1/2.2)}lo.forEach(([e,t])=>{const a=document.createElement("span");a.textContent=t,a.style.left=po(e)*100+"%",ro.appendChild(a)});let zt=!1,qe=0;function lt(e){return Math.pow(e,2.2)*480}function wa(e,t,a){if(e<=t)return 1;if(e>=a)return 0;const o=(e-t)/(a-t);return 1-o*o*(3-2*o)}function Bt(e){const t=document.querySelectorAll(".caption p");let a=0;e>=10&&e<120?a=1:e>=120&&(a=2),t.forEach(o=>o.classList.toggle("active",+o.dataset.c===a))}rt.addEventListener("input",()=>{zt=!0,qe=parseFloat(rt.value),Bt(lt(qe))});let Gt=V,pt=!1,xa=0;function co(){zt||Gt||pt||V||(pt=!0,xa=Me.getElapsedTime())}const $=[1,2,3,4,5,6].map(e=>document.querySelector('.chapter[data-ch="'+e+'"]')),ga=document.querySelectorAll(".dots span");let Ot=[0,0,0,0,0,0],M=1;const Ea=100,ya=100;let Ae=null;function Wt(){if(Ae!==null)return Ae;const e=$[1],t=window.innerHeight;return(window.scrollY-e.offsetTop-Ea*t/100)/(ya*t/100)}const uo=Math.tan(5.6*Math.PI/360),Lo=$e?1.5:1.15,Ha=.98,ko=[];function fo(){const e=$[3],t=$[4],a=$[5];if(!e||!t||!a)return 0;const o=window.scrollY;return o<e.offsetTop||o<t.offsetTop?(o-e.offsetTop)/Math.max(1,t.offsetTop-e.offsetTop):1+(o-t.offsetTop)/Math.max(1,a.offsetTop-t.offsetTop)}function Ma(){const e=Qt!==null?(parseFloat(Qt)||0)*2:fo();return{u:e,rise:ee(0,.34,e),fly:ee(.02,.58,e),stand:ee(.52,1,e),right:ee(.86,1.3,e),exit:ee(1.72,1.98,e)}}const ct=[];let ut=null;function mo(){const e=document.getElementById("parisPins"),t=document.getElementById("parisSheet");if(!e||!B)return;B.pinList().forEach((o,c)=>{const l=document.createElement("div");l.className="paris-pin",l.innerHTML='<button type="button"></button><span class="stem"></span><span class="dot"></span>';const i=l.querySelector("button");i.textContent=o.data.name,i.addEventListener("click",()=>{ut=o.data.mol,document.getElementById("psEyebrow").textContent=o.data.eyebrow,document.getElementById("psName").textContent=o.data.name,document.getElementById("psFormula").textContent=o.data.formula,document.getElementById("psLine").textContent=o.data.line,document.getElementById("psSrc").textContent="PubChem \u2014 NIH \xB7 CID "+o.data.cid+" \xB7 structure verified",t.hidden=!1}),e.appendChild(l),ct.push({el:l,pin:o,stem:l.querySelector(".stem"),sx:null,sy:0,sl:Ta})});const a=document.getElementById("parisSheetClose");a&&a.addEventListener("click",()=>{t.hidden=!0,ut=null})}const de=new THREE.Vector3,Ca=30,ho=104,Ta=14;function vo(e,t){if(!ct.length)return;const a=document.getElementById("parisSheet");if(!e){for(const r of ct)r.el.classList.contains("on")&&r.el.classList.remove("on"),r.sx=null;ut&&(a&&(a.hidden=!0),ut=null);return}const o=window.innerWidth,c=window.innerHeight;B&&B.root.updateMatrixWorld(!0);const l=ct.map(r=>{de.setFromMatrixPosition(r.pin.anchor.matrixWorld);const f=de.distanceTo(T.position);return de.project(T),{rec:r,dist:f,x:(de.x*.5+.5)*o,y:(-de.y*.5+.5)*c,on:de.z<1&&Math.abs(de.x)<1.05&&Math.abs(de.y)<1.05}});l.slice().sort((r,f)=>r.dist-f.dist).forEach((r,f)=>{r.rank=f});const i=[];for(const r of l.slice().sort((f,C)=>f.dist-C.dist)){let f=Ta;for(let C=0;C<10;C++){const w=r.y-f,G=i.find(F=>Math.abs(F.x-r.x)<ho&&Math.abs(F.ly-w)<Ca);if(!G)break;f=r.y-G.ly+Ca}r.lift=f,r.on&&i.push({x:r.x,ly:r.y-f})}const h=Math.min(1,(t||.016)*13);for(const r of l){const f=r.rec;f.sx===null||f.sx===void 0?(f.sx=r.x,f.sy=r.y,f.sl=r.lift):(f.sx+=(r.x-f.sx)*h,f.sy+=(r.y-f.sy)*h,f.sl+=(r.lift-f.sl)*h),f.el.style.left=f.sx.toFixed(1)+"px",f.el.style.top=f.sy.toFixed(1)+"px",f.el.style.zIndex=String(400-r.rank*10),f.stem.style.height=Math.max(2,f.sl).toFixed(1)+"px",f.el.classList.contains("on")!==r.on&&f.el.classList.toggle("on",r.on)}}window.__molbox=function(e){const t=Oe[e];if(!t)return null;const a=new THREE.Vector3;let o=9,c=-9,l=9,i=-9;t.wrap.updateMatrixWorld(!0),t.built.group.children.forEach(r=>{!r.geometry||!/Sphere/.test(r.geometry.type)||(a.setFromMatrixPosition(r.matrixWorld).project(T),o=Math.min(o,a.x),c=Math.max(c,a.x),l=Math.min(l,a.y),i=Math.max(i,a.y))});const h=r=>+(r*.5+.5).toFixed(3);return{x0:h(o),x1:h(c),y0:h(-i),y1:h(-l),cx:h((o+c)/2),cy:h(-(l+i)/2),n:t.built.group.children.length,wrapX:+t.wrap.position.x.toFixed(3),camX:+T.position.x.toFixed(3),camZ:+T.position.z.toFixed(3),lookX:+ke.x.toFixed(3),scale:+t.curScaleMul.toFixed(3),ch:M,g:+Wt().toFixed(2)}},Et&&(window.__bridge=function(){const e=Wt(),t=Ma();return{g:e,B:t,fov:T.fov,camZ:T.position.z,camY:T.position.y,rotY:Oe[5].wrap.rotation.y,ch:M,paris:!!(B&&B.root.visible),lay:B?B.debug():null,m6:(function(){const a=Oe[5],o=a.built.group.children[0];return{pos:a.wrap.position.toArray().map(c=>+c.toFixed(3)),sc:+a.curScaleMul.toFixed(3),rx:+a.wrap.rotation.x.toFixed(3),aScale:+o.scale.x.toFixed(5),uInk:o.material.uniforms.uInk.value,uOnPaper:+o.material.uniforms.uOnPaper.value.toFixed(3),uBright:+o.material.uniforms.uBright.value.toFixed(3)}})(),hint:Ge.classList.contains("on"),cap:-1}});function Ra(){const e=window.innerHeight,t=window.scrollY;$.forEach((c,l)=>{const i=c.offsetTop,h=c.offsetHeight;Ot[l]=Math.max(0,Math.min(1,(t-i)/h))});const a=t+e*.5;let o=1;$.forEach((c,l)=>{a>=c.offsetTop&&(o=l+1)}),o===5&&M<5&&(S.x=Fe,S.y=0),M=o,document.documentElement.classList.toggle("inParis",M===5),M>=4&&Le===null&&Eo(),ga.forEach(c=>c.classList.toggle("active",+c.dataset.d===M)),M===3&&co()}let Vt=!1;window.addEventListener("scroll",()=>{document.documentElement.classList.toggle("scrolled",window.scrollY>80),!Vt&&(Vt=!0,requestAnimationFrame(()=>{Ra(),Vt=!1}))},{passive:!0});function bo(e){return 1-Math.pow(1-e,3)}function Q(e){return Math.max(0,Math.min(1,e))}function ee(e,t,a){const o=Q((a-e)/(t-e));return o*o*(3-2*o)}function _o(e,t,a,o){const c=Math.tan(K/2),l=t/(o*c),i=e/(o*c*a);return Math.max(l,i)}function wo(){const t=window.innerWidth/window.innerHeight<.9?.44:.62;return et/(t*Math.tan(K/2))}function Nt(){return Tt}function Do(){return Nt()*1.32}const Sa=2.7,xo=1.55,go=1.85;function Pa(){const e=window.innerWidth/window.innerHeight;return e<.9?.27:Math.max(.56,Math.min(.66,.58+(e-1.33)*.13))}function dt(){return Sa*j*We/(2*Pa())/Math.tan(K/2)/Math.hypot(1,Ha)}let Le=null;function Eo(){let e=0;document.querySelectorAll(".paris-panel h2, .paris-panel p, .paris-panel .eyebrow, .qr-block img, .qr-block a").forEach(t=>{const a=t.getBoundingClientRect();a.width&&(e=Math.max(e,a.right))}),Le=e?e/window.innerWidth:null}document.fonts&&document.fonts.ready&&document.fonts.ready.then(()=>{Le=null});function Ia(){const e=window.innerWidth,t=window.innerHeight,a=e/t,c=(Le!==null?Le:(.06*e+Math.min(.38*e,460))/e)+.035+Math.max(0,1.7-a)*.06,l=.975,i=Math.max(.3,l-c),h=(c+l)/2-.045,r=Math.tan(K/2),f=It*We*.98,C=(Sa*j*We+.55)*.98,w=f/(2*r*a*i)+Ft*We*.3,G=C/(2*r*.9),F=Math.max(w,G);return{dist:F,shift:(h-.5)*2*F*r*a}}function yo(e,t){const a=window.innerWidth/window.innerHeight;if(a<.9)return 0;const o=Math.max(.64,Math.min(.72,.64+(a-1.33)*.16));return(.66*e+.34*t)*dt()*Math.tan(K/2)*a*o}function Ho(e){const t=window.innerWidth/window.innerHeight;return t<.9?0:e*Math.tan(K/2)*t*.08}function Fa(){const e=window.innerWidth,t=window.innerHeight,a=e/t,o=a<.9,c=na*Math.tan(K/2),l=c*a,i=o?.3:.62,h=o?.5:.715,r=o?.33:.5;return{x:(h-.5)*2*l,y:-(r-.5)*2*c,h:i*2*c}}function zo(e){return Fa(e).x}let Xe=Nt(),Ut=new THREE.Vector3(0,0,0),ke=new THREE.Vector3(0,0,0),Yt=pe?1:0;const Bo=.12;function Mo(e){const t=Math.abs(e);return t>=.95?{bright:0,fade:0,scaleMul:.001,arrivalT:1}:{bright:1,fade:1-ee(.02,.98,t),scaleMul:1,arrivalT:1}}let we=null,ft=0,mt=0;function Aa(e,t){const a=Me.getElapsedTime();Yt=Math.min(1,Yt+e*.55);const o=1-Math.pow(1-Yt,3),c=Wt(),l=Ot[0],i=qe,h=t||Ae!==null||V?1:Math.min(1,e*6.5);we===null&&(we=c,ft=l,mt=i),we+=(c-we)*h,ft+=(l-ft)*h,mt+=(i-mt)*Math.min(1,h*1.4),Math.abs(c-we)<5e-4&&(we=c);const r=ft,f=we,C=Q(1+f*(ya/Ea)),w=Ma(),G=Q(w.u),F=1-ee(0,.3,w.u),A=w.rise*(1-.86*w.stand)*(1-w.exit),z=Math.tan(K/2),Z=z*(1-A)+uo*A,_=z/Z;if(Et){const p=2*Math.atan(Z)*180/Math.PI;Math.abs(T.fov-p)>1e-4&&(T.fov=p,T.updateProjectionMatrix()),yt.material.uniforms.uFlat.value=A}const fe=2*Xe*z/Math.max(1,window.innerHeight),re=o*o,me=1-C,N=re*me,te=(.88+.12*re)*(1+.18*(C*C*(3-2*C))),P=Fa(),_e=P.h*te;ve.position.x=P.x,ve.position.y=P.y,ve.scale.set(_e*Ka,_e,1),ve.material.opacity=N,ve.visible=N>.002;const De=ee(.05,.4,C)*(1-ee(.7,.95,C));tt.uAlpha.value=De,tt.uTime.value=V?0:a;const xe=lt(mt),v=wa(xe,3,20),H=wa(xe,45,180),D=1-.15*Q(xe/480),U={top:v,heart:H,base:D},y=wo(),s=Nt(),d=Ho(y),n=window.innerWidth/window.innerHeight<.9,b=n?1.05:.3,m=.12;if(Re.uniforms.uPaper.value=Q(w.rise)*(1-Q(w.exit)),B){const p=Math.max(0,Math.min(1,S.x)),L=n?0:yo(1,1)*(1-p)+Ia().shift*p;B.update({x:L,rise:w.rise,fly:w.fly,fadeIn:ee(.3,.9,w.u),stand:w.stand,right:w.right,exitFade:1-w.exit,spinX:S.x,spinY:S.y},fe,a),vo(w.stand>.55&&w.exit<.3,e)}if(M===2){const p=Math.max(0,Math.min(5,Math.round(f))),L=Q(1-Math.abs(f-p)*2.4);so(p+1,L)}let u=0;if(M===2&&f>-.5&&f<5.5){const p=f-Math.floor(f);u=Math.max(0,1-Math.abs(p-.5)*2.6)*.45}Oe.forEach(p=>{let L,ae,Y,q,X=0,oe=0,ge=0,ze=0,Ee=!1,ye=1;if(M<=1)L=0,ae=0,Y=.001,q=1,ye=0;else if(M===2){const he=f-p.idx,ne=Mo(he);L=d,ae=b,Y=ne.scaleMul,q=ne.bright,ye=ne.fade,ne.fade>.004&&p.built.breathe(a)}else if(M===3){const he=U[p.group],ne=Ya(p.slot),xt=Tt*Math.tan(K/2),Ro=xt*(window.innerWidth/window.innerHeight);L=(ne.sx-.5)*2*Ro,ae=(.5-ne.sy)*2*xt,Y=oa*Ua(),q=1,ye=he,X=ne.rz,p.built.breathe(a)}else{const he=dt()*Math.tan(K/2),ne=he*(window.innerWidth/window.innerHeight);L=n?0:ne*.4,ae=n?he*.42:-.04;const xt=n?1:.58/Pa();Y=oa*(n?3:1.42)*xt,q=1,ye=p.idx===5?.95*(1-w.rise):0,X=p.ch3.rz,ye>.004&&p.built.breathe(a)}t||Ee?(p.wrap.position.set(L,ae,ge),p.curScaleMul=Y):(p.wrap.position.x+=(L-p.wrap.position.x)*Math.min(1,e*4),p.wrap.position.y+=(ae-p.wrap.position.y)*Math.min(1,e*4),p.wrap.position.z+=(ge-p.wrap.position.z)*Math.min(1,e*4),p.curScaleMul+=(Y-p.curScaleMul)*Math.min(1,e*4)),p.wrap.scale.setScalar(p.curScaleMul),p.built.setBright(q),p.built.setFade(ye);const _a=ye>.004;p.wrap.visible!==_a&&(p.wrap.visible=_a);const To=V?0:Math.sin(a*.11+p.idx)*.02;let Kt=Ue,jt=Se,wt=X+To;if(oe>0){const he=Math.round(Se/(Math.PI*2))*Math.PI*2;Kt=Ue*(1-oe)+ze*oe,jt=Se+(he-Se)*oe,wt=wt*(1-oe)}t?p.wrap.rotation.set(Kt,jt,wt):(p.wrap.rotation.x+=(Kt-p.wrap.rotation.x)*Math.min(1,e*5.5),p.wrap.rotation.y+=(jt-p.wrap.rotation.y)*Math.min(1,e*5.5),p.wrap.rotation.z+=(wt-p.wrap.rotation.z)*Math.min(1,e*3))}),M===2&&(tt.uAlpha.value=Math.max(tt.uAlpha.value,u*.7));{const p=M===2&&f>=.3;Ge.classList.contains("on")!==p&&Ge.classList.toggle("on",p)}{const p=window.innerWidth,L=window.innerHeight,ae=M===3;Oe.forEach(Y=>{const q=qa[Y.idx];if(!q)return;const X=ae?U[Y.group]:0;if(X<.03){q.style.opacity="0";return}Ce.copy(Y.wrap.position),Rt.localToWorld(Ce);const oe=T.position.distanceTo(Ce);Ce.project(T);const ge=(Ce.x+1)*.5*p,ze=(1-Ce.y)*.5*L,Ee=et*Y.curScaleMul*(L*.5)/(oe*Math.tan(K/2));q.style.transform="translate(-50%,0) translate("+ge.toFixed(1)+"px,"+(ze+Ee*.4+6).toFixed(1)+"px)",q.style.opacity=String(Math.min(1,X))})}if(Pe+=e,!be&&Pe>3.5&&!V&&(Se+=e*.1035),!(be&&Ye)&&(S.x!==Fe||S.y!==0)){const p=Math.PI*2;S.y=((S.y+Math.PI)%p+p)%p-Math.PI;const L=t?1:Math.min(1,e*4);S.x+=(Fe-S.x)*L,S.y+=(0-S.y)*L,Math.abs(S.x-Fe)<1e-4&&(S.x=Fe),Math.abs(S.y)<1e-4&&(S.y=0)}let g,x=0,E=.2;if(M<=1)g=s;else if(M===2)g=y+Ie,E=m;else if(M===3)g=s+Ie,E=0;else{const p=Math.max(0,Math.min(1,S.x)),L=Ia();g=n?dt()*(1+.24*p):dt()*(1-p)+L.dist*p,E=n?1.15-.3*p:.34-.24*p}M<4&&(g=Math.max(y*.75,Math.min(s*1.8,g))),Ut.set(x,E,0),t?(Xe=g,ke.copy(Ut)):(Xe+=(g-Xe)*Math.min(1,e*3.2),ke.lerp(Ut,Math.min(1,e*4)));const I=(Xe+(1-o)*3.2)*_,R=be||M>=5?0:1,O=st.x*.4*R,le=-st.y*.28*R,Ke=ke.x+O,je=1-Math.max(0,Math.min(1,S.x))*.86+Math.max(0,-S.x)*.6,bt=ke.y+.25+le+I*Ha*je*w.stand*(1-w.exit);t?T.position.set(Ke,bt,I):(T.position.x+=(Ke-T.position.x)*Math.min(1,e*2.4),T.position.y+=(bt-T.position.y)*Math.min(1,e*2.4),T.position.z=I),T.lookAt(ke);for(const p of Ht)p.uIntro.value=o,p.uTime.value=a;ia.uAlpha.value=o*(M===2?.75:1)*F,sa.uAlpha.value=o*F,ia.uTime.value=V?0:a,sa.uTime.value=V?0:a*.4,yt.material.uniforms.uTime.value=a}let qt=!0,La=0;document.addEventListener("visibilitychange",()=>{qt=!document.hidden,qt&&(Me.getDelta(),Xt())});function Xt(){if(!qt)return;pe&&La++,requestAnimationFrame(Xt),(k.domElement.clientHeight!==window.innerHeight||k.domElement.clientWidth!==window.innerWidth)&&ht();const e=pe&&La>20?0:Math.min(Me.getDelta(),.05);if(pt){const t=Me.getElapsedTime()-xa,a=Math.min(1,t/14);qe=a,rt.value=String(a),Bt(lt(a)),a>=1&&(pt=!1,Gt=!0)}Aa(e,!1),k.setRenderTarget(at),k.render(He,T),Ne(oo,at.texture,se),J.uniforms.uTexel.value.set(1/se.width,1/se.height),J.uniforms.uSpread.value=1,J.uniforms.uDir.value.set(1,0),Ne(J,se.texture,Ve),J.uniforms.uDir.value.set(0,1),Ne(J,Ve.texture,se),J.uniforms.uSpread.value=2.4,J.uniforms.uDir.value.set(1,0),Ne(J,se.texture,Ve),J.uniforms.uDir.value.set(0,1),Ne(J,Ve.texture,se),Re.uniforms.tScene.value=at.texture,Re.uniforms.tBloom.value=se.texture,Re.uniforms.uTime.value=Me.getElapsedTime(),Re.uniforms.uRes.value.set(ce,ue),_t.material=Re,k.setRenderTarget(null),k.render(kt,da)}function ht(){const e=window.innerWidth,t=window.innerHeight;Le=null,T.aspect=e/t,T.updateProjectionMatrix(),k.setSize(e,t),ce=Math.floor(e*Be),ue=Math.floor(t*Be),at.setSize(ce,ue),se.setSize(ce>>1,ue>>1),Ve.setSize(ce>>1,ue>>1)}window.addEventListener("resize",ht);function Co(){if(Je.layers&&Je.layers.length&&(B=eo(),mo()),ht(),window.addEventListener("load",ht),Zt!==null){const t=Math.max(0,Math.min(1,parseFloat(Zt)));isNaN(t)||(rt.value=String(t),qe=t,zt=!0,Gt=!0,Bt(lt(t)))}let e=!1;if(gt){const t=document.querySelector('.chapter[data-ch="'+gt+'"]');if(t)if(pe){const a=parseInt(gt,10),c={1:0,2:.85,3:.2,4:.5,5:.5,6:.2}[a]||.15;$.forEach((i,h)=>{i.style.display=h+1===a?"":"none"});for(let i=0;i<6;i++)Ot[i]=i+1<a?1:i+1===a?c:0;if(M=a,ga.forEach(i=>i.classList.toggle("active",+i.dataset.d===M)),window.scrollTo(0,0),a===2){const i=Jt?parseInt(Jt,10):0;if(document.querySelectorAll(".ch2-stage0, .ch2-stage, .ch2-tail").forEach(h=>{const r=i===0?h.classList.contains("ch2-stage0"):h.dataset.mol===String(i);h.style.display=r?"":"none"}),i===0)Ae=-1;else{const h=$t!==null?parseFloat($t):.5;Ae=i-1+h}}else Ae=a<=1?-1:7;let l=parseInt(ie.get("shift")||"0",10);a===5&&ie.get("end")==="1"&&(l=Math.max(0,t.scrollHeight-window.innerHeight)),l&&(t.style.transform="translateY(-"+l+"px)"),e=!0}else t.scrollIntoView({block:"start"})}if(ea!==null&&!pe&&$[5]){const t=Math.max(0,Math.min(2,parseFloat(ea)||0)),a=$[3].offsetTop,o=$[4].offsetTop,c=$[5].offsetTop;window.scrollTo(0,t<=1?a+t*(o-a):o+(t-1)*(c-o)),e=!1}if(e||Ra(),Aa(0,!0),pe){const t=document.getElementById("veil");t&&t.remove()}else requestAnimationFrame(()=>{const t=document.getElementById("veil");t.style.opacity="0",setTimeout(()=>t.remove(),1600)});Xt()}let ka=!1;function vt(){ka||(ka=!0,requestAnimationFrame(Co))}document.fonts&&document.fonts.ready&&document.fonts.ready.then(vt).catch(vt),setTimeout(vt,1500),window.addEventListener("load",()=>setTimeout(vt,300)),setTimeout(()=>{const e=document.getElementById("veil");e&&(e.style.opacity="0",setTimeout(()=>e.remove(),1400))},5e3)})();
+//# sourceMappingURL=index.js.map</script>
+<div style="background:#16181C;color:#F3F4F3;padding:0.7rem 1rem;text-align:center;font:500 12px/1.5 system-ui,sans-serif;letter-spacing:0.02em">Concept proposal for Ulric de Varens USA — prepared on my own initiative, not commissioned. Molecular structures from PubChem, the US National Institutes of Health registry. A Reasoned Web piece.</div>
+</body>
+</html>

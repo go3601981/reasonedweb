@@ -1,0 +1,372 @@
+{
+ "banner": {
+  "aspect": 5.9091,
+  "file": "assets/paris/banner.webp",
+  "full": "assets/paris/full/banner.png",
+  "h": 260,
+  "id": "banner",
+  "layer": "sky",
+  "sheet": "assets/udv-wordmark-site.svg",
+  "w": 1536
+ },
+ "bottle": {
+  "aspect": 0.5846,
+  "file": "assets/paris/bottle.webp",
+  "full": "assets/paris/full/bottle.png",
+  "h": 1200,
+  "id": "bottle",
+  "layer": "far",
+  "sheet": "bottle-c.png",
+  "w": 701
+ },
+ "far-01": {
+  "aspect": 0.4564,
+  "file": "assets/paris/far-01.webp",
+  "full": "assets/paris/full/far-01.png",
+  "h": 1352,
+  "id": "far-01",
+  "layer": "far",
+  "sheet": "sheet-far-01.png",
+  "w": 617
+ },
+ "far-02": {
+  "aspect": 1.0818,
+  "file": "assets/paris/far-02.webp",
+  "full": "assets/paris/full/far-02.png",
+  "h": 1148,
+  "id": "far-02",
+  "layer": "far",
+  "sheet": "sheet-far-01.png",
+  "w": 1241
+ },
+ "far-03": {
+  "aspect": 0.9023,
+  "file": "assets/paris/far-03.webp",
+  "full": "assets/paris/full/far-03.png",
+  "h": 952,
+  "id": "far-03",
+  "layer": "far",
+  "sheet": "sheet-far-01.png",
+  "w": 859
+ },
+ "far-04": {
+  "aspect": 1.736,
+  "file": "assets/paris/far-04.webp",
+  "full": "assets/paris/full/far-04.png",
+  "h": 475,
+  "id": "far-04",
+  "layer": "far",
+  "sheet": "sheet-far-01.png",
+  "w": 826
+ },
+ "far-05": {
+  "aspect": 1.9178,
+  "file": "assets/paris/far-05.webp",
+  "full": "assets/paris/full/far-05.png",
+  "h": 420,
+  "id": "far-05",
+  "layer": "far",
+  "sheet": "sheet-far-01.png",
+  "w": 805
+ },
+ "far-06": {
+  "aspect": 1.5125,
+  "file": "assets/paris/far-06.webp",
+  "full": "assets/paris/full/far-06.png",
+  "h": 260,
+  "id": "far-06",
+  "layer": "far",
+  "sheet": "sheet-far-01.png",
+  "w": 393
+ },
+ "far-07": {
+  "aspect": 2.9127,
+  "file": "assets/paris/far-07.webp",
+  "full": "assets/paris/full/far-07.png",
+  "h": 260,
+  "id": "far-07",
+  "layer": "far",
+  "sheet": "sheet-far-01.png",
+  "w": 757
+ },
+ "far-08": {
+  "aspect": 5.7005,
+  "file": "assets/paris/far-08.webp",
+  "full": "assets/paris/full/far-08.png",
+  "h": 197,
+  "id": "far-08",
+  "layer": "far",
+  "sheet": "sheet-far-01.png",
+  "w": 1123
+ },
+ "mid-01": {
+  "aspect": 0.5944,
+  "file": "assets/paris/mid-01.webp",
+  "full": "assets/paris/full/mid-01.png",
+  "h": 1148,
+  "id": "mid-01",
+  "layer": "mid",
+  "sheet": "sheet-mid-01.png",
+  "w": 682
+ },
+ "mid-02": {
+  "aspect": 0.7335,
+  "file": "assets/paris/mid-02.webp",
+  "full": "assets/paris/full/mid-02.png",
+  "h": 1232,
+  "id": "mid-02",
+  "layer": "mid",
+  "sheet": "sheet-mid-01.png",
+  "w": 903
+ },
+ "mid-03": {
+  "aspect": 0.8764,
+  "file": "assets/paris/mid-03.webp",
+  "full": "assets/paris/full/mid-03.png",
+  "h": 868,
+  "id": "mid-03",
+  "layer": "mid",
+  "sheet": "sheet-mid-01.png",
+  "w": 760
+ },
+ "mid-04": {
+  "aspect": 0.8794,
+  "file": "assets/paris/mid-04.webp",
+  "full": "assets/paris/full/mid-04.png",
+  "h": 840,
+  "id": "mid-04",
+  "layer": "mid",
+  "sheet": "sheet-mid-01.png",
+  "w": 738
+ },
+ "mid-05": {
+  "aspect": 1.7665,
+  "file": "assets/paris/mid-05.webp",
+  "full": "assets/paris/full/mid-05.png",
+  "h": 532,
+  "id": "mid-05",
+  "layer": "mid",
+  "sheet": "sheet-mid-01.png",
+  "w": 939
+ },
+ "mid-06": {
+  "aspect": 0.4559,
+  "file": "assets/paris/mid-06.webp",
+  "full": "assets/paris/full/mid-06.png",
+  "h": 980,
+  "id": "mid-06",
+  "layer": "mid",
+  "sheet": "sheet-mid-01.png",
+  "w": 446
+ },
+ "mid-07": {
+  "aspect": 1.6967,
+  "file": "assets/paris/mid-07.webp",
+  "full": "assets/paris/full/mid-07.png",
+  "h": 532,
+  "id": "mid-07",
+  "layer": "mid",
+  "sheet": "sheet-mid-01.png",
+  "w": 902
+ },
+ "mid-08": {
+  "aspect": 0.9124,
+  "file": "assets/paris/mid-08.webp",
+  "full": "assets/paris/full/mid-08.png",
+  "h": 756,
+  "id": "mid-08",
+  "layer": "mid",
+  "sheet": "sheet-mid-01.png",
+  "w": 689
+ },
+ "near-01": {
+  "aspect": 1.0425,
+  "file": "assets/paris/near-01.webp",
+  "full": "assets/paris/full/near-01.png",
+  "h": 727,
+  "id": "near-01",
+  "layer": "near",
+  "sheet": "sheet-near-01.png",
+  "w": 758
+ },
+ "near-02": {
+  "aspect": 0.9245,
+  "file": "assets/paris/near-02.webp",
+  "full": "assets/paris/full/near-02.png",
+  "h": 616,
+  "id": "near-02",
+  "layer": "near",
+  "sheet": "sheet-near-01.png",
+  "w": 569
+ },
+ "near-03": {
+  "aspect": 0.5678,
+  "file": "assets/paris/near-03.webp",
+  "full": "assets/paris/full/near-03.png",
+  "h": 672,
+  "id": "near-03",
+  "layer": "near",
+  "sheet": "sheet-near-01.png",
+  "w": 381
+ },
+ "near-04": {
+  "aspect": 0.9097,
+  "file": "assets/paris/near-04.webp",
+  "full": "assets/paris/full/near-04.png",
+  "h": 756,
+  "id": "near-04",
+  "layer": "near",
+  "sheet": "sheet-near-01.png",
+  "w": 687
+ },
+ "near-05": {
+  "aspect": 1.2376,
+  "file": "assets/paris/near-05.webp",
+  "full": "assets/paris/full/near-05.png",
+  "h": 644,
+  "id": "near-05",
+  "layer": "near",
+  "sheet": "sheet-near-01.png",
+  "w": 796
+ },
+ "near-06": {
+  "aspect": 0.1782,
+  "file": "assets/paris/near-06.webp",
+  "full": "assets/paris/full/near-06.png",
+  "h": 756,
+  "id": "near-06",
+  "layer": "near",
+  "sheet": "sheet-near-01.png",
+  "w": 134
+ },
+ "near-07": {
+  "aspect": 0.3644,
+  "file": "assets/paris/near-07.webp",
+  "full": "assets/paris/full/near-07.png",
+  "h": 700,
+  "id": "near-07",
+  "layer": "near",
+  "sheet": "sheet-near-01.png",
+  "w": 255
+ },
+ "near-08": {
+  "aspect": 2.6853,
+  "file": "assets/paris/near-08.webp",
+  "full": "assets/paris/full/near-08.png",
+  "h": 280,
+  "id": "near-08",
+  "layer": "near",
+  "sheet": "sheet-near-01.png",
+  "w": 751
+ },
+ "people-01": {
+  "aspect": 0.3957,
+  "file": "assets/paris/people-01.webp",
+  "full": "assets/paris/full/people-01.png",
+  "h": 504,
+  "id": "people-01",
+  "layer": "people",
+  "sheet": "sheet-people-01.png",
+  "w": 199
+ },
+ "people-02": {
+  "aspect": 0.8845,
+  "file": "assets/paris/people-02.webp",
+  "full": "assets/paris/full/people-02.png",
+  "h": 475,
+  "id": "people-02",
+  "layer": "people",
+  "sheet": "sheet-people-01.png",
+  "w": 421
+ },
+ "people-03": {
+  "aspect": 0.5473,
+  "file": "assets/paris/people-03.webp",
+  "full": "assets/paris/full/people-03.png",
+  "h": 504,
+  "id": "people-03",
+  "layer": "people",
+  "sheet": "sheet-people-01.png",
+  "w": 275
+ },
+ "people-04": {
+  "aspect": 0.6526,
+  "file": "assets/paris/people-04.webp",
+  "full": "assets/paris/full/people-04.png",
+  "h": 490,
+  "id": "people-04",
+  "layer": "people",
+  "sheet": "sheet-people-01.png",
+  "w": 319
+ },
+ "people-06": {
+  "aspect": 0.991,
+  "file": "assets/paris/people-06.webp",
+  "full": "assets/paris/full/people-06.png",
+  "h": 518,
+  "id": "people-06",
+  "layer": "people",
+  "sheet": "sheet-people-01.png",
+  "w": 513
+ },
+ "people-08": {
+  "aspect": 0.6424,
+  "file": "assets/paris/people-08.webp",
+  "full": "assets/paris/full/people-08.png",
+  "h": 260,
+  "id": "people-08",
+  "layer": "people",
+  "sheet": "sheet-people-01.png",
+  "w": 167
+ },
+ "people-09": {
+  "aspect": 0.9501,
+  "file": "assets/paris/people-09.webp",
+  "full": "assets/paris/full/people-09.png",
+  "h": 260,
+  "id": "people-09",
+  "layer": "people",
+  "sheet": "sheet-people-01.png",
+  "w": 247
+ },
+ "people-10": {
+  "aspect": 1.0045,
+  "file": "assets/paris/people-10.webp",
+  "full": "assets/paris/full/people-10.png",
+  "h": 260,
+  "id": "people-10",
+  "layer": "people",
+  "sheet": "sheet-people-01.png",
+  "w": 261
+ },
+ "people-11": {
+  "aspect": 0.8977,
+  "file": "assets/paris/people-11.webp",
+  "full": "assets/paris/full/people-11.png",
+  "h": 644,
+  "id": "people-11",
+  "layer": "people",
+  "sheet": "sheet-people-01.png",
+  "w": 578
+ },
+ "people-12": {
+  "aspect": 0.5857,
+  "file": "assets/paris/people-12.webp",
+  "full": "assets/paris/full/people-12.png",
+  "h": 504,
+  "id": "people-12",
+  "layer": "people",
+  "sheet": "sheet-people-01.png",
+  "w": 295
+ },
+ "plane": {
+  "aspect": 2.0897,
+  "file": "assets/paris/plane.webp",
+  "full": "assets/paris/full/plane.png",
+  "h": 420,
+  "id": "plane",
+  "layer": "sky",
+  "sheet": "plane-b-clean.png",
+  "w": 877
+ }
+}

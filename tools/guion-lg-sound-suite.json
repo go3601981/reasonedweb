@@ -1,0 +1,178 @@
+{
+  "_nota": "Guion del video de LG Sound Suite para la home. Se conduce con tools/grabar.py. El modal de bienvenida se desarma ANTES de cargar (localStorage), y la calibracion se salta con el atajo REAL del producto: dos flechas derecha durante la intro disparan onFirstDrag -> skipIntro, que ahorra ~16 s de espera. Sin sonido: el binaural es Web Audio en vivo y el video va mudo en la web.",
+  "pre": "try { localStorage.setItem('lg-ss-onboarded','1'); } catch (e) {}",
+  "ocultar": [],
+  "min_ocultados": 0,
+  "beats": [
+    {
+      "nombre": "portada",
+      "accion": "esperar",
+      "dur": 2.5
+    },
+    {
+      "nombre": "start",
+      "accion": "click",
+      "sel": ".start-cta",
+      "dur": 1.0
+    },
+    {
+      "nombre": "cargar-video",
+      "accion": "esperar_sel",
+      "sel": ".cmp-opt[data-mode=\"generic\"]",
+      "max": 25,
+      "dur": 4.0
+    },
+    {
+      "nombre": "ver-escena",
+      "accion": "esperar",
+      "dur": 3.0
+    },
+    {
+      "nombre": "ab-generico",
+      "accion": "click",
+      "sel": ".cmp-opt[data-mode=\"generic\"]",
+      "dur": 3.5
+    },
+    {
+      "nombre": "ab-lg",
+      "accion": "click",
+      "sel": ".cmp-opt[data-mode=\"lg\"]",
+      "dur": 3.5
+    },
+    {
+      "nombre": "ir-soundfollow",
+      "accion": "click",
+      "sel": ".chapter-nav button[data-go=\"soundfollow\"]",
+      "dur": 1.0
+    },
+    {
+      "nombre": "cargar-3d",
+      "accion": "esperar_sel",
+      "sel": ".c3d",
+      "max": 40,
+      "dur": 5.0
+    },
+    {
+      "nombre": "foco-3d",
+      "accion": "js",
+      "expr": "document.querySelector('.c3d')?.focus()",
+      "dur": 0.4
+    },
+    {
+      "nombre": "saltar-calib",
+      "accion": "tecla",
+      "tecla": "ArrowRight",
+      "veces": 2,
+      "cada": 0.2
+    },
+    {
+      "nombre": "asentar",
+      "accion": "esperar",
+      "dur": 3.0
+    },
+    {
+      "nombre": "barrido-dcha",
+      "accion": "tecla",
+      "tecla": "ArrowRight",
+      "veces": 10,
+      "cada": 0.28
+    },
+    {
+      "nombre": "leer-mezcla",
+      "accion": "esperar",
+      "dur": 2.0
+    },
+    {
+      "nombre": "barrido-izq",
+      "accion": "tecla",
+      "tecla": "ArrowLeft",
+      "veces": 16,
+      "cada": 0.26
+    },
+    {
+      "nombre": "leer-mezcla-2",
+      "accion": "esperar",
+      "dur": 2.5
+    },
+    {
+      "nombre": "volver-centro",
+      "accion": "tecla",
+      "tecla": "ArrowRight",
+      "veces": 6,
+      "cada": 0.22
+    },
+    {
+      "nombre": "reposo",
+      "accion": "esperar",
+      "dur": 2.0
+    },
+    {
+      "nombre": "ir-inside",
+      "accion": "click",
+      "sel": ".chapter-nav button[data-go=\"inside\"]",
+      "dur": 1.0
+    },
+    {
+      "nombre": "cargar-inside",
+      "accion": "esperar_sel",
+      "sel": ".ex-slider",
+      "max": 30,
+      "dur": 4.0
+    },
+    {
+      "nombre": "explosionar",
+      "accion": "js",
+      "expr": "(() => { const s=document.querySelector('.ex-slider'); if(!s) return; let v=+s.min||0; const max=+s.max||100; const paso=(max-v)/60; const t=setInterval(()=>{ v=Math.min(max*0.82, v+paso); s.value=v; s.dispatchEvent(new Event('input',{bubbles:true})); if(v>=max*0.82) clearInterval(t); }, 45); })()",
+      "dur": 5.0
+    },
+    {
+      "nombre": "ver-hotspots",
+      "accion": "esperar",
+      "dur": 3.0
+    },
+    {
+      "nombre": "abrir-hotspot",
+      "accion": "js",
+      "expr": "(() => { const d=document.querySelector('.hs-pin.on .hs-dot') || document.querySelector('.hs-dot'); if(d) d.click(); })()",
+      "dur": 4.0
+    },
+    {
+      "nombre": "orbitar",
+      "accion": "arrastrar",
+      "desde": [
+        0.5,
+        0.55
+      ],
+      "hasta": [
+        0.72,
+        0.46
+      ],
+      "pasos": 34,
+      "dur": 4.0
+    },
+    {
+      "nombre": "leer-orbita",
+      "accion": "esperar",
+      "dur": 2.0
+    },
+    {
+      "nombre": "ir-finale",
+      "accion": "js",
+      "expr": "document.querySelector('.chapter-nav button.nav-cont[data-go=\"finale\"]')?.click()",
+      "dur": 0.6
+    },
+    {
+      "nombre": "confirmar-finale",
+      "accion": "esperar_sel",
+      "sel": ".fin-replay",
+      "max": 12,
+      "dur": 1.0
+    },
+    {
+      "nombre": "cierre",
+      "accion": "esperar",
+      "dur": 13.0,
+      "_nota": "el fundido de entrada al finale tarda ~4s; con 7 el cierre de marca se veia a medio aparecer"
+    }
+  ]
+}

@@ -158,17 +158,6 @@ section p + p { margin-top: 0.9rem; }
 .case-lead { display: grid; gap: 2rem; margin-top: 1.5rem; }
 @media (min-width: 60rem) { .case-lead { grid-template-columns: 3fr 2fr; align-items: start; } }
 .case-lead .shot { border: 1px solid var(--line); }
-
-/* ── El vídeo de la pieza (2026-08-18) ───────────────────────────────────
-   Sustituye a la captura estática de LG: un productor que abre el correo en
-   el móvil entre reuniones no pincha un caso de estudio, pero sí le da al
-   play. `preload="none"` + `poster` = pesa lo que pesaba la imagen hasta que
-   alguien decide verlo, así el vídeo no toca ni el LCP ni el presupuesto de
-   datos de nadie. `width`/`height` con la misma proporción que el póster
-   dejan el salto de layout en cero, que es un recibo publicado. */
-.cine { margin: 0; }
-.cine video { display: block; width: 100%; height: auto; border: 1px solid var(--line); background: var(--ink); }
-.cine figcaption { font-size: 0.92rem; line-height: 1.55; color: var(--muted); margin-top: 0.8rem; max-width: 62ch; }
 /* exhibiciones vivas: la pieza real dentro de un marco con proporción fija */
 iframe.exhibit { display: block; width: 100%; aspect-ratio: 16 / 10; border: 1px solid var(--line); background: #fff; }
 .chain { list-style: none; padding: 0; margin: 1.1rem 0 0; font-weight: 500; font-size: 0.95rem; }

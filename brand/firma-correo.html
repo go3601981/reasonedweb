@@ -2,69 +2,249 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Carlos Marruffo — email signature</title>
+<title>Carlos Marruffo — email signature, slogan options</title>
 </head>
 <!--
-  FIRMA DE CORREO — este fichero contiene SOLO la firma, a propósito:
-  se abre en el navegador, Ctrl+A, Ctrl+C y se pega en Gmail u Outlook.
-  Si llevara instrucciones dentro, se copiarían con ella.
+  ⚠️ ESTA VERSIÓN ES PARA ELEGIR, NO PARA PEGAR. Muestra la misma firma seis
+  veces, una por eslogan. Cuando Carlos elija una letra, este fichero vuelve a
+  contener UNA sola firma y nada más — que es lo que permite abrirlo,
+  Ctrl+A, Ctrl+C y pegar sin arrastrar rótulos.
 
-  ⛔ NO se despliega: `brand/` queda fuera de `site/`, que es la raíz de Vercel.
-
-  Reglas del medio, que no son las de una página web:
+  Reglas del medio (no son las de una página web):
   · TABLAS y estilos EN LÍNEA. Outlook de escritorio pinta con el motor de
     Word: sin flex, sin grid, sin hoja de estilos, sin clases.
-  · CERO IMÁGENES. La mayoría de los clientes bloquean imágenes remotas por
-    defecto: una firma con logo se ve rota más veces de las que se ve bien.
-    El recuadro del enlace es un borde de tabla, no un PNG.
-  · Switzer NO existe en el ordenador de quien recibe. Pila del sistema.
-  · Sin fondo declarado, para que el modo oscuro de Gmail/Outlook no deje
-    un rectángulo blanco flotando en un correo oscuro.
-  · El correo va como TEXTO, no como `mailto:` — quien lee esto ya está en
-    su cliente de correo; el botón de responder es el mecanismo, y la
-    dirección se copia igual. Es la misma decisión que en el sitio.
+  · EL ISOTIPO SE DIBUJA CON CELDAS. La marca son cuatro rectángulos —barra de
+    5m × m sobre tres cuadrados de m × m separados por huecos de m—, así que
+    cabe en una tabla de cinco columnas con `bgcolor`. Cero imágenes: los
+    clientes de correo bloquean las remotas por defecto y Outlook no pinta SVG.
+    `font-size:0` y `line-height` explícito en cada celda porque Outlook le da
+    a una celda vacía la altura de una línea de texto y rompería la proporción.
+  · EL FILETE VERTICAL es una celda de 1px con fondo: en una fila de tabla
+    todas las celdas comparten altura, así que estira solo con el contenido.
+  · Switzer no existe en el ordenador de quien recibe: pila del sistema.
+  · Sin fondo declarado, para que el modo oscuro no deje un rectángulo blanco
+    flotando dentro de un correo oscuro.
+  · El correo va como TEXTO, no como `mailto:` — quien lo lee ya está en su
+    cliente de correo.
 -->
-<body style="margin:0;padding:24px;">
+<body style="margin:0;padding:26px;">
 
+<p style="margin:34px 0 10px;font:600 11px/1 -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Helvetica,Arial,sans-serif;letter-spacing:0.12em;text-transform:uppercase;color:#9AA0A6;">Opción A</p>
 <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Helvetica,Arial,sans-serif;">
   <tr>
-    <td style="padding:0 0 2px 0;font-size:17px;line-height:1.3;font-weight:700;color:#16181C;letter-spacing:-0.01em;">
-      Carlos Marruffo
-    </td>
-  </tr>
-  <tr>
-    <td style="padding:0 0 10px 0;font-size:13px;line-height:1.45;color:#555A61;">
-      Creative Technologist — interactive product experiences, AR/VR
-    </td>
-  </tr>
-  <tr>
-    <td style="padding:0;">
-      <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="360" style="border-collapse:collapse;width:360px;">
-        <tr><td height="1" style="height:1px;line-height:1px;font-size:0;background-color:#DADCDA;">&nbsp;</td></tr>
-      </table>
-    </td>
-  </tr>
-  <tr>
-    <td style="padding:10px 0 0 0;font-size:13px;line-height:1.7;color:#16181C;">
-      <a href="tel:+51958967616" style="color:#16181C;text-decoration:none;">+51&nbsp;958&nbsp;967&nbsp;616</a><br>
-      <a href="https://www.reasonedweb.com" style="color:#16181C;text-decoration:underline;">reasonedweb.com</a>
-      <span style="color:#9AA0A6;">&nbsp;·&nbsp;</span>
-      <span style="color:#16181C;">hello@reasonedweb.com</span><br>
-      <span style="color:#555A61;">Lima, on US hours (GMT-5)</span>
-    </td>
-  </tr>
-  <tr>
-    <td style="padding:14px 0 0 0;">
+    <!-- el isotipo, arriba a la izquierda -->
+    <td valign="top" style="padding:2px 18px 0 0;">
       <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;">
-        <tr>
-          <td style="border:1.5px solid #16181C;padding:9px 15px;">
-            <a href="https://calendly.com/hello-reasonedweb/30min" style="color:#16181C;text-decoration:none;font-size:13px;font-weight:700;letter-spacing:0.01em;display:inline-block;">Book a 30-minute call</a>
-          </td>
-        </tr>
+          <tr><td colspan="5" height="8" bgcolor="#3F444A" style="height:8px;font-size:0;line-height:8px;background-color:#3F444A;">&nbsp;</td></tr>
+          <tr><td colspan="5" height="8" style="height:8px;font-size:0;line-height:8px;">&nbsp;</td></tr>
+          <tr><td width="8" height="8" bgcolor="#3F444A" style="width:8px;height:8px;font-size:0;line-height:8px;background-color:#3F444A;">&nbsp;</td><td width="8" height="8" style="width:8px;height:8px;font-size:0;line-height:8px;">&nbsp;</td><td width="8" height="8" bgcolor="#3F444A" style="width:8px;height:8px;font-size:0;line-height:8px;background-color:#3F444A;">&nbsp;</td><td width="8" height="8" style="width:8px;height:8px;font-size:0;line-height:8px;">&nbsp;</td><td width="8" height="8" bgcolor="#3F444A" style="width:8px;height:8px;font-size:0;line-height:8px;background-color:#3F444A;">&nbsp;</td></tr>
+        </table>
+    </td>
+    <!-- el filete vertical: una celda de 1px que estira con la fila -->
+    <td width="1" bgcolor="#DADCDA" style="width:1px;font-size:0;line-height:0;background-color:#DADCDA;">&nbsp;</td>
+    <td valign="top" style="padding:0 0 0 18px;">
+      <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;">
+        <tr><td style="padding:0 0 2px 0;font-size:17px;line-height:1.3;font-weight:700;color:#16181C;letter-spacing:-0.01em;">Carlos Marruffo</td></tr>
+        <tr><td style="padding:0 0 3px 0;font-size:13px;line-height:1.45;color:#555A61;">Creative Technologist — interactive product experiences, AR/VR</td></tr>
+        <tr><td style="padding:0 0 10px 0;font-size:13px;line-height:1.45;font-weight:600;color:#3F444A;">I build the interactive that wins the room.</td></tr>
+        <tr><td style="padding:0;font-size:13px;line-height:1.7;color:#16181C;">
+          <a href="tel:+51958967616" style="color:#16181C;text-decoration:none;">+51&nbsp;958&nbsp;967&nbsp;616</a><br>
+          <a href="https://www.reasonedweb.com" style="color:#16181C;text-decoration:underline;">reasonedweb.com</a>
+          <span style="color:#9AA0A6;">&nbsp;·&nbsp;</span><span style="color:#16181C;">hello@reasonedweb.com</span><br>
+          <span style="color:#555A61;">Lima, on US hours (GMT-5)</span>
+        </td></tr>
+        <tr><td style="padding:14px 0 0 0;">
+          <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;">
+            <tr><td style="border:1.5px solid #16181C;padding:9px 15px;">
+              <a href="https://calendly.com/hello-reasonedweb/30min" style="color:#16181C;text-decoration:none;font-size:13px;font-weight:700;letter-spacing:0.01em;display:inline-block;">Book a 30-minute call</a>
+            </td></tr>
+          </table>
+        </td></tr>
       </table>
     </td>
   </tr>
 </table>
+<hr style="border:0;border-top:1px dashed #DADCDA;margin:26px 0 0;">
+<p style="margin:34px 0 10px;font:600 11px/1 -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Helvetica,Arial,sans-serif;letter-spacing:0.12em;text-transform:uppercase;color:#9AA0A6;">Opción B</p>
+<table role="presentation" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Helvetica,Arial,sans-serif;">
+  <tr>
+    <!-- el isotipo, arriba a la izquierda -->
+    <td valign="top" style="padding:2px 18px 0 0;">
+      <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;">
+          <tr><td colspan="5" height="8" bgcolor="#3F444A" style="height:8px;font-size:0;line-height:8px;background-color:#3F444A;">&nbsp;</td></tr>
+          <tr><td colspan="5" height="8" style="height:8px;font-size:0;line-height:8px;">&nbsp;</td></tr>
+          <tr><td width="8" height="8" bgcolor="#3F444A" style="width:8px;height:8px;font-size:0;line-height:8px;background-color:#3F444A;">&nbsp;</td><td width="8" height="8" style="width:8px;height:8px;font-size:0;line-height:8px;">&nbsp;</td><td width="8" height="8" bgcolor="#3F444A" style="width:8px;height:8px;font-size:0;line-height:8px;background-color:#3F444A;">&nbsp;</td><td width="8" height="8" style="width:8px;height:8px;font-size:0;line-height:8px;">&nbsp;</td><td width="8" height="8" bgcolor="#3F444A" style="width:8px;height:8px;font-size:0;line-height:8px;background-color:#3F444A;">&nbsp;</td></tr>
+        </table>
+    </td>
+    <!-- el filete vertical: una celda de 1px que estira con la fila -->
+    <td width="1" bgcolor="#DADCDA" style="width:1px;font-size:0;line-height:0;background-color:#DADCDA;">&nbsp;</td>
+    <td valign="top" style="padding:0 0 0 18px;">
+      <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;">
+        <tr><td style="padding:0 0 2px 0;font-size:17px;line-height:1.3;font-weight:700;color:#16181C;letter-spacing:-0.01em;">Carlos Marruffo</td></tr>
+        <tr><td style="padding:0 0 3px 0;font-size:13px;line-height:1.45;color:#555A61;">Creative Technologist — interactive product experiences, AR/VR</td></tr>
+        <tr><td style="padding:0 0 10px 0;font-size:13px;line-height:1.45;font-weight:600;color:#3F444A;">Nothing ships without a why.</td></tr>
+        <tr><td style="padding:0;font-size:13px;line-height:1.7;color:#16181C;">
+          <a href="tel:+51958967616" style="color:#16181C;text-decoration:none;">+51&nbsp;958&nbsp;967&nbsp;616</a><br>
+          <a href="https://www.reasonedweb.com" style="color:#16181C;text-decoration:underline;">reasonedweb.com</a>
+          <span style="color:#9AA0A6;">&nbsp;·&nbsp;</span><span style="color:#16181C;">hello@reasonedweb.com</span><br>
+          <span style="color:#555A61;">Lima, on US hours (GMT-5)</span>
+        </td></tr>
+        <tr><td style="padding:14px 0 0 0;">
+          <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;">
+            <tr><td style="border:1.5px solid #16181C;padding:9px 15px;">
+              <a href="https://calendly.com/hello-reasonedweb/30min" style="color:#16181C;text-decoration:none;font-size:13px;font-weight:700;letter-spacing:0.01em;display:inline-block;">Book a 30-minute call</a>
+            </td></tr>
+          </table>
+        </td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<hr style="border:0;border-top:1px dashed #DADCDA;margin:26px 0 0;">
+<p style="margin:34px 0 10px;font:600 11px/1 -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Helvetica,Arial,sans-serif;letter-spacing:0.12em;text-transform:uppercase;color:#9AA0A6;">Opción C</p>
+<table role="presentation" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Helvetica,Arial,sans-serif;">
+  <tr>
+    <!-- el isotipo, arriba a la izquierda -->
+    <td valign="top" style="padding:2px 18px 0 0;">
+      <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;">
+          <tr><td colspan="5" height="8" bgcolor="#3F444A" style="height:8px;font-size:0;line-height:8px;background-color:#3F444A;">&nbsp;</td></tr>
+          <tr><td colspan="5" height="8" style="height:8px;font-size:0;line-height:8px;">&nbsp;</td></tr>
+          <tr><td width="8" height="8" bgcolor="#3F444A" style="width:8px;height:8px;font-size:0;line-height:8px;background-color:#3F444A;">&nbsp;</td><td width="8" height="8" style="width:8px;height:8px;font-size:0;line-height:8px;">&nbsp;</td><td width="8" height="8" bgcolor="#3F444A" style="width:8px;height:8px;font-size:0;line-height:8px;background-color:#3F444A;">&nbsp;</td><td width="8" height="8" style="width:8px;height:8px;font-size:0;line-height:8px;">&nbsp;</td><td width="8" height="8" bgcolor="#3F444A" style="width:8px;height:8px;font-size:0;line-height:8px;background-color:#3F444A;">&nbsp;</td></tr>
+        </table>
+    </td>
+    <!-- el filete vertical: una celda de 1px que estira con la fila -->
+    <td width="1" bgcolor="#DADCDA" style="width:1px;font-size:0;line-height:0;background-color:#DADCDA;">&nbsp;</td>
+    <td valign="top" style="padding:0 0 0 18px;">
+      <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;">
+        <tr><td style="padding:0 0 2px 0;font-size:17px;line-height:1.3;font-weight:700;color:#16181C;letter-spacing:-0.01em;">Carlos Marruffo</td></tr>
+        <tr><td style="padding:0 0 3px 0;font-size:13px;line-height:1.45;color:#555A61;">Creative Technologist — interactive product experiences, AR/VR</td></tr>
+        <tr><td style="padding:0 0 10px 0;font-size:13px;line-height:1.45;font-weight:600;color:#3F444A;">Working builds, not mockups.</td></tr>
+        <tr><td style="padding:0;font-size:13px;line-height:1.7;color:#16181C;">
+          <a href="tel:+51958967616" style="color:#16181C;text-decoration:none;">+51&nbsp;958&nbsp;967&nbsp;616</a><br>
+          <a href="https://www.reasonedweb.com" style="color:#16181C;text-decoration:underline;">reasonedweb.com</a>
+          <span style="color:#9AA0A6;">&nbsp;·&nbsp;</span><span style="color:#16181C;">hello@reasonedweb.com</span><br>
+          <span style="color:#555A61;">Lima, on US hours (GMT-5)</span>
+        </td></tr>
+        <tr><td style="padding:14px 0 0 0;">
+          <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;">
+            <tr><td style="border:1.5px solid #16181C;padding:9px 15px;">
+              <a href="https://calendly.com/hello-reasonedweb/30min" style="color:#16181C;text-decoration:none;font-size:13px;font-weight:700;letter-spacing:0.01em;display:inline-block;">Book a 30-minute call</a>
+            </td></tr>
+          </table>
+        </td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<hr style="border:0;border-top:1px dashed #DADCDA;margin:26px 0 0;">
+<p style="margin:34px 0 10px;font:600 11px/1 -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Helvetica,Arial,sans-serif;letter-spacing:0.12em;text-transform:uppercase;color:#9AA0A6;">Opción D</p>
+<table role="presentation" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Helvetica,Arial,sans-serif;">
+  <tr>
+    <!-- el isotipo, arriba a la izquierda -->
+    <td valign="top" style="padding:2px 18px 0 0;">
+      <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;">
+          <tr><td colspan="5" height="8" bgcolor="#3F444A" style="height:8px;font-size:0;line-height:8px;background-color:#3F444A;">&nbsp;</td></tr>
+          <tr><td colspan="5" height="8" style="height:8px;font-size:0;line-height:8px;">&nbsp;</td></tr>
+          <tr><td width="8" height="8" bgcolor="#3F444A" style="width:8px;height:8px;font-size:0;line-height:8px;background-color:#3F444A;">&nbsp;</td><td width="8" height="8" style="width:8px;height:8px;font-size:0;line-height:8px;">&nbsp;</td><td width="8" height="8" bgcolor="#3F444A" style="width:8px;height:8px;font-size:0;line-height:8px;background-color:#3F444A;">&nbsp;</td><td width="8" height="8" style="width:8px;height:8px;font-size:0;line-height:8px;">&nbsp;</td><td width="8" height="8" bgcolor="#3F444A" style="width:8px;height:8px;font-size:0;line-height:8px;background-color:#3F444A;">&nbsp;</td></tr>
+        </table>
+    </td>
+    <!-- el filete vertical: una celda de 1px que estira con la fila -->
+    <td width="1" bgcolor="#DADCDA" style="width:1px;font-size:0;line-height:0;background-color:#DADCDA;">&nbsp;</td>
+    <td valign="top" style="padding:0 0 0 18px;">
+      <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;">
+        <tr><td style="padding:0 0 2px 0;font-size:17px;line-height:1.3;font-weight:700;color:#16181C;letter-spacing:-0.01em;">Carlos Marruffo</td></tr>
+        <tr><td style="padding:0 0 3px 0;font-size:13px;line-height:1.45;color:#555A61;">Creative Technologist — interactive product experiences, AR/VR</td></tr>
+        <tr><td style="padding:0 0 10px 0;font-size:13px;line-height:1.45;font-weight:600;color:#3F444A;">The demo is the pitch.</td></tr>
+        <tr><td style="padding:0;font-size:13px;line-height:1.7;color:#16181C;">
+          <a href="tel:+51958967616" style="color:#16181C;text-decoration:none;">+51&nbsp;958&nbsp;967&nbsp;616</a><br>
+          <a href="https://www.reasonedweb.com" style="color:#16181C;text-decoration:underline;">reasonedweb.com</a>
+          <span style="color:#9AA0A6;">&nbsp;·&nbsp;</span><span style="color:#16181C;">hello@reasonedweb.com</span><br>
+          <span style="color:#555A61;">Lima, on US hours (GMT-5)</span>
+        </td></tr>
+        <tr><td style="padding:14px 0 0 0;">
+          <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;">
+            <tr><td style="border:1.5px solid #16181C;padding:9px 15px;">
+              <a href="https://calendly.com/hello-reasonedweb/30min" style="color:#16181C;text-decoration:none;font-size:13px;font-weight:700;letter-spacing:0.01em;display:inline-block;">Book a 30-minute call</a>
+            </td></tr>
+          </table>
+        </td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<hr style="border:0;border-top:1px dashed #DADCDA;margin:26px 0 0;">
+<p style="margin:34px 0 10px;font:600 11px/1 -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Helvetica,Arial,sans-serif;letter-spacing:0.12em;text-transform:uppercase;color:#9AA0A6;">Opción E</p>
+<table role="presentation" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Helvetica,Arial,sans-serif;">
+  <tr>
+    <!-- el isotipo, arriba a la izquierda -->
+    <td valign="top" style="padding:2px 18px 0 0;">
+      <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;">
+          <tr><td colspan="5" height="8" bgcolor="#3F444A" style="height:8px;font-size:0;line-height:8px;background-color:#3F444A;">&nbsp;</td></tr>
+          <tr><td colspan="5" height="8" style="height:8px;font-size:0;line-height:8px;">&nbsp;</td></tr>
+          <tr><td width="8" height="8" bgcolor="#3F444A" style="width:8px;height:8px;font-size:0;line-height:8px;background-color:#3F444A;">&nbsp;</td><td width="8" height="8" style="width:8px;height:8px;font-size:0;line-height:8px;">&nbsp;</td><td width="8" height="8" bgcolor="#3F444A" style="width:8px;height:8px;font-size:0;line-height:8px;background-color:#3F444A;">&nbsp;</td><td width="8" height="8" style="width:8px;height:8px;font-size:0;line-height:8px;">&nbsp;</td><td width="8" height="8" bgcolor="#3F444A" style="width:8px;height:8px;font-size:0;line-height:8px;background-color:#3F444A;">&nbsp;</td></tr>
+        </table>
+    </td>
+    <!-- el filete vertical: una celda de 1px que estira con la fila -->
+    <td width="1" bgcolor="#DADCDA" style="width:1px;font-size:0;line-height:0;background-color:#DADCDA;">&nbsp;</td>
+    <td valign="top" style="padding:0 0 0 18px;">
+      <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;">
+        <tr><td style="padding:0 0 2px 0;font-size:17px;line-height:1.3;font-weight:700;color:#16181C;letter-spacing:-0.01em;">Carlos Marruffo</td></tr>
+        <tr><td style="padding:0 0 3px 0;font-size:13px;line-height:1.45;color:#555A61;">Creative Technologist — interactive product experiences, AR/VR</td></tr>
+        <tr><td style="padding:0 0 10px 0;font-size:13px;line-height:1.45;font-weight:600;color:#3F444A;">Proof you can hold in your hand.</td></tr>
+        <tr><td style="padding:0;font-size:13px;line-height:1.7;color:#16181C;">
+          <a href="tel:+51958967616" style="color:#16181C;text-decoration:none;">+51&nbsp;958&nbsp;967&nbsp;616</a><br>
+          <a href="https://www.reasonedweb.com" style="color:#16181C;text-decoration:underline;">reasonedweb.com</a>
+          <span style="color:#9AA0A6;">&nbsp;·&nbsp;</span><span style="color:#16181C;">hello@reasonedweb.com</span><br>
+          <span style="color:#555A61;">Lima, on US hours (GMT-5)</span>
+        </td></tr>
+        <tr><td style="padding:14px 0 0 0;">
+          <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;">
+            <tr><td style="border:1.5px solid #16181C;padding:9px 15px;">
+              <a href="https://calendly.com/hello-reasonedweb/30min" style="color:#16181C;text-decoration:none;font-size:13px;font-weight:700;letter-spacing:0.01em;display:inline-block;">Book a 30-minute call</a>
+            </td></tr>
+          </table>
+        </td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<hr style="border:0;border-top:1px dashed #DADCDA;margin:26px 0 0;">
+<p style="margin:34px 0 10px;font:600 11px/1 -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Helvetica,Arial,sans-serif;letter-spacing:0.12em;text-transform:uppercase;color:#9AA0A6;">Opción F</p>
+<table role="presentation" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Helvetica,Arial,sans-serif;">
+  <tr>
+    <!-- el isotipo, arriba a la izquierda -->
+    <td valign="top" style="padding:2px 18px 0 0;">
+      <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;">
+          <tr><td colspan="5" height="8" bgcolor="#3F444A" style="height:8px;font-size:0;line-height:8px;background-color:#3F444A;">&nbsp;</td></tr>
+          <tr><td colspan="5" height="8" style="height:8px;font-size:0;line-height:8px;">&nbsp;</td></tr>
+          <tr><td width="8" height="8" bgcolor="#3F444A" style="width:8px;height:8px;font-size:0;line-height:8px;background-color:#3F444A;">&nbsp;</td><td width="8" height="8" style="width:8px;height:8px;font-size:0;line-height:8px;">&nbsp;</td><td width="8" height="8" bgcolor="#3F444A" style="width:8px;height:8px;font-size:0;line-height:8px;background-color:#3F444A;">&nbsp;</td><td width="8" height="8" style="width:8px;height:8px;font-size:0;line-height:8px;">&nbsp;</td><td width="8" height="8" bgcolor="#3F444A" style="width:8px;height:8px;font-size:0;line-height:8px;background-color:#3F444A;">&nbsp;</td></tr>
+        </table>
+    </td>
+    <!-- el filete vertical: una celda de 1px que estira con la fila -->
+    <td width="1" bgcolor="#DADCDA" style="width:1px;font-size:0;line-height:0;background-color:#DADCDA;">&nbsp;</td>
+    <td valign="top" style="padding:0 0 0 18px;">
+      <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;">
+        <tr><td style="padding:0 0 2px 0;font-size:17px;line-height:1.3;font-weight:700;color:#16181C;letter-spacing:-0.01em;">Carlos Marruffo</td></tr>
+        <tr><td style="padding:0 0 3px 0;font-size:13px;line-height:1.45;color:#555A61;">Creative Technologist — interactive product experiences, AR/VR</td></tr>
+        <tr><td style="padding:0 0 10px 0;font-size:13px;line-height:1.45;font-weight:600;color:#3F444A;">Every decision arrives with its argument.</td></tr>
+        <tr><td style="padding:0;font-size:13px;line-height:1.7;color:#16181C;">
+          <a href="tel:+51958967616" style="color:#16181C;text-decoration:none;">+51&nbsp;958&nbsp;967&nbsp;616</a><br>
+          <a href="https://www.reasonedweb.com" style="color:#16181C;text-decoration:underline;">reasonedweb.com</a>
+          <span style="color:#9AA0A6;">&nbsp;·&nbsp;</span><span style="color:#16181C;">hello@reasonedweb.com</span><br>
+          <span style="color:#555A61;">Lima, on US hours (GMT-5)</span>
+        </td></tr>
+        <tr><td style="padding:14px 0 0 0;">
+          <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;">
+            <tr><td style="border:1.5px solid #16181C;padding:9px 15px;">
+              <a href="https://calendly.com/hello-reasonedweb/30min" style="color:#16181C;text-decoration:none;font-size:13px;font-weight:700;letter-spacing:0.01em;display:inline-block;">Book a 30-minute call</a>
+            </td></tr>
+          </table>
+        </td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<hr style="border:0;border-top:1px dashed #DADCDA;margin:26px 0 0;">
 
 </body>
 </html>

@@ -7,9 +7,17 @@
 
 ## Qué es
 
-Portafolio personal de Carlos Marruffo en **www.reasonedweb.com**. Único trabajo: que UNA
-agencia de diseño web, **Shopify Partner** o **Klaviyo Partner de EE. UU.** lo tome como socio
-de producción remoto **dedicado, con vocación de full-time**.
+Portafolio personal de Carlos Marruffo en **www.reasonedweb.com**.
+
+⚠️ **EL PÚBLICO CAMBIÓ EL 2026-08-18 — orden de Carlos: «Shopify and Klaviyo goes again,
+those don't pay what I need».** El sitio ya NO se dirige a agencias de diseño web ni a
+Shopify/Klaviyo Partners. Se dirige a **agencias experienciales, constructores de stands
+(exhibit builders) y equipos de brand experience**, y se vende como **creative technologist**:
+experiencias de producto en tiempo real, AR y VR, construidas de punta a punta. Sitios,
+software y decks pasan a ser **rango de apoyo**, no la oferta.
+Todo lo que abajo hable de Shopify, Klaviyo o «storefronts» como público es HISTORIA del
+papel, no copy vigente. La palabra «storefront» solo sobrevive donde nombra la pieza de
+UdV, que se llama así.
 ⛔ **Aclaración de Carlos (2026-08-16, refinada el 17): el copy JAMÁS lo pinta trabajando para
 varias agencias a la vez — Y TAMPOCO lo dice explícito.** «One partner at a time» se probó y
 Carlos la retiró: contar clientes en voz alta huele a necesidad. **La exclusividad es
@@ -150,10 +158,12 @@ La identidad no ilustra el razonamiento — lo EJECUTA.
      achica pidiendo el visto bueno por escrito EN PARALELO — el correo sale vía Next Latam
      después de lanzar, no bloquea nada.
    - ⛔ La ruta de LG **no va en `robots.txt`** por ningún motivo (una línea disallow es un
-     anuncio). **Actualización 2026-08-15 (orden de Carlos): el SITIO ENTERO es noindex** —
-     `X-Robots-Tag: noindex, nofollow` global en `site/vercel.json`, sin sitemap, y
-     robots.txt SIN disallow (rastreable para que el noindex se vea; un disallow impediría
-     des-indexar). La regla de no-anuncio se mantiene: nada señala la ruta LG en particular.
+     anuncio). ⚠️ **SUPERSEDIDO EL 2026-08-18 — el sitio ya NO es noindex entero.** Carlos
+     decidió, sobre el riesgo puesto por escrito: se indexan **la home Y la página del caso
+     LG** («tras una buena llamada lo primero que hace un productor es buscar tu nombre»).
+     Todo lo demás sigue fuera, **incluido el embed `live/` de LG** — indexar la experiencia
+     con marca LG sería peor que indexar el caso que la enmarca con sus deslindes. Detalle
+     y puerta en § El pase del 2026-08-18.
 5. ⛔ **NADA DE DOCUMENTOS INTERNOS EN CRUDO** (correos con nombres, propuestas con cifras).
 6. **El sitio es el verdadero caso de estudio.** AA medido, 320 px, sin bloat de framework.
    El caso LG se estructura de punta a punta: producto físico → research → concepto → idea →
@@ -217,20 +227,29 @@ leen como senior. La curaduría es parte del trabajo de diseño.
 
 ## § Arquitectura del sitio — decisiones TOMADAS (2026-08-13)
 
-- **Un scroll + páginas satélite.** Home en un solo scroll: hero → LG → rediseños razonados →
-  galería de rango → cómo trabajo → contacto. LG y cada rediseño tier-1 tienen **página
+- **Un scroll + páginas satélite.** Orden vigente desde el 2026-08-18:
+  **01 LG · 02 Augmented reality (UDV Blue) · 03 How I work · 04 Reasoned redesigns ·
+  05 Range · 06 The principal · 07 Contact.** Las DOS pruebas interactivas van primero y el
+  método sube DELANTE de la obra web estática: antes había catorce piezas estáticas entre
+  medias y para un comprador experiencial eso diluye. LG y cada rediseño tier-1 tienen **página
   propia**; el embed de LG (~25 MB) **JAMÁS carga en la home** — entra por su gate (§ Kit LG).
 - **El aparato de nota al pie es la interacción-firma del sitio** (aceptado por Carlos). Las
   afirmaciones llevan marcador; el marcador abre el razonamiento escrito. **El compromiso que
   trae:** toda página de caso DEBE sus anotaciones — una página de caso sin anotar se lee rota.
 - **Contacto: formulario + `hello@reasonedweb.com`.** ✅ MX verificado 2026-08-16; correo
-  impreso en contacto y en los 7 pies. **El formulario ENVÍA de verdad (2026-08-16): endpoint
+  impreso en contacto y en los 7 pies — ⛔ **IMPRESO, JAMÁS ENLAZADO** (orden de Carlos,
+  2026-08-17: «nadie usa esa forma de mandar emails»). Cero `mailto:` en todo el sitio; la
+  dirección va en `.correo` con `user-select: all` para que un toque largo la copie entera.
+  **TODA puerta de contacto lleva al formulario**: el CTA de la barra en las 7 páginas (las 6
+  de caso lo ganaron el 17 — antes, desde un caso, no se llegaba al formulario sin bajar
+  5.000 px), el de los 8 pies (`.pie-acciones`) y el del 404. **El formulario ENVÍA de verdad (2026-08-16): endpoint
   propio `site/api/contact.js` (función Vercel) → Resend**, clave SOLO en env vars de Vercel
   (`RESEND_API_KEY`; opcionales `CONTACT_TO`/`CONTACT_FROM`). Campos que Carlos exige del
   prospecto: nombre, work email, agencia, ROL, TELÉFONO (+ ships opcional y mensaje); honeypot
   `website`; reply-to = el email del visitante. **Degradación honesta verificada**: si la
-  clave no está o Resend falla, el frontend cae al compositor mailto Y LO DICE — jamás un
-  «enviado» falso. ⛔ El endpoint es propio de este proyecto — jamás compartido con nada de
+  clave no está o Resend falla, el frontend LO DICE, NO borra lo escrito y da la dirección
+  para copiarla — jamás un «enviado» falso. ⛔ Ya **no** abre un compositor mailto (2026-08-17);
+  lo que no se negocia es que nunca finja un envío. ⛔ El endpoint es propio de este proyecto — jamás compartido con nada de
   Perú (lección: el form US posteaba al endpoint peruano y horneaba `wa.me/51…`).
 - **Stack: estático, autorado a mano.** HTML/CSS/JS vanilla, sin framework. Se introduce SOLO
   lo absolutamente necesario (orden de Carlos: contexto mínimo). El rendimiento del sitio es
@@ -243,12 +262,12 @@ leen como senior. La curaduría es parte del trabajo de diseño.
 
 1. **Lanzar** cuando tier 0 (LG) + tier 1 (rediseños con notas) estén en pie.
 2. Outreach **SOLO a agencias** de diseño.
-3. Producir el **set de comercio UdV**: PDP con UN momento interactivo real de producto (la
-   técnica LG a escala DTC), página de colección, cart drawer **display-only** (jamás acepta
-   nada que parezca datos de pago), y 3 correos Klaviyo (welcome, abandoned cart,
-   post-purchase). Etiqueta clase (b) en todo. Estimado: ~$0.10–0.40 de API en escenas.
-4. **Recién entonces** outreach a Shopify Partners y Klaviyo Partners. ⛔ Ni un solo correo a
-   ese segmento antes de que el set exista — cada prospecto abre una sola vez.
+3. ⛔ **ANULADOS los puntos 3 y 4 el 2026-08-18** (set de comercio UdV y outreach a
+   Shopify/Klaviyo Partners): «those don't pay what I need». Lo que ocupa su lugar es
+   **subir una pieza de VR** — hoy es la única etiqueta del hero sin nada detrás — y luego
+   outreach a agencias experienciales, constructores de stands y equipos de brand
+   experience. La regla de fondo NO cambia: **ni un correo a un segmento antes de que exista
+   la pieza que lo justifica**, porque cada prospecto abre una sola vez.
 
 ## ✅ Estado al 2026-08-16 — EL SITIO ESTÁ EN VIVO Y COMPLETO
 
@@ -281,6 +300,159 @@ Lighthouse es ese y es intencional). Los CUATRO tiers de la carta están en pie:
 - Identidad computada en `brand/`; herramientas en `tools/` (capture, inline_brand, exhibir,
   record en reserva, auditar). Etiquetas confirmadas: UdV encargo real; Nanntu regalado.
 
+## § Pase de diseño del 2026-08-17 — decisiones que ya no se re-discuten
+
+Ocho puntos aprobados por Carlos de una revisión pensada para el ojo de OTRO diseñador
+(es el público: agencias, Shopify Partners, Klaviyo Partners). Lo que quedó fijado:
+
+1. **EL APARATO VIVE EN EL MARGEN (≥72rem).** El defecto más visible del sitio era que en
+   escritorio la columna derecha estaba vacía a lo largo de miles de píxeles en cada página
+   de caso. La solución no fue rellenar: fue mover ahí lo que ya era el diferencial. La nota
+   flota a la derecha, SIEMPRE visible, a la altura del bloque que hace la afirmación; el
+   marcador `[n]` sigue vivo y la DESTACA. Tres estados y ninguno pierde el porqué: sin JS
+   todas visibles al pie de sección · angosto plegadas · ancho al margen.
+   ⛔ **Regla dura descubierta midiendo:** el margen es SOLO para secciones de texto. Un
+   contenedor de rejilla nunca se solapa con un flotante — se empuja debajo —, así que una
+   nota alta junto a una galería abría un hueco vertical de su mismo alto (la home creció
+   1.200 px la primera vez). `apparatus.js` lo decide solo: `conMargen(caja)` niega el margen
+   a cualquier caja que contenga `.cards`, `.mosaico`, `.case-lead` o `.persona`. Si mañana
+   una sección gana una galería, deja de usar el margen sin que nadie lo recuerde.
+2. **FIGURAS DE EVIDENCIA — el caso que mide, enseña la medida.** Empezadas en UdV, que es
+   la plantilla: el gráfico de unidades de las 270 instrucciones de color (237 celdas VACÍAS
+   contra 33 LLENAS) y la paleta muestreada con procedencia y ratio medido de cada valor.
+   ⛔ Dibujadas a mano en HTML/SVG, jamás capturas: nítidas a cualquier resolución, 0 KB de
+   imagen, legibles por lector de pantalla, y **cada hexadecimal sale del CSS de la propia
+   pieza** (`piece/index.html`), donde cada token viaja con el objeto del que se muestreó.
+   `tools/evidencia.py` + `tools/evidencia_datos.py` VERIFICAN cada valor contra los fuentes
+   declarados del caso antes de escribir: si un valor se mueve allá, la figura falla acá en
+   vez de mentir. **COMPLETADO el 2026-08-17: los cinco casos tienen figura** (52 valores
+   verificados). Una figura por caso, cada una de una FORMA distinta, porque cada caso prueba
+   algo distinto — repetir la plantilla cinco veces demostraría plantilla, no rango:
+   · **UdV** — el conteo (270 celdas: 237 vacías, 33 llenas) + la paleta muestreada.
+   · **Smoothies** — las cinco parejas: el cartón como está fotografiado y ese MISMO matiz al
+     peso que aguanta texto encima. El segundo valor se DERIVA del primero, no se elige al
+     lado. Fuente: `piece/index.html`.
+   · **Nanntu** — la paleta con RECIBOS: el dominante exacto de su logotipo (213 364 px), el
+     cian de la firma de sus correos, el verde de Un Árbol Una Vida, el sillar de Arequipa, la
+     teja. Cada ratio medido contra el fondo real. Es la mejor procedencia del portafolio.
+   · **Woods & Co** — el LIBRO MAYOR: lo mirado → lo que salió de mirarlo (diez tiles clicados
+     uno a uno, el Instagram vacío de 36 px, los dos bios apagados en el código, 30 de 31 logos
+     ya transparentes, los campos de contacto a 1.04:1). La firma vende afirmaciones que
+     resisten comprobación; el diagnóstico se hizo igual. Fuentes: la pieza Y la prosa del caso.
+   · **LG** — la TUBERÍA CAD→web en cuatro etapas con la medida en cada extremo (STEP →
+     FreeCAD por costuras reales, nunca por un plano → Blender, cada concha cerrada decimada
+     entera → gltf-transform Draco+WebP). Fuentes: `LG-Demo/3D_assets/CONVERSION-LOG.md` y
+     `context/09-STATUS.md`. **LG no tiene `piece/`: su pieza es el build de `live/`.**
+
+   ⚠️ **DOS CIFRAS PUBLICADAS SE CORRIGIERON al construir estas figuras** — las dos salieron de
+   ir a la fuente, que es exactamente para lo que sirve el mecanismo:
+   1. **La puerta de LG decía «about 25 MB».** Los 25 MB eran el PRESUPUESTO de rendimiento
+      (`06-ROADMAP-V2.md`, `11-COMPLETION-CHECKLIST.md`), no lo medido: `09-STATUS.md` cierra
+      en «Package 22.8 → 19.6 MB» y `live/` mide 20 MB en disco (medido hoy). Ahora dice
+      **19.6 MB**, y la figura repite la misma cifra — un número distinto en cada sitio de la
+      misma página es peor que ninguno.
+   2. **La home decía «146k triangles at 1.07 MB»** como si fuera el modelo entero. Esa cifra
+      es del **M7 satélite ANTES de comprimir** (`CONVERSION-LOG.md`: ~1,07 MB · ~146k tris;
+      después baja a 446 KB). En la home el bullet pasa a «3D built from LG's own STEP CAD
+      files, published as Draco glTF» — cierto sin número; el número, CON su contexto, vive en
+      la figura del caso. ⛔ Lección: una cifra correcta en un sitio se vuelve falsa al mudarla
+      a otro sin su contexto.
+   ⛔ **Vacío frente a lleno, no un gris frente a otro:** ningún tercer color puede estar a
+   3:1 del grafito Y del papel a la vez (medido: imposible por aritmética de luminancia), así
+   que la distinción la lleva la FORMA — que además dice lo que hay que decir. Los chips de
+   la paleta llevan borde `--carton-borde` #6F746F (4.32:1 sobre papel) porque un chip claro
+   no se delimita solo (WCAG 1.4.11).
+3. **`text-wrap: balance`** en h1/h2/h3 y la tesis; `pretty` en párrafos, li y figcaption.
+   Los títulos dejaban huérfanas («…the face does / not»).
+4. **El máster ocupa su medida** (min(46rem,100%) en ≥72rem) y **el filete de la derivación
+   pasa a ser del máster**: con la marca a 46rem un subrayado de 46ch quedaba corto y suelto.
+5. **Range en cuatro columnas** (≥72rem): ocho verticales en tres columnas dejaban una fila
+   huérfana de dos. La banda del corpus (`card--wide`) cierra la sección a todo el ancho.
+6. **Anclas de sección en la nav** (Work · Redesigns · Range · Method · Principal), ocultas
+   bajo 62rem — el CTA basta y la barra tiene que caber entera a 320 px.
+7. ⚠️ **EL FORMULARIO PIDE MENOS — enmienda a la regla anterior.** Obligatorios: nombre,
+   work email, agencia y mensaje. **ROL y TELÉFONO pasaron a OPCIONALES** (aprobado por
+   Carlos el 2026-08-17; deroga «campos que Carlos exige» de § Arquitectura). Seis campos
+   obligatorios para un primer hola cuestan respuestas. El teléfono se pide solo a quien
+   prefiera que lo llamen. ⛔ `api/contact.js` exige la MISMA lista que `apparatus.js` — si
+   se separan, el envío devuelve 400 y el frontend cae al mailto sin motivo.
+8. **Detalle:** los bullets de LG hablan a un diseñador (el CAD lleva sus 146k triángulos a
+   1,07 MB; «Installation and user manuals» dejó su sitio a la vista explosionada con seis
+   hotspots verificados). El revelado de imágenes dispara ANTES de entrar en pantalla
+   (`rootMargin` 12% positivo abajo): el defecto era el momento del disparo, no el peso —
+   por eso NO se quitó `loading="lazy"`, que habría deshecho el trabajo de rendimiento.
+
+**Medido después del pase**, con las herramientas del propio sitio: `auditar.py` sobre
+`/`, UdV, LG y one-system a 320/768/1440 → **0 hallazgos, 0 no-medibles**, y a 1440 escanea
+MÁS elementos que a 768 (las notas al margen), que es la prueba de que se están midiendo.
+Cero desbordes horizontales. La home pasó de 8.136 a 8.393 px (+257, no +1.200) y UdV de
+5.593 a 6.911 px — ese crecimiento son las dos figuras de evidencia, no huecos.
+
+## § Revisión de copy del 2026-08-17 — la página se lee con ojos de comprador
+
+⚠️⚠️ **SECCIÓN HISTÓRICA — sus puntos 1 y 2 quedaron SUPERSEDIDOS el 2026-08-18** por el
+cambio de público (fuera Shopify y Klaviyo). Se conserva porque explica POR QUÉ se
+escribieron aquellas frases, y ese razonamiento sigue siendo válido aunque el destinatario
+haya cambiado. Los puntos 3 y 4 siguen vigentes.
+
+Repaso final de la home leída como la leería el director de una agencia decidiendo si lo
+contrata. Lo que cambió, y por qué, para que no se re-discuta:
+
+1. ⚠️ **LA TESIS NOMBRA EL COMERCIO EN LA PRIMERA LÍNEA** (aprobado por Carlos, 17/08):
+   «Sites **and storefronts**, immersive products, and software end to end…». El público
+   elegido son agencias, **Shopify Partners** y **Klaviyo Partners**, y la palabra
+   «storefront» no aparecía hasta el pie: un socio de Shopify escanea seis segundos y no
+   encontraba motivo para seguir. Es cierto desde el encargo de Ulric de Varens. La `<meta
+   name="description">` lleva la MISMA frase — si se separan, el unfurl contradice a la
+   página. Enmienda las capacidades que Carlos fijó el 17 por la mañana: solo se AÑADE, el
+   orden y el resto del listado se respetan.
+2. ⚠️ **LA LÍNEA DE CONTACTO DECLARA LA OFERTA, NO LA CLIENTELA** (aprobado por Carlos,
+   17/08). Decía «Web design agencies and Shopify and Klaviyo partners **hire me**…», que
+   leído literal afirma una cartera de agencias que hoy no se puede nombrar: el único cliente
+   nombrable en la página es Ulric de Varens. Ahora: *«The work I take on: embedded senior
+   web design for agencies, Shopify Partners and Klaviyo Partners — the sites and storefronts
+   you deliver, designed and built. Contract or full-time.»* Misma fuerza, y **aguanta que el
+   director creativo pregunte «¿qué agencias?»** — que es exactamente la prueba que el resto
+   del sitio se impone. «Partners» va en mayúscula: así se llaman los dos programas, y
+   decirlo bien es señal de conocer el ecosistema al que se escribe. La palabra «hire» sigue
+   permitida (punto 7 del pase de diseño); lo que se retira es la afirmación de clientela.
+3. **El pie ya no dice «Personal portfolio».** Era la última línea que lee un director
+   creativo y degradaba todo lo anterior — la página entera se vende como estudio. El aviso
+   de no-indexación se mantiene (es orden de Carlos) sin el diminutivo: *«A private showcase,
+   deliberately kept out of search results — no sitemap, noindex on every page. It reaches
+   the people I send it to.»* Y así el aviso además TRABAJA: explica por qué un sitio que
+   vende webs optimizadas para buscadores no tiene huella en ellos. En las 7 páginas.
+4. **Errata corregida en la nota [7]**, la que se titula «The record, checkable»: una frase
+   empezaba en minúscula. En esa nota concreta una errata cuesta más que en ninguna otra.
+
+⛔ **LOS RECIBOS CADUCAN — SIGUEN SIN RE-SELLAR (al 2026-08-19).** El párrafo `.receipts`
+sigue diciendo «272 measured elements» y es de antes de TODO lo de estos dos días. Hoy
+`auditar.py` mide muchos más elementos y hay tres puertas nuevas. **Carlos tiene que decir
+con qué regla se contaron los 272** para reformularlo en su misma forma; cambiar un número
+publicado por otro con distinta definición es peor que dejarlo. Contexto original: El párrafo
+`.receipts` («Lighthouse 100·100·100 desktop, 97 mobile · 0 AA contrast failures across 272
+measured elements · 0 layout shift») está fechado el 2026-08-16 y es anterior a TODO lo de
+esta tanda. Estado real medido el 17:
+  · **«272 measured elements» ya no describe el sitio.** `auditar.py` sobre las 7 páginas a
+    320/768/1440 da hoy **0 fallos sobre 1.320 elementos-ancho**. ⛔ No se reescribió el
+    número: no se pudo reconstruir con qué regla se contaron los 272, y cambiar un número
+    publicado por otro con distinta definición es peor que dejarlo. **Carlos dice la regla
+    y se reformula en su misma forma.**
+  · **«0 layout shift»**: el informe de Lighthouse que trajo Carlos daba CLS **0,246** —
+    era la Switzer Semibold llegando tarde (sin precargar). Con la precarga puesta mide
+    **0,000–0,020** en local. La afirmación vuelve a ser cierta EN CUANTO SE DESPLIEGUE.
+  · **Los 100 de Lighthouse** se midieron antes del trabajo de imágenes, caché y fuentes.
+    La nota [6] promete «re-measured after every change that could move it»: esa promesa es
+    parte de lo que se vende, así que se re-mide contra la URL desplegada y se re-fecha.
+
+**Lo que NO se toca** (queda dicho para que nadie lo «mejore»): «I build the work you sell»;
+«You bring the work you've sold; I produce it — design and build — under your flag or mine»
+con su nota [5] del white-label acordado por escrito; la nota [2] de LG, que convierte un
+deslinde legal en argumento de venta («a portfolio that blurs that line deserves the distrust
+it gets»); la nota [3] del material público con oferta de retirada permanente; y **el 97 de
+móvil de la nota [6]** — publicar POR QUÉ es 97 en vez de redondear a 100 es lo que hace
+creíbles los demás números.
+
 ## Reglas de operación vigentes (no re-aprender)
 
 1. **Push**: las sesiones COMMITEAN (`-F archivo` + `--only -- rutas`); el push es de Carlos:
@@ -291,8 +463,15 @@ Lighthouse es ese y es intencional). Los CUATRO tiers de la carta están en pie:
    trabajando para varias agencias a la vez, y la exclusividad JAMÁS se dice explícita
    («One partner at a time» se retiró — contar clientes suena a necesidad). Implícita en:
    «Dedicated», «Embedded, end to end», «Check availability», «one product, one team».
-   Vetados: «retainer», vocabulario freelance/consultor, «Hire me» / «Open to work».
+   Vetados: «retainer», vocabulario freelance/consultor, «Open to work».
    CTA canónico: «Check availability».
+   ⚠️ **La línea de contacto se REESCRIBIÓ el 2026-08-18.** Vigente: «The work I take on:
+   embedded creative technology for experiential agencies, exhibit builders and
+   brand-experience teams — the interactive you have sold, designed and built. Contract or
+   full-time, US hours.» (clase `.contrato`). La versión de 2026-08-17 que nombraba Shopify
+   y Klaviyo Partners y usaba «hire me» quedó SUPERSEDIDA con el cambio de público.
+   Sigue vetado el «Hire me» como CTA o título, y «Open to work». CTA del hero: «Check
+   availability».
 3. ⛔ **Pestañas**: enlaces a exhibits (live/, piece/, deck/, range/*) y externos SIEMPRE
    `target="_blank" rel="noopener"`; navegación interna en la misma pestaña.
 4. **Exhibits**: solo vía `tools/exhibir.py` (puerta de residuo cero, 11 patrones, etiqueta
@@ -305,7 +484,203 @@ Lighthouse es ese y es intencional). Los CUATRO tiers de la carta están en pie:
    Y la lección del 15: ante un reporte visual del usuario, sus capturas valen más que un
    burst lento en headless — el instrumento se sospecha primero.
 
+## Aviso de no-indexación — REESCRITO EL 2026-08-18
+
+Carlos pidió que el sitio DIGA que es personal y que no está hecho para buscadores. Esa
+frase **pasó a ser falsa en la home y en LG** cuando se decidió indexarlas, así que hay
+TRES versiones y cada una es cierta donde está:
+- **home**: «The work behind this page — every case study and every live exhibit — is
+  deliberately kept out of search results…»
+- **casos no indexados**: «This page is deliberately kept out of search results…»
+- **página de LG**: habla de los conceptos no solicitados, que son los que siguen a oscuras.
+
+⛔ La lección: al cambiar la indexación hay que cambiar el aviso EN EL MISMO MOVIMIENTO. Una
+página que afirma no estar indexada mientras se indexa se desmiente a sí misma, y es el tipo
+de contradicción que este sitio existe para no cometer.
+
+## Rendimiento — reglas fijadas tras el Lighthouse del 2026-08-17
+
+- **Cada `img.shot` viaja en TRES anchos: `-720`, `-1080` y el completo** (1440, o 1600 en LG),
+  y el descriptor `w` dice el ancho REAL del archivo (LG es 1600w, no 1440w). Sin el 1080, el
+  móvil de Lighthouse (412 px × DPR 1.75 = 721 px) saltaba del 720 al 1440 completo — 329 KiB
+  de más en la home. Al capturar una pieza nueva se generan los tres (PIL, LANCZOS, q80).
+- **`sizes` dice el ancho REAL de la columna, no «50vw»**: dentro de `.wrap` (72rem − 2×3rem
+  = 66rem) las 2 columnas miden 32rem, las 3 de Range 21rem, el lead de LG 38rem, la banda
+  del corpus/catálogo 34–36rem; en móvil `90vw` (el padding es 5vw por lado). Verificado con
+  Playwright a 412@1.75, 1350@1 y 1440@2: el navegador elige siempre el candidato justo.
+- **Precarga de fuentes = TODOS los pesos que pinta el above-the-fold**: Semibold (600 —
+  kicker, h3, label, botones) faltaba y era el culpable de CLS nombrado por Lighthouse.
+- **Caché**: fuentes `max-age=31536000, immutable` (una fuente nueva = un archivo nuevo);
+  imágenes 30 días (`2592000`) — no un año, porque las capturas se regeneran con el mismo
+  nombre y un año de caché en el navegador del visitante sería un año de captura vieja.
+- Lo que se dejó a propósito: `site.css` (4.5 KiB) sigue como hoja externa render-blocking
+  (10 ms estimados). Inlinearla en 7 páginas es deuda de mantenimiento por 10 ms.
+
+## § Móvil — el pase del 2026-08-17 (tarde)
+
+- **MENÚ MÓVIL.** Bajo 62rem las anclas de sección eran `display:none`: en móvil el sitio no
+  tenía navegación. Ahora viven tras un botón, con los MISMOS tres estados que el aparato de
+  notas — sin JS apiladas y sin botón (un control muerto es peor que ninguno) · angosto
+  plegadas · ≥62rem en línea. ⛔ **El panel es una fila más de la barra (`flex-basis: 100%`),
+  no una capa flotante**: empuja el contenido, así no hay scroll que bloquear ni forma de
+  dejar a nadie atrapado. El orden del DOM es el visual en los dos estados → el foco no salta.
+  El icono se deriva de la retícula del glifo (m=12 en lienzo de 100; al abrir, las barras 1 y
+  3 recorren los 24u = 2m exactos hasta el centro).
+- **Ocho hallazgos medidos y cerrados** (`verificar_hallazgos.py`, una puerta por hallazgo:
+  16 vistas, 204 interactivos, 588 pares, 914 nodos de texto, 60 marcadores, 12 campos →
+  0 fallos). Los que dejan regla:
+  · **El área de toque crece, el marcador no.** Los `[n]` medían 24×27,7 px. Un pseudo-elemento
+    los lleva a 44×44 **solo bajo 62rem**: en escritorio un área invisible de 44 px le robaría
+    el click a un enlace vecino. La puerta comprueba las dos caras — que el área responde a
+    21 px del centro Y que ningún marcador roba el punto central de otro control.
+  · **`min-height`, no `padding`, para el lockup** (medía 16,38 px de alto): el SVG escala con
+    el viewport y un padding fijo se quedaba corto justo a 320.
+  · **El corpus caía a UNA columna a 320** (`minmax(150px)` no entra dos veces en 288 px de
+    contenido): 11.619 px de alto. Con 130 px caben dos → 5.396 px medidos. De 13,8 pantallas
+    a 6,4.
+  · Texto: nada por debajo de 12 px (los rótulos del libro mayor de Woods estaban a 11,52) y
+    las **etiquetas honestas** a 0.85rem — eran el texto más pequeño de la página siendo el
+    que la regla 1 declara no negociable.
+- ⚠️ **El CTA medía 43,91 px de alto** — 0,09 bajo los 44 de diana táctil. No se ve a ojo; lo
+  encontró la puerta. `padding-block` 0.55 → 0.6rem.
+- **Lección del instrumento, dos veces en la misma tarde:** `elementFromPoint` solo ve el
+  viewport (hay que desplazar el elemento antes de preguntar), y `scroll-behavior: smooth`
+  hace ASÍNCRONO a `scrollIntoView` — sin `behavior: 'instant'` la sonda mide a mitad del
+  desplazamiento y reporta un fallo que no existe.
+
+## § EL PASE DEL 2026-08-18/19 — el giro a creative technologist
+
+Lo que Carlos pidió y lo que quedó. **Esto manda sobre cualquier cosa anterior que lo
+contradiga.**
+
+### El posicionamiento
+- **Tesis del hero:** *«I build the interactive that wins the room — real-time product
+  experiences, AR and VR, built end to end for your agency. Sites, software and the decks that
+  carry them come with it, and every piece ships with its reasoning written down.»*
+  `<title>`, `description` y `og:*` llevan la MISMA frase: si se separan, el unfurl
+  contradice a la página.
+- **Línea de contacto:** *«The work I take on: embedded creative technology for experiential
+  agencies, exhibit builders and brand-experience teams — the interactive you have sold,
+  designed and built. Contract or full-time, US hours.»* «US hours» es nuevo y trabaja:
+  desde Lima, quita la objeción antes de que la piensen.
+- ⛔ **NO se puso «One embedded engagement at a time»**: es «One partner at a time» con otras
+  palabras, y Carlos la retiró en su día porque contar clientes suena a necesidad. La
+  exclusividad sigue siendo IMPLÍCITA.
+- **Etiquetas escaneables en el hero** (`.capacidades`): Three.js/WebGL · Real-time 3D · AR ·
+  VR · glTF/Draco · Binaural HRTF · CAD→web. Un productor mira diez segundos; la prosa no
+  sobrevive a eso.
+  ⚠️ **Fuera, por no tener pieza que las sostenga:** **WebXR** (todas sus apariciones están
+  dentro de `node_modules/three`, ninguna en código propio de Carlos), **WebAR con motor**
+  (8thwall quedó en `legacy/`, la AR viva es entrega nativa al visor del sistema) y **kiosk**
+  (solo una línea sugerida en el manual de LG). Carlos lo confirmó.
+  ⚠️ **VR es la única etiqueta sin pieza en el sitio.** Se publica porque Carlos lleva años
+  haciendo AR/VR en Next Latam y pidió nombrarlo sin ocupar sitio. Se cierra en cuanto suba
+  uno de sus vídeos (ver Pendientes).
+
+### La demo de 48 horas, y su prueba
+Bloque propio (`.oferta`) cerrando «How I work». ⛔ **El texto es de la sesión, no de Carlos**
+— es una promesa pública y tiene que leerla antes de dar por buena.
+La acompaña la única cifra que el papel sostiene: *«the five-chapter LG Sound Suite experience
+went from first working build to feature-complete and walkable in **eight days**»* (15→23 de
+junio de 2026, con sesiones fechadas los días 15, 16, 17, 18, 19, 21 y 23).
+⛔ **NO dice «de concepto a build»**, que es lo que se pidió: en los documentos de LG **no
+existe fecha de arranque**, y el tramo completo contiene una pausa declarada. La nota [5] lo
+dice con esas palabras, incluido que no se inventa un kickoff para que el número luzca mejor.
+⛔ **Del estado del proyecto LG no sale NADA publicado** (orden de Carlos, 2026-08-18: «with
+LG we are still negotiating; try not to mention any of the status»).
+
+### El correo, y todas las puertas al formulario
+⛔ **La dirección se IMPRIME pero JAMÁS se enlaza** (orden de Carlos: «nadie usa esa forma de
+mandar emails»). Cero `mailto:` en el sitio. Va en `.correo` con `user-select: all` — un toque
+largo la copia entera. **Toda ruta de contacto lleva al formulario**: CTA en la barra de las 7
+páginas, en los 8 pies y en el 404.
+**La caída del formulario ya no abre un compositor**: si `/api/contact` falla, lo dice, NO
+borra lo escrito y da la dirección. Lo que no se negocia sigue igual: jamás un «enviado» falso.
+
+### El formulario entra en una pantalla
+Reportado por Carlos con captura. Dos causas medidas: `label { display: grid }` convertía cada
+`(optional)` en una FILA propia (tres campos opcionales = tres renglones de aire), y la oferta
+de 48h ocupaba 194 px DENTRO de Contact. De **1.076 px a 739 px**, medido pulsando el CTA de
+verdad. Entra completo con viewport ≥ 760 px — lo que deja una pantalla de 1440×900 con la
+barra del navegador. Por debajo no entra y con siete campos no hay recorte razonable.
+
+### El menú móvil
+Bajo 62rem las anclas eran `display:none`: en móvil no había navegación. Ahora viven tras un
+botón, con los MISMOS tres estados que el aparato de notas (sin JS apiladas y sin botón ·
+angosto plegadas · ≥62rem en línea). ⛔ **El panel es una fila más de la barra
+(`flex-basis: 100%`), no una capa flotante**: empuja el contenido, así no hay scroll que
+bloquear ni forma de dejar a nadie atrapado. El icono se deriva de la retícula del glifo.
+
+### El vídeo: se hizo, se publicó y SE QUITÓ
+Se grabó un walkthrough de 76 s de LG Sound Suite y se montó en la home. **Carlos lo retiró al
+día siguiente, y el argumento manda: «a muted video doesn't help at all when LG is all about
+sound».** Un vídeo mudo de una pieza cuya tesis es el sonido espacial no la demuestra: la
+CONTRADICE. Y el embudo correcto ya existía — la captura lleva al caso, el caso al gate, y el
+gate PIDE AURICULARES.
+⛔ **Esta es la SEGUNDA vez que un vídeo entra y sale del sitio.** Antes de proponer otro, que
+el silencio no contradiga la pieza. `tools/grabar.py` y su guion quedan **en reserva**, sin
+usar — igual que `record.py`.
+
+### Los vídeos de VR/AR de Next Latam (conversación del 19, sin ejecutar)
+Next Latam es empresa de Carlos y el trabajo creativo es suyo: **puede publicarlos**, y suben
+como trabajo SUYO — el sitio sigue sin nombrar la empresa porque no le hace falta, no porque
+haya problema. Lo único vivo: si en un vídeo aparece marca, producto o metraje de un cliente
+final, ese permiso es del cliente.
+Acordado: **dos, tres a lo sumo**, en la sección 02 ampliada a «Augmented and virtual
+reality», **self-host, NO YouTube incrustado**.
+⚠️ **El ancho de banda NO es el problema, medido**: la home entera son 0,25 MB por visita y la
+página de LG 0,13 MB; el embed de LG son 20 MB y UDV Blue 21 MB. **Una sola persona que abre
+la experiencia de LG consume más que cinco viendo tres vídeos enteros.** Con `preload="none"`
+un vídeo no baja un byte hasta que le dan al play. Lo que YouTube sí cuesta: mete su marca en
+la página, planta cookies donde hoy no hay ninguna, carga ~1 MB de scripts que se lleva el
+recibo de «sin framework», y un canal público es indexable.
+**Punto medio acordado: YouTube NO LISTADO como copia reenviable, y `<video>` propio en la
+web.** Si algún día el tráfico crece, el paso es CDN/almacenamiento de objetos con la misma
+etiqueta `<video>`, nunca un iframe de YouTube.
+
+### Herramientas nuevas — CORRER ANTES DE CADA PUSH
+| | |
+|---|---|
+| `tools/verificar_assets.py` | Todo lo que el HTML pide existe, pesa y **git lo sigue**. Nació porque 15 imágenes `-1080` estaban en disco y no en el repo: en local perfecto, en producción 404 |
+| `tools/verificar_indexacion.py` | Cabecera y `<meta robots>` dicen lo mismo, y el sitemap coincide. Cabecera ausente = FALLA; meta ausente = se cuenta y se nombra |
+| `tools/verificar_maqueta.py` | Nada con texto se sale de su columna, y **las notas al pie cuelgan del `.wrap`** |
+| `tools/marca_png.py` | La marca en PNG con alfa para sobreimprimir en vídeo (`brand/png/`, no se despliega) |
+| `tools/grabar.py` + guion | Vídeo de una pieza INTERACTIVA conducida por guion. **En reserva** |
+`exhibir.py` creció: escanea TODO el árbol del exhibit (no solo el HTML), `--sub`, `--qr`,
+`--assets` acepta ficheros sueltos, `--label-after`, e inyecta `noindex` si la pieza no lo trae.
+
+### ⛔ Lecciones que costaron tiempo — no re-aprender
+1. **Un QR es un residuo ilegible.** El exhibit de UDV publicó un `qr-target.json` y un
+   `qr.png` que mandaban a `eureka.pe` — dominio PROHIBIDO — porque la puerta de `exhibir.py`
+   solo escaneaba el HTML. Ahora escanea todo el árbol, y `--qr` regenera el PNG.
+2. **Escanear un binario comprimido como texto da falsos positivos GARANTIZADOS.** `$96` y
+   `$29` aparecen en el ruido de cualquier `.glb`. En binarios se buscan solo los patrones de
+   MARCA, y sobre las cadenas imprimibles largas, como haría `strings`.
+3. **`elementFromPoint` solo ve el viewport**, y **`scroll-behavior: smooth` hace ASÍNCRONO a
+   `scrollIntoView`**: sin `behavior:'instant'` la sonda mide a mitad del desplazamiento y
+   reporta fallos que no existen.
+4. ⛔⛔ **LOS PARCHES LARGOS VAN POR FICHERO, NUNCA POR HEREDOC DE BASH.** Cuatro veces esta
+   sesión el heredoc se comió un escape (`\n`, `\'`) y dejó un `.py` sin compilar. Se escribe
+   el script con la herramienta de ficheros y se ejecuta.
+5. **Medir «no se sale» no es medir «está donde toca».** La nota [5] flotaba DENTRO del
+   recuadro de la oferta y ninguna puerta lo vio: el texto estaba dentro de su columna.
+6. **Lo que se despliega es lo commiteado, no lo que hay en la carpeta.**
+
 ## Pendientes (cortos)
+0-bis. ⛔ **ANULADO el 2026-08-18: la prueba Shopify y todo el outreach a Shopify/Klaviyo
+  Partners.** Orden de Carlos: «those don't pay what I need». El set de comercio UdV del
+  punto 3 de la secuencia de lanzamiento decae con ello. El outreach vigente es a agencias
+  experienciales, constructores de stands y equipos de brand experience.
+
+0-ter. ⭐ **LO QUE ESPERA A CARLOS, por orden de urgencia:**
+  1. **Leer el texto de la oferta de 48 horas** antes de darlo por bueno — lo escribió la
+     sesión, es una promesa pública y sus términos reales pueden ser otros.
+  2. **Elegir eslogan de firma** entre las seis variantes de `brand/firma-correo.html`
+     (A–F; la sesión recomienda C «Working builds, not mockups», B de segunda). Al elegir,
+     ese fichero vuelve a contener UNA sola firma.
+  3. **Mandar los vídeos de VR/AR** con, por cada uno: qué era, para quién, si el cliente se
+     puede nombrar, y el PORQUÉ técnico que lo hace defendible.
+  4. **Verificar `reasonedweb.com` en Resend** (sigue el interino `onboarding@resend.dev`).
 
 0. **Resend — FUNCIONANDO EN INTERINO (2026-08-16)**: `RESEND_API_KEY` puesta en Vercel por
    CLI (la sesión quedó logueada como `hello-40633109`, team `reasoned-web` — el CLI de esta
@@ -318,10 +693,11 @@ Lighthouse es ese y es intencional). Los CUATRO tiers de la carta están en pie:
    conversación del 16 — rotarla en Resend cuando todo esté verificado es un clic. Nota:
    `trailingSlash` redirige /api/contact con 308 — los navegadores lo siguen conservando el
    POST (probado); curl necesita -L.
-1. **LinkedIn**: ESPERA — perfil desactualizado, no enlazar hasta que Carlos lo renueve.
+1. ~~LinkedIn~~ ✅ **Enlazado 2026-08-17 por orden de Carlos** (crumb del retrato + pie de las 7 páginas del sitio): `https://www.linkedin.com/in/carlos-marruffo-vegas-a8689231/`.
 2. **Cita de Next Latam** (testimonio): pedir permiso ESCRITO antes de publicar nada.
 3. **Fix upstream del PiP LG** en el fuente de LG-Demo (proyecto aparte; una línea, toggle d5).
 4. **OG por caso** (cada unfurl con su propia pieza en vez del wordmark genérico) — mejora.
 5. Fuente licenciada (Söhne / ABC Diatype) — después, si el sitio lo gana.
-6. **Outreach**: movimiento de Carlos. Secuencia de la carta: primero agencias; el set de
-   commerce UdV antes de tocar Shopify/Klaviyo Partners.
+6. **Outreach**: movimiento de Carlos. Secuencia vigente desde el 2026-08-18: agencias
+   experienciales, constructores de stands y equipos de brand experience — y **una pieza de
+   VR en el sitio antes de prometer VR en un correo**.

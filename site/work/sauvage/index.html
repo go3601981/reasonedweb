@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SAUVAGE — Unofficial Concept Demo</title>
+<!--
+  UNOFFICIAL EDUCATIONAL DEMO — not affiliated with Parfums Christian Dior / LVMH.
+  Built to study scrollytelling + WebGL techniques. See full legal notice in the footer.
+-->
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Hanken+Grotesk:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #121212;
+    --paper: #f6f5f3;
+    --dim: rgba(18, 18, 18, 0.62);
+    --hair: rgba(18, 18, 18, 0.14);
+  }
+  body.dark {
+    --ink: #f2f1ee;
+    --dim: rgba(242, 241, 238, 0.66);
+    --hair: rgba(242, 241, 238, 0.16);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html.lenis, html.lenis body { height: auto; }
+  .lenis.lenis-smooth { scroll-behavior: auto !important; }
+  body {
+    font-family: 'Hanken Grotesk', system-ui, sans-serif;
+    background: #f6f5f3;
+    color: var(--ink);
+    overflow-x: clip;
+    transition: color 0.6s ease;
+  }
+
+  /* full-bleed imagery lives UNDER the 3D canvas */
+  #bglayer { position: absolute; top: 0; left: 0; right: 0; z-index: 0; pointer-events: none; }
+  .bgimg { position: absolute; left: 0; width: 100%; overflow: hidden; }
+  .bgimg img { width: 100%; height: 100%; object-fit: cover; display: block; will-change: transform; }
+  .bgimg .scrim { position: absolute; inset: 0; }
+  /* top scrim keeps the header readable over bright imagery */
+  .bgimg::after {
+    content: ""; position: absolute; top: 0; left: 0; right: 0; height: 140px;
+    background: linear-gradient(to bottom, rgba(4,7,13,0.42), transparent);
+  }
+  .bgimg.scrim-right .scrim { background: linear-gradient(to left, rgba(4,7,13,0.86) 0%, rgba(4,7,13,0.35) 42%, transparent 68%); }
+  .bgimg.scrim-left .scrim { background: linear-gradient(to right, rgba(4,7,13,0.86) 0%, rgba(4,7,13,0.35) 42%, transparent 68%); }
+
+  #scene { position: fixed; inset: 0; z-index: 1; pointer-events: none; }
+  #scene canvas { display: block; }
+
+  /* ---------- loader ---------- */
+  #loader {
+    position: fixed; inset: 0; z-index: 60;
+    background: #f6f5f3; color: #121212;
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 22px;
+    transition: opacity 0.9s ease, visibility 0.9s;
+  }
+  #loader.done { opacity: 0; visibility: hidden; }
+  #loader .wordmark { font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; letter-spacing: 0.42em; margin-left: 0.42em; }
+  #loader .bar { width: 180px; height: 1px; background: rgba(18,18,18,0.15); overflow: hidden; }
+  #loader .bar i { display: block; height: 100%; background: #121212; transform-origin: left; transform: scaleX(0); transition: transform 0.3s ease; }
+  #loader small { font-size: 0.6rem; letter-spacing: 0.34em; text-transform: uppercase; color: rgba(18,18,18,0.5); }
+
+  /* ---------- header ---------- */
+  header {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 20;
+    display: grid; grid-template-columns: 1fr auto 1fr; align-items: center;
+    padding: 22px 42px;
+  }
+  header .menu { display: flex; gap: 18px; font-size: 0.62rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--dim); }
+  header .wordmark {
+    font-family: 'Cormorant Garamond', serif; font-weight: 400;
+    font-size: 1.55rem; letter-spacing: 0.42em; margin-left: 0.42em; color: var(--ink);
+    text-align: center;
+  }
+  header .badge {
+    justify-self: end;
+    font-size: 0.55rem; letter-spacing: 0.24em; text-transform: uppercase;
+    border: 1px solid var(--hair); color: var(--dim);
+    padding: 7px 12px; border-radius: 2px;
+  }
+
+  /* ---------- sections ---------- */
+  main { position: relative; z-index: 10; }
+  section { min-height: 100vh; display: flex; align-items: center; padding: 0 9vw; pointer-events: none; position: relative; }
+  section .block { max-width: 430px; opacity: 0; transform: translateY(36px); transition: opacity 1.1s ease, transform 1.1s ease; pointer-events: auto; }
+  section.visible .block { opacity: 1; transform: translateY(0); }
+  section.right { justify-content: flex-end; }
+
+  .label { font-size: 0.68rem; letter-spacing: 0.42em; text-transform: uppercase; color: var(--dim); margin-bottom: 20px; }
+  h1, h2 { font-family: 'Cormorant Garamond', serif; font-weight: 400; color: var(--ink); }
+  h2 { font-size: clamp(2.1rem, 3.9vw, 3.2rem); line-height: 1.14; margin-bottom: 18px; }
+  h2 em { font-style: italic; }
+  section p { font-weight: 300; font-size: 0.98rem; line-height: 1.8; color: var(--dim); }
+  .rule { width: 34px; height: 1px; background: var(--ink); opacity: 0.35; margin-bottom: 22px; }
+
+  /* dark image sections force light text regardless of body theme timing */
+  section.on-image { --ink: #f2f1ee; --dim: rgba(242,241,238,0.72); --hair: rgba(242,241,238,0.16); }
+
+  /* hero */
+  #hero { flex-direction: column; justify-content: flex-start; align-items: center; text-align: center; padding-top: 11vh; }
+  #hero h1 { font-size: clamp(2.8rem, 6.6vw, 5.4rem); letter-spacing: 0.3em; margin-left: 0.3em; font-weight: 300; }
+  #hero .tag { margin-top: 14px; font-size: 0.66rem; letter-spacing: 0.4em; text-transform: uppercase; color: var(--dim); }
+  #hero .scroll-hint {
+    position: absolute; bottom: 36px; left: 50%; transform: translateX(-50%);
+    font-size: 0.56rem; letter-spacing: 0.4em; text-transform: uppercase; color: var(--dim);
+    display: flex; flex-direction: column; align-items: center; gap: 10px;
+  }
+  #hero .scroll-hint::after {
+    content: ""; width: 1px; height: 42px; background: linear-gradient(180deg, var(--ink), transparent);
+    animation: drip 2.2s ease-in-out infinite;
+  }
+  @keyframes drip {
+    0% { transform: scaleY(0); transform-origin: top; }
+    45% { transform: scaleY(1); transform-origin: top; }
+    55% { transform: scaleY(1); transform-origin: bottom; }
+    100% { transform: scaleY(0); transform-origin: bottom; }
+  }
+
+  /* collection cards (text only, per the official layout no imagery inside cards) */
+  .cards { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 26px; }
+  .card { border: 1px solid var(--hair); padding: 20px; border-radius: 2px; background: rgba(246,245,243,0.55); backdrop-filter: blur(4px); }
+  .card h3 { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 1.15rem; margin-bottom: 6px; }
+  .card small { display: block; font-size: 0.62rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--dim); line-height: 1.7; }
+  .dots { margin-top: 10px; display: flex; gap: 5px; }
+  .dots i { width: 7px; height: 7px; border-radius: 50%; border: 1px solid var(--dim); }
+  .dots i.on { background: var(--ink); border-color: var(--ink); }
+
+  /* finale: texto a la izquierda, el frasco reposa a la derecha */
+  #finale .block { max-width: 440px; }
+  #finale .btn {
+    display: inline-block; margin-top: 26px; padding: 15px 46px;
+    border: 1px solid var(--ink); color: var(--ink); text-decoration: none;
+    font-size: 0.62rem; letter-spacing: 0.38em; text-transform: uppercase;
+    transition: background 0.4s, color 0.4s;
+  }
+  #finale .btn:hover { background: #121212; color: #f6f5f3; }
+
+  /* ---------- footer / legal ---------- */
+  footer {
+    position: relative; z-index: 10;
+    background: #121212; color: rgba(242,241,238,0.75);
+    padding: 70px 9vw 50px;
+    font-size: 0.72rem; line-height: 1.9; font-weight: 300;
+  }
+  footer .wordmark { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; letter-spacing: 0.42em; color: #f2f1ee; margin-bottom: 26px; }
+  footer .foot-grid { display: grid; grid-template-columns: 1fr 250px; gap: 56px; align-items: start; }
+  .ar-card { text-align: center; border: 1px solid rgba(242,241,238,0.14); border-radius: 2px; padding: 26px 22px; }
+  .ar-card h4 { margin-top: 0; }
+  .ar-card p { color: rgba(242,241,238,0.55); font-size: 0.68rem; line-height: 1.7; }
+  .ar-card img { width: 164px; height: 164px; border-radius: 4px; display: block; margin: 16px auto 12px; }
+  .ar-card .ar-link { display: inline-block; color: #f2f1ee; font-size: 0.6rem; letter-spacing: 0.26em; text-transform: uppercase; text-decoration: none; border-bottom: 1px solid rgba(242,241,238,0.4); padding-bottom: 3px; }
+  @media (max-width: 720px) {
+    footer .foot-grid { grid-template-columns: 1fr; gap: 34px; }
+  }
+  footer h4 { font-size: 0.62rem; letter-spacing: 0.34em; text-transform: uppercase; color: #f2f1ee; margin: 26px 0 10px; }
+  footer .legal { max-width: 860px; color: rgba(242,241,238,0.55); }
+  footer a { color: rgba(242,241,238,0.85); }
+
+  /* ---------- mobile ---------- */
+  @media (max-width: 720px) {
+    header { padding: 16px 20px; grid-template-columns: auto 1fr auto; }
+    header .menu { display: none; }
+    header .wordmark { text-align: left; margin-left: 0; }
+    header .badge { font-size: 0.48rem; padding: 6px 9px; }
+    section { padding: 0 7vw; align-items: flex-start; padding-top: 13vh; }
+    section .block { max-width: 100%; }
+    section.right { justify-content: flex-start; }
+    h2 { font-size: 1.9rem; }
+    /* iOS: 100vh es el viewport GRANDE (sin barras) y esconde el hint de scroll;
+    svh = area realmente visible. El hint ancla al fondo visible. */
+    #hero { padding-top: 12vh; min-height: 100svh; }
+    #hero .scroll-hint { bottom: 24px; }
+    #hero h1 { font-size: 2.4rem; letter-spacing: 0.24em; margin-left: 0.24em; }
+    header .badge { opacity: 0.7; }
+    .cards { grid-template-columns: 1fr; }
+    /* the collection block hugs its heading width; on mobile it should own the row */
+    #collection .block { width: 100%; }
+    .card { background: rgba(246,245,243,0.92); backdrop-filter: none; }
+    .bgimg.scrim-right .scrim, .bgimg.scrim-left .scrim {
+      background: linear-gradient(to bottom, rgba(4,7,13,0.88) 0%, rgba(4,7,13,0.45) 45%, transparent 75%);
+    }
+  }
+</style>
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+
+<div id="loader">
+  <div class="wordmark">DIOR</div>
+  <div class="bar"><i id="loadbar"></i></div>
+  <small>Unofficial concept demo</small>
+</div>
+
+<header>
+  <nav class="menu"><span>Menu</span><span>Search</span></nav>
+  <div class="wordmark">DIOR</div>
+  <div class="badge">Unofficial Concept Demo</div>
+</header>
+
+<div id="bglayer"></div>
+<div id="scene"></div>
+
+<main>
+  <!-- 0 · HERO -->
+  <section id="hero">
+    <div class="block" style="max-width:900px">
+      <div class="label">Eau de Parfum — Concept Study</div>
+      <h1>SAUVAGE</h1>
+      <div class="tag">An ode to wide-open spaces</div>
+    </div>
+    <div class="scroll-hint">Scroll</div>
+  </section>
+
+  <!-- 1 · MAGIC HOUR (full-bleed desert) -->
+  <section class="on-image" data-bg="sauvage_assets/desert_bluehour.webp" data-scrim="left">
+    <div class="block">
+      <div class="rule"></div>
+      <div class="label">01 — Magic Hour</div>
+      <h2>There is an hour when<br><em>the desert holds its breath</em></h2>
+      <p>When light turns blue and the horizon burns its last ember. When everything wild becomes noble. Sauvage is born in that hour — raw freshness, power and nobility in a single breath.</p>
+    </div>
+  </section>
+
+  <!-- 2 · TOP NOTE (full-bleed bergamot) -->
+  <section class="right on-image" data-bg="sauvage_assets/bergamot_wide.webp" data-bg-mobile="sauvage_assets/bergamot.webp?v=2" data-scrim="right" data-pos="28% 65%">
+    <div class="block">
+      <div class="rule"></div>
+      <div class="label">02 — Top Note</div>
+      <h2>Calabrian<br><em>Bergamot</em></h2>
+      <p>A burst of raw freshness, sparkling like first light on cold stone. Vivid, bright, immediate — the opening line of the composition.</p>
+    </div>
+  </section>
+
+  <!-- 3 · HEART NOTE (full-bleed pepper) -->
+  <section class="on-image" data-bg="sauvage_assets/pepper_wide.webp?v=2" data-bg-mobile="sauvage_assets/pepper.webp?v=2" data-scrim="left">
+    <div class="block">
+      <div class="rule"></div>
+      <div class="label">03 — Heart Note</div>
+      <h2>Sichuan<br><em>Pepper</em></h2>
+      <p>An electric spice, vibrant and magnetic. It doesn't burn — it hums, wrapping the freshness in warmth and tension.</p>
+    </div>
+  </section>
+
+  <!-- 4 · BASE NOTE (full-bleed woods) -->
+  <section class="right on-image" data-bg="sauvage_assets/woods_wide.webp" data-bg-mobile="sauvage_assets/woods.webp?v=2" data-scrim="right">
+    <div class="block">
+      <div class="rule"></div>
+      <div class="label">04 — Base Note</div>
+      <h2>Ambroxan</h2>
+      <p>A mineral, woody trail drawn from rare ambergris notes. It lingers the way dusk lingers — long after the sun has gone.</p>
+    </div>
+  </section>
+
+  <!-- 5 · THE BOTTLE -->
+  <section id="craft">
+    <div class="block">
+      <div class="rule"></div>
+      <div class="label">05 — The Bottle</div>
+      <h2>Deep blue,<br><em>almost black</em></h2>
+      <p>A gradient carved into glass, sealed by a magnetic clasp. The bottle holds the night the way the desert holds the heat — quietly, and for a long time.</p>
+    </div>
+  </section>
+
+  <!-- 6 · THE COLLECTION -->
+  <section class="right" id="collection">
+    <div class="block" style="max-width:520px">
+      <div class="rule"></div>
+      <div class="label">06 — The Collection</div>
+      <h2>One name,<br><em>four intensities</em></h2>
+      <div class="cards">
+        <div class="card"><h3>Eau de Toilette</h3><small>Fresh · Citrus · Woody</small><div class="dots"><i class="on"></i><i class="on"></i><i></i><i></i><i></i></div></div>
+        <div class="card"><h3>Eau de Parfum</h3><small>Citrus · Vanilla</small><div class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div></div>
+        <div class="card"><h3>Parfum</h3><small>Woody · Ambery</small><div class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div></div>
+        <div class="card"><h3>Elixir</h3><small>Spicy · Fresh · Woody</small><div class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7 · FINALE -->
+  <section id="finale">
+    <div class="block">
+      <div class="rule"></div>
+      <h2>Born in nature,<br><em>shaped by hand</em></h2>
+      <p>The trail ends where the desert begins again.</p>
+      <a class="btn" href="https://www.dior.com/en_int/beauty/fragrance/mens-fragrance/sauvage" target="_blank" rel="noopener">Discover the real collection</a>
+      <p style="margin-top:26px; font-size:0.62rem; letter-spacing:0.24em; text-transform:uppercase; opacity:0.55">An unofficial concept study</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="foot-grid">
+  <div>
+  <div class="wordmark">DIOR</div>
+  <h4>Legal Notice — Unofficial Demonstration</h4>
+  <p class="legal">
+    This website is a non-commercial educational demonstration created solely for portfolio and
+    web-development study purposes. It is not affiliated with, endorsed by, sponsored by, or in any
+    way connected to Parfums Christian Dior, Christian Dior Couture, Christian Dior SE, or LVMH.
+    "DIOR", "SAUVAGE", the Dior logotype, and all associated product designs, trade dress, imagery
+    and campaign concepts are trademarks and copyrighted works of their respective owners. They are
+    referenced here exclusively to demonstrate 3D web design and scrollytelling techniques. Nothing
+    on this site is offered for sale; all product information shown is illustrative and may be
+    inaccurate. Fragrance imagery was partially generated with AI tools for educational purposes.
+    If you are a rights holder and wish this demonstration to be modified or removed, please
+    contact: Carlos Marruffo — hello@reasonedweb.com.
+  </p>
+  </div>
+  <aside class="ar-card">
+    <h4>See the bottle in your space</h4>
+    <p>Scan with your phone camera and place Sauvage in front of you, at real size — Augmented Reality for iOS &amp; Android.</p>
+    <a href="ar/" aria-label="Open the AR viewer"><img src="sauvage_assets/ar_qr.png?v=3" alt="QR code — view Sauvage in Augmented Reality"></a>
+    <a class="ar-link" href="ar/">Open the AR viewer</a>
+  </aside>
+  </div>
+</footer>
+
+<script src="https://unpkg.com/lenis@1.3.4/dist/lenis.min.js"></script>
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.js",
+    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.169.0/examples/jsm/"
+  }
+}
+</script>
+<script type="module">
+history.scrollRestoration = 'manual';
+window.scrollTo(0, 0);
+
+import * as THREE from 'three';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import { DRACOLoader } from 'three/addons/loaders/DRACOLoader.js';
+import { RGBELoader } from 'three/addons/loaders/RGBELoader.js';
+import { MeshSurfaceSampler } from 'three/addons/math/MeshSurfaceSampler.js';
+
+const container = document.getElementById('scene');
+
+// alpha canvas: full-bleed imagery in #bglayer shows through behind the bottle
+const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+renderer.setSize(window.innerWidth, window.innerHeight);
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure = 1.05;
+renderer.shadowMap.enabled = true;
+renderer.shadowMap.type = THREE.VSMShadowMap; // dureza de sombra animable por sección
+renderer.localClippingEnabled = true; // for the mask-sweep reveal
+container.appendChild(renderer.domElement);
+
+const scene = new THREE.Scene(); // background stays null (transparent)
+
+const camera = new THREE.PerspectiveCamera(36, window.innerWidth / window.innerHeight, 0.05, 60);
+
+const pmrem = new THREE.PMREMGenerator(renderer);
+new RGBELoader().load('studio_1k.hdr', (hdr) => {
+  scene.environment = pmrem.fromEquirectangular(hdr).texture;
+  scene.environmentRotation = new THREE.Euler(0, 1.9, 0);
+  scene.environmentIntensity = 1.45; // el HDRI, más protagonista
+  window.__env = (y) => { scene.environmentRotation.y = y; return y; }; // tuning en vivo
+  hdr.dispose();
+});
+
+const key = new THREE.DirectionalLight(0xffffff, 1.1);
+key.position.set(3, 6, 4);
+key.castShadow = true;
+key.shadow.mapSize.set(2048, 2048);
+key.shadow.camera.left = -8; key.shadow.camera.right = 8;
+key.shadow.camera.top = 8;   key.shadow.camera.bottom = -8;
+key.shadow.bias = -0.0002;
+key.shadow.radius = 8;
+key.shadow.blurSamples = 18;
+scene.add(key);
+scene.add(new THREE.AmbientLight(0xffffff, 0.35));
+
+// warm ember accent from below-front, alive only in the night passages (ref: parfum campaign)
+const ember = new THREE.PointLight(0xff9040, 0, 9, 1.8);
+ember.position.set(0.8, 0.25, 2.2);
+scene.add(ember);
+
+// cool fill so the navy shoulders read blue, not black (ref1)
+const coolFill = new THREE.DirectionalLight(0x5878c8, 0.5);
+coolFill.position.set(-4, 3, -2);
+scene.add(coolFill);
+
+// scene glow: a light tinted with each hero image's palette, so the glass
+// picks up the colours of the photograph it floats over
+const sceneGlow = new THREE.PointLight(0xffffff, 0, 12, 1.6);
+scene.add(sceneGlow);
+
+const shadowCatcher = new THREE.Mesh(
+  new THREE.PlaneGeometry(20, 20),
+  new THREE.ShadowMaterial({ opacity: 0.12 })
+);
+shadowCatcher.rotation.x = -Math.PI / 2;
+shadowCatcher.receiveShadow = true;
+scene.add(shadowCatcher);
+
+// la sombra de un vidrio azul no es gris: charco caustic azulado bajo el frasco
+const cc = document.createElement('canvas'); cc.width = cc.height = 256;
+const cctx = cc.getContext('2d');
+const cgrad = cctx.createRadialGradient(128, 128, 10, 128, 128, 128);
+cgrad.addColorStop(0, 'rgba(70, 115, 255, 0.34)');
+cgrad.addColorStop(0.55, 'rgba(60, 95, 220, 0.16)');
+cgrad.addColorStop(1, 'rgba(60, 95, 220, 0)');
+cctx.fillStyle = cgrad; cctx.fillRect(0, 0, 256, 256);
+const caustic = new THREE.Mesh(
+  new THREE.PlaneGeometry(2.6, 3.4),
+  new THREE.MeshBasicMaterial({ map: new THREE.CanvasTexture(cc), transparent: true, depthWrite: false })
+);
+caustic.rotation.x = -Math.PI / 2;
+caustic.position.set(-0.45, 0.012, -0.5); // desplazado en la dirección de la sombra
+scene.add(caustic);
+
+// ---------- load bottle ----------
+const loadbar = document.getElementById('loadbar');
+const draco = new DRACOLoader();
+draco.setDecoderPath('https://www.gstatic.com/draco/versioned/decoders/1.5.7/');
+const loader = new GLTFLoader();
+loader.setDRACOLoader(draco);
+
+loader.load('sauvage_opt.glb', (gltf) => {
+  const model = gltf.scene;
+  model.traverse((o) => {
+    if (o.isMesh) {
+      o.castShadow = true;
+      if (o.material) {
+        o.material.envMapIntensity = 1.15; // materiales tal como venían
+        if (o.material.transmission > 0) {
+          o.material.dispersion = 4;       // prisma: separación cromática en los bordes del vidrio
+          o.material.thickness = Math.max(o.material.thickness || 0, 0.35);
+        }
+      }
+    }
+  });
+  let box = new THREE.Box3().setFromObject(model);
+  const size = box.getSize(new THREE.Vector3());
+  model.scale.setScalar(2.4 / size.y);
+  box = new THREE.Box3().setFromObject(model);
+  const center = box.getCenter(new THREE.Vector3());
+  model.position.x -= center.x;
+  model.position.z -= center.z;
+  model.position.y -= box.min.y;
+  bottleGroup.add(model);
+  model.updateMatrixWorld(true);
+
+  // ── WOW 1 · materialization: the bottle condenses out of ink particles ──
+  const targets = [];
+  const v = new THREE.Vector3();
+  model.traverse((o) => {
+    if (o.isMesh) {
+      const smp = new MeshSurfaceSampler(o).build();
+      for (let i = 0; i < 1100; i++) {
+        smp.sample(v);
+        v.applyMatrix4(o.matrixWorld);
+        targets.push(v.x, v.y, v.z);
+      }
+    }
+  });
+  const n = targets.length / 3;
+  const startPos = new Float32Array(targets.length);
+  for (let i = 0; i < n; i++) {
+    const a = Math.random() * Math.PI * 2, ph = Math.acos(2 * Math.random() - 1), rr = 3.2 + Math.random() * 1.6;
+    startPos[i * 3] = Math.sin(ph) * Math.cos(a) * rr;
+    startPos[i * 3 + 1] = 1.2 + Math.cos(ph) * rr * 0.8;
+    startPos[i * 3 + 2] = Math.sin(ph) * Math.sin(a) * rr;
+  }
+  intro.geo = new THREE.BufferGeometry();
+  intro.geo.setAttribute('position', new THREE.BufferAttribute(startPos.slice(), 3));
+  intro.start = startPos;
+  intro.target = new Float32Array(targets);
+  intro.mat = new THREE.PointsMaterial({ color: 0x1c2a4a, size: 0.028, transparent: true, opacity: 0.85, depthWrite: false });
+  intro.pts = new THREE.Points(intro.geo, intro.mat);
+  scene.add(intro.pts);
+  model.visible = false;
+  intro.t0 = clock.getElapsedTime();
+  intro.model = model;
+
+  // arm the mask-sweep: every bottle material clips against the rising plane
+  model.traverse((o) => {
+    if (o.isMesh && o.material) {
+      o.material.clippingPlanes = [revealPlane];
+      o.material.clipShadows = true;
+    }
+  });
+
+  // ── WOW 2 · construction wireframe for the craft section ──
+  let biggest = null;
+  model.traverse((o) => {
+    if (o.isMesh && (!biggest || o.geometry.attributes.position.count > biggest.geometry.attributes.position.count)) biggest = o;
+  });
+  if (biggest) {
+    wire = biggest.clone();
+    wire.material = new THREE.MeshBasicMaterial({ wireframe: true, transparent: true, opacity: 0, color: 0x7d8fb5, depthWrite: false });
+    wire.castShadow = false;
+    wire.scale.multiplyScalar(1.03);   // slight halo so the construction lines read around the glass
+    biggest.parent.add(wire);
+  }
+
+  document.getElementById('loader').classList.add('done');
+  document.getElementById('hero').classList.add('visible');
+  lenis.scrollTo(0, { immediate: true });
+  window.scrollTo(0, 0);
+  // Chrome a veces restaura un scroll fantasma un instante después: re-anclar
+  [400, 1000, 1800].forEach((ms) => setTimeout(() => {
+    if (captured === 0 && Math.abs(scrollNow) > 4) { lenis.scrollTo(0, { immediate: true }); window.scrollTo(0, 0); }
+  }, ms));
+}, (xhr) => {
+  if (xhr.total > 0) loadbar.style.transform = `scaleX(${xhr.loaded / xhr.total})`;
+});
+
+// ---------- note particles ----------
+function makeSprite(color) {
+  const c = document.createElement('canvas'); c.width = c.height = 64;
+  const g = c.getContext('2d');
+  const grad = g.createRadialGradient(32, 32, 0, 32, 32, 32);
+  grad.addColorStop(0, color); grad.addColorStop(1, 'rgba(0,0,0,0)');
+  g.fillStyle = grad; g.fillRect(0, 0, 64, 64);
+  return new THREE.CanvasTexture(c);
+}
+function makeParticles(color, count, radius) {
+  const geo = new THREE.BufferGeometry();
+  const pos = new Float32Array(count * 3);
+  for (let i = 0; i < count; i++) {
+    const a = Math.random() * Math.PI * 2, r = radius * (0.5 + Math.random() * 0.8);
+    pos[i * 3] = Math.cos(a) * r;
+    pos[i * 3 + 1] = 0.3 + Math.random() * 2.4;
+    pos[i * 3 + 2] = Math.sin(a) * r;
+  }
+  geo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+  const mat = new THREE.PointsMaterial({
+    size: 0.05, map: makeSprite(color), transparent: true, opacity: 0,
+    depthWrite: false, blending: THREE.AdditiveBlending,
+  });
+  const pts = new THREE.Points(geo, mat);
+  scene.add(pts);
+  return pts;
+}
+const bergamotP = makeParticles('rgba(210,235,255,0.9)', 90, 1.6);
+const pepperP   = makeParticles('rgba(255,190,120,0.9)', 90, 1.4);
+
+// fine ambient dust for the night passages
+const dustP = makeParticles('rgba(205,220,240,0.8)', 170, 2.4);
+dustP.material.size = 0.018;
+
+// state for the intro materialization + craft wireframe
+// phases: particles converge -> clip-plane sweep reveals the bottle bottom-up -> particles dissolve
+const intro = { pts: null, geo: null, mat: null, start: null, target: null, t0: -1, revealT0: -1, model: null, done: false };
+const revealPlane = new THREE.Plane(new THREE.Vector3(0, 1, 0), -3); // visible where y > -constant… barrido de arriba hacia abajo
+let wire = null;
+
+// the bottle counter-rotates so the SAUVAGE label faces the camera at every stop
+const bottleGroup = new THREE.Group();
+scene.add(bottleGroup);
+// offset de etiqueta por parada: 0 = logo de frente (hero y finale);
+// 0.35 = el ángulo dinámico original del resto de secciones
+const LABEL_OFFSETS = [0, 0.35, 0.35, 0.35, 0.35, 0.35, 0.35, 0];
+// dureza de la sombra por sección (radio VSM: bajo = dura, alto = difusa)
+const SHADOW_RADII = [8, 12, 26, 5, 20, 8, 8, 8];
+// opacidad de la sombra por sección (pimienta: muy opaca como las de los granos)
+const SHADOW_OPACITY = [0.12, 0.4, 0.5, 0.85, 0.55, 0.12, 0.12, 0.12];
+
+// ---------- full-bleed background bands ----------
+const bglayer = document.getElementById('bglayer');
+const bgEntries = [];
+document.querySelectorAll('section[data-bg]').forEach((sec, i) => {
+  const div = document.createElement('div');
+  div.className = 'bgimg scrim-' + (sec.dataset.scrim || 'left');
+  const img = document.createElement('img');
+  img.alt = '';
+  if (sec.dataset.pos) img.style.objectPosition = sec.dataset.pos;
+  const scrim = document.createElement('div');
+  scrim.className = 'scrim';
+  div.appendChild(img);
+  div.appendChild(scrim);
+  bglayer.appendChild(div);
+  // alternating entrance side; image and bottle converge exactly at the stop
+  bgEntries.push({ sec, div, img, dir: i % 2 === 0 ? 1 : -1, top: 0, h: 1 });
+});
+function layoutBg() {
+  const mobile = window.innerWidth < 720;
+  bgEntries.forEach((en) => {
+    // portrait art direction on phones: the 3:4 versions crop gracefully
+    const want = (mobile && en.sec.dataset.bgMobile) ? en.sec.dataset.bgMobile : en.sec.dataset.bg;
+    if (en.img.getAttribute('src') !== want) {
+      en.img.src = want;
+      en.img.style.objectPosition = mobile ? '' : (en.sec.dataset.pos || '');
+    }
+    en.top = en.sec.offsetTop;
+    en.h = en.sec.offsetHeight;
+    en.div.style.top = en.top + 'px';
+    en.div.style.height = en.h + 'px';
+  });
+}
+window.addEventListener('load', layoutBg);
+window.addEventListener('resize', layoutBg);
+layoutBg();
+
+// ---------- scroll choreography ----------
+// mLook: extra downward framing for centered-text sections on narrow screens
+const stops = [
+  { azim: 0.35,                r: 8.4, h: 2.0, look: 1.85, side: 0,     bg: '#f6f5f3', mLook: 0.2, tint: '#ffffff', tintI: 0,   lz: 0.6,   lh: 6.0, lc: '#fff4e0', li: 1.1 }, // hero: estudio
+  { azim: Math.PI * 0.45,      r: 7.0, h: 1.5, look: 1.3,  side: -0.9,  bg: '#0a1220', mLook: 0.84, tint: '#ff9a55', tintI: 0.9, lz: 3.05,  lh: 1.1, lc: '#ff9a55', li: 2.3 }, // desierto: contraluz del horizonte
+  { azim: Math.PI * 0.85,      r: 5.8, h: 1.9, look: 1.22, side: 0.85,  bg: '#0d1830', mLook: 0.8,  tint: '#8fdcb0', tintI: 1.0, lz: -2.1,  lh: 5.5, lc: '#cfe0ff', li: 1.7 }, // bergamota: luz tras-izquierda -> sombra a las 4
+  { azim: Math.PI * 1.25,      r: 5.6, h: 1.3, look: 1.12, side: -0.58, bg: '#141021', mLook: 0.88, tint: '#ffb066', tintI: 1.0, lz: 3.05,   lh: 2.4, lc: '#ffb066', li: 2.6 }, // pimienta: base en pizarra libre, no sobre un grano
+  { azim: Math.PI * 1.7,       r: 5.15, h: 0.95, look: 1.24, side: 0.8, bg: '#05080f', mLook: 0.72, tint: '#d9b25f', tintI: 0.9, lz: -0.25, lh: 6.5, lc: '#e8c37a', li: 1.9 }, // ambroxan: de pie sobre el agua, grande
+  { azim: Math.PI * 2.2,       r: 5.6, h: 2.6, look: 1.05, side: -0.6,  bg: '#f6f5f3', mLook: 1.1,  tint: '#ffffff', tintI: 0,   lz: 0.6,   lh: 6.0, lc: '#fff4e0', li: 1.1 }, // craft
+  { azim: Math.PI * 2.55,      r: 6.4, h: 1.4, look: 1.1,  side: 1.0,   bg: '#f6f5f3', mLook: 0.4,  tint: '#ffffff', tintI: 0,   lz: 0.6,   lh: 6.0, lc: '#fff4e0', li: 1.1 }, // collection
+  { azim: Math.PI * 3.0 + 0.35, r: 7.4, h: 1.7, look: 1.3, side: -1.05, bg: '#f6f5f3', mLook: 0.88, tint: '#ffffff', tintI: 0,   lz: 0.6,   lh: 6.0, lc: '#fff4e0', li: 1.1 }, // finale
+];
+// zoom extra por seccion SOLO en movil: bergamota/pimienta/ambroxan ~15% mas pequenas
+const MOBILE_ZOOM = [0, 0, 0.21, 0.21, 0.21, 0, 0, 0];
+stops.forEach((s, i) => { s.bgColor = new THREE.Color(s.bg); s.tintColor = new THREE.Color(s.tint); s.lcColor = new THREE.Color(s.lc); s.lo = LABEL_OFFSETS[i]; s.sr = SHADOW_RADII[i]; s.so = SHADOW_OPACITY[i]; s.mz = MOBILE_ZOOM[i]; });
+
+const smooth = (t) => t * t * (3 - 2 * t);
+
+// detent asimétrico: breve meseta AL SALIR de cada parada (la botella se resiste
+// a dejar su pose) y luego el movimiento acompaña al scroll hasta aterrizar
+// EXACTAMENTE en el ancla siguiente, con frenado suave — sincronía 1:1
+const HOLD_OUT = 0.14;
+const detent = (f) => {
+  const g = Math.min(1, Math.max(0, (f - HOLD_OUT) / (1 - HOLD_OUT)));
+  return g * g * (3 - 2 * g);
+};
+
+function sample(x) {
+  const n = stops.length - 1;
+  x = Math.min(Math.max(x, 0), n - 0.00001);
+  const i = Math.floor(x);
+  const t = detent(x - i);
+  const a = stops[i], b = stops[i + 1];
+  const lerp = (k) => a[k] + (b[k] - a[k]) * t;
+  return {
+    azim: lerp('azim'), r: lerp('r'), h: lerp('h'), look: lerp('look'),
+    side: lerp('side'), mLook: lerp('mLook'), tintI: lerp('tintI'), lo: lerp('lo'),
+    lz: lerp('lz'), lh: lerp('lh'), li: lerp('li'), sr: lerp('sr'), so: lerp('so'), mz: lerp('mz'),
+    bg: new THREE.Color().lerpColors(a.bgColor, b.bgColor, t),
+    tint: new THREE.Color().lerpColors(a.tintColor, b.tintColor, t),
+    lcC: new THREE.Color().lerpColors(a.lcColor, b.lcColor, t),
+    idx: x,          // raw index: drives per-section particles/wireframe
+    dIdx: i + t,     // detented index: drives camera-linked motion (spin)
+  };
+}
+
+// stop index anchored to REAL section positions (sections may exceed 100vh on mobile)
+let anchors = [];
+function computeAnchors() {
+  anchors = [...document.querySelectorAll('main section')].map(
+    (sec) => sec.offsetTop + sec.offsetHeight / 2 - window.innerHeight / 2
+  );
+}
+function stopIndexFromScroll(y) {
+  if (!anchors.length || y <= anchors[0]) return 0;
+  for (let i = 0; i < anchors.length - 1; i++) {
+    if (y < anchors[i + 1]) return i + (y - anchors[i]) / (anchors[i + 1] - anchors[i]);
+  }
+  return anchors.length - 1;
+}
+window.addEventListener('load', computeAnchors);
+window.addEventListener('resize', computeAnchors);
+computeAnchors();
+
+const lenis = new Lenis({ lerp: 0.08 });
+let scrollNow = 0;
+const footerEl = document.querySelector('footer');
+
+// absorption magnet: crossing a stop CAPTURES the page onto it — no matter how
+// fast you fly past, the section absorbs you; scroll again to break free
+let captured = 0;          // anchor currently holding the page (start at hero)
+let prevScroll = 0;
+const CAPTURE = () => window.innerHeight * 0.42;  // radio de captura amplio: te atrapa pronto
+const ESCAPE = () => window.innerHeight * 0.62;   // soltarse cuesta; al lograrlo, la siguiente ya te tiene
+lenis.on('scroll', (e) => {
+  prevScroll = scrollNow;
+  scrollNow = e.scroll;
+  if (!anchors.length) return;
+
+  // free again once we've clearly left the captured stop
+  if (captured >= 0 && Math.abs(scrollNow - anchors[captured]) > ESCAPE()) captured = -1;
+  if (captured >= 0) return;
+
+  // absorb at the FIRST anchor lying ahead of the travel direction and within reach
+  // (a hard flick can never overshoot a section: the next stop always catches you)
+  const dir = scrollNow > prevScroll ? 1 : -1;
+  let target = -1;
+  for (let i = 0; i < anchors.length; i++) {
+    const a = anchors[i];
+    const ahead = dir === 1 ? a > prevScroll + 1 : a < prevScroll - 1;
+    const reach = dir === 1 ? a <= scrollNow + CAPTURE() : a >= scrollNow - CAPTURE();
+    if (ahead && reach) { target = i; if (dir === 1) break; }
+  }
+  if (target >= 0 && target !== captured) {
+    captured = target;
+    lenis.scrollTo(anchors[target], { duration: 0.62, lock: true, easing: (t) => 1 - Math.pow(1 - t, 4) });
+  }
+});
+
+// salto directo para pruebas (evita el imán)
+window.__goto = (i) => { captured = i; lenis.scrollTo(anchors[i], { immediate: true }); };
+
+let mx = 0, my = 0, cmx = 0, cmy = 0;
+window.addEventListener('pointermove', (e) => {
+  mx = e.clientX / window.innerWidth - 0.5;
+  my = e.clientY / window.innerHeight - 0.5;
+});
+
+const lookT = new THREE.Vector3();
+const dir = new THREE.Vector3();
+const right = new THREE.Vector3();
+const clock = new THREE.Clock();
+const weight = (x, k) => Math.max(0, 1 - Math.abs(x - k));
+
+function raf(time) {
+  lenis.raf(time);
+  const t = clock.getElapsedTime();
+  cmx += (mx - cmx) * 0.04;
+  cmy += (my - cmy) * 0.04;
+
+  const s = sample(stopIndexFromScroll(scrollNow));
+  const aspect = camera.aspect;
+  const narrow = Math.max(0, Math.min(1, (0.95 - aspect) / 0.5)); // 0 desktop -> 1 phone
+
+  // page background colour (visible where no full-bleed image band sits)
+  document.body.style.backgroundColor = '#' + s.bg.getHexString();
+  document.body.classList.toggle('dark', s.bg.r < 0.4);
+
+  // framing rules: never larger than the frame, never over the text
+  // phones: keep the bottle CLOSE to campaign scale — only a gentle pull-back
+  const rEff = s.r * (1 + narrow * (0.35 + s.mz));
+  const lookEff = s.look + s.mLook * narrow;      // phones: drop the bottle under the text
+  const sideEff = s.side * (1 - narrow * 0.8);    // phones: nearly centred
+
+  const azim = s.azim + cmx * 0.12;
+  camera.position.set(Math.sin(azim) * rEff, s.h + cmy * -0.25 + Math.sin(t * 0.5) * 0.03, Math.cos(azim) * rEff);
+
+  // label-lock: bottle follows the camera azimuth (label always readable at rest)…
+  // …plus one full revolution on each marked transition (1 = spin on segment i→i+1)
+  const SPIN_SEG = [1, 1, 1, 1, 1, 0, 1]; // hero→desierto→bergamota→pimienta→ambroxan→craft, quieto, colección→finale
+  let spin = 0;
+  for (let i = 0; i < SPIN_SEG.length; i++) {
+    if (SPIN_SEG[i]) spin += smooth(Math.max(0, Math.min(1, s.dIdx - i)));
+  }
+  bottleGroup.rotation.y = (s.azim - s.lo) + spin * Math.PI * 2;
+
+  // scene glow: the glass borrows the palette of the image it floats over
+  sceneGlow.color.copy(s.tint);
+  sceneGlow.intensity = s.tintI * 3.4;
+  sceneGlow.position.set(Math.sin(azim + 2.4) * 3.2, 1.7, Math.cos(azim + 2.4) * 3.2);
+
+  // la LUZ CLAVE coincide con la fuente de luz de la fotografía de cada sección
+  // (lz = desfase respecto a la cámara: + entra por la derecha de pantalla, π = contraluz)
+  const lightAzim = azim + s.lz;
+  key.position.set(Math.sin(lightAzim) * 7, s.lh, Math.cos(lightAzim) * 7);
+  key.color.copy(s.lcC);
+  key.intensity = s.li;
+  key.shadow.radius = s.sr; // dureza de sombra según la fotografía
+  lookT.set(0, lookEff, 0);
+  dir.subVectors(lookT, camera.position).normalize();
+  right.crossVectors(dir, camera.up).normalize();
+  lookT.addScaledVector(right, sideEff);
+  camera.lookAt(lookT);
+
+  bergamotP.material.opacity = weight(s.idx, 2) * 0.75;
+  pepperP.material.opacity = weight(s.idx, 3) * 0.7;
+  bergamotP.rotation.y = t * 0.05;
+  pepperP.rotation.y = -t * 0.04;
+
+  // night dust: fades in with the dark passages
+  const darkness = Math.max(0, Math.min(1, (0.4 - s.bg.r) * 6));
+  // el estudio HDRI pinta bordes blancos en el vidrio; sobre las fotos oscuras
+  // el entorno se atenua para que el frasco viva en la misma luz de la escena
+  scene.environmentIntensity = 1.45 * (1 - darkness * 0.6);
+  dustP.material.opacity = darkness * 0.32;
+  dustP.rotation.y = t * 0.02;
+
+  // warm ember glow breathes on the glass at night
+  ember.intensity = darkness * (2.6 + Math.sin(t * 1.7) * 0.5);
+
+  // intro materialization: scattered ink condenses, then the bottle sweeps in bottom-up
+  if (intro.t0 >= 0 && !intro.done) {
+    const k = Math.min(1, (t - intro.t0) / 2.4);
+    const e = k * k * (3 - 2 * k);
+    const pos = intro.geo.attributes.position.array;
+    for (let i = 0; i < pos.length; i++) {
+      pos[i] = intro.start[i] + (intro.target[i] - intro.start[i]) * e;
+    }
+    intro.geo.attributes.position.needsUpdate = true;
+
+    if (k >= 1) {
+      if (intro.revealT0 < 0) {
+        intro.revealT0 = t;
+        intro.model.visible = true;
+        revealPlane.set(new THREE.Vector3(0, 1, 0), -3); // start fully masked (nothing above y=3)
+      }
+      // mask sweep: the clip line descends through the bottle, ceremonial (~3.6s)
+      const sk = Math.min(1, (t - intro.revealT0) / 3.6);
+      const sweep = sk * sk * (3 - 2 * sk);
+      revealPlane.constant = -3 + sweep * 3.2;    // reveals top -> bottom
+      // the ink dissolves following the sweep line
+      intro.mat.opacity = 0.85 * (1 - sweep);
+      if (sk >= 1) {
+        scene.remove(intro.pts);
+        intro.geo.dispose(); intro.mat.dispose();
+        intro.model.traverse((o) => {             // drop clipping once revealed (perf)
+          if (o.isMesh && o.material) {
+            o.material.clippingPlanes = null;
+            o.material.clipShadows = false;
+            o.material.needsUpdate = true;        // recompila el shader sin el plano
+          }
+        });
+        intro.done = true;
+      }
+    }
+  }
+
+  // craft section: the construction wireframe breathes in
+  if (wire) {
+    const w = weight(s.idx, 5) * 0.32;
+    wire.material.opacity = w;
+    wire.visible = w > 0.01;
+  }
+
+  // opacidad de sombra coreografiada por sección (calcada de cada fotografía)
+  shadowCatcher.material.opacity = s.so;
+  caustic.material.opacity = s.bg.r > 0.4 ? 1 : 0.45;
+  // el charco caustic vive dentro de la sombra: opuesto a la luz
+  caustic.position.set(-Math.sin(lightAzim) * 0.6, 0.012, -Math.cos(lightAzim) * 0.6);
+
+  // hero images drift in from alternating sides and lock at the section's stop
+  for (const en of bgEntries) {
+    const c = (en.top + en.h / 2 - (scrollNow + window.innerHeight / 2)) / window.innerHeight;
+    if (Math.abs(c) > 1.5) continue;
+    const drift = Math.sign(c) * smooth(Math.min(1, Math.abs(c))) * 7 * en.dir;
+    en.img.style.transform = `scale(1.16) translateX(${drift}%)`;
+  }
+
+  // the 3D layer bows out before the footer (never overlaps the legal block)…
+  const fr = footerEl.getBoundingClientRect();
+  const footerIn = Math.max(0, Math.min(1, (window.innerHeight - fr.top) / (window.innerHeight * 0.25)));
+  // …and steps aside on mobile while the collection cards are on stage
+  const cardsIn = weight(s.idx, 6) * narrow;
+  container.style.opacity = String((1 - footerIn) * (1 - Math.min(1, cardsIn * 1.2)));
+
+  renderer.render(scene, camera);
+  requestAnimationFrame(raf);
+}
+requestAnimationFrame(raf);
+
+window.addEventListener('resize', () => {
+  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  layoutBg();
+});
+
+const io = new IntersectionObserver((entries) => {
+  entries.forEach((e) => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.3 });
+document.querySelectorAll('main section').forEach((s) => io.observe(s));
+</script>
+<div style="background:#16181C;color:#F3F4F3;padding:0.7rem 1rem;text-align:center;font:500 12px/1.5 system-ui,sans-serif;letter-spacing:0.02em">Unsolicited concept study — not affiliated with, commissioned by, or endorsed by Parfums Christian Dior or LVMH. A Reasoned Web piece.</div>
+</body>
+</html>

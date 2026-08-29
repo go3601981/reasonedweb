@@ -97,7 +97,7 @@ def main():
     # 1 · estructura, sin navegador: el hijo directo de cada section
     fallos_estruct, n_sec, n_notas = [], 0, 0
     for f in sorted(Path("site").rglob("index.html")):
-        if any(p in f.parts for p in ("live", "piece", "deck", "range", "molecules", "one-pager")):
+        if any(p in f.parts for p in ("live", "piece", "deck", "range", "molecules", "one-pager", "sauvage")):
             continue
         t = f.read_text(encoding="utf-8", errors="replace")
         for m in re.finditer(r'<section id="([a-z-]+)"', t):

@@ -146,7 +146,9 @@ def main() -> None:
                          "ancla — la etiqueta nunca se queda sin poner")
     ap.add_argument("--sub", action="append", default=[], metavar="VIEJA=NUEVA",
                     help="reescribe una cadena en el HTML y en los assets de "
-                         "texto; falla si no sustituyó nada (repetible)")
+                         "texto; falla si no sustituyó nada (repetible). Si la "
+                         "cadena VIEJA contiene '=' (un atributo href, p. ej.), "
+                         "usar la forma sed: |VIEJA|NUEVA")
     ap.add_argument("--qr", action="append", default=[], metavar="RUTA=URL",
                     help="regenera ese PNG del exhibit como código QR de la URL "
                          "dada — un residuo dentro de una imagen no se puede "
@@ -243,9 +245,17 @@ def main() -> None:
 
     subs = []
     for regla in a.sub:
-        if "=" not in regla:
+        # forma sed |VIEJA|NUEVA: la única manera de sustituir una cadena que
+        # contiene '=' (split("=") partiría dentro de un href="…")
+        if regla.startswith("|"):
+            partes = regla.split("|", 2)
+            if len(partes) != 3 or not partes[1]:
+                die(f"--sub sed mal formado (se espera |VIEJA|NUEVA): {regla!r}")
+            viejo, nuevo = partes[1], partes[2]
+        elif "=" in regla:
+            viejo, nuevo = regla.split("=", 1)
+        else:
             die(f"--sub mal formado (falta '='): {regla!r}")
-        viejo, nuevo = regla.split("=", 1)
         subs.append((viejo, nuevo))
     tocados = {viejo: 0 for viejo, _ in subs}
     for viejo, nuevo in subs:

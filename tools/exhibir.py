@@ -59,6 +59,11 @@ TEXTO_EXT = {".html", ".htm", ".css", ".js", ".mjs", ".json", ".svg", ".txt",
              ".md", ".xml", ".csv", ".webmanifest", ".map"}
 MARCAS = [p for p in PROHIBIDOS if not p.startswith("\\$") and not p.startswith("S/")]
 CADENA_IMPRIMIBLE = re.compile(rb"[ -~]{6,}")
+# Un data URI base64 dentro de un HTML es un BINARIO incrustado en texto: en
+# 3 MB de base64 cualquier sigla de 4 letras aparece por azar (medido: WMYS,
+# 3 veces, en el lookbook UDV). El run se saca del escaneo de texto y su
+# contenido DECODIFICADO se escanea como binario — igual que un .glb.
+BASE64_RUN = re.compile(r"[A-Za-z0-9+/=]{160,}")
 # el meta de robots, tolerando comilla simple o doble en el atributo
 PATRON_ROBOTS = r"<meta[^>]+name=['\"]robots['\"][^>]+noindex"
 META_ROBOTS = '<meta name="robots" content="noindex, nofollow">'
@@ -76,6 +81,23 @@ def escanear_arbol(raiz: Path):
         datos = f.read_bytes()
         if f.suffix.lower() in TEXTO_EXT:
             texto = datos.decode("utf-8", errors="replace")
+            # los payloads base64 se escanean aparte, decodificados como binario
+            import base64 as _b64
+            incrustados = []
+            for m in BASE64_RUN.finditer(texto):
+                crudo64 = m.group(0).rstrip("=")
+                try:
+                    incrustados.append(_b64.b64decode(crudo64 + "=" * ((-len(crudo64)) % 4)))
+                except Exception:
+                    pass
+            texto = BASE64_RUN.sub("[B64]", texto)
+            for crudo in incrustados:
+                imprimible = "\n".join(x.decode("ascii")
+                                       for x in CADENA_IMPRIMIBLE.findall(crudo))
+                for pat in MARCAS:
+                    for m in re.finditer(pat, imprimible, re.IGNORECASE):
+                        ctx = imprimible[max(0, m.start() - 45):m.end() + 45].replace("\n", " ")
+                        residuos.append(f"  · {f.relative_to(raiz)} (payload base64) → «…{ctx}…»")
             patrones = PROHIBIDOS
         else:
             texto = "\n".join(x.decode("ascii")

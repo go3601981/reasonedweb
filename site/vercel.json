@@ -74,6 +74,15 @@
       ]
     },
     {
+      "source": "/work/samsung-ces-2027/(.*)",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        }
+      ]
+    },
+    {
       "source": "/work/smoothies/(.*)",
       "headers": [
         {

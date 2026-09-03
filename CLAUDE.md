@@ -455,10 +455,23 @@ creíbles los demás números.
 
 ## Reglas de operación vigentes (no re-aprender)
 
-1. **Push**: las sesiones COMMITEAN (`-F archivo` + `--only -- rutas`); el push es de Carlos:
-   `$env:ARRASTRE_OK="1"; git push` (la puerta de arrastre nombra los commits claude:* —
-   adopción deliberada). El push no-interactivo de las sesiones sigue fallando («Cannot
-   prompt»); el fetch sí funciona. Vercel auto-deploya cada push en <1 min.
+1. **Push**: las sesiones COMMITEAN (`-F archivo` + `--only -- rutas`) y, ⚠️ **desde el
+   2026-09-03, también EMPUJAN** — Carlos abrió el permiso al pedir que el proyecto de decks
+   pudiera publicar aquí sin pasar por él. El permiso vive en `~/.claude/settings.json`
+   (`permissions.allow`: `Bash(git push:*)` y `Bash(ARRASTRE_OK=1 git push:*)`) y es GLOBAL,
+   no por repositorio: una regla de Bash se define por comando, así que no se puede acotar a
+   este repo. Para revocarlo, quitar esas dos entradas.
+   **La puerta de arrastre sigue en pie y sigue siendo el control real**: `githooks/pre-push`
+   nombra cada commit firmado por otra sesión y se niega a publicarlo sin `ARRASTRE_OK=1`. Un
+   push de commits propios de la sesión pasa solo; adoptar los de otra sesión sigue siendo un
+   acto explícito. Carlos, desde su shell, cuenta como `humano` y necesita `ARRASTRE_OK=1`
+   para publicar commits `claude:*`: `$env:ARRASTRE_OK="1"; git push`.
+   ⚠️ Lo anterior decía que el push no-interactivo fallaba con «Cannot prompt». Ya no: el
+   credential manager tiene la credencial de github.com en caché (comprobado con
+   `git credential fill`, y el fetch de este repo PRIVADO se autentica sin pedir nada), así
+   que una sesión empuja sin consola interactiva. `gh` además está logueado como `go3601981`
+   con scope `repo`, por si hiciera falta `gh auth setup-git`.
+   Vercel auto-deploya cada push en <1 min.
 2. ⛔ **Posicionamiento (regla dura de Carlos, refinada 2026-08-17)**: JAMÁS pintarlo
    trabajando para varias agencias a la vez, y la exclusividad JAMÁS se dice explícita
    («One partner at a time» se retiró — contar clientes suena a necesidad). Implícita en:

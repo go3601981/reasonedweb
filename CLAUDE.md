@@ -679,6 +679,87 @@ etiqueta `<video>`, nunca un iframe de YouTube.
    recuadro de la oferta y ninguna puerta lo vio: el texto estaba dentro de su columna.
 6. **Lo que se despliega es lo commiteado, no lo que hay en la carpeta.**
 
+## § EL PASE DE CONVERSIÓN DEL 2026-09-06 — la home deja de hablarle a un ingeniero
+
+Carlos: «the site is not helping me convert. My target are people looking to build decks
+for interactive experiences and for beauty and wellness, they are not technical, but there
+is plenty of technical jargon». Pidió auditoría de copy **y de estructura** («organize my
+work differently if you like»). **Esto manda sobre lo que lo contradiga arriba.**
+
+### Lo que se midió antes de tocar nada
+`scratchpad/auditar_copy.py` (no vive en el repo; se rehace si hace falta) sobre los 78
+bloques de texto visible de la home: **52 apariciones de jerga** en cuatro familias,
+**grado Flesch–Kincaid 10.9** (el copy que convierte vive en 7–8) y **10 frases de más de
+30 palabras**. Después del pase: **26 apariciones — y casi todas dentro de las notas al
+pie**, grado **9.8**, y las 5 frases largas que quedan están TODAS en notas. Las páginas de
+caso ya estaban limpias (2–4 apariciones); el problema estaba concentrado en la home.
+
+### El hallazgo que manda: es un estudio de belleza que no dice «belleza»
+**8 de las 12 piezas destacadas** de la home son fragancia, cosmética, belleza o bienestar
+(Sauvage, las cuatro de Ulric de Varens, Smoothies, L'Oréal, Woods & Co) — 10 de 14 si se
+cuentan FLUENCE e Iron Island en Range. Las palabras «beauty» y «wellness» aparecían
+**dos veces**, las dos dentro del título de una pieza o de un `alt`. Nunca como
+posicionamiento. No hacía falta obra nueva: hacía falta nombrar la que ya había.
+
+### Lo que cambió
+- **Tesis nueva** (y `title`, `description` y `og:*` con ella, por la regla de siempre):
+  *«I build the pitch that wins the work: interactive decks and live demos for beauty,
+  wellness and experience brands. Every piece arrives finished, with the reasoning behind
+  each decision written down.»*
+- **Las etiquetas del hero dejan de ser de ingeniería.** Fuera Three.js/WebGL, glTF/Draco,
+  Binaural HRTF, CAD→web. Dentro: Interactive decks · 3D product demos · Augmented reality ·
+  Beauty & wellness · Live events & booths · English & Spanish. Lo técnico NO se borró: vive
+  en las páginas de caso y en la bio, que es donde lo busca quien sabe leerlo.
+- **La derivación del logo BAJA** debajo de la tesis y las etiquetas. Sigue en la página —
+  es la mejor prueba de cómo se piensa aquí — pero ya no es la primera pared que ve un
+  comprador de belleza. El filete sigue siendo del máster.
+- **Orden nuevo, ocho secciones:** 01 Pitch decks · 02 Live experiences (Sauvage + UDV Blue
+  AR) · 03 A full production (LG) · 04 How it works · 05 Brand and web work · 06 More range ·
+  07 Who you would work with · 08 Start.
+  ⛔ **LG deja el primer puesto.** Sigue siendo la credencial más fuerte, pero es un caso de
+  audio de electrónica de consumo y era la primera impresión para quien viene por fragancia.
+- ⛔ **«Reasoned redesigns» desaparece como titular.** Dejó de describir su contenido el día
+  que los decks se archivaron ahí dentro. Ahora es «Brand and web work / Four brands, rebuilt
+  from the evidence» — y son cuatro negocios de verdad (UdV, Smoothies, Woods & Co, Nanntu).
+- **Los recibos suben a lenguaje de comprador y los números BAJAN a la nota [4]**: arriba
+  queda «loads fast on a phone, works for screen readers and holds together at any size — and
+  every one of those claims was measured, not assumed». Lighthouse, AA, 272, 320 px y
+  «no framework» siguen enteros, a un clic, donde los busca un evaluador técnico.
+- ⛔ **La oferta de 48 h ya no dice «not a deck».** Decía *«you get something running in a
+  browser on your own phone — not a deck, not a mockup»*: a quien venía a encargar un deck,
+  la propia página le decía que su encargo era el artefacto menor. Ahora: «a working piece,
+  not a flat mockup».
+- **Menú en lengua de visitante:** Decks · Experiences · How it works · Brand work · About.
+  «AR», «Range» y «Principal» eran nombres internos.
+- **Línea de contacto:** *«interactive decks and demos for beauty, wellness and experience
+  brands — and for the agencies that pitch them»*.
+
+### Lo que NO se tocó (y por qué, para que nadie lo «mejore»)
+Las **etiquetas honestas** de cada pieza — a un marketero de marca, que vive rodeado de
+revisión legal, le leen como integridad; son activo, no lastre. El **aparato de notas**. La
+nota de los **ocho días** y su negativa a inventar un kickoff. **Todos los deslindes de LG**.
+Y *«You bring the work you've sold; I produce it — design and build — under your flag or
+mine»*, que sigue siendo la frase más clara del sitio.
+
+### Lo que esto SUPERSEDE
+1. ⛔ **«Sitios, software y decks pasan a ser rango de apoyo, no la oferta» (2026-08-18) ya
+   no rige: el DECK es la oferta.** Es lo que Carlos pidió vender.
+2. El público añade **marcas de belleza y bienestar** a las agencias experienciales.
+3. La tesis del 2026-08-18 («I build the interactive that wins the room…») queda como
+   historia del papel.
+
+### ⚠️ Lo que sigue abierto
+**Quién firma el cheque: ¿la marca de belleza o la agencia que la presenta?** Se preguntó y
+no se respondió, así que el copy vigente **nombra a las dos** («…and for the agencies that
+pitch them»). Funciona, pero cuesta filo: si Carlos elige marca, la página debería decir
+«for your launch» y abrir con L'Oréal y UdV; si elige agencia, vuelve «for your agency» y
+manda la promesa white-label. **Es una decisión de una palabra que nadie debe tomar por él.**
+Pendiente menor del mismo pase: el aviso del pie sigue diciendo «noindex» en las 8 páginas —
+jerga para este comprador, pero es copy con decisión fechada y no se tocó sin orden.
+
+Auditoría completa, con las cifras y los antes/después:
+`https://claude.ai/code/artifact/27a9e8b1-3bc9-4929-8651-942043d2a853`
+
 ## Pendientes (cortos)
 0-bis. ⛔ **ANULADO el 2026-08-18: la prueba Shopify y todo el outreach a Shopify/Klaviyo
   Partners.** Orden de Carlos: «those don't pay what I need». El set de comercio UdV del

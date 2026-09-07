@@ -10,11 +10,21 @@
     <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
     <link rel="preload" href="./fonts/CormorantGaramond-normal-300-700.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="./fonts/Inter-normal-100-900.woff2" as="font" type="font/woff2" crossorigin />
-    <script type="module" crossorigin src="./assets/index-BJs8ONzY.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/style-cgkOLZaR.css">
+    <script type="module" crossorigin src="./assets/index-BIaf2pMt.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/style-DvNTjuvK.css">
   <style>#deck,.deck{bottom:30px!important}</style></head>
   <body>
     <main id="deck" aria-label="Beyond Production"></main>
+    <!-- Puerta de entrada: el audio solo puede arrancar tras un gesto del usuario (política de autoplay). Elegir con o sin sonido ES ese gesto; ?gate=0 la omite (capturas). -->
+    <div class="gate" id="gate" role="dialog" aria-labelledby="gate-t" aria-describedby="gate-d">
+      <span class="gate-mark">Beyond Production</span>
+      <p class="gate-line" id="gate-d">This presentation is designed with sound.</p>
+      <h1 class="visually-hidden" id="gate-t">Enter the presentation</h1>
+      <div class="gate-actions">
+        <button class="gate-btn" type="button" data-sound="1" autofocus>Enter with sound</button>
+        <button class="gate-btn gate-btn--quiet" type="button" data-sound="0">Enter in silence</button>
+      </div>
+    </div>
   <div style="position:fixed;left:0;right:0;bottom:0;z-index:2147483647;background:#16181C;color:#F3F4F3;padding:6px 16px;text-align:center;font:500 12px/1.5 system-ui,sans-serif;letter-spacing:0.02em">Own concept · Original talent and product · Exhibited by Reasoned Web</div>
 </body>
 </html>

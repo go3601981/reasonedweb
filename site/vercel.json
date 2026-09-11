@@ -11,7 +11,7 @@
       ]
     },
     {
-      "source": "/work/lg-sound-suite/live/(models|draco|multimedia)/(.*)",
+      "source": "/work/lg-sound-suite/live/(models|draco|basis|multimedia)/(.*)",
       "headers": [
         {
           "key": "Cache-Control",

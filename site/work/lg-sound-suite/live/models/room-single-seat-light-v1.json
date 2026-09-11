@@ -1,0 +1,9 @@
+{
+  "encoding": "rgbm-srgb",
+  "encodingScale": 32,
+  "lightMapIntensity": 100.53096491487338,
+  "colorSpace": "RGB sRGB transfer encoded; A linear per-pixel radiance multiplier; no display tonemap",
+  "lightMapUV": 1,
+  "samples": 256,
+  "texture": "room-light-v2.webp"
+}

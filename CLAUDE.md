@@ -713,7 +713,7 @@ posicionamiento. No hacía falta obra nueva: hacía falta nombrar la que ya hab�
 - **La derivación del logo BAJA** debajo de la tesis y las etiquetas. Sigue en la página —
   es la mejor prueba de cómo se piensa aquí — pero ya no es la primera pared que ve un
   comprador de belleza. El filete sigue siendo del máster.
-- **Orden nuevo, ocho secciones:** 01 Pitch decks · 02 Live experiences (Sauvage + UDV Blue
+- **Orden nuevo, ocho secciones (⚠️ NUEVE desde el 2026-09-19: entró 03 · Film — ver § Film en la home):** 01 Pitch decks · 02 Live experiences (Sauvage + UDV Blue
   AR) · 03 A full production (LG) · 04 How it works · 05 Brand and web work · 06 More range ·
   07 Who you would work with · 08 Start.
   ⛔ **LG deja el primer puesto.** Sigue siendo la credencial más fuerte, pero es un caso de
@@ -759,6 +759,54 @@ jerga para este comprador, pero es copy con decisión fechada y no se tocó sin 
 
 Auditoría completa, con las cifras y los antes/después:
 `https://claude.ai/code/artifact/27a9e8b1-3bc9-4929-8651-942043d2a853`
+
+## § FILM EN LA HOME — 2026-09-19 (hecho desde la sesión de Decks, a pedido de Carlos)
+
+Carlos: «with the video link, could you find a good place on reasonedweb.com and embed it there? I have
+no examples of AI generated video on that personal portfolio». El enlace era el YouTube del film del
+refrigerador LG French Door (`https://www.youtube.com/watch?v=gNsuCu1quCc`, canal de hello@reasonedweb.com).
+
+**Dónde quedó:** sección nueva **03 · Film** («A launch film, made without a shoot») entre Live experiences
+y LG Sound Suite. Las secciones pasan a ser NUEVE (LG 04 · How it works 05 · Brand and web work 06 · More
+range 07 · Who 08 · Start 09); ancla «Film» en el menú y etiqueta «Product films» en el hero. Sin nota al
+pie propia, así que la numeración [1]–[8] de las notas NO se movió.
+
+**Dos choques con reglas vigentes, resueltos a favor de la regla (Carlos puede derogar cualquiera):**
+1. **Regla 7 (jamás nombrar AI ni el mecanismo).** El copy no dice AI: dice lo que es cierto y le importa
+   al comprador — sin cámara, sin estudio, sin mandar una muestra; cada pieza cotejada con las fotos del
+   fabricante; planos que una cámara no puede hacer; medido, no a ojo. No afirma ningún proceso falso.
+   Si Carlos quiere la palabra «AI» en el sitio, es decisión suya y deroga la regla 7.
+2. **«`<video>` propio, jamás un iframe de YouTube» (acuerdo del 2026-08-19).** Se alojó en el sitio:
+   `site/assets/video/lg-french-door-film.mp4` (1080p, CRF 24, 26 MB, faststart). El póster es un ENLACE
+   al mp4 con `img` en los tres anchos de siempre; sin JS el navegador abre el archivo, con JS
+   `apparatus.js` lo cambia por un `<video>` en su mismo hueco (medido: 614×346 antes y después, sin salto
+   de maqueta), con subtítulos en inglés puestos (la locución es en español) y el foco en el reproductor.
+   **Hasta el click no se pide un byte de vídeo** (0 peticiones de mp4/vtt al cargar la home). El sitio NO
+   enlaza a YouTube: su descripción allá nombra las herramientas, y un enlace es una mención.
+
+**Etiqueta honesta (clase b):** «Unsolicited concept, made for a pitch. Not affiliated with, or commissioned
+by, LG Electronics.» ⚠️ Queda junto al caso LG Sound Suite, que es otra cosa (demostración para LG Canada):
+las dos etiquetas lo distinguen. Del estado de la negociación con LG sigue sin salir nada.
+
+**Cifras del copy, con su unidad:** «30 pixels off its center» y «within four» son las dos a 1080p (la
+primera toma y la final). En LinkedIn/YouTube Carlos publicó «43 px», que es la misma medida en el cuadro
+clave de 2752 px: no mezclarlas en un mismo texto.
+
+**Menú:** seis anclas pedían 973 px de barra y un iPad apaisado da 928: entre 62 y 68rem se aprieta el aire
+(pide 901). Medido a 1024 px: una sola fila, 27 px de hueco antes del CTA. Por encima de 68rem no cambia nada.
+
+**Puertas corridas antes del push:** `verificar_assets` (33 documentos, 426 referencias, todo en git) ·
+`verificar_indexacion` (2 indexables, sitemap coincide) · `verificar_maqueta` (9 secciones, 512 elementos
+con texto dentro de su columna) · `auditar` a 320/768/1440 (172/172/182 elementos, 0 hallazgos AA).
+⚠️ En Git Bash de Windows hay que exportar `MSYS_NO_PATHCONV=1` o `--paths /` se convierte en
+`C:/Program Files/Git/` y las puertas dan VERDE EN VACÍO (escanearon 4 elementos de una URL inválida).
+⚠️ `git fetch/push` fallaba con «repository not found»: el gestor de credenciales estaba usando la cuenta
+`cmarruffo1982`. Sin tocar la configuración global, funciona con un helper de un solo uso:
+`git -c credential.helper= -c credential.helper='!f() { echo username=go3601981; echo "password=$(gh auth token -u go3601981)"; }; f' push`.
+
+**Fuente del film:** `C:\Developer\Videos\lg-gm57spm-hero\out\master-1920x1080.mp4` (proyecto de Decks). Si el
+máster cambia, se re-codifica con el mismo nombre (caché de 30 días, como las imágenes). El copy de la
+sección lo escribió la sesión: **Carlos tiene que leerlo.**
 
 ## Pendientes (cortos)
 0-bis. ⛔ **ANULADO el 2026-08-18: la prueba Shopify y todo el outreach a Shopify/Klaviyo

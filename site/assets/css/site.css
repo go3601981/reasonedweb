@@ -158,6 +158,16 @@ section p + p { margin-top: 0.9rem; }
 .case-lead { display: grid; gap: 2rem; margin-top: 1.5rem; }
 @media (min-width: 60rem) { .case-lead { grid-template-columns: 3fr 2fr; align-items: start; } }
 .case-lead .shot { border: 1px solid var(--line); }
+/* Film (2026-09-19): el póster es un ENLACE al mp4 — sin JS abre el archivo en el reproductor del navegador; con JS,
+   apparatus.js lo cambia por un <video> en su mismo sitio. Hasta el play no baja un byte de vídeo (acuerdo del
+   2026-08-19: <video> propio, jamás un iframe de YouTube). El rótulo es papel sobre tinta: 16.1:1 (medido). */
+.film { position: relative; display: block; }
+.film .shot { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
+.film-play { position: absolute; left: 0.9rem; bottom: 0.9rem; display: inline-flex; align-items: center; gap: 0.5rem; background: var(--ink); color: var(--paper); font-weight: 600; font-size: 0.92rem; letter-spacing: 0.01em; padding: 0.55rem 0.95rem 0.55rem 0.7rem; }
+.film-play svg { fill: currentColor; width: 1.05em; height: 1.05em; }
+.film:hover .film-play { background: #2A2E36; }
+.film:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+video.film-player { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; background: var(--ink); border: 1px solid var(--line); }
 /* exhibiciones vivas: la pieza real dentro de un marco con proporción fija */
 iframe.exhibit { display: block; width: 100%; aspect-ratio: 16 / 10; border: 1px solid var(--line); background: #fff; }
 .chain { list-style: none; padding: 0; margin: 1.1rem 0 0; font-weight: 500; font-size: 0.95rem; }
@@ -404,6 +414,14 @@ p, li, figcaption { text-wrap: pretty; }
   .nav-links li + li { border-top: 0; }
   .nav-links a { padding: 0.15rem 0; border-bottom: 1.5px solid transparent; }
   .nav-links a:hover, .nav-links a:focus-visible { border-bottom-color: var(--ink); }
+}
+
+/* Seis anclas desde el 2026-09-19 (entró «Film»). Medido en la barra real (lockup 244 + anclas + CTA 161 + huecos):
+   con cinco anclas pedía 917 px y con seis 973; un iPad apaisado da 928 (1024 − 2×48) y el CTA caía a una segunda
+   fila que antes no existía. Entre 62 y 68rem el aire entre anclas y tras el lockup se aprieta (pide 901 px: cabe
+   desde 1.000 px de ventana, mejor que antes); por encima de 68rem todo sigue como estaba y ya cabe. */
+@media (min-width: 62rem) and (max-width: 68rem) {
+  .nav-links, .js .nav-links, .js .nav.menu-abierto .nav-links { gap: 1.05rem; margin-left: 1.4rem; }
 }
 
 /* Rango: ocho verticales en tres columnas dejaban una fila huérfana de dos.

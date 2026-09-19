@@ -110,6 +110,32 @@
     }
   }
 
+  /* Film: el póster es un enlace al mp4 (sin JS, el navegador lo abre). Con JS
+     se cambia por el reproductor EN SU SITIO: mismo hueco, sin salto de
+     maqueta, controles nativos, subtítulos en inglés puestos (la locución es
+     en español) y el foco pasa al reproductor. El vídeo no se pide hasta este
+     click — preload="none" sería redundante, pero queda dicho. */
+  document.querySelectorAll("a.film").forEach(function (a) {
+    a.addEventListener("click", function (e) {
+      if (e.metaKey || e.ctrlKey || e.shiftKey || e.button) return;   /* abrir en pestaña sigue siendo del visitante */
+      e.preventDefault();
+      var v = document.createElement("video");
+      v.className = "film-player";
+      v.controls = true; v.playsInline = true; v.preload = "none";
+      v.setAttribute("width", "1920"); v.setAttribute("height", "1080");
+      v.poster = a.getAttribute("data-poster") || "";
+      v.setAttribute("aria-label", (a.getAttribute("aria-label") || "Film").replace(/^Play the film: /, "Film: "));
+      var s = document.createElement("source"); s.src = a.getAttribute("href"); s.type = "video/mp4"; v.appendChild(s);
+      [["en", "English", true], ["es", "Español", false]].forEach(function (p) {
+        var src = a.getAttribute("data-" + p[0]); if (!src) return;
+        var tr = document.createElement("track"); tr.kind = "subtitles"; tr.srclang = p[0]; tr.label = p[1]; tr.src = src; tr.default = p[2]; v.appendChild(tr);
+      });
+      a.parentNode.replaceChild(v, a);
+      v.focus();
+      var p = v.play(); if (p && p.catch) p.catch(function () {});   /* si el navegador niega el arranque, los controles siguen ahí */
+    });
+  });
+
   /* Menú móvil (bajo 62rem): un disclosure, no un cajón. El panel es una
      fila más de la barra — ver site.css —, así que aquí no hay scroll que
      bloquear ni foco que encerrar: solo abrir, cerrar, y no dejar nunca el

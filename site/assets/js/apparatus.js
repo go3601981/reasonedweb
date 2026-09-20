@@ -196,12 +196,38 @@
      OBLIGATORIOS (2026-08-17): nombre, correo, agencia y mensaje. Rol y
      teléfono pasaron a opcionales — seis campos obligatorios para un primer
      hola cuestan respuestas, y el teléfono se pide solo a quien prefiere
-     que lo llamen. El servidor (api/contact.js) exige la MISMA lista. */
+     que lo llamen. El servidor (api/contact.js) exige la MISMA lista.
+     ⛔ 2026-09-20: un 400 NO es una caída. El servidor rechaza un correo
+     mal escrito con 400 y esto lo trataba como fallo de red: el visitante
+     leía «try again in a moment», que además de falso es inútil — esperar
+     no arregla un correo mal tecleado. Un error del visitante se le dice
+     para que lo corrija; la caída honesta queda SOLO para lo que de verdad
+     falló del lado del servidor. */
   var form = document.getElementById("form-contacto");
   if (form) {
+    /* La MISMA regex que api/contact.js. Si se separan, el cliente da por
+       bueno un correo que el servidor rechaza — que es exactamente el fallo
+       que se arregló el 2026-09-20. */
+    var CORREO = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+    /* Los nombres de campo del servidor no son los rótulos que el visitante
+       ve: «company» no aparece escrito en ninguna parte de la página. */
+    var ROTULO = {
+      name: "name", email: "work email",
+      company: "agency or studio", message: "what you need"
+    };
     var v = function (n) {
       var el = form.querySelector('[name="' + n + '"]');
       return el ? el.value.trim() : "";
+    };
+    var enfocar = function (n) {
+      var el = form.querySelector('[name="' + n + '"]');
+      if (el) el.focus();
+    };
+    var pideCampos = function (st, campos) {
+      st.textContent = "Still needed: " + campos.map(function (n) {
+        return ROTULO[n] || n;
+      }).join(", ") + ".";
+      enfocar(campos[0]);
     };
     /* La caída honesta: dice que falló, NO borra lo escrito y da la
        dirección para copiarla (un toque largo la selecciona entera). */
@@ -222,9 +248,15 @@
         return !v(n);
       });
       if (faltan.length) {
-        st.textContent = "Still needed: " + faltan.join(", ") + ".";
-        var primero = form.querySelector('[name="' + faltan[0] + '"]');
-        if (primero) primero.focus();
+        pideCampos(st, faltan);
+        return;
+      }
+      /* El formulario lleva novalidate (los mensajes nativos no son de este
+         sitio), así que el correo se comprueba aquí — antes era el servidor
+         quien lo hacía, y su 400 se leía como una caída. */
+      if (!CORREO.test(v("email"))) {
+        st.textContent = "That work email doesn't look complete — check it and send again.";
+        enfocar("email");
         return;
       }
       st.textContent = "Sending…";
@@ -239,12 +271,32 @@
           message: v("message"), website: v("website")
         })
       }).then(function (r) {
-        if (!r.ok) throw new Error(String(r.status));
-        return r.json();
-      }).then(function () {
-        st.textContent = "Sent. I answer within one business day — you'll hear from hello@reasonedweb.com.";
-        form.reset();
+        /* El cuerpo se lee SIEMPRE: en un 400 es donde el servidor dice
+           qué campo hay que corregir. Un cuerpo ilegible no inventa nada
+           — cae en {} y acaba en la caída honesta. */
+        return r.json().catch(function () { return {}; }).then(function (data) {
+          return { status: r.status, ok: r.ok, data: data };
+        });
+      }).then(function (res) {
         boton.disabled = false;
+        if (res.ok && res.data.ok === true) {
+          st.textContent = "Sent. I answer within one business day — you'll hear from hello@reasonedweb.com.";
+          form.reset();
+          return;
+        }
+        /* 400 = el visitante puede arreglarlo ahora mismo. Cualquier otra
+           cosa (503 sin clave, 502 de Resend, red caída) sí es una caída. */
+        if (res.status === 400 && res.data.error === "email") {
+          st.textContent = "That work email doesn't look complete — check it and send again.";
+          enfocar("email");
+          return;
+        }
+        if (res.status === 400 && res.data.error === "missing" &&
+            (res.data.fields || []).length) {
+          pideCampos(st, res.data.fields);
+          return;
+        }
+        caidaHonesta(st);
       }).catch(function () {
         boton.disabled = false;
         caidaHonesta(st);

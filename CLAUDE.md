@@ -900,9 +900,20 @@ validación nativa). Es anterior a hoy y no se tocó.
      ese fichero vuelve a contener UNA sola firma.
   3. **Mandar los vídeos de VR/AR** con, por cada uno: qué era, para quién, si el cliente se
      puede nombrar, y el PORQUÉ técnico que lo hace defendible.
-  4. ⚠️ **ROTAR la `RESEND_API_KEY`** — quedó pegada en la conversación del 2026-08-16. Es un
-     clic en resend.com → API keys; el reemplazo lo pone la sesión en Vercel en el mismo
-     movimiento. Es lo ÚNICO que queda del asunto Resend.
+  4. ⚠️⚠️ **LA ROTACIÓN DE LA `RESEND_API_KEY` ESTÁ A MEDIAS (2026-09-20).** Carlos creó la
+     clave nueva en Resend, pero **la vieja sigue viva y es la que usa producción**. Medido,
+     no supuesto: la variable en Vercel sigue fechada 35 días atrás Y un envío real devuelve
+     200 — las dos cosas a la vez solo caben si la clave expuesta el 2026-08-16 sigue
+     activa. El riesgo que motivó rotar NO está cerrado.
+     **Faltan dos pasos, en este orden:** (1) poner la clave nueva en Vercel — panel del
+     proyecto → Settings → Environment Variables → `RESEND_API_KEY` (Production); ⛔ **que la
+     pegue Carlos en el panel, NUNCA en el chat**, o vuelve a quedar escrita en una
+     conversación, que es exactamente lo que se está arreglando. (2) DESPUÉS borrar la vieja
+     en Resend — al revés, el formulario se cae hasta que suba la nueva. Luego: redeploy y un
+     envío de comprobación (los hace la sesión).
+     ⚠️ **Señal de que se hizo bien:** `npx vercel env ls production` deja de decir «35d ago»
+     para `RESEND_API_KEY`. Mientras siga diciéndolo, la rotación no ha terminado, por mucho
+     que la clave nueva exista.
 
 0. ✅ **Resend — DOMINIO VERIFICADO Y REMITENTE PROPIO (2026-09-20).** El correo del
    formulario sale como **«Reasoned Web <hello@reasonedweb.com>»**. Se acabó el interino.

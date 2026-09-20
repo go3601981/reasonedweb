@@ -496,6 +496,14 @@ creíbles los demás números.
    pantalla, re-correr auditoría; hooks sh con CRLF no spawnean (.gitattributes fija LF).
    Y la lección del 15: ante un reporte visual del usuario, sus capturas valen más que un
    burst lento en headless — el instrumento se sospecha primero.
+   ⚠️ **`resize_page` del MCP chrome-devtools TAMBIÉN miente** (2026-09-20): pedir 320 px
+   devuelve 485 de viewport real, porque la ventana tiene un ancho mínimo. Para medir a un
+   ancho concreto, `Emulation.setDeviceMetricsOverride` por CDP — que es lo que hacen
+   `auditar.py` y `verificar_formulario.py`. El MCP sirve para conducir la página y leerla,
+   no para fijar su ancho.
+   ⚠️ **Antes de re-diagnosticar un bug que Carlos reporta con captura**, comprobar qué
+   sirve producción (`curl` del .js desplegado, buscar la cadena nueva): su pestaña puede
+   ser anterior al último despliegue. Pasó el 2026-09-20 con el formulario.
 
 ## Aviso de no-indexación — REESCRITO EL 2026-08-18
 

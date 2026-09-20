@@ -91,9 +91,12 @@ JS = r"""
       const c=parse(cs.backgroundColor); if (c && c[3]===1) return c; n=n.parentElement; }
     return [255,255,255]; }
 
-  // 1. Disparar TODOS los errores a la vez: el peor caso visual.
+  // 1. Disparar TODOS los avisos a la vez: el peor caso visual. El del
+  //    telefono se saca por blur, NO por el envio — enviar no estrena marca
+  //    en un campo que no bloquea (orden de Carlos, 2026-09-20).
   form.reset();
-  val("phone", "sadfsf");   // el unico opcional que se valida, tambien tiene que saltar
+  val("phone", "sadfsf");
+  form.querySelector('[name="phone"]').dispatchEvent(new Event("blur"));
   form.requestSubmit();
   await new Promise(r => setTimeout(r, 250));
 
@@ -144,7 +147,35 @@ JS = r"""
     };
   }
 
-  // 2. Las reglas finas contra la regex compartida: ningun correo puede ser
+  // 2. EL TELEFONO AVISA PERO NO BLOQUEA (orden de Carlos, 2026-09-20: «un
+  //    telefono mal escrito, al no ser obligatorio, no deberia bloquear el
+  //    envio»). Se comprueba que con los cuatro obligatorios bien y el
+  //    telefono lleno de basura el formulario LLEGA a llamar al servidor.
+  //    Se intercepta fetch: la puerta no puede mandar un correo de verdad
+  //    cada vez que alguien la corre, ni contra produccion.
+  {
+    const fetchReal = window.fetch;
+    let llamado = false;
+    window.fetch = async () => { llamado = true;
+      return new Response('{"ok":true}', {status: 200, headers: {"Content-Type": "application/json"}}); };
+    form.reset();
+    val("name", "Carlos"); val("email", "carlos@agency.com");
+    val("company", "Agency"); val("message", "Need a deck.");
+    val("phone", "sadfsf");
+    form.querySelector('[name="phone"]').dispatchEvent(new Event("blur"));
+    const avisoTel = !document.getElementById("err-phone").hidden;
+    form.requestSubmit();
+    await new Promise(r => setTimeout(r, 400));
+    out.telefono = {
+      avisaEnBlur: avisoTel,
+      llegoAlServidor: llamado,
+      estadoFinal: st.dataset.estado || null,
+      resumen: st.textContent.trim().slice(0, 60)
+    };
+    window.fetch = fetchReal;
+  }
+
+  // 3. Las reglas finas contra la regex compartida: ningun correo puede ser
   //    bueno para una y malo para la otra.
   const REGEX = window.__REGEX_SERVIDOR;
   const campo = form.querySelector('[name="email"]');
@@ -305,6 +336,17 @@ def main():
                     fallos_ancho.append("resumen: solo color, sin forma (WCAG 1.4.1)")
                 if len(r["avisos"]) and "Not sent yet" not in res["texto"]:
                     fallos_ancho.append("resumen: no dice que no se envió")
+
+            tel = r.get("telefono") or {}
+            if not tel.get("avisaEnBlur"):
+                fallos_ancho.append("teléfono: «sadfsf» no avisa al salir del campo — "
+                                    "la ayuda al que se comió un dígito se perdió")
+            if not tel.get("llegoAlServidor"):
+                fallos_ancho.append("⛔ teléfono: un campo OPCIONAL mal escrito BLOQUEÓ el envío "
+                                    "(orden de Carlos, 2026-09-20: no debe bloquear)")
+            elif tel.get("estadoFinal") != "ok":
+                fallos_ancho.append(f"teléfono: se envió pero el estado quedó en "
+                                    f"«{tel.get('estadoFinal')}» — «{tel.get('resumen')}»")
 
             for co in r["correos"]:
                 if co["reglas"] != co["regex"]:

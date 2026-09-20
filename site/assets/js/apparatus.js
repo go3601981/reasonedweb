@@ -278,13 +278,16 @@
         if (!t) return "Which agency or studio is this for?";
         return null;
       },
-      /* Opcional: en blanco está perfecto. Pero si hay algo escrito, o es un
-         número al que se puede llamar o no sirve de nada — y quedarse callado
-         ante «sadfsf» es guardar basura y fingir que se recibió un teléfono. */
+      /* ⛔ AVISA, NO BLOQUEA (orden de Carlos, 2026-09-20: «un teléfono mal
+         escrito, al no ser obligatorio, no debería bloquear el envío»). Y
+         tiene razón: un campo opcional que frena el envío ha dejado de ser
+         opcional. El aviso sigue existiendo porque a quien se comió un dígito
+         le sirve — pero el texto dice lo que va a pasar igualmente, y nadie
+         pierde un mensaje por un teléfono. */
       phone: function (t) {
         if (!t) return null;
         if ((t.match(/\d/g) || []).length < 7)
-          return "That's not a number I could call. Write it in full, or leave it blank and I'll email.";
+          return "That doesn't look like a number I could call — I'll email you instead.";
         return null;
       },
       message: function (t) {
@@ -293,6 +296,10 @@
       }
     };
     var CAMPOS = Object.keys(REGLAS);
+    /* Los únicos que deciden si el formulario sale. La lista corta es la que
+       exige api/contact.js; el teléfono se queda fuera A PROPÓSITO y no puede
+       colarse aquí sin derogar la orden de arriba. */
+    var BLOQUEAN = ["name", "email", "company", "message"];
 
     var campo = function (n) { return form.querySelector('[name="' + n + '"]'); };
     var v = function (n) { var el = campo(n); return el ? el.value.trim() : ""; };
@@ -381,7 +388,11 @@
       e.preventDefault();
       var st = form.querySelector(".form-status");
       intentado = true;
-      var fallan = CAMPOS.filter(function (n) { return revisar(n) !== null; });
+      /* Solo se revisan los que bloquean: enviar NO estrena una marca roja en
+         el teléfono, porque una marca roja que no frena nada es una
+         contradicción. Si ya la tenía puesta desde el blur, se queda hasta que
+         se corrija o hasta que el envío salga bien y se limpie todo. */
+      var fallan = BLOQUEAN.filter(function (n) { return revisar(n) !== null; });
       if (fallan.length) {
         resumen(st, fallan);
         enfocar(fallan[0]);

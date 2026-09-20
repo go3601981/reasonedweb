@@ -838,9 +838,15 @@ el aviso ni era claro ni destacaba.
    algo (pasar de largo por un campo vacío no merece regaño) · después del primer intento de
    envío, siempre · mientras teclea, SOLO para borrar una marca ya puesta: nunca se estrena
    un error a mitad de palabra, porque «carlos@» está mal y a la vez va camino de estar bien.
-6. **El teléfono es opcional pero no es un vertedero.** En blanco, perfecto; con menos de 7
-   dígitos, se frena. Guardar «sadfsf» y fingir que se recibió un teléfono es mentir por
-   omisión.
+6. ⛔ **EL TELÉFONO AVISA, NO BLOQUEA** (orden de Carlos el mismo día, derogando lo que la
+   sesión había decidido: «un teléfono mal escrito, al no ser obligatorio, no debería
+   bloquear el envío»). Tiene razón: **un campo opcional que frena el envío ha dejado de ser
+   opcional**, y perder un prospecto por un teléfono es el peor negocio posible. Cómo queda:
+   con menos de 7 dígitos avisa **al salir del campo** —a quien se comió un dígito le
+   sirve— y el texto dice lo que va a pasar igualmente («I'll email you instead»); **enviar
+   no estrena marca roja** en él (una marca roja que no frena nada es una contradicción), y
+   el resumen al pie no lo nombra jamás. `BLOQUEAN` (los 4 de `api/contact.js`) es la lista
+   que decide si el formulario sale, y el teléfono está fuera A PROPÓSITO.
 7. ⛔ **La regex de correo de `apparatus.js` y la de `api/contact.js` son la MISMA cadena**,
    y hay una puerta que lo comprueba. Si se separan, el cliente da por bueno lo que el
    servidor rechaza — que es el fallo original, exactamente.
@@ -857,10 +863,12 @@ Existe porque **ninguna puerta del sitio veía estos estados**: `auditar.py` mid
 reposo, y en reposo el formulario no tiene un solo error pintado. Dispara los cinco errores y
 mide contraste contra el fondo realmente pintado, tamaño ≥12px, forma además de color,
 `aria-invalid` + `aria-describedby` coherentes, borde a 3:1 (1.4.11), que ningún aviso se sale
-de su columna, y una batería de 15 correos contra los dos lados. Publica denominador y falla en
-cero. **Vista fallar cuatro veces** (regex separada · aviso sin icono · color sin contraste ·
-campo pintado sin `aria-invalid`), cada una con su diagnóstico, y el fuente restaurado y
-comprobado byte a byte.
+de su columna, una batería de 15 correos contra los dos lados, y **que un teléfono mal escrito
+llega igualmente al servidor** (con `fetch` interceptado: la puerta no manda un correo de verdad
+cada vez que alguien la corre). Publica denominador y falla en cero. **Vista fallar seis veces**
+(regex separada · aviso sin icono · color sin contraste · campo pintado sin `aria-invalid` ·
+teléfono que vuelve a bloquear · teléfono que deja de avisar), cada una con su diagnóstico, y el
+fuente restaurado y comprobado byte a byte.
 
 ⚠️ **Medido y NO arreglado, por estar fuera del encargo:** la sección Contact mide hoy **855
 px** limpia a 1440 (con los dos errores del caso de Carlos, 990; con los cinco, 1002). La

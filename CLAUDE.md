@@ -900,19 +900,34 @@ validación nativa). Es anterior a hoy y no se tocó.
      ese fichero vuelve a contener UNA sola firma.
   3. **Mandar los vídeos de VR/AR** con, por cada uno: qué era, para quién, si el cliente se
      puede nombrar, y el PORQUÉ técnico que lo hace defendible.
-  4. **Verificar `reasonedweb.com` en Resend** (sigue el interino `onboarding@resend.dev`).
+  4. ⚠️ **ROTAR la `RESEND_API_KEY`** — quedó pegada en la conversación del 2026-08-16. Es un
+     clic en resend.com → API keys; el reemplazo lo pone la sesión en Vercel en el mismo
+     movimiento. Es lo ÚNICO que queda del asunto Resend.
 
-0. **Resend — FUNCIONANDO EN INTERINO (2026-08-16)**: `RESEND_API_KEY` puesta en Vercel por
-   CLI (la sesión quedó logueada como `hello-40633109`, team `reasoned-web` — el CLI de esta
-   máquina PUEDE tocar Vercel: env vars, redeploy, logs). Envío real probado: 200 {"ok":true},
-   entregado a hello@. **Interino**: `CONTACT_FROM=onboarding@resend.dev` porque el dominio
-   NO está verificado en Resend (403 comprobado). **FALTA de Carlos**: resend.com/domains →
-   añadir `reasonedweb.com` → poner los registros DNS en GoDaddy → verificar; entonces
-   ELIMINAR `CONTACT_FROM` (`npx vercel env rm CONTACT_FROM production` + redeploy) y el
-   correo sale como «Reasoned Web <hello@reasonedweb.com>». ⚠️ La API key quedó pegada en la
-   conversación del 16 — rotarla en Resend cuando todo esté verificado es un clic. Nota:
-   `trailingSlash` redirige /api/contact con 308 — los navegadores lo siguen conservando el
-   POST (probado); curl necesita -L.
+0. ✅ **Resend — DOMINIO VERIFICADO Y REMITENTE PROPIO (2026-09-20).** El correo del
+   formulario sale como **«Reasoned Web <hello@reasonedweb.com>»**. Se acabó el interino.
+   - Carlos añadió `reasonedweb.com` en Resend y **GoDaddy lo configuró solo por Domain
+     Connect** (`domainconnect.godaddy.com/v2/domainTemplates/providers/resend.com`): un clic,
+     sin copiar registros a mano. Puso TXT `resend._domainkey` (DKIM) y los CNAME `rsend` y
+     `send` → `*.forge.rmta.net`.
+   - ⛔ **«Enable Receiving» se quedó APAGADO, y así debe seguir.** Los MX del raíz son de
+     Google Workspace y son los que hacen que llegue `hello@reasonedweb.com`; encender la
+     recepción en Resend metería MX suyos y rompería el buzón. Comprobado tras la
+     configuración: los cinco MX de Google intactos.
+   - El SPF de Resend viaja por **CNAME en `send.`**, así que NO choca con el SPF del raíz
+     (`v=spf1 include:dc-aa8e722993._spfm.reasonedweb.com ~all`) — no se tocó. El DMARC
+     existente (`p=quarantine`, `adkim=r`, `aspf=r`) acepta la firma DKIM sin cambios.
+   - La sesión hizo el cierre: `npx vercel env rm CONTACT_FROM production` + `npx vercel
+     redeploy` del despliegue de producción. **`CONTACT_FROM` ya no existe**; el default del
+     código (`api/contact.js`) es el remitente bueno, así que borrar la variable ERA todo el
+     cambio. Envío real posterior: **200 {"ok":true}** — que es la prueba, porque sin dominio
+     verificado ese mismo `from` habría dado 403 de Resend → 502 del endpoint.
+   - ⛔ **El orden importa y no se improvisa:** no borrar `CONTACT_FROM` antes de que Resend
+     diga *Verified*, o cada visitante real vería la caída honesta mientras tanto.
+   - Sigue vigente: el CLI de Vercel de esta máquina PUEDE tocar el proyecto (logueado como
+     `hello-40633109`, team `reasoned-web`): env vars, redeploy, logs. Y `trailingSlash`
+     redirige /api/contact con 308 — los navegadores lo siguen conservando el POST (probado);
+     curl necesita `-L`.
 1. ~~LinkedIn~~ ✅ **Enlazado 2026-08-17 por orden de Carlos** (crumb del retrato + pie de las 7 páginas del sitio): `https://www.linkedin.com/in/carlos-marruffo-vegas-a8689231/`.
 2. **Cita de Next Latam** (testimonio): pedir permiso ESCRITO antes de publicar nada.
 3. **Fix upstream del PiP LG** en el fuente de LG-Demo (proyecto aparte; una línea, toggle d5).

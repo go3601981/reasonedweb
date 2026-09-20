@@ -443,30 +443,47 @@
       have sold, designed and built. Contract or full-time, US&nbsp;hours.</p>
       <p class="reach">Straight to me; I answer within one business day, from
       <span class="correo">hello@reasonedweb.com</span>.</p>
+      <!-- Cada campo validado lleva SU mensaje pegado debajo, con id fijo y
+           aria-describedby desde el campo: el aviso nace donde está el error,
+           no en un renglón al pie que no dice cuál de los siete falló.
+           Los maxlength repiten los límites de api/contact.js — el servidor
+           recorta en silencio, y un recorte silencioso es una mentira educada.
+           El span vive oculto: sin error no ocupa caja, y el formulario sigue
+           entrando en una pantalla. -->
       <form id="form-contacto" class="contacto" novalidate>
         <label>Name
-          <input type="text" name="name" autocomplete="name" enterkeyhint="next" required>
+          <input type="text" name="name" autocomplete="name" enterkeyhint="next" required
+                 maxlength="120" aria-describedby="err-name">
+          <span class="campo-error" id="err-name" hidden></span>
         </label>
         <label>Work email
-          <input type="email" name="email" autocomplete="email" enterkeyhint="next" required>
+          <input type="email" name="email" autocomplete="email" enterkeyhint="next" required
+                 maxlength="200" inputmode="email" spellcheck="false" aria-describedby="err-email">
+          <span class="campo-error" id="err-email" hidden></span>
         </label>
         <label>Agency or studio
-          <input type="text" name="company" autocomplete="organization" enterkeyhint="next" required>
+          <input type="text" name="company" autocomplete="organization" enterkeyhint="next" required
+                 maxlength="160" aria-describedby="err-company">
+          <span class="campo-error" id="err-company" hidden></span>
         </label>
         <label>Your role <span class="opt">(optional)</span>
           <input type="text" name="role" autocomplete="organization-title" enterkeyhint="next"
-                 placeholder="Founder, creative director, head of production…">
+                 maxlength="120" placeholder="Founder, creative director, head of production…">
         </label>
         <label>Phone <span class="opt">(optional)</span>
           <input type="tel" name="phone" autocomplete="tel" enterkeyhint="next"
+                 maxlength="60" aria-describedby="err-phone"
                  placeholder="Only if you'd rather I call">
+          <span class="campo-error" id="err-phone" hidden></span>
         </label>
         <label>What do you ship? <span class="opt">(optional)</span>
-          <input type="text" name="ships" enterkeyhint="next" placeholder="Activations, exhibits, launches, retail">
+          <input type="text" name="ships" enterkeyhint="next" maxlength="200"
+                 placeholder="Activations, exhibits, launches, retail">
         </label>
         <label class="ancho">What do you need?
-          <textarea name="message" rows="3" required
+          <textarea name="message" rows="3" required maxlength="4000" aria-describedby="err-message"
                     placeholder="The capacity you're missing, timelines, the work you'd hand over first…"></textarea>
+          <span class="campo-error" id="err-message" hidden></span>
         </label>
         <label class="hp" aria-hidden="true">Website
           <input type="text" name="website" tabindex="-1" autocomplete="off">

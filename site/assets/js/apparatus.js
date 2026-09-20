@@ -205,61 +205,189 @@
      falló del lado del servidor. */
   var form = document.getElementById("form-contacto");
   if (form) {
-    /* La MISMA regex que api/contact.js. Si se separan, el cliente da por
-       bueno un correo que el servidor rechaza — que es exactamente el fallo
-       que se arregló el 2026-09-20. */
+    /* La MISMA regex que api/contact.js — es la última puerta, la que decide
+       si el servidor aceptará. Las reglas de abajo son más finas que ella
+       (dicen QUÉ falta), pero ninguna puede dar por bueno lo que esta niega. */
     var CORREO = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
     /* Los nombres de campo del servidor no son los rótulos que el visitante
        ve: «company» no aparece escrito en ninguna parte de la página. */
     var ROTULO = {
       name: "name", email: "work email",
-      company: "agency or studio", message: "what you need"
+      company: "agency or studio", phone: "phone", message: "what you need"
     };
-    var v = function (n) {
-      var el = form.querySelector('[name="' + n + '"]');
-      return el ? el.value.trim() : "";
+
+    /* Iconografía dibujada — cero emoji (regla del sitio). Un disco sólido
+       con la marca calada encima: a 16 px un trazo fino se deshace, un
+       disco no. El color lo pone currentColor, así el icono nunca puede
+       desafinar del texto al que acompaña. */
+    var SVG = "http://www.w3.org/2000/svg";
+    function icono(tipo) {
+      var s = document.createElementNS(SVG, "svg");
+      s.setAttribute("viewBox", "0 0 16 16");
+      s.setAttribute("aria-hidden", "true");
+      s.setAttribute("focusable", "false");
+      var c = document.createElementNS(SVG, "circle");
+      c.setAttribute("cx", "8"); c.setAttribute("cy", "8"); c.setAttribute("r", "8");
+      c.setAttribute("fill", "currentColor");
+      s.appendChild(c);
+      if (tipo === "ok") {
+        var p = document.createElementNS(SVG, "path");
+        p.setAttribute("d", "M4 8.3 6.8 11.1 12 5.4");
+        p.setAttribute("fill", "none"); p.setAttribute("stroke", "#F3F4F3");
+        p.setAttribute("stroke-width", "2"); p.setAttribute("stroke-linecap", "square");
+        s.appendChild(p);
+      } else {
+        [["7", "3.2", "2", "6.2"], ["7", "10.8", "2", "2"]].forEach(function (r) {
+          var b = document.createElementNS(SVG, "rect");
+          b.setAttribute("x", r[0]); b.setAttribute("y", r[1]);
+          b.setAttribute("width", r[2]); b.setAttribute("height", r[3]);
+          b.setAttribute("fill", "#F3F4F3");
+          s.appendChild(b);
+        });
+      }
+      return s;
+    }
+
+    /* Una regla por campo. Devuelve null si está bien, o EL motivo concreto
+       — no «invalid». Un mensaje que no dice qué arreglar obliga a adivinar,
+       y quien adivina se va. El correo tiene un motivo por cada forma de
+       romperlo porque es el campo que decide si hay respuesta. */
+    var REGLAS = {
+      name: function (t) {
+        if (!t) return "I need a name to put on the reply.";
+        if (t.length < 2) return "That's a letter, not a name — give me the one you go by.";
+        return null;
+      },
+      email: function (t) {
+        if (!t) return "I need a work email — it's where my answer goes.";
+        if (/\s/.test(t)) return "There's a space in that address. Take it out and send again.";
+        var partes = t.split("@");
+        if (partes.length === 1) return "An email address needs an @ — like you@youragency.com.";
+        if (partes.length > 2) return "That address has two @ signs in it.";
+        if (!partes[0]) return "There's nothing before the @ — your name goes there.";
+        var dominio = partes[1];
+        if (!dominio) return "There's nothing after the @ — your agency's domain goes there.";
+        if (dominio.indexOf(".") === -1)
+          return "The part after the @ needs a domain ending, like youragency.com.";
+        if (/\.$/.test(dominio) || /\.[^.]{1}$/.test(dominio))
+          return "That domain looks unfinished — check the part after the last dot.";
+        if (!CORREO.test(t)) return "That address doesn't look complete — check it and send again.";
+        return null;
+      },
+      company: function (t) {
+        if (!t) return "Which agency or studio is this for?";
+        return null;
+      },
+      /* Opcional: en blanco está perfecto. Pero si hay algo escrito, o es un
+         número al que se puede llamar o no sirve de nada — y quedarse callado
+         ante «sadfsf» es guardar basura y fingir que se recibió un teléfono. */
+      phone: function (t) {
+        if (!t) return null;
+        if ((t.match(/\d/g) || []).length < 7)
+          return "That's not a number I could call. Write it in full, or leave it blank and I'll email.";
+        return null;
+      },
+      message: function (t) {
+        if (!t) return "Tell me what you need — one line is enough.";
+        return null;
+      }
     };
-    var enfocar = function (n) {
-      var el = form.querySelector('[name="' + n + '"]');
-      if (el) el.focus();
+    var CAMPOS = Object.keys(REGLAS);
+
+    var campo = function (n) { return form.querySelector('[name="' + n + '"]'); };
+    var v = function (n) { var el = campo(n); return el ? el.value.trim() : ""; };
+    var enfocar = function (n) { var el = campo(n); if (el) el.focus(); };
+
+    /* Marcar y desmarcar. aria-invalid y el aviso visible se ponen y se
+       quitan JUNTOS, en una sola función, para que no exista un estado donde
+       el ojo vea un error y el lector de pantalla no (o al revés). */
+    var marcar = function (n, motivo) {
+      var el = campo(n);
+      if (!el) return;
+      var aviso = document.getElementById("err-" + n);
+      if (motivo) {
+        el.setAttribute("aria-invalid", "true");
+        if (aviso) {
+          aviso.textContent = "";
+          aviso.appendChild(icono("error"));
+          aviso.appendChild(document.createTextNode(motivo));
+          aviso.hidden = false;
+        }
+      } else {
+        el.removeAttribute("aria-invalid");
+        if (aviso) { aviso.hidden = true; aviso.textContent = ""; }
+      }
     };
-    var pideCampos = function (st, campos) {
-      st.textContent = "Still needed: " + campos.map(function (n) {
-        return ROTULO[n] || n;
-      }).join(", ") + ".";
-      enfocar(campos[0]);
+    var revisar = function (n) {
+      var motivo = REGLAS[n] ? REGLAS[n](v(n)) : null;
+      marcar(n, motivo);
+      return motivo;
+    };
+    var limpiarTodo = function () { CAMPOS.forEach(function (n) { marcar(n, null); }); };
+
+    /* El resumen al pie. Junta los rótulos VISIBLES de lo que falla: quien
+       llegó abajo del todo tiene que saber a qué subir sin cazar rectángulos
+       rojos por la página. */
+    var estado = function (st, tipo, texto, correo) {
+      st.dataset.live = "1";
+      if (tipo) st.dataset.estado = tipo; else delete st.dataset.estado;
+      st.textContent = "";
+      if (tipo) st.appendChild(icono(tipo));
+      var caja = document.createElement("span");
+      caja.appendChild(document.createTextNode(texto));
+      if (correo) {
+        var dir = document.createElement("span");
+        dir.className = "correo";
+        dir.textContent = "hello@reasonedweb.com";
+        caja.appendChild(dir);
+        caja.appendChild(document.createTextNode("."));
+      }
+      st.appendChild(caja);
+    };
+    var resumen = function (st, fallan) {
+      var nombres = fallan.map(function (n) { return ROTULO[n] || n; });
+      var lista = nombres.length > 1
+        ? nombres.slice(0, -1).join(", ") + " and " + nombres[nombres.length - 1]
+        : nombres[0];
+      estado(st, "error", "Not sent yet. Check " + lista + ".");
     };
     /* La caída honesta: dice que falló, NO borra lo escrito y da la
        dirección para copiarla (un toque largo la selecciona entera). */
     var caidaHonesta = function (st) {
-      st.textContent = "The direct send didn't go through — nothing you wrote was " +
-        "lost, it's still in the form. Try again in a moment, or write to ";
-      var dir = document.createElement("span");
-      dir.className = "correo";
-      dir.textContent = "hello@reasonedweb.com";
-      st.appendChild(dir);
-      st.appendChild(document.createTextNode("."));
+      estado(st, "error", "The direct send didn't go through — nothing you wrote was " +
+        "lost, it's still in the form. Try again in a moment, or write to ", true);
     };
+
+    /* CUÁNDO se revisa, que importa tanto como el qué:
+       · al salir de un campo, solo si el visitante escribió algo — pasar de
+         largo por un campo vacío no merece un regaño;
+       · después del primer intento de envío, al salir de cualquier campo;
+       · mientras teclea, SOLO para borrar una marca ya puesta. Nunca se
+         estrena un error a mitad de palabra: «carlos@» está mal escrito y
+         a la vez va camino de estar bien. */
+    var intentado = false;
+    CAMPOS.forEach(function (n) {
+      var el = campo(n);
+      if (!el) return;
+      el.addEventListener("blur", function () {
+        if (intentado || el.value.trim()) revisar(n);
+      });
+      el.addEventListener("input", function () {
+        if (el.getAttribute("aria-invalid") === "true") revisar(n);
+      });
+    });
+
     form.addEventListener("submit", function (e) {
       e.preventDefault();
       var st = form.querySelector(".form-status");
-      st.dataset.live = "1";
-      var faltan = ["name", "email", "company", "message"].filter(function (n) {
-        return !v(n);
-      });
-      if (faltan.length) {
-        pideCampos(st, faltan);
+      intentado = true;
+      var fallan = CAMPOS.filter(function (n) { return revisar(n) !== null; });
+      if (fallan.length) {
+        resumen(st, fallan);
+        enfocar(fallan[0]);
         return;
       }
-      /* El formulario lleva novalidate (los mensajes nativos no son de este
-         sitio), así que el correo se comprueba aquí — antes era el servidor
-         quien lo hacía, y su 400 se leía como una caída. */
-      if (!CORREO.test(v("email"))) {
-        st.textContent = "That work email doesn't look complete — check it and send again.";
-        enfocar("email");
-        return;
-      }
-      st.textContent = "Sending…";
+      estado(st, null, "Sending…");
       var boton = form.querySelector("button.enviar");
       boton.disabled = true;
       fetch("/api/contact", {
@@ -280,20 +408,27 @@
       }).then(function (res) {
         boton.disabled = false;
         if (res.ok && res.data.ok === true) {
-          st.textContent = "Sent. I answer within one business day — you'll hear from hello@reasonedweb.com.";
+          estado(st, "ok", "Sent. I answer within one business day — you'll hear from ", true);
           form.reset();
+          limpiarTodo();
+          intentado = false;
           return;
         }
-        /* 400 = el visitante puede arreglarlo ahora mismo. Cualquier otra
-           cosa (503 sin clave, 502 de Resend, red caída) sí es una caída. */
+        /* 400 = el visitante puede arreglarlo ahora mismo, y el servidor dice
+           cuál. Cualquier otra cosa (503 sin clave, 502 de Resend, red caída)
+           sí es una caída. Esta rama solo se alcanza si el servidor y las
+           reglas de arriba se separan: es la red de seguridad, no el camino. */
         if (res.status === 400 && res.data.error === "email") {
-          st.textContent = "That work email doesn't look complete — check it and send again.";
+          marcar("email", "That address doesn't look complete — check it and send again.");
+          resumen(st, ["email"]);
           enfocar("email");
           return;
         }
         if (res.status === 400 && res.data.error === "missing" &&
             (res.data.fields || []).length) {
-          pideCampos(st, res.data.fields);
+          res.data.fields.forEach(function (n) { revisar(n); });
+          resumen(st, res.data.fields);
+          enfocar(res.data.fields[0]);
           return;
         }
         caidaHonesta(st);

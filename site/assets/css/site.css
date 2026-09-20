@@ -27,6 +27,13 @@
   --measure: 62ch;
   --carton-borde: #6F746F;   /* 3.06:1 sobre papel: el borde es lo que hace
                                  legible un chip claro (WCAG 1.4.11) */
+  /* El error del formulario. Medido, no elegido a ojo: #A4160D da 7.06:1
+     sobre el papel y 7.78:1 sobre el blanco del campo — mas fuerte que
+     --note-strong (5.89:1), que es el acento mas serio que ya tenia el
+     sitio. Un error tiene que pesar mas que una anotacion. */
+  --error: #A4160D;
+  --error-fondo: #FBEFEE;    /* el aviso al pie: fondo tenue + barra */
+  --error-campo: #FFF8F7;    /* el campo marcado, sin perder contraste de texto */
   /* Derivados congelados de la identidad (brand/derivation.json) */
   --track-line1: 0.02em;
   --wordmark-gap: 1.583em;
@@ -222,6 +229,10 @@ form.contacto { display: grid; gap: 0.75rem; margin-top: 1.2rem; max-width: 44re
 }
 form.contacto .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
 button.enviar[disabled] { opacity: 0.6; cursor: wait; }
+/* Al enviar con errores el foco salta al primer campo que falla, y el
+   navegador lo trae a la vista pegado al borde — con su rótulo y su aviso
+   fuera de pantalla. Esto lo deja centrado sin una línea de JS. */
+form.contacto input, form.contacto textarea { scroll-margin-block: 6rem; }
 
 /* ── Usabilidad ─────────────────────────────────────────────────── */
 @media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
@@ -286,6 +297,45 @@ button.enviar {
 button.enviar:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
 .form-status { font-size: 0.92rem; color: var(--muted); }
 .form-status[data-live="1"] { color: var(--ink); font-weight: 500; }
+
+/* ── El error del formulario ──────────────────────────────────────────
+   El estado visual cuelga de aria-invalid, no de una clase paralela: si
+   el campo esta marcado para un lector de pantalla, esta marcado para el
+   ojo, y no hay forma de que los dos se separen al editar uno solo.
+   El grosor del borde se dobla con un inset shadow y NO con border-width:
+   engordar el borde moveria la caja 1px y el formulario entero bailaria
+   al aparecer el primer error. */
+input[aria-invalid="true"], textarea[aria-invalid="true"] {
+  border-color: var(--error);
+  box-shadow: inset 0 0 0 1px var(--error);
+  background: var(--error-campo);
+}
+/* El aviso del campo: icono dibujado + texto. Nunca solo color — WCAG
+   1.4.1: quien no distingue el rojo tiene que ver igual que algo falla. */
+.campo-error {
+  display: flex; gap: 0.4rem; align-items: flex-start;
+  margin-top: 0.4rem; font-size: 0.85rem; font-weight: 600; line-height: 1.35;
+  color: var(--error); max-width: 46ch;
+}
+.campo-error svg { flex: none; width: 1rem; height: 1rem; margin-top: 0.05rem; }
+.campo-error[hidden] { display: none; }
+
+/* El resumen al pie: hereda el lenguaje de .fn-note (barra + fondo tenue),
+   porque en este sitio una barra a la izquierda ya significa "lee esto". */
+.form-status[data-estado="error"], .form-status[data-estado="ok"] {
+  display: flex; gap: 0.5rem; align-items: flex-start;
+  padding: 0.7rem 0.9rem; margin-top: 0.2rem; font-weight: 600; max-width: 52ch;
+}
+.form-status[data-estado] svg { flex: none; width: 1.05rem; height: 1.05rem; margin-top: 0.1rem; }
+.form-status[data-estado="error"] {
+  color: var(--error); background: var(--error-fondo); border-left: 3px solid var(--error);
+}
+/* El acierto no necesita color: necesita no pasar desapercibido. Tinta y
+   barra de tinta — cero colores nuevos para decir que algo salio bien. */
+.form-status[data-estado="ok"] {
+  color: var(--ink); background: #E7E9E7; border-left: 3px solid var(--ink);
+}
+.form-status .correo { font-weight: 600; }
 
 /* ── Pie ─────────────────────────────────────────────────────────── */
 footer.pie { background: var(--ink); color: var(--paper); margin-top: 4rem; position: relative; overflow: hidden; }

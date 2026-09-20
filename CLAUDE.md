@@ -808,6 +808,68 @@ con texto dentro de su columna) · `auditar` a 320/768/1440 (172/172/182 element
 máster cambia, se re-codifica con el mismo nombre (caché de 30 días, como las imágenes). El copy de la
 sección lo escribió la sesión: **Carlos tiene que leerlo.**
 
+## § EL FORMULARIO DICE QUÉ FALLA — 2026-09-20
+
+Carlos reportó dos veces «the contact form is not working», con captura. **No estaba roto:
+el correo escrito era `sadf` / `safsdfasdf`.** El servidor lo rechazaba con 400 y
+`apparatus.js` trataba cualquier respuesta no-ok como caída de red, así que el visitante
+leía «the direct send didn't go through — try again in a moment»: **falso, y además
+inútil** (esperar no arregla un correo mal tecleado). Su segundo mensaje fijó el encargo:
+el aviso ni era claro ni destacaba.
+
+**Lo que rige a partir de ahora:**
+1. ⛔ **Un 400 NO es una caída.** El endpoint devuelve el motivo en el cuerpo y el cuerpo se
+   lee SIEMPRE. La caída honesta («nothing you wrote was lost…») queda SOLO para lo que de
+   verdad falló del lado del servidor: 503 sin clave, 502 de Resend, red muerta. Esa parte
+   no se tocó y sigue sin borrar nada de lo escrito.
+2. **El aviso nace en el campo, no al pie.** Cada campo validado lleva su `<span
+   class="campo-error" id="err-<name>">` y su `aria-describedby`. El resumen al pie
+   (`.form-status[data-estado="error"]`) nombra los rótulos VISIBLES de lo que falla —
+   «agency or studio», nunca «company», que no está escrito en ninguna parte de la página.
+3. ⛔ **El estado visual cuelga de `aria-invalid`, no de una clase paralela.** El CSS es
+   `input[aria-invalid="true"]`. Así no existe un estado donde el ojo vea el error y el
+   lector de pantalla no. El borde se dobla con `inset box-shadow`, **jamás con
+   `border-width`**: engordar el borde movería la caja 1px y el formulario bailaría entero
+   al aparecer el primer error.
+4. **Un motivo por causa, no «invalid».** El correo tiene ocho: sin @, dos @, nada antes,
+   nada después, dominio sin punto, TLD de una letra, acaba en punto, con espacio. Un aviso
+   que no dice qué arreglar obliga a adivinar, y quien adivina se va.
+5. **Cuándo se revisa importa tanto como el qué.** Al salir de un campo, solo si escribió
+   algo (pasar de largo por un campo vacío no merece regaño) · después del primer intento de
+   envío, siempre · mientras teclea, SOLO para borrar una marca ya puesta: nunca se estrena
+   un error a mitad de palabra, porque «carlos@» está mal y a la vez va camino de estar bien.
+6. **El teléfono es opcional pero no es un vertedero.** En blanco, perfecto; con menos de 7
+   dígitos, se frena. Guardar «sadfsf» y fingir que se recibió un teléfono es mentir por
+   omisión.
+7. ⛔ **La regex de correo de `apparatus.js` y la de `api/contact.js` son la MISMA cadena**,
+   y hay una puerta que lo comprueba. Si se separan, el cliente da por bueno lo que el
+   servidor rechaza — que es el fallo original, exactamente.
+8. **`--error: #A4160D`** — medido, no elegido: 7.06:1 sobre el papel y 7.78:1 sobre el
+   blanco del campo, más fuerte que `--note-strong` (5.89:1), porque un error tiene que
+   pesar más que una anotación. El acierto **no lleva color nuevo**: tinta y barra de tinta.
+   ⛔ Ningún estado se comunica solo con color (WCAG 1.4.1): todos llevan icono dibujado
+   —disco sólido con la marca calada, que a 16px no se deshace como un trazo fino—, y los
+   `maxlength` del HTML repiten los límites del servidor, porque un recorte silencioso es
+   una mentira educada.
+
+**`tools/verificar_formulario.py` — CORRER ANTES DE CADA PUSH que toque el formulario.**
+Existe porque **ninguna puerta del sitio veía estos estados**: `auditar.py` mide la página en
+reposo, y en reposo el formulario no tiene un solo error pintado. Dispara los cinco errores y
+mide contraste contra el fondo realmente pintado, tamaño ≥12px, forma además de color,
+`aria-invalid` + `aria-describedby` coherentes, borde a 3:1 (1.4.11), que ningún aviso se sale
+de su columna, y una batería de 15 correos contra los dos lados. Publica denominador y falla en
+cero. **Vista fallar cuatro veces** (regex separada · aviso sin icono · color sin contraste ·
+campo pintado sin `aria-invalid`), cada una con su diagnóstico, y el fuente restaurado y
+comprobado byte a byte.
+
+⚠️ **Medido y NO arreglado, por estar fuera del encargo:** la sección Contact mide hoy **855
+px** limpia a 1440 (con los dos errores del caso de Carlos, 990; con los cinco, 1002). La
+referencia de **739 px** del 2026-08-18 —la que hacía que el formulario entrara en una
+pantalla— **ya no se cumplía ANTES de este cambio**: la sección creció con el copy nuevo del
+pase de conversión del 06/09. Decisión de Carlos si se recupera.
+⚠️ **Sin JS el formulario sigue sin enviar** (no tiene `action`, y `novalidate` apaga la
+validación nativa). Es anterior a hoy y no se tocó.
+
 ## Pendientes (cortos)
 0-bis. ⛔ **ANULADO el 2026-08-18: la prueba Shopify y todo el outreach a Shopify/Klaviyo
   Partners.** Orden de Carlos: «those don't pay what I need». El set de comercio UdV del

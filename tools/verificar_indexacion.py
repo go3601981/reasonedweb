@@ -2,8 +2,9 @@
 """
 verificar_indexacion.py — quién queda indexable y quién no, comprobado.
 
-⛔ POR QUÉ EXISTE (2026-08-18). Carlos decidió indexar SOLO la home; todo lo
-demás — casos, exhibits, rango, 404, API — sigue fuera de buscadores. Eso
+⛔ POR QUÉ EXISTE (2026-08-18). Carlos decidió indexar la home y unas pocas
+rutas públicas expresamente aprobadas; los demás casos, exhibits, rango, 404
+y API siguen fuera de buscadores. Eso
 depende de dos cosas que se escriben en sitios distintos y que es facilísimo
 desincronizar:
 
@@ -17,14 +18,15 @@ se nota hasta que una página aparece —o desaparece— de Google semanas despu
 dos reglas de Vercel casan con la misma ruta, el resultado de una cabecera
 repetida y contradictoria es ambiguo, y ante `noindex` + `index` los
 buscadores toman la MÁS restrictiva. Por eso la cabecera se emite sólo sobre
-los árboles que deben quedar fuera, y la home simplemente no la recibe.
+los árboles que deben quedar fuera, y las rutas indexables simplemente no la
+reciben.
 El precio de esa elección: el estado por defecto de una ruta NUEVA de primer
 nivel pasa a ser «indexable». Esta puerta es lo que lo vigila — si mañana
 aparece un `.html` de primer nivel, falla y hay que decidir a conciencia.
 
 Comprueba, y publica el denominador de cada cosa:
-  1. la home NO recibe X-Robots-Tag y NO lleva meta robots noindex;
-  2. toda otra página HTML recibe la cabecera Y lleva su meta noindex;
+  1. cada ruta en INDEXABLES NO recibe X-Robots-Tag ni lleva meta noindex;
+  2. toda otra página HTML recibe la cabecera; se informa si le falta el meta;
   3. el sitemap contiene exactamente las URLs indexables, ni una más.
 
 Uso:  python tools/verificar_indexacion.py
@@ -35,7 +37,7 @@ import sys
 from pathlib import Path
 
 RAIZ = Path("site")
-INDEXABLES = {"/", "/work/lg-sound-suite/"}   # decisión de Carlos, 2026-08-18
+INDEXABLES = {"/", "/work/", "/work/lg-sound-suite/"}
 
 
 def die(msg: str) -> None:

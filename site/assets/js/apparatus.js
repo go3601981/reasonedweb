@@ -128,7 +128,7 @@
       var s = document.createElement("source"); s.src = a.getAttribute("href"); s.type = "video/mp4"; v.appendChild(s);
       [["en", "English", true], ["es", "Español", false]].forEach(function (p) {
         var src = a.getAttribute("data-" + p[0]); if (!src) return;
-        var tr = document.createElement("track"); tr.kind = "subtitles"; tr.srclang = p[0]; tr.label = p[1]; tr.src = src; tr.default = p[2]; v.appendChild(tr);
+        var tr = document.createElement("track"); tr.kind = a.getAttribute("data-track-kind") || "subtitles"; tr.srclang = p[0]; tr.label = p[1]; tr.src = src; tr.default = p[2]; v.appendChild(tr);
       });
       a.parentNode.replaceChild(v, a);
       v.focus();

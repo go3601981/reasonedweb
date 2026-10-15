@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Work — Reasoned Web</title>
+<meta name="description" content="The complete Reasoned Web portfolio: interactive pitch decks, 3D and AR experiences, product films, and brand and web systems by Carlos Marruffo.">
+<meta property="og:title" content="Work — Reasoned Web">
+<meta property="og:description" content="Interactive pitch decks, 3D and AR experiences, product films, and brand and web systems by Carlos Marruffo.">
+<meta property="og:image" content="https://www.reasonedweb.com/og.png">
+<meta property="og:type" content="website">
+<link rel="canonical" href="https://www.reasonedweb.com/work/">
+<link rel="preload" href="../assets/fonts/Switzer-Bold.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/Switzer-Semibold.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/Switzer-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../favicon.ico" sizes="16x16 32x32 48x48">
+<link rel="apple-touch-icon" href="../favicon-48.png">
+<link rel="stylesheet" href="../assets/css/site.css">
+<link rel="stylesheet" href="../assets/css/work.css">
+<script>document.documentElement.classList.add("js")</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<div class="wrap">
+  <nav class="nav work-nav" aria-label="Main">
+    <a class="lockup" href="../" aria-label="Reasoned Web — home">
+      {{BRAND_LOCKUP}}
+    </a>
+    <ul class="work-nav__links">
+      <li><a href="../">Home</a></li>
+      <li><a class="cta" href="../#contact">Check availability</a></li>
+    </ul>
+  </nav>
+</div>
+
+<main id="main">
+  <header class="work-hero">
+    <div class="wrap">
+      <span class="kicker">Complete portfolio</span>
+      <h1>Work that makes the case.</h1>
+      <p class="work-hero__intro">Interactive pitches, live product experiences, films and complete brand systems. Each project is labeled by relationship so a client engagement, an independent demonstration and an unsolicited concept never blur together.</p>
+      <p class="work-hero__note">{{WORK_COUNT}} projects. Use the four format filters below, or browse the full index as rendered.</p>
+    </div>
+  </header>
+
+  <section class="work-catalog" aria-labelledby="catalog-title">
+    <div class="wrap">
+      <h2 class="work-filter-heading" id="catalog-title">Complete portfolio</h2>
+      <div class="work-filters" aria-label="Filter work by format">
+        {{WORK_FILTERS}}
+      </div>
+      <p class="work-status" id="work-status" aria-live="polite">Showing all {{WORK_COUNT}} projects.</p>
+      <div class="work-grid" id="work-grid">
+        {{WORK_CARDS}}
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="pie">
+  <div class="wrap">
+    <span class="lockup" aria-hidden="true">
+      {{BRAND_LOCKUP}}
+    </span>
+    <span class="sello" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect fill="currentColor" x="20" y="32" width="60" height="12"/><rect fill="currentColor" x="20" y="56" width="12" height="12"/><rect fill="currentColor" x="44" y="56" width="12" height="12"/><rect fill="currentColor" x="68" y="56" width="12" height="12"/></svg></span>
+    <p>Reasoned Web is the independent studio practice of Carlos Marruffo — <span class="correo">hello@reasonedweb.com</span></p>
+    <p class="pie-acciones">
+      <a class="cta-pie" href="../#contact">Check availability</a>
+      <a class="enlace-pie" href="https://www.linkedin.com/in/carlos-marruffo-vegas-a8689231/" target="_blank" rel="noopener">LinkedIn</a>
+    </p>
+    <p>© 2026 Reasoned Web.</p>
+    <p class="aviso-indexado">This complete Work index is public. Most individual case studies and live exhibits remain deliberately out of search results and reach the people I send them to.</p>
+  </div>
+</footer>
+
+<script src="../assets/js/work-index.js"></script>
+</body>
+</html>

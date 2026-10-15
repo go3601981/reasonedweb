@@ -33,10 +33,11 @@ import subprocess
 import sys
 from pathlib import Path
 
-# src/href/srcset de imágenes, hojas, scripts, iframes y enlaces a ficheros.
+# src/href/poster y los data-* del reproductor progresivo. Los subtítulos
+# viven en data-en/data-es hasta que apparatus.js crea los <track> al pulsar.
 ATRIBUTOS = re.compile(
-    r'(?:src|href|poster)="([^"#?][^"]*?\.'
-    r'(?:webp|png|jpg|jpeg|gif|svg|ico|css|js|mjs|json|woff2|woff|ttf|pdf|glb|usdz|mp4|webm))"',
+    r'(?:data-poster|data-en|data-es|src|href|poster)="([^"#?][^"]*?\.'
+    r'(?:webp|png|jpg|jpeg|gif|svg|ico|css|js|mjs|json|woff2|woff|ttf|pdf|glb|usdz|mp4|webm|vtt))"',
     re.IGNORECASE)
 SRCSET = re.compile(r'srcset="([^"]+)"')
 EXTERNO = ("http://", "https://", "data:", "//", "mailto:", "tel:")

@@ -165,6 +165,7 @@ section p + p { margin-top: 0.9rem; }
 .case-lead { display: grid; gap: 2rem; margin-top: 1.5rem; }
 @media (min-width: 60rem) { .case-lead { grid-template-columns: 3fr 2fr; align-items: start; } }
 .case-lead .shot { border: 1px solid var(--line); }
+.case-lead + .case-lead { margin-top: clamp(2.8rem, 6vw, 4.8rem); padding-top: clamp(2.2rem, 5vw, 4rem); border-top: 1px solid var(--line); }
 /* Film (2026-09-19): el póster es un ENLACE al mp4 — sin JS abre el archivo en el reproductor del navegador; con JS,
    apparatus.js lo cambia por un <video> en su mismo sitio. Hasta el play no baja un byte de vídeo (acuerdo del
    2026-08-19: <video> propio, jamás un iframe de YouTube). El rótulo es papel sobre tinta: 16.1:1 (medido). */

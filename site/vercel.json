@@ -2,6 +2,15 @@
   "trailingSlash": true,
   "headers": [
     {
+      "source": "/work/urbana-20-years/(.*)",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        }
+      ]
+    },
+    {
       "source": "/work/lg-sound-suite/live/assets/(.*)",
       "headers": [
         {

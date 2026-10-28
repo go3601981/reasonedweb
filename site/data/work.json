@@ -7,6 +7,19 @@
   ],
   "projects": [
     {
+      "id": "urbana-20-years",
+      "category": "films",
+      "title": "Urbana Perú - 20 Years",
+      "summary": "A 45-second portrait anniversary film that moves from a photo album into family moments at home, with Spanish-language narration.",
+      "href": "/work/urbana-20-years/",
+      "linkLabel": "Watch the film",
+      "image": "/assets/img/work/urbana-20-years.webp",
+      "width": 1440,
+      "height": 900,
+      "alt": "A frame from the Urbana Perú anniversary film: a rhinoceros character seated beside a photo album in a sunlit home.",
+      "disclosure": "Anniversary film featuring Urbana Perú."
+    },
+    {
       "id": "urbana-srp",
       "category": "decks",
       "title": "Urbana Perú & SRP Comunicaciones - A Shared History",

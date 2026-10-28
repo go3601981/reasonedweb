@@ -7,6 +7,19 @@
   ],
   "projects": [
     {
+      "id": "urbana-srp",
+      "category": "decks",
+      "title": "Urbana Perú & SRP Comunicaciones - A Shared History",
+      "summary": "Thirteen scenes trace a shared history from 2016 to 2026, with an interactive archive of press coverage. A Spanish-language presentation built to explore in the browser.",
+      "href": "https://www.nextlatam.com/SRP/",
+      "linkLabel": "Open the deck",
+      "image": "/assets/img/work/urbana-srp.webp",
+      "width": 1440,
+      "height": 900,
+      "alt": "Una historia compartida: the Urbana Perú and SRP Comunicaciones deck cover with Constructivo, Gestión and Costos press clippings on a dark background.",
+      "disclosure": "Historical presentation featuring Urbana Perú and SRP Comunicaciones."
+    },
+    {
       "id": "beyond-production",
       "category": "decks",
       "title": "Beyond Production — A Luxury Production Pitch",
